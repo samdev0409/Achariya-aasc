@@ -5,7 +5,7 @@ const NewsTicker = () => {
   const newsItems = [
     "UG Courses: B.A., Lil Tamil, B.A., English, B.Sc., Maths, B.Sc., Physics, B.Sc., Biochemistry, B.Sc., Microbiology, B.Sc., Computer Science, B.C.A., B.Com., B.B.A.,",
     "PG Courses: M.A., English., M.Sc., Maths, M.Sc., Microbiology, M.Sc., Computer Science., M.Com., M.B.A.,",
-    "For Admission Details Contact: 9965780844, 8870186761",
+    "For Admission Details Contact: +91 413 2615596 / 2615597",
     "We are NAAC accredited and UGC Recognized 2(f) and 12(B) institution",
     "Bharathidasan University New Syllabi",
     "Click here for Admission 2025-2026 - Online Application"

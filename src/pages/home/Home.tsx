@@ -11,6 +11,8 @@ import MissionVision from "@/components/MissionVision";
 import Testimonials from "@/components/Testimonials";
 import OurRecruiters from "@/components/OurRecruiters";
 import AchariyaSchoolsAndColleges from "@/components/AchariyaSchoolsAndColleges";
+import NewsTicker from "@/components/common/Header/NewsTicker";
+import underline from '@/assets/underline/decorative-line-divider-design.png'
 
 const Home = () => {
   const stats = [
@@ -31,16 +33,18 @@ const Home = () => {
   return (
     <>
       <Carousel />
+            <NewsTicker />
       <div className="min-h-screen flex flex-col container">
         <main className="flex-grow">
           <section className="bg-secondary py-10 mt-6 border-border">
             <div className="text-center">
               <h1
-                className="text-3xl md:text-4xl font-bold text-purple mb-4 "
+                className="text-3xl md:text-4xl font-bold text-purple "
                 style={{ textTransform: "capitalize" }}
               >
                 Welcome to Achariya Arts and Science College
               </h1>
+              <img src={underline} width={300} className="mx-auto mb-4 zXX  " alt="" />
               <p className="text-base leading-relaxed">
                 Achariya Arts and Science College, Puducherry, is one of the
                 premier institutions under the Achariya Group of Educational

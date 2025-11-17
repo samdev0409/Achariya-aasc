@@ -12,13 +12,13 @@ import {
 const ProfileOfCollege = () => {
   return (
     <>
-      <div className="flex flex-col container pt-10">
+      <div className="flex flex-col container">
         <main className="flex-grow">
-          {/* <section>
+          <section>
             <div className="flex justify-end">
               <img src={Achariyalogo} className=" pt-7" width={90} alt="" />
             </div>
-          </section> */}
+          </section>
           <section className="bg-secondary border-border">
             <div className="text-center">
               <img src={AASClogo} className="mx-auto pb-7" width={300} alt="" />

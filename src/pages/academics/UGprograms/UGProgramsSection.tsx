@@ -1,0 +1,105 @@
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ugProgramsData from "@/data/UGprogramsData.js";
+import { Search } from "lucide-react";
+
+const UGProgramsSection = () => {
+  const { programType } = useParams();
+  const activeCategory = programType || "existing";
+
+  const [list, setList] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const data = ugProgramsData.filter((item) => item.category === activeCategory);
+    setList(data);
+    setFiltered(data);
+    setSearch(""); // Reset search when category changes
+  }, [activeCategory]);
+
+  // SEARCH FILTER
+  useEffect(() => {
+    if (search.trim()) {
+      const text = search.toLowerCase();
+      const result = list.filter(
+        (item) =>
+          item.programme.toLowerCase().includes(text) ||
+          item.degree.toLowerCase().includes(text) ||
+          item.stream.toLowerCase().includes(text)
+      );
+      setFiltered(result);
+    } else {
+      setFiltered(list);
+    }
+  }, [search, list]);
+
+  return (
+    <div className="flex-1 p-6 border-r border-gray-400">
+      {/* Header and Search */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+        <h1 className="text-2xl font-bold text-purple capitalize mb-4 md:mb-0">
+          {activeCategory === "existing" ? "Existing Programs" : "Proposed Programs"}
+        </h1>
+        
+        <div className="relative w-full md:w-96">
+          <input
+            type="text"
+            placeholder="Search by programme, degree, or stream..."
+            className="w-full px-4 py-2 pl-10 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Search 
+            size={18} 
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" 
+          />
+        </div>
+      </div>
+
+      {/* Programs Table */}
+      {filtered.length > 0 ? (
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-purple text-white text-left">
+                <th className="py-3 px-4 border-r border-gray-400 w-12">S.No</th>
+                <th className="py-3 px-4 border-r border-gray-400">Programme</th>
+                <th className="py-3 px-4 border-r border-gray-400">Degree</th>
+                <th className="py-3 px-4">Stream</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {filtered.map((item, index) => (
+                <tr key={item.id} className="border-b border-gray-300 hover:bg-gray-50">
+                  <td className="py-3 px-4 border-r border-gray-300 text-center">
+                    {index + 1}
+                  </td>
+                  <td className="py-3 px-4 border-r border-gray-300">
+                    {item.programme}
+                  </td>
+                  <td className="py-3 px-4 border-r border-gray-300">
+                    {item.degree}
+                  </td>
+                  <td className="py-3 px-4">{item.stream}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="text-center text-gray-500 mt-10">No programs found.</p>
+      )}
+
+      {/* Total Count */}
+      {filtered.length > 0 && (
+        <p className="text-sm text-gray-600 mt-4">
+          Showing {filtered.length} of {list.length} programs
+        </p>
+      )}
+    </div>
+  );
+};
+
+export default UGProgramsSection;

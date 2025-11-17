@@ -2,7 +2,7 @@ import React from 'react';
 
 const TopHeaderBar = () => {
   return (
-    <div className="bg-purple py-2 overflow-x-auto">
+    <div className="bg-purple py-2 overflow-x-auto border-b border-gray-200">
       <div className=" mx-auto px-8 flex items-center justify-between">
         {/* Left Side - Contact Info */}
         <div className="flex items-center gap-1 text-white text-sm">
