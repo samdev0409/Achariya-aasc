@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import galleryEvents from "@/data/galleryEvents";
+import galleryEvents from "@/data/galleryEvents.js";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const GallerySection = () => {

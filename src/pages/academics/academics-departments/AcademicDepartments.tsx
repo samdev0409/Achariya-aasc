@@ -1,6 +1,6 @@
 // AcademicDepartments.jsx
 import React, { useState } from "react";
-import AcademicDepartmentsData from "@/data/AcademicDepartmentsData";
+import AcademicDepartmentsData from "@/data/AcademicDepartmentsData.js";
 import AcademicDepartmentsSidebar from "./AcademicDepartmentsSidebar";
 import AcademicDepartmentsContent from "./AcademicDepartmentsContent";
 

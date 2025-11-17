@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import galleryEvents from "@/data/galleryEvents";
+import galleryEvents from "@/data/galleryEvents.js";
 import { ArrowUpRight } from "lucide-react";
 
 const GalleryPreview = () => {

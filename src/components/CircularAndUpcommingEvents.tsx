@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Bell, Camera } from "lucide-react"; // ✅ Lucide icons
-import { CircularPreviewData } from "@/data/CircularPreviewData";
-import { UpcommingEventsPreviewData } from "@/data/UpcommingEventsPreviewData";
+import { CircularPreviewData } from "@/data/CircularPreviewData.js";
+import { UpcommingEventsPreviewData } from "@/data/UpcommingEventsPreviewData.js";
 
 const CircularAndUpcomingEvents: React.FC = () => {
   const navigate = useNavigate();
