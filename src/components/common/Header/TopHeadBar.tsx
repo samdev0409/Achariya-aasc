@@ -7,7 +7,7 @@ const TopHeaderBar = () => {
         {/* Left Side - Contact Info */}
         <div className="flex items-center gap-1 text-white text-sm">
           <span className="font-semibold">Contact:</span>
-          <span>+91 9965780844, 8870186761</span>
+          <span>+91 413 2615596 / 2615597</span>
         </div>
 
         {/* Right Side - Email and Badges */}
@@ -15,7 +15,7 @@ const TopHeaderBar = () => {
           {/* Email */}
           <div className="flex items-center gap-1 text-white text-sm">
             <span className="font-semibold">Email:</span>
-            <span>mcc_pattukkottai@yahoo.co.in</span>
+            <span>info@achariya.ac.in</span>
           </div>
 
           {/* Online Payment Button */}
