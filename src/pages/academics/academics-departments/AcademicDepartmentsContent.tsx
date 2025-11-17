@@ -7,7 +7,7 @@ const AcademicDepartmentsContent = ({ department, departments, setActiveDept }) 
   if (department === "all") {
     return (
       <div className="flex-1 p-6 border-r border-gray-400">
-        <h1 className="text-3xl font-bold text-purple-800 mb-6">
+        <h1 className="text-3xl font-bold text-purple mb-6">
           All Academic Departments
         </h1>
         
@@ -16,7 +16,7 @@ const AcademicDepartmentsContent = ({ department, departments, setActiveDept }) 
             <div
               key={dept.id}
               onClick={() => setActiveDept(dept.id)}
-              className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer hover:border-purple-500 group"
+              className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
             >
               {/* Department Image */}
               <div className="relative h-48 overflow-hidden">
@@ -29,13 +29,13 @@ const AcademicDepartmentsContent = ({ department, departments, setActiveDept }) 
               
               {/* Department Info */}
               <div className="p-4">
-                <h3 className="text-xl font-bold text-purple-700 mb-2 group-hover:text-purple-900">
+                <h3 className="text-xl font-bold text-purple mb-2 group-hover:text-purple-900">
                   {dept.name}
                 </h3>
                 <p className="text-gray-600 text-sm line-clamp-3">
                   {dept.about}
                 </p>
-                <button className="mt-4 text-purple-600 font-semibold hover:text-purple-800 flex items-center gap-2">
+                <button className="mt-4 text-purple font-semibold hover:text-purple-800 flex items-center gap-2">
                   View Details
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </button>
@@ -59,7 +59,7 @@ const AcademicDepartmentsContent = ({ department, departments, setActiveDept }) 
   return (
     <div className="flex-1 p-6 border-r border-gray-400">
       {/* Department Title */}
-      <h1 className="text-3xl font-bold text-purple-800 mb-4">
+      <h1 className="text-3xl font-bold text-purple mb-4">
         {department.name}
       </h1>
       
@@ -78,9 +78,9 @@ const AcademicDepartmentsContent = ({ department, departments, setActiveDept }) 
           <div key={idx} className="border-l-2 border-gray-300 pl-4">
             <h3 className="text-xl font-semibold text-purple mb-3 flex items-center gap-2">
               {idx % 2 === 0 ? (
-                <BookOpen size={20} className="text-purple-600" />
+                <BookOpen size={20} className="text-purple" />
               ) : (
-                <GraduationCap size={20} className="text-purple-600" />
+                <GraduationCap size={20} className="text-purple" />
               )}
               {section.title}
             </h3>

@@ -1,17 +1,44 @@
-"use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// Import carousel images
+import carousel1 from "@/assets/carousel/5-2-2048x908.jpg";
+import carousel2 from "@/assets/carousel/12-2048x908.jpg";
+import carousel3 from "@/assets/carousel/20-2048x908.png";
+import carousel4 from "@/assets/carousel/21-2048x908.png";
+import carousel5 from "@/assets/carousel/22-2048x908.png";
+import carousel6 from "@/assets/carousel/23-2048x908.png";
+import carousel7 from "@/assets/carousel/24-2048x908.png";
+import carousel8 from "@/assets/carousel/25-2048x908.png";
+import carousel9 from "@/assets/carousel/boobesh-2048x908.jpg";
+import carousel10 from "@/assets/carousel/Untitled-2480-x-909-px-2048x908.png";
+
 const Carousel = () => {
   const images = [
-    "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80", // group studying outdoors
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80", // classroom learning
-    "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1200&q=80", // students discussing project
+    carousel10,
+    carousel2,
+    carousel3,
+    carousel4,
+    carousel5,
+    carousel6,
+    carousel7,
+    carousel8,
+    carousel9,
+
+    carousel1,
   ];
 
   const [current, setCurrent] = useState(0);
+
+  // Auto-slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   const nextSlide = () =>
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -20,7 +47,7 @@ const Carousel = () => {
     setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
 
   return (
-    <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[55vh] lg:h-[65vh] overflow-hidden shadow-xl">
+    <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[55vh] lg:h-[65vh] overflow-hidden shadow-xl rounded-lg">
       {/* Image Slide */}
       <div className="relative w-full h-full">
         <AnimatePresence mode="wait">
@@ -42,7 +69,7 @@ const Carousel = () => {
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple p-2 rounded-full shadow-md transition"
+          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple p-2 rounded-full shadow-md transition z-10"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
@@ -50,13 +77,13 @@ const Carousel = () => {
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple p-2 rounded-full shadow-md transition"
+          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple p-2 rounded-full shadow-md transition z-10"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
 
         {/* Dots Navigation (bottom overlay) */}
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {images.map((_, index) => (
             <button
               key={index}
