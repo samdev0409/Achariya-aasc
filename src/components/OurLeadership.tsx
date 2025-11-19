@@ -1,5 +1,5 @@
 import React from "react";
-import ChiefMentor from "@/assets/cheif-mentor/Dr.-J.arawindhan.png";
+import ChiefMentor from "@/assets/images/cheif-mentor/Dr.-J.arawindhan.png";
 
 const OurLeadership: React.FC = () => {
   const leads = [

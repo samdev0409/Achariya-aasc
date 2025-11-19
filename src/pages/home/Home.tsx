@@ -12,7 +12,8 @@ import Testimonials from "@/components/Testimonials";
 import OurRecruiters from "@/components/OurRecruiters";
 import AchariyaSchoolsAndColleges from "@/components/AchariyaSchoolsAndColleges";
 import NewsTicker from "@/components/common/Header/NewsTicker";
-import underline from '@/assets/underline/decorative-line-divider-design.png'
+import underline from '@/assets/images/underline/decorative-line-divider-design.png'
+import HeadingUnderline from "@/components/HeadingUnderline";
 
 const Home = () => {
   const stats = [
@@ -44,7 +45,7 @@ const Home = () => {
               >
                 Welcome to Achariya Arts and Science College
               </h1>
-              <img src={underline} width={300} className="mx-auto mb-4 zXX  " alt="" />
+              <HeadingUnderline width={250} />
               <p className="text-base leading-relaxed">
                 Achariya Arts and Science College, Puducherry, is one of the
                 premier institutions under the Achariya Group of Educational

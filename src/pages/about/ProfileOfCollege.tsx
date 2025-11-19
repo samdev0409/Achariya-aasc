@@ -1,5 +1,7 @@
-import AASClogo from "@/assets/common/AASC-Logo.png";
-import Achariyalogo from "@/assets/common/achariya-logo-300x300.jpg";
+import AASClogo from "@/assets/images/common/AASC-Logo.png";
+import Achariyalogo from "@/assets/images/common/achariya-logo-300x300.jpg";
+import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
+import campus from '@/assets/images/aasc_building.webp'
 import {
   Building,
   Wallet,
@@ -12,6 +14,7 @@ import {
 const ProfileOfCollege = () => {
   return (
     <>
+    <BannerAndBreadCrumb img={campus} title="Profile Of The College" />
       <div className="flex flex-col container pt-10">
         <main className="flex-grow">
           {/* <section>

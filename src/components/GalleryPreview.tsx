@@ -2,15 +2,17 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import galleryEvents from "@/data/galleryEvents.js";
 import { ArrowUpRight } from "lucide-react";
+import HeadingUnderline from "./HeadingUnderline";
 
 const GalleryPreview = () => {
   const navigate = useNavigate();
 
   return (
     <div className="relative w-full overflow-hidden bg-gray-50">
-      <h2 className="text-3xl font-bold text-center text-purple mb-7">
-        Our Events Highlights
-      </h2>
+      <div>
+           <h2 className="text-3xl font-bold text-center text-purple">  Our Events Highlights</h2>
+          <HeadingUnderline width={200} align="center" />
+         </div>
 
       {/* Slider Container */}
       <div className="flex gap-6 animate-scroll w-[200%]">

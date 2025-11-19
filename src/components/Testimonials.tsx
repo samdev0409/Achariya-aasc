@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import HeadingUnderline from "./HeadingUnderline";
 
 const videosRaw = [
   // provided iframe embed (kept as embed src)
@@ -90,9 +91,10 @@ const Testimonials: React.FC = () => {
   return (
     <div className="w-full">
       <div className="container mx-auto px-4">
-         <h2 className="text-3xl font-bold text-center text-purple mb-7">
-        Testimonials
-      </h2>
+          <div>
+        <h2 className="text-3xl font-bold text-center text-purple">Our Recruiters</h2>
+        <HeadingUnderline width={200} align="center" />
+      </div>
         <div className="relative">
           {/* Left Arrow */}
           <button

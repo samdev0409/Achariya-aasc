@@ -1,5 +1,6 @@
 import React from "react";
 import AdmissionForm from "@/components/forms/ForAdmissionForm";
+import HeadingUnderline from "./HeadingUnderline";
 
 const ForAdmission: React.FC = () => {
   return (
@@ -7,24 +8,27 @@ const ForAdmission: React.FC = () => {
       <div className="flex flex-col md:flex-row  gap-10 ">
         {/* 🏫 Left Content Section */}
         <div className="md:w-1/2 text-center md:text-left space-y-4">
-          <h2 className="text-3xl font-bold text-purple">For Admission</h2>
+          <div>
+            <h2 className="text-3xl font-bold text-purple">For Admission</h2>
+            <HeadingUnderline width={150} align="left" />
+          </div>
           <p className="leading-relaxed">
             Begin your academic journey with Achariya Arts and Science College,
             Puducherry. We’re committed to nurturing excellence and empowering
-            students through a holistic educational approach combining knowledge,
-            innovation, and values.
+            students through a holistic educational approach combining
+            knowledge, innovation, and values.
           </p>
           <p className="leading-relaxed">
             Begin your academic journey with Achariya Arts and Science College,
             Puducherry. We’re committed to nurturing excellence and empowering
-            students through a holistic educational approach combining knowledge,
-            innovation, and values.
+            students through a holistic educational approach combining
+            knowledge, innovation, and values.
           </p>
           <p className="leading-relaxed">
             Begin your academic journey with Achariya Arts and Science College,
             Puducherry. We’re committed to nurturing excellence and empowering
-            students through a holistic educational approach combining knowledge,
-            innovation, and values.
+            students through a holistic educational approach combining
+            knowledge, innovation, and values.
           </p>
           <p className="leading-relaxed">
             Fill out the form to express your interest in our programs. Our
@@ -35,8 +39,10 @@ const ForAdmission: React.FC = () => {
 
         {/* 📝 Right Form Section */}
         <div className="md:w-1/2 w-full bg-card rounded-xl  px-8 ">
-                    <h2 className="text-3xl font-bold text-purple mb-4">Admission Enquiry Form</h2>
-
+          <div>
+            <h2 className="text-3xl font-bold text-purple">Admission Enquiry Form</h2>
+            <HeadingUnderline width={150} align="left" />
+          </div>
           <AdmissionForm />
         </div>
       </div>

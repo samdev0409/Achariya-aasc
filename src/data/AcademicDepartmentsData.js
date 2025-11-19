@@ -1,4 +1,4 @@
-import history from "@/assets/academic-departments/history-dept.jpg";
+import history from "@/assets/images/academic-departments/history-dept.jpg";
 
 const AcademicDepartmentsData = [
   {

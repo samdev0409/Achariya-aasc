@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
-import campus from "@/assets/aasc_building.png";
+import campus from "@/assets/images/aasc_building.png";
+import { Head } from "react-day-picker";
+import HeadingUnderline from "./HeadingUnderline";
 
 const OurCampus: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +47,11 @@ const OurCampus: React.FC = () => {
 
         {/* 🏫 Content Section */}
         <div className="md:w-1/2 text-center md:text-left space-y-4">
-          <h2 className="text-3xl font-bold text-purple">Our Campus</h2>
+          <div>
+            <h2 className="text-3xl font-bold text-purple">Our Campus</h2>
+            <HeadingUnderline width={150} align="left" />
+          </div>
+
           <p className=" leading-relaxed">
             Achariya Arts and Science College, Puducherry, is one of the premier
             institutions under the Achariya Group of Educational Institutions.

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
-import thumb from '@/assets/md.png'
+import thumb from "@/assets/images/md.png";
+import { Head } from "react-day-picker";
+import HeadingUnderline from "./HeadingUnderline";
 
 const MissionVision = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,11 +11,12 @@ const MissionVision = () => {
   return (
     <section className="bg-background ">
       <div className="flex flex-col md:flex-row gap-10">
-       
-
         {/* 🏫 Content Section */}
         <div className="md:w-1/2 text-center md:text-left space-y-4">
-          <h2 className="text-3xl font-bold text-purple">Our Mission</h2>
+          <div>
+            <h2 className="text-3xl font-bold text-purple">Our Mission</h2>
+            <HeadingUnderline width={150} align="left" />
+          </div>
           <p className=" leading-relaxed">
             Achariya Arts and Science College, Puducherry, is one of the premier
             institutions under the Achariya Group of Educational Institutions.
@@ -23,7 +26,10 @@ const MissionVision = () => {
             arts, science, and commerce. The college fosters innovation,
             discipline, and leadership among its students.
           </p>
-          <h2 className="text-3xl font-bold text-purple">Our Vision</h2>
+          <div>
+            <h2 className="text-3xl font-bold text-purple">Our Vision</h2>
+            <HeadingUnderline width={150} align="left" />
+          </div>{" "}
           <p className=" leading-relaxed">
             Achariya Arts and Science College, Puducherry, is one of the premier
             institutions under the Achariya Group of Educational Institutions.
@@ -33,15 +39,14 @@ const MissionVision = () => {
             arts, science, and commerce. The college fosters innovation,
             discipline, and leadership among its students.
           </p>
-    <div>
+          <div>
             <a href="#contact" className="red-btn">
               For Admissions
             </a>
           </div>
-          
         </div>
 
-         {/* 🎥 Video Section */}
+        {/* 🎥 Video Section */}
         <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
           {/* Placeholder thumbnail */}
           <img
@@ -108,7 +113,15 @@ const MissionVision = () => {
                 allowFullScreen
               ></iframe> */}
 
-              <iframe  className="w-full h-full rounded-lg" title="vimeo-player" src="https://player.vimeo.com/video/996958609?h=fe176b5239" width="640" height="360"  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowFullScreen></iframe>
+              <iframe
+                className="w-full h-full rounded-lg"
+                title="vimeo-player"
+                src="https://player.vimeo.com/video/996958609?h=fe176b5239"
+                width="640"
+                height="360"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                allowFullScreen
+              ></iframe>
             </motion.div>
           </motion.div>
         )}

@@ -4,11 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/home/Home";
-import About from "./pages/About";
-import Departments from "./pages/Departments";
-import Admissions from "./pages/Admissions";
-import Facilities from "./pages/Facilities";
-import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/common/Header/Navbar";
 import MainGallery from "./pages/gallery/MainGallery";
@@ -25,6 +20,12 @@ import PressReleases from "./pages/about/press-releases/PressReleases";
 import AcademicDepartments from "./pages/academics/academics-departments/AcademicDepartments";
 import UGPrograms from "./pages/academics/UGprograms/UGPrograms";
 import PGPrograms from "./pages/academics/PGprograms/PGprograms";
+import Library from "./pages/facilities/library/Library";
+import TrainingAndPlacementsCell from "./pages/placements/TrainingAndPlacementsCell";
+import PlacementRecords from "./pages/placements/PlacementRecords";
+import KeyRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
+import KeyCollaboratorsRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
+import AdditionalCourses from "./pages/campus-life/AdditionalCourses";
 
 const queryClient = new QueryClient();
 
@@ -37,12 +38,6 @@ const App = () => (
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/departments" element={<Departments />} />
-          <Route path="/admissions" element={<Admissions />} />
-          <Route path="/facilities" element={<Facilities />} />
-          <Route path="/gallery/:eventId?" element={<MainGallery />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
 
           {/* Abou US Pages Routes */}
           <Route
@@ -85,6 +80,24 @@ const App = () => (
             path="/academics/pg-programs/:programType"
             element={<PGPrograms />}
           />
+
+          {/* FACILITIES Pages */}
+
+          <Route path="/facilities/library/" element={<Library />} />
+
+          {/* Placements Pages */}
+          <Route
+            path="/placements/training-and-placement-cell"
+            element={<TrainingAndPlacementsCell />}
+          />
+          <Route path="/placements/records" element={<PlacementRecords />} />
+          <Route
+            path="/placements/key-collaborators-recruiters"
+            element={<KeyCollaboratorsRecruiters />}
+          />
+
+          {/* Campus Life pages */}
+          <Route path="/campus-life/value-added-courses" element={<AdditionalCourses/>}/>
 
           {/* 404 error */}
           <Route path="*" element={<NotFound />} />

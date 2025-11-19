@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
-import chiefMentor from "@/assets/chief-mentor.jpg";
+import chiefMentor from "@/assets/images/chief-mentor.jpg";
+import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
+import campus from '@/assets/images/aasc_building.webp'
 
 const CheifMentorDesk = () => {
-  return (
+  return (<>
+        <BannerAndBreadCrumb title=" Cheif Mentor's Desk" img={campus} />
+
     <section className="bg-background container py-10 mt-10">
       <div className="flex flex-col md:flex-row gap-10 flex items-center">
         <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
@@ -45,6 +49,7 @@ const CheifMentorDesk = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

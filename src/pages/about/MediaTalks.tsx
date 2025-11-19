@@ -1,7 +1,9 @@
 import React from "react";
-import AASClogo from "@/assets/common/AASC-Logo.png";
-import Achariyalogo from "@/assets/common/achariya-logo-300x300.jpg";
+import AASClogo from "@/assets/images/common/AASC-Logo.png";
+import Achariyalogo from "@/assets/images/common/achariya-logo-300x300.jpg";
 import { Facebook, Instagram, Youtube, ExternalLink } from "lucide-react";
+import campus from "@/assets/images/aasc_building.webp";
+import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 
 const socialMediaLinks = [
   {
@@ -11,7 +13,7 @@ const socialMediaLinks = [
     color: "text-blue-600",
     hoverColor: "hover:bg-blue-50",
     description: "Follow us for daily updates, events, and campus life",
-    btn: "Follow Us"
+    btn: "Follow Us",
   },
   {
     label: "AASC in Instagram",
@@ -20,7 +22,7 @@ const socialMediaLinks = [
     color: "text-pink-600",
     hoverColor: "hover:bg-pink-50",
     description: "Explore our visual stories and student achievements",
-    btn: "Follow Us"
+    btn: "Follow Us",
   },
   {
     label: "AASC in Youtube",
@@ -29,13 +31,15 @@ const socialMediaLinks = [
     color: "text-red-600",
     hoverColor: "hover:bg-red-50",
     description: "Watch our events, seminars, and educational content",
-    btn: "Subscribe Now"
+    btn: "Subscribe Now",
   },
 ];
 
 const MediaTalks = () => {
   return (
     <>
+      <BannerAndBreadCrumb title="Media Talks" img={campus} />
+
       <div className="flex flex-col container">
         <main className="flex-grow">
           <section>
@@ -81,14 +85,19 @@ const MediaTalks = () => {
                   >
                     <div className="flex flex-col items-center text-center">
                       {/* Icon */}
-                      <div className={`${social.color} mb-4 transform group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`${social.color} mb-4 transform group-hover:scale-110 transition-transform duration-300`}
+                      >
                         <Icon size={48} />
                       </div>
 
                       {/* Title */}
                       <h3 className="text-xl font-semibold text-gray-800 mb-2 flex items-center justify-center gap-2">
                         {social.label}
-                        <ExternalLink size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ExternalLink
+                          size={16}
+                          className="opacity-0 group-hover:opacity-100 transition-opacity"
+                        />
                       </h3>
 
                       {/* Description */}
@@ -97,9 +106,7 @@ const MediaTalks = () => {
                       </p>
 
                       {/* Visit Button */}
-                      <button className='red-btn'>
-                       {social.btn}
-                      </button>
+                      <button className="red-btn">{social.btn}</button>
                     </div>
                   </a>
                 );
@@ -114,11 +121,11 @@ const MediaTalks = () => {
                 Stay Updated
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                Join thousands of students, alumni, and education enthusiasts who
-                follow us on social media. Be the first to know about admission
-                updates, cultural events, academic achievements, and inspiring
-                student stories. Your engagement helps us build a stronger
-                community!
+                Join thousands of students, alumni, and education enthusiasts
+                who follow us on social media. Be the first to know about
+                admission updates, cultural events, academic achievements, and
+                inspiring student stories. Your engagement helps us build a
+                stronger community!
               </p>
             </div>
           </section>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Facebook, Youtube } from "lucide-react";
-import AASCLogo from "@/assets/common/AASC-Logo.png";
+import AASCLogo from "@/assets/images/common/AASC-Logo.png";
 
 const Footer = () => {
   return (

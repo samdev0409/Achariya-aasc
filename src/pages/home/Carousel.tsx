@@ -3,16 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Import carousel images
-import carousel1 from "@/assets/carousel/5-2-2048x908.jpg";
-import carousel2 from "@/assets/carousel/12-2048x908.jpg";
-import carousel3 from "@/assets/carousel/20-2048x908.png";
-import carousel4 from "@/assets/carousel/21-2048x908.png";
-import carousel5 from "@/assets/carousel/22-2048x908.png";
-import carousel6 from "@/assets/carousel/23-2048x908.png";
-import carousel7 from "@/assets/carousel/24-2048x908.png";
-import carousel8 from "@/assets/carousel/25-2048x908.png";
-import carousel9 from "@/assets/carousel/boobesh-2048x908.jpg";
-import carousel10 from "@/assets/carousel/Untitled-2480-x-909-px-2048x908.png";
+import carousel1 from "@/assets/images/carousel/5-2-2048x908.jpg";
+import carousel2 from "@/assets/images/carousel/12-2048x908.jpg";
+import carousel3 from "@/assets/images/carousel/20-2048x908.png";
+import carousel4 from "@/assets/images/carousel/21-2048x908.png";
+import carousel5 from "@/assets/images/carousel/22-2048x908.png";
+import carousel6 from "@/assets/images/carousel/23-2048x908.png";
+import carousel7 from "@/assets/images/carousel/24-2048x908.png";
+import carousel8 from "@/assets/images/carousel/25-2048x908.png";
+import carousel9 from "@/assets/images/carousel/boobesh-2048x908.jpg";
+import carousel10 from "@/assets/images/carousel/Untitled-2480-x-909-px-2048x908.png";
 
 const Carousel = () => {
   const images = [
