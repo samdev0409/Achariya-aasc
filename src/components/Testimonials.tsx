@@ -89,32 +89,32 @@ const Testimonials: React.FC = () => {
   const translateX = -(currentIndex * (itemWidth + 16)); // 16 = gap px
 
   return (
-    <div className="w-full">
+    <div className="w-full container">
       <div className="container mx-auto px-4">
           <div>
-        <h2 className="text-3xl font-bold text-center text-purple">Our Recruiters</h2>
+        <h2 className="text-3xl font-bold text-center text-purple">Testimonials</h2>
         <HeadingUnderline width={200} align="center" />
       </div>
         <div className="relative">
           {/* Left Arrow */}
-          <button
+          {/* <button
             aria-label="Previous"
             onClick={prev}
             className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-transparent border border-border rounded-full p-2 shadow hover:scale-105 transition transform"
             style={{ marginLeft: -24 }}
           >
             <ChevronLeft className="w-6 h-6 text-purple" />
-          </button>
+          </button> */}
 
           {/* Right Arrow */}
-          <button
+          {/* <button
             aria-label="Next"
             onClick={next}
             className="absolute right-4 bg-transparent top-1/2 -translate-y-1/2 z-20  border border-border rounded-full p-2 shadow hover:scale-105 transition transform"
             style={{ marginRight: -24 }}
           >
             <ChevronRight className="w-6 h-6 text-purple" />
-          </button>
+          </button> */}
 
             <div className="w-full flex justify-center">
           {/* Visible viewport */}
@@ -160,13 +160,13 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Dots / indicators */}
-        <div className="flex justify-center mt-4 gap-2">
+        <div className="flex justify-center mt-8 gap-2">
           {Array.from({ length: maxIndex + 1 }).map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`w-2 h-2 rounded-full transition ${
+              className={`w-3 h-3 rounded-full transition ${
                 i === currentIndex ? "bg-purple" : "bg-muted-foreground/40"
               }`}
             />

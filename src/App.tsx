@@ -25,7 +25,7 @@ import TrainingAndPlacementsCell from "./pages/placements/TrainingAndPlacementsC
 import PlacementRecords from "./pages/placements/PlacementRecords";
 import KeyRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
 import KeyCollaboratorsRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
-import AdditionalCourses from "./pages/campus-life/AdditionalCourses";
+import ValueAddedCourses from "./pages/campus-life/ValueAddedCourses";
 
 const queryClient = new QueryClient();
 
@@ -97,7 +97,7 @@ const App = () => (
           />
 
           {/* Campus Life pages */}
-          <Route path="/campus-life/value-added-courses" element={<AdditionalCourses/>}/>
+          <Route path="/campus-life/value-added-courses" element={<ValueAddedCourses/>}/>
 
           {/* 404 error */}
           <Route path="*" element={<NotFound />} />

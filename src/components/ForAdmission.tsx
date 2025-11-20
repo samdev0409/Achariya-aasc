@@ -46,6 +46,7 @@ const ForAdmission: React.FC = () => {
           <AdmissionForm />
         </div>
       </div>
+      
     </section>
   );
 };

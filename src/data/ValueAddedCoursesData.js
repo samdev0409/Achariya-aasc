@@ -1,5 +1,6 @@
-import ai from "@/assets/icons/artificial-intelligence.png";
+import ai from "@/assets/icons/additonal-courses/artificial-intelligence.png";
 import AiImg from "@/assets/images/additional-courses/ai.jpg";
+import ramesh from "@/assets/images/17122.webp";
 
 const AdditionalCoursesData = [
   {
@@ -73,7 +74,7 @@ const AdditionalCoursesData = [
 
   {
     title: "Retail Training",
-    icon: ShoppingBag,
+    icon: ai,
     courseDescription:
       "Covers retail operations, customer handling, POS, merchandising, and store management.",
     syllabusPdf: "/pdf/syllabus/retail.pdf",
@@ -111,7 +112,6 @@ const AdditionalCoursesDataGeneralIncharge = [
     phone: "+91 9842367710",
     email: "aascplacement@achariya.org",
   },
-
 ];
 
-export default {AdditionalCoursesData, AdditionalCoursesDataGeneralIncharge};
+export default { AdditionalCoursesData, AdditionalCoursesDataGeneralIncharge };

@@ -25,77 +25,89 @@ const Carousel = () => {
     carousel7,
     carousel8,
     carousel9,
-
     carousel1,
   ];
 
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 = left to right, -1 = right to left
 
-  // Auto-slide every 3 seconds
+  // Auto-slide every 3 seconds (left to right direction)
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1); // Auto-slide always goes left to right
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3000);
-
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const nextSlide = () =>
+  const nextSlide = () => {
+    setDirection(1); // Next button = left to right
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
-  const prevSlide = () =>
+  const prevSlide = () => {
+    setDirection(-1); // Previous button = right to left
     setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  // Variants for smooth directional sliding
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? -1000 : 1000,
+      opacity: 0,
+    }),
+  };
 
   return (
-    <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[55vh] lg:h-[65vh] overflow-hidden shadow-xl rounded-lg">
+    <div className="relative w-full h-[50vh] sm:h-[65vh] md:h-[70vh] lg:h-[75vh] overflow-hidden bg-gray-900">
       {/* Image Slide */}
       <div className="relative w-full h-full">
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.img
-            key={images[current]}
+            key={current}
             src={images[current]}
             alt={`Slide ${current + 1}`}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0 w-full h-full object-cover"
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
+            }}
+            className="absolute inset-0 w-full h-full object-cover object-top"
           />
         </AnimatePresence>
 
         {/* Gradient overlay for better text or visual blending */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
 
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple p-2 rounded-full shadow-md transition z-10"
+          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white  p-2 rounded-full shadow-md transition z-10"
+          aria-label="Previous slide"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-6 w-6 opacity-20 hover:opacity-30" />
         </button>
 
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple p-2 rounded-full shadow-md transition z-10"
+          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple-600 p-2 rounded-full shadow-md transition z-10"
+          aria-label="Next slide"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-6 w-6 opacity-20 hover:opacity-30" />
         </button>
-
-        {/* Dots Navigation (bottom overlay) */}
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === current
-                  ? "bg-purple scale-110"
-                  : "bg-white/60 hover:bg-white"
-              }`}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );

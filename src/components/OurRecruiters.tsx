@@ -85,7 +85,7 @@ const OurRecruiters = () => {
   const rows = [logos.slice(0, 14), logos.slice(14, 28), logos.slice(28, 42)];
 
   return (
-    <div className="w-full py-12 bg-white">
+    <div className="w-full bg-white">
       <style>{`
         @keyframes step-scroll-left {
           0%, 4.76% {
