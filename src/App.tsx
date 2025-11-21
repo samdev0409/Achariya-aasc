@@ -26,6 +26,12 @@ import PlacementRecords from "./pages/placements/PlacementRecords";
 import KeyRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
 import KeyCollaboratorsRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
 import ValueAddedCourses from "./pages/campus-life/ValueAddedCourses";
+import Sports from "./pages/facilities/sports/Sports";
+import SEED from "./pages/campus-life/SEED";
+import TopHeaderBar from "./components/common/Header/TopHeadBar";
+import ScrollToTop from "./components/ScrollTop";
+import UpcomingEvents from "./pages/upcomming-events/UpcommingEvents";
+import Circular from "./pages/circlulars/Circulars";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +41,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop /> 
+        <TopHeaderBar />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -97,10 +105,23 @@ const App = () => (
           />
 
           {/* Campus Life pages */}
-          <Route path="/campus-life/value-added-courses" element={<ValueAddedCourses/>}/>
+          <Route
+            path="/campus-life/value-added-courses"
+            element={<ValueAddedCourses />}
+          />
+          <Route path="/campus-life/seed" element={<SEED />} />
+          <Route path="/campus-life/sports" element={<Sports />} />
+          <Route path="/campus-life/sports" element={<Sports />} />
+          <Route path="/campus-life/sports" element={<Sports />} />
 
           {/* 404 error */}
           <Route path="*" element={<NotFound />} />
+
+          <Route path="/gallery" element={<MainGallery />} />
+          <Route path="/gallery/:eventId" element={<MainGallery />} />
+
+          <Route path="/upcomming-events" element={<UpcomingEvents/>}/>
+          <Route path="/circulars" element={<Circular/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

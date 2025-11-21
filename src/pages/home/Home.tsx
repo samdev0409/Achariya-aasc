@@ -101,7 +101,7 @@ const Home = () => {
             <CircularAndUpcomingEvents />
           </section>
 
-          <section className="py-12  ">
+          <section className="py-12 bg-gray-200 ">
             <Testimonials />
           </section>
 

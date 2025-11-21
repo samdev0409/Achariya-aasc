@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
-import principal from "@/assets/images/PrincipalAASC.png";
+import principal from "@/assets/images/leads/principal-ushadevi.jpeg";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.png";
 

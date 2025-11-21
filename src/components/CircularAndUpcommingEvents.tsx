@@ -72,7 +72,7 @@ const CircularAndUpcomingEvents: React.FC = () => {
                 (item, index) => (
                   <div
                     key={index}
-                    onClick={() => navigate(item.path)}
+                    onClick={() => navigate('/circulars')}
                     className="flex items-center gap-2 cursor-pointer text-black hover:text-blue-600 transition-all duration-200 hover:underline"
                   >
                     <Bell className="w-4 h-4" />
@@ -102,7 +102,7 @@ const CircularAndUpcomingEvents: React.FC = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  onClick={() => navigate(item.path)}
+                  onClick={() => navigate('/upcomming-events')}
                   className="flex items-center gap-2 cursor-pointer text-black hover:text-blue-600 transition-all duration-200 hover:underline"
                 >
                   <Camera className="w-4 h-4" />
@@ -132,7 +132,7 @@ const CircularAndUpcomingEvents: React.FC = () => {
                 (item, index) => (
                   <div
                     key={index}
-                    onClick={() => navigate(item.path)}
+                    onClick={() => navigate("/academics/ug-programs/existing")}
                     className="flex items-center gap-2 cursor-pointer text-black hover:text-blue-600 transition-all duration-200 hover:underline"
                   >
                     <GraduationCap className="w-4 h-4" />
