@@ -1,7 +1,7 @@
 // AdmissionsOpenData.js
 
-import ugProgramsData from "@/data/ugProgramsData";
-import pgProgramsData from "@/data/pgProgramsData";
+import ugProgramsData from "@/data/UGProgramsData.js";
+import pgProgramsData from "@/data/pgProgramsData.js";
 
 // Convert UG and PG programs into admission list format
 const formatProgram = (item, level) => ({
