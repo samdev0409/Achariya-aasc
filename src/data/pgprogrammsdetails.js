@@ -1,5 +1,5 @@
 // pgProgramsData.js
- const pgProgramsData = [
+ const pgprogrammsdetails = [
   // Existing Programs
   {
     id: 1,
@@ -17,4 +17,4 @@
   }
 ];
 
-export default pgProgramsData;
+export default pgprogrammsdetails;

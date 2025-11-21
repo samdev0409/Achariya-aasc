@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import pgProgramsData from "@/data/PGprogramsData.js"; 
+import pgprogrammsdetails from "@/data/pgprogrammsdetails.js"; 
 import { Search } from "lucide-react";
 
 const PGProgramsSection = () => {
@@ -12,7 +12,7 @@ const PGProgramsSection = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const data = pgProgramsData.filter((item) => item.category === activeCategory);
+    const data = pgprogrammsdetails.filter((item) => item.category === activeCategory);
     setList(data);
     setFiltered(data);
     setSearch("");
