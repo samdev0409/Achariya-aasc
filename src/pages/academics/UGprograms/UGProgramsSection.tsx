@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ugProgramsData from "../../../data/UGProgramsData.js";
 import { Search } from "lucide-react";
+import ugProgramsData from "@/data/UGProgramsData.js";
 
 const UGProgramsSection = () => {
   const { programType } = useParams();
