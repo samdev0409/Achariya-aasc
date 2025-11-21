@@ -1,5 +1,5 @@
 // pgProgramsData.js
-export const pgProgramsData = [
+ const pgProgramsData = [
   // Existing Programs
   {
     id: 1,

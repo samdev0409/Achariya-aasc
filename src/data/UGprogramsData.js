@@ -1,5 +1,5 @@
 // ugProgramsData.js
-export const UGProgramsData  = [
+ const UGProgramsData  = [
   // Existing Programs
   {
     id: 1,
