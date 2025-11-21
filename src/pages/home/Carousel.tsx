@@ -31,46 +31,43 @@ const Carousel = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1); // 1 = left to right, -1 = right to left
 
-  // Auto-slide every 3 seconds (left to right direction)
   useEffect(() => {
     const interval = setInterval(() => {
-      setDirection(1); // Auto-slide always goes left to right
+      setDirection(1);
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     }, 3000);
     return () => clearInterval(interval);
   }, [images.length]);
 
   const nextSlide = () => {
-    setDirection(1); // Next button = left to right
+    setDirection(1);
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setDirection(-1); // Previous button = right to left
+    setDirection(-1);
     setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  // Variants for smooth directional sliding
   const slideVariants = {
     enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 1,
     }),
     center: {
       x: 0,
       opacity: 1,
     },
     exit: (direction) => ({
-      x: direction > 0 ? -1000 : 1000,
-      opacity: 0,
+      x: direction > 0 ? "-100%" : "100%",
+      opacity: 1,
     }),
   };
 
   return (
     <div className="relative w-full h-[50vh] sm:h-[65vh] md:h-[70vh] lg:h-[75vh] overflow-hidden bg-gray-900">
-      {/* Image Slide */}
       <div className="relative w-full h-full">
-        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        <AnimatePresence initial={false} custom={direction}>
           <motion.img
             key={current}
             src={images[current]}
@@ -81,32 +78,29 @@ const Carousel = () => {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
+              x: { type: "tween", duration: 0.5, ease: "easeInOut" },
+              opacity: { duration: 0 },
             }}
             className="absolute inset-0 w-full h-full object-cover object-top"
           />
         </AnimatePresence>
 
-        {/* Gradient overlay for better text or visual blending */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
 
-        {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white  p-2 rounded-full shadow-md transition z-10"
+          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow-md transition z-10"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-6 w-6 opacity-20 hover:opacity-30" />
+          <ChevronLeft className="h-6 w-6 text-gray-700" />
         </button>
 
-        {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-purple-600 p-2 rounded-full shadow-md transition z-10"
+          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow-md transition z-10"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-6 w-6 opacity-20 hover:opacity-30" />
+          <ChevronRight className="h-6 w-6 text-gray-700" />
         </button>
       </div>
     </div>
