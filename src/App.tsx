@@ -42,7 +42,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop /> 
-        <TopHeaderBar />
+        <div className="md:block hidden">
+          <TopHeaderBar />
+        </div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
