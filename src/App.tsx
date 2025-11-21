@@ -72,10 +72,10 @@ const App = () => (
             path="/academics/departments/"
             element={<AcademicDepartments />}
           />
-          {/* <Route
+          <Route
             path="/academics/ug-programs"
             element={<Navigate to="/academics/ug-programs/existing" replace />}
-          /> */}
+          />
           <Route
             path="/academics/ug-programs/:programType"
             element={<UGPrograms />}
