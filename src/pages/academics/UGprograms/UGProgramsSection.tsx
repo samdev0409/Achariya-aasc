@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Search } from "lucide-react";
-import ugProgramsData from "@/data/UGProgramsData.js";
+import UGProgramsData from "@/data/UGProgramsData.js";
 
 const UGProgramsSection = () => {
   const { programType } = useParams();
@@ -12,7 +12,7 @@ const UGProgramsSection = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const data = ugProgramsData.filter((item) => item.category === activeCategory);
+    const data = UGProgramsData.filter((item) => item.category === activeCategory);
     setList(data);
     setFiltered(data);
     setSearch(""); // Reset search when category changes

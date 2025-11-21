@@ -1,5 +1,5 @@
 // ugProgramsData.js
-export const ugProgramsData = [
+export const UGProgramsData  = [
   // Existing Programs
   {
     id: 1,
@@ -109,4 +109,4 @@ export const ugProgramsData = [
   },
 ];
 
-export default ugProgramsData;
+export default UGProgramsData ;
