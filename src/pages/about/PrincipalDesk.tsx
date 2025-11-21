@@ -51,7 +51,7 @@ const PrincipalDesk = () => {
         <div className="flex flex-col text-right py-6">
           <p>With best wishes,</p>
           <h3 className="text-lg">
-            <b>Dr. S.Vimalanand</b>
+            <b>Dr. R. Ushadevi</b>
           </h3>
           <em>Principal</em>
         </div>

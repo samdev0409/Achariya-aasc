@@ -7,6 +7,7 @@ import HeadingUnderline from "./HeadingUnderline";
 
 const OurCampus: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <section className="bg-background ">
@@ -82,41 +83,44 @@ const OurCampus: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/95 flex items-center justify-center z-[1000]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)} // Close when clicking outside
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-white hover:text-purple-400 transition"
-            >
-              <X className="w-8 h-8" />
-            </button>
-
-            {/* Vimeo Video (no controls, autoplay) */}
             <motion.div
-              className="w-full max-w-4xl aspect-video"
+              className="w-full max-w-4xl aspect-video relative"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4 }}
+              onClick={(e) => e.stopPropagation()} // Prevent outside close
             >
-              {/* <iframe
-                src="https://player.vimeo.com/video/996960549?autoplay=1&title=0&byline=0&portrait=0&controls=0"
-                className="w-full h-full rounded-lg"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              ></iframe> */}
+              {/* CLOSE BUTTON */}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute -top-12 right-0 text-white hover:text-purple-400 transition"
+              >
+                <X className="w-8 h-8" />
+              </button>
+
+              {/* LOADING OVERLAY */}
+              {isLoading && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 rounded-lg z-10">
+                  <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <p className="text-white mt-3">Loading video...</p>
+                </div>
+              )}
+
+              {/* VIMEO VIDEO */}
               <iframe
                 className="w-full h-full rounded-lg"
                 title="vimeo-player"
-                src="https://player.vimeo.com/video/996960549?h=83a2493a4d"
-                width="640"
-                height="360"
+                src="https://player.vimeo.com/video/996960549?h=83a2493a4d&autoplay=1"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 allowFullScreen
+                onLoad={() => setIsLoading(false)} // Hide loader when ready
               ></iframe>
             </motion.div>
           </motion.div>

@@ -1,7 +1,5 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-
-const NewsTicker = () => {
   const newsItems = [
     "UG Courses: B.A., Lil Tamil, B.A., English, B.Sc., Maths, B.Sc., Physics, B.Sc., Biochemistry, B.Sc., Microbiology, B.Sc., Computer Science, B.C.A., B.Com., B.B.A.,",
     "PG Courses: M.A., English., M.Sc., Maths, M.Sc., Microbiology, M.Sc., Computer Science., M.Com., M.B.A.,",
@@ -10,6 +8,9 @@ const NewsTicker = () => {
     "Bharathidasan University New Syllabi",
     "Click here for Admission 2025-2026 - Online Application"
   ];
+
+
+const NewsTicker = () => {
 
   return (
     <div className="px-8 bg-purple overflow-hidden relative border-b border-[#fdfdfd]">

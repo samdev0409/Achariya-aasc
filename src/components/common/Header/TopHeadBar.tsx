@@ -3,7 +3,7 @@ import file from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250
 
 const TopHeaderBar = () => {
   return (
-    <div className="bg-purple py-2 overflow-x-auto border-b border-gray-200">
+    <div className="bg-purple py-2 overflow-x-auto border-b border-b-[2px] border-gray-200">
       <div className=" mx-auto px-8 flex items-center justify-between">
         {/* Left Side - Contact Info */}
         <div className="flex items-center gap-1 text-white text-sm">

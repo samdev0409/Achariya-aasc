@@ -35,7 +35,7 @@ const Carousel = () => {
     const interval = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -52,15 +52,12 @@ const Carousel = () => {
   const slideVariants = {
     enter: (direction) => ({
       x: direction > 0 ? "100%" : "-100%",
-      opacity: 1,
     }),
     center: {
       x: 0,
-      opacity: 1,
     },
     exit: (direction) => ({
       x: direction > 0 ? "-100%" : "100%",
-      opacity: 1,
     }),
   };
 
@@ -79,7 +76,6 @@ const Carousel = () => {
             exit="exit"
             transition={{
               x: { type: "tween", duration: 0.5, ease: "easeInOut" },
-              opacity: { duration: 0 },
             }}
             className="absolute inset-0 w-full h-full object-cover object-top"
           />

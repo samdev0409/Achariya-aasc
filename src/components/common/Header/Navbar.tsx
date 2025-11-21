@@ -177,13 +177,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="hidden md:block sticky top-0 z-[100] bg-white shadow-lg">
-        <nav className="flex items-center justify-between p-3 bg-white backdrop-blur-md">
+      <div className="hidden md:block sticky top-0 z-[100] bg-white shadow-white">
+        <nav className="flex items-center justify-between p-3 bg-purple backdrop-blur-md">
           <Link to="/">
             <img
               src={AASCLOGO}
-              width={150}
-              className="bg-white p-3"
+              width={100}
+              className="bg-white p-2"
               alt="AASC Logo"
             />
           </Link>
@@ -198,21 +198,21 @@ const Navbar = () => {
               >
                 {item.dropdown ? (
                   // For dropdown items, not a Link, just div with onMouseEnter/Leave etc.
-                  <div className="relative text-gray-800 text-[15px] py-4 px-3 cursor-pointer hover:bg-purple/10 flex items-center gap-1 group">
+                  <div className="relative text-white text-[15px] py-4 px-3 cursor-pointer hover:bg-white/10 flex items-center gap-1 group">
                     <span>{item.label}</span>
                     <ChevronDown className="w-4 h-4" />
                     {/* Center animated underline */}
-                    <span className="absolute left-1/2 bottom-1 h-[4px] w-0 bg-purple/80 -translate-x-1/2 group-hover:w-4/5 transition-all duration-300 ease-out" />
+                    <span className="absolute left-1/2 bottom-1 h-[2px] w-0 bg-white/80 -translate-x-1/2 group-hover:w-4/5 transition-all duration-300 ease-out" />
                   </div>
                 ) : (
                   // For non-dropdown items, use Link
                   <Link
                     to={item.path}
-                    className="relative text-gray-800 text-[15px] py-4 px-3 cursor-pointer hover:bg-purple/10 flex items-center gap-1 group"
+                    className="relative text-white text-[15px] py-4 px-3 cursor-pointer hover:bg-white/10 flex items-center gap-1 group"
                   >
                     <span>{item.label}</span>
                     {/* Center animated underline */}
-                    <span className="absolute left-1/2 bottom-1 h-[4px] w-0 bg-purple/80 -translate-x-1/2 group-hover:w-4/5 transition-all duration-300 ease-out" />
+                    <span className="absolute left-1/2 bottom-1 h-[2px] w-0 bg-white/80 -translate-x-1/2 group-hover:w-4/5 transition-all duration-300 ease-out" />
                   </Link>
                 )}
 
@@ -243,7 +243,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <img src={AchariyaLOGO} width={85} alt="Achariya Logo" />
+          <img src={AchariyaLOGO} width={65} alt="Achariya Logo" />
         </nav>
       </div>
 
@@ -251,7 +251,7 @@ const Navbar = () => {
       <div className="md:hidden sticky top-0 z-[100] bg-purple flex items-center justify-between p-3 shadow-md">
         <img
           src={AASCLOGO}
-          width={120}
+          width={80}
           className="bg-white p-2"
           alt="AASC Logo"
         />
