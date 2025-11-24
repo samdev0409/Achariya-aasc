@@ -149,27 +149,28 @@ const Navbar = () => {
     },
 
     {
-      label: "IQAC",
+      label: "IQAC & NIRF",
       path: "/iqac",
       dropdown: [
-        { label: "NAAC", path: "/iqac/learning-outcomes" },
+         { label: "NIRF", path: "/national-institutional-ranking-ramework" },
+        { label: "NAAC", path: "/iqac/naac" },
         { label: "Circulars", path: "/iqac/circulars" },
-        { label: "Contact Us", path: "/iqac/contact-us" },
-        { label: "About IQAC", path: "/iqac/about-iqac-2" },
+        // { label: "Contact Us", path: "/iqac/contact-us" },
+        { label: "About IQAC", path: "/iqac/about-iqac" },
       ],
     },
 
     {
-      label: "NIRF",
-      path: "/main-nirf",
+      label: "Committees",
+      path: "/committees",
       dropdown: null,
     },
 
-    {
-      label: "Quick Links",
-      path: "/quick-links",
-      dropdown: [{ label: "Downloads", path: "/quick-links/downloads" }],
-    },
+    // {
+    //   label: "Quick Links",
+    //   path: "/quick-links",
+    //   dropdown: [{ label: "Downloads", path: "/quick-links/downloads" }],
+    // },
   ];
 
   // const capitalizeLabel = (text) =>

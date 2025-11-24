@@ -8,9 +8,11 @@ import { Head } from "react-day-picker";
 import HeadingUnderline from "@/components/HeadingUnderline";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import FacultyProfile from "@/components/FacultyProfile";
-import TrainingAndPlacementsFacultyData from "@/data/TrainingAndPlacementsData.js";
+import TrainingAndPlacementsData from "@/data/TrainingAndPlacementsData.js";
 
 const TrainingAndPlacementsCell = () => {
+  const { TrainingAndPlacementsFacultyData, activities } =
+    TrainingAndPlacementsData;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -154,72 +156,14 @@ const TrainingAndPlacementsCell = () => {
               </div>
 
               <ul className="space-y-3">
-                <li className="flex gap-3">
-                  <div className="w-5 h-5 flex items-start justify-center pt-1">
-                    <GraduationCap className="w-4 h-4 text-purple-700" />
-                  </div>
-                  <span>
-                    Training and Placement Cell offers Career Development
-                    Program for the students who are raring to enter the
-                    corporate world and introduce them to the prospective
-                    employers according to their aspirations and academic
-                    background.
-                  </span>
-                </li>
-
-                <li className="flex gap-3">
-                  <div className="w-5 h-5 flex items-start justify-center pt-1">
-                    <GraduationCap className="w-4 h-4 text-purple-700" />
-                  </div>
-                  <span>
-                    The Training programs have been formulated after having a
-                    wide discussion with various industrial and academic expert
-                    to suit the need of the industry and students.
-                  </span>
-                </li>
-
-                <li className="flex gap-3">
-                  <div className="w-5 h-5 flex items-start justify-center pt-1">
-                    <GraduationCap className="w-4 h-4 text-purple-700" />
-                  </div>
-                  <span>
-                    Inspires the students to participate in co-curricular and
-                    extra-curricular activities which will make them confidence
-                    and develop their personality.
-                  </span>
-                </li>
-
-                <li className="flex gap-3">
-                  <div className="w-5 h-5 flex items-start justify-center pt-1">
-                    <GraduationCap className="w-4 h-4 text-purple-700" />
-                  </div>
-                  <span>
-                    Encourages the students to participate in various
-                    competition conducted by major academic institutions and
-                    corporate houses.
-                  </span>
-                </li>
-
-                <li className="flex gap-3">
-                  <div className="w-5 h-5 flex items-start justify-center pt-1">
-                    <GraduationCap className="w-4 h-4 text-purple-700" />
-                  </div>
-                  <span>
-                    Arranges guest lectures by eminent personalities from
-                    industry and entrepreneurs to keep the students abreast of
-                    the latest happenings.
-                  </span>
-                </li>
-
-                <li className="flex gap-3">
-                  <div className="w-5 h-5 flex items-start justify-center pt-1">
-                    <GraduationCap className="w-4 h-4 text-purple-700" />
-                  </div>
-                  <span>
-                    It always aims to bridge the gap between industry and
-                    academia.
-                  </span>
-                </li>
+                {activities.map((item) => (
+                  <li key={item.id} className="flex gap-3">
+                    <div className="w-5 h-5 flex items-start justify-center pt-1">
+                      <GraduationCap className="w-4 h-4 text-purple-700" />
+                    </div>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
               </ul>
 
               {/* <div>

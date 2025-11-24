@@ -1,13 +1,14 @@
+
 import React from 'react'
 import campus from '@/assets/images/aasc_building.webp';
 import BannerAndBreadCrumb from '@/components/BannerAndBreadCrumb';
 
-const Cafeteria = () => {
+const NAAC = () => {
   return (
     <div>
-        <BannerAndBreadCrumb img={campus} title='Cafeteria'/>
+        <BannerAndBreadCrumb img={campus} title='NAAC'/>
     </div>
   )
 }
 
-export default Cafeteria
+export default NAAC;

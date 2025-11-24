@@ -32,6 +32,22 @@ import TopHeaderBar from "./components/common/Header/TopHeadBar";
 import ScrollToTop from "./components/ScrollTop";
 import UpcomingEvents from "./pages/upcomming-events/UpcommingEvents";
 import Circular from "./pages/circlulars/Circulars";
+import NIRF from "./pages/IQAC/NIRF/NIRF";
+import AcademicCalendar from "./pages/academics/AcademicCalendar";
+import Prospectus from "./pages/academics/Prospectus";
+import Cafeteria from "./pages/facilities/cafeteria/Cafeteria";
+import Hostel from "./pages/facilities/hostel/Hostel";
+import ICTFacilites from "./pages/facilities/ICT/ICTFacilites";
+import Infrasctructe from "./pages/facilities/infrastructure/Infrasctructe";
+import Laboratories from "./pages/facilities/labs/Laboratories";
+import Transports from "./pages/facilities/transports/Transports";
+import Cultural from "./pages/campus-life/Cultural";
+import DepartmentsClubs from "./pages/campus-life/DepartmentClubs";
+import NAAC from "./pages/IQAC/NAAC";
+import CirclularsIQAC from "./pages/IQAC/CirclularsIQAC";
+import AboutNaac from "./pages/IQAC/AboutIQAC";
+import AboutIQAC from "./pages/IQAC/AboutIQAC";
+import Committees from "./pages/committies/Committies";
 
 const queryClient = new QueryClient();
 
@@ -41,14 +57,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop /> 
+        <ScrollToTop />
         <div className="md:block hidden">
           <TopHeaderBar />
         </div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-
           {/* Abou US Pages Routes */}
           <Route
             path="/about/profile-of-the-college"
@@ -68,8 +83,7 @@ const App = () => (
           />
           <Route path="/about/press-releases" element={<PressReleases />} />
           <Route path="/about/media-talks" element={<MediaTalks />} />
-
-          {/* Academic Pages Routes */}
+          {/* Academic Pages START*/}
           <Route
             path="/academics/departments/"
             element={<AcademicDepartments />}
@@ -90,12 +104,29 @@ const App = () => (
             path="/academics/pg-programs/:programType"
             element={<PGPrograms />}
           />
-
-          {/* FACILITIES Pages */}
-
+          <Route
+            path="/academics/academic-calendar"
+            element={<AcademicCalendar />}
+          />
+          <Route path="/academics/prospectus" element={<Prospectus />} />
+          {/* Academic Pages END*/}
+          {/* FACILITIES Pages START*/}
           <Route path="/facilities/library/" element={<Library />} />
-
-          {/* Placements Pages */}
+          <Route path="/facilities/cafeteria" element={<Cafeteria />} />
+          <Route path="/facilities/hostel-facilities" element={<Hostel />} />
+          <Route path="/facilities/ict-facilities" element={<ICTFacilites />} />
+          <Route path="/facilities/sports" element={<Sports />} />
+          <Route
+            path="/facilities/infrastructure"
+            element={<Infrasctructe />}
+          />
+          <Route path="/facilities/laboratories" element={<Laboratories />} />
+          <Route
+            path="/facilities/transport-facilities"
+            element={<Transports />}
+          />
+          {/* FACILITIES Pages END*/}
+          {/* Placements Pages START*/}
           <Route
             path="/placements/training-and-placement-cell"
             element={<TrainingAndPlacementsCell />}
@@ -105,25 +136,43 @@ const App = () => (
             path="/placements/key-collaborators-recruiters"
             element={<KeyCollaboratorsRecruiters />}
           />
-
-          {/* Campus Life pages */}
+          {/* Placements Pages END*/}
+          {/* Campus Life pages START*/}
           <Route
             path="/campus-life/value-added-courses"
             element={<ValueAddedCourses />}
           />
           <Route path="/campus-life/seed" element={<SEED />} />
           <Route path="/campus-life/sports" element={<Sports />} />
-          <Route path="/campus-life/sports" element={<Sports />} />
-          <Route path="/campus-life/sports" element={<Sports />} />
+          <Route path="/campus-life/cultural" element={<Cultural />} />
+          <Route
+            path="/campus-life/department-clubs"
+            element={<DepartmentsClubs />}
+          />
+          {/* Campus Life pages END*/}
+          {/* IQAC & NIRF Pages START */}
+          <Route
+            path="/national-institutional-ranking-ramework"
+            element={<NIRF />}
+          />
+          <Route path="/iqac/naac" element={<NAAC />} />
+          <Route path="/iqac/circulars" element={<CirclularsIQAC />} />
+          <Route path="/iqac/about-iqac" element={<AboutIQAC />} />
+          {/* IQAC & NIRF Pages END */}
+
+          {/* Committies pages START*/}
+          <Route path="/committees/:slug" element={<Committees />} />
+          <Route path="/cells/:slug" element={<Committees />} />
+          <Route path="/clubs/:slug" element={<Committees />} />
+          <Route path="/committees" element={<Committees />} />{" "}
+          {/* Committies pages END*/}
 
           {/* 404 error */}
           <Route path="*" element={<NotFound />} />
-
           <Route path="/gallery" element={<MainGallery />} />
           <Route path="/gallery/:eventId" element={<MainGallery />} />
-
-          <Route path="/upcomming-events" element={<UpcomingEvents/>}/>
-          <Route path="/circulars" element={<Circular/>}/>
+          <Route path="/upcomming-events" element={<UpcomingEvents />} />
+          <Route path="/circulars" element={<Circular />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -5,7 +5,7 @@ import BannerAndBreadCrumb from '@/components/BannerAndBreadCrumb';
 const Infrasctructe = () => {
   return (
     <div>
-        <BannerAndBreadCrumb img={campus} title='Academic Calendar'/>
+        <BannerAndBreadCrumb img={campus} title='Infrastructure'/>
     </div>
   )
 }
