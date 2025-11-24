@@ -1,4 +1,4 @@
-import sampledoc from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250108.PDF";
+import sampledoc from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250108.pdf";
 
 // =========================
 // SIDEBAR MENU STRUCTURE
