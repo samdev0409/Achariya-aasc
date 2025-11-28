@@ -258,7 +258,7 @@ export const governingBodyCouncil = {
   members: [
     {
       id: 1,
-      name: "Dr. Vimal Anand .S",
+      name: "Dr. R. Ushadevi",
       designation: "Principal",
       email: "aaschead@achariya.org",
     },

@@ -43,7 +43,7 @@ export const governingBodyMembersData = [
   {
     id: 5,
     image: placeholderImg,
-    name: "Dr. S. Vimal Anand",
+    name: "Dr. R. Ushadevi",
     department:
       "Principal, Achariya Arts and Science College, Villianur, Puducherry – 605110.",
     designation: "Member / Secretary",

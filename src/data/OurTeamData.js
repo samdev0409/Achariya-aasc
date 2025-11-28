@@ -2,7 +2,7 @@ const ourTeamData = {
   faculty: [
     // PRINCIPAL
     {
-      name: "Dr. Vimal Anand S",
+      name: "Dr. R. Ushadevi",
       designation: "Principal",
       email: "aaschead@achariya.org",
       department: "Principal",
