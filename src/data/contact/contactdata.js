@@ -11,7 +11,7 @@ export const socialLinks = {
 
   youtube: {
     label: "YouTube",
-    path: "https://youtube.com/@achariyaartsandscienceco-ri2tv",
+    path: "https://www.youtube.com/@ACHARIYA.ArtsandScience",
   },
 };
 
