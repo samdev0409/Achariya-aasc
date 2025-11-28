@@ -1,115 +1,83 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import galleryEvents from "@/data/galleryEvents.js";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { galleryData } from "@/data/gallery/gallerydata.js";
+import ImagePopup from "@/components/reusable/ImagePopup";
 
 const GallerySection = () => {
-  const { eventId } = useParams();
-  const event = eventId
-    ? galleryEvents.find((e) => e.id === eventId)
-    : galleryEvents[0];
+  const { slug } = useParams();
 
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const categories = Object.keys(galleryData);
+  const activeSlug = slug || categories[0];
 
-  if (!event) {
+  const images = galleryData[activeSlug] || [];
+
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [zoom, setZoom] = useState(1);
+
+  const openPopup = (index) => {
+    setSelectedIndex(index);
+    setZoom(1);
+  };
+
+  const closePopup = () => {
+    setSelectedIndex(null);
+    setZoom(1);
+  };
+
+  const nextImage = () => {
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+    setZoom(1);
+  };
+
+  const prevImage = () => {
+    setSelectedIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    setZoom(1);
+  };
+
+  if (!images.length) {
     return (
-      <div className="flex-1 text-center text-gray-400 py-20">
-        No gallery found.
+      <div className="flex-1 p-6 text-center text-gray-500">
+        No images available for this category.
       </div>
     );
   }
 
-  // Handle next/previous navigation
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === event.images.length - 1 ? 0 : prev + 1
-    );
-    setSelectedImage(event.images[(currentIndex + 1) % event.images.length]);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? event.images.length - 1 : prev - 1
-    );
-    setSelectedImage(
-      event.images[
-        (currentIndex - 1 + event.images.length) % event.images.length
-      ]
-    );
-  };
-
-  // Keyboard navigation (Esc, Arrow keys)
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (!selectedImage) return;
-      if (e.key === "ArrowRight") handleNext();
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "Escape") setSelectedImage(null);
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [selectedImage, currentIndex]);
-
   return (
-    <div className="flex-1 p-6 border-r border-gray-400">
-      <h1 className="text-2xl font-bold text-purple-800">{event.title}</h1>
-      <p className="text-gray-600 mt-2 mb-6">{event.description}</p>
+    <div className="flex-1 p-6">
+      <h1 className="text-2xl font-bold text-purple capitalize">
+        {activeSlug.replace(/([A-Z])/g, " $1")}
+      </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {event.images.map((img, i) => (
+      {/* Masonry Grid */}
+      <div className="mt-6 columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+        {images.map((img, index) => (
           <div
-            key={i}
-            className="rounded-lg overflow-hidden shadow hover:scale-105 transition cursor-pointer"
-            onClick={() => {
-              setSelectedImage(img);
-              setCurrentIndex(i);
-            }}
+            key={index}
+            className="relative overflow-hidden rounded-lg cursor-pointer group"
+            onClick={() => openPopup(index)}
           >
             <img
-              src={img}
-              alt={`${event.title} ${i + 1}`}
-              className="w-full h-52 object-cover"
+              src={img.image}
+              alt={img.imgTitle}
+              className="w-full mb-4 rounded-lg transition-transform duration-300 group-hover:scale-105"
             />
+
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-40 text-white text-sm p-2 opacity-0 group-hover:opacity-100 transition">
+              {img.imgTitle}
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Fullscreen Image Viewer */}
-      {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-          {/* Close Button */}
-          <button
-            className="absolute top-4 right-4 text-white hover:text-gray-400"
-            onClick={() => setSelectedImage(null)}
-          >
-            <X size={28} />
-          </button>
-
-          {/* Prev Button */}
-          <button
-            className="absolute left-4 text-white hover:text-gray-400"
-            onClick={handlePrev}
-          >
-            <ChevronLeft size={40} />
-          </button>
-
-          {/* Image */}
-          <img
-            src={selectedImage}
-            alt="fullscreen"
-            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-lg"
-          />
-
-          {/* Next Button */}
-          <button
-            className="absolute right-4 text-white hover:text-gray-400"
-            onClick={handleNext}
-          >
-            <ChevronRight size={40} />
-          </button>
-        </div>
-      )}
+      {/* Popup Component */}
+      <ImagePopup
+        images={images}
+        selectedIndex={selectedIndex}
+        onClose={closePopup}
+        onNext={nextImage}
+        onPrev={prevImage}
+        zoom={zoom}
+      />
     </div>
   );
 };

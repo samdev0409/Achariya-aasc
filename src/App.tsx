@@ -3,10 +3,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { galleryData } from "@/data/gallery/gallerydata.js";
 import Home from "./pages/home/Home";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/common/Header/Navbar";
-import MainGallery from "./pages/gallery/MainGallery";
+import MainGallery from "./pages/Events/Events";
 import Footer from "./components/common/Footer";
 import "./App.css";
 import ProfileOfCollege from "./pages/about/ProfileOfCollege";
@@ -48,6 +49,10 @@ import CirclularsIQAC from "./pages/IQAC/CirclularsIQAC";
 import AboutNaac from "./pages/IQAC/AboutIQAC";
 import AboutIQAC from "./pages/IQAC/AboutIQAC";
 import Committees from "./pages/committies/Committies";
+import Events from "./pages/Events/Events";
+import Gallery from "./pages/gallery/Gallery";
+import FloatingPwrdBadge2 from "./components/test/Test2";
+import FloatingPwrdBadge from "./components/test/Test";
 
 const queryClient = new QueryClient();
 
@@ -143,6 +148,11 @@ const App = () => (
             element={<ValueAddedCourses />}
           />
           <Route path="/campus-life/seed" element={<SEED />} />
+          <Route path="/campus-life/events" element={<Events />} />
+          <Route
+            path="/campus-life/events/:eventId"
+            element={<MainGallery />}
+          />
           <Route path="/campus-life/sports" element={<Sports />} />
           <Route path="/campus-life/cultural" element={<Cultural />} />
           <Route
@@ -159,22 +169,31 @@ const App = () => (
           <Route path="/iqac/circulars" element={<CirclularsIQAC />} />
           <Route path="/iqac/about-iqac" element={<AboutIQAC />} />
           {/* IQAC & NIRF Pages END */}
-
           {/* Committies pages START*/}
           <Route path="/committees/:slug" element={<Committees />} />
           <Route path="/cells/:slug" element={<Committees />} />
           <Route path="/clubs/:slug" element={<Committees />} />
           <Route path="/committees" element={<Committees />} />{" "}
           {/* Committies pages END*/}
-
+          {/* Gallery Pages START */}
+          <Route
+            path="/gallery"
+            element={
+              <Navigate to={`/gallery/${Object.keys(galleryData)[0]}`} />
+            }
+          />
+          <Route path="/gallery/:slug" element={<Gallery />} />
+          {/* Gallery Pages END */}
           {/* 404 error */}
           <Route path="*" element={<NotFound />} />
-          <Route path="/gallery" element={<MainGallery />} />
-          <Route path="/gallery/:eventId" element={<MainGallery />} />
           <Route path="/upcomming-events" element={<UpcomingEvents />} />
           <Route path="/circulars" element={<Circular />} />
         </Routes>
         <Footer />
+
+        {/*test badge*/}
+        <FloatingPwrdBadge2/>
+        {/* <FloatingPwrdBadge/> */}
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

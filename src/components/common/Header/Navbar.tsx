@@ -4,6 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import TopHeaderBar from "./TopHeadBar";
 import AASCLOGO from "@/assets/images/common/AASC-Logo.webp";
 import AchariyaLOGO from "@/assets/images/common/achariya-logo-300x300.webp";
+import Heading from "../../reusable/Heading";
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -132,6 +133,7 @@ const Navbar = () => {
       path: "/campus-life",
       dropdown: [
         { label: "SEED", path: "/campus-life/seed" },
+        { label: "Events", path: "/campus-life/events" },
         {
           label: "Value-Added Courses",
           path: "/campus-life/value-added-courses",
@@ -144,7 +146,7 @@ const Navbar = () => {
 
     {
       label: "Gallery",
-      path: "/gallery",
+      path: "/gallery/",
       dropdown: null,
     },
 
@@ -152,7 +154,7 @@ const Navbar = () => {
       label: "IQAC & NIRF",
       path: "/iqac",
       dropdown: [
-         { label: "NIRF", path: "/national-institutional-ranking-ramework" },
+        { label: "NIRF", path: "/national-institutional-ranking-ramework" },
         { label: "NAAC", path: "/iqac/naac" },
         { label: "Circulars", path: "/iqac/circulars" },
         // { label: "Contact Us", path: "/iqac/contact-us" },
@@ -277,7 +279,7 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold text-purple">MENU</h3>
+          <Heading title="MENU" size="sm" align="left" className="text-lg" />
           <button className="text-purple" onClick={() => setMobileOpen(false)}>
             <X size={26} />
           </button>

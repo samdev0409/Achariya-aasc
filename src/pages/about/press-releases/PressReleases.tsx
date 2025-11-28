@@ -7,14 +7,14 @@ import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 
 const PressReleases = () => {
-  const years = Object.keys(pressReleases).sort((a, b) => b - a);
+  const years = Object.keys(pressReleases).sort((a:any, b:any) => b - a);
   const [activeYear, setActiveYear] = useState(years[0]);
 
   return (
     <>
       <BannerAndBreadCrumb title="Press Releases" img={campus} />
 
-      <section className="mx-auto container">
+      <section className="mx-auto">
         <div className="flex">
           <PressReleasesSidebar
             years={years}

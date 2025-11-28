@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, Mail } from "lucide-react";
+import Heading from "./reusable/Heading";
 
 const FacultyProfile = ({
   image,
@@ -25,14 +26,25 @@ const FacultyProfile = ({
 
         {/* MIDDLE — NAME + DEPARTMENT + DESIGNATION */}
         <div className="flex flex-col justify-center text-center md:text-left border-b md:border-b-0 md:border-r border-gray-300 p-6">
-          <h2 className="text-xl font-semibold tracking-wide">{name}</h2>
-          <p className="text-sm text-gray-600 mt-1">{department}</p>
-          <p className="text-sm text-gray-700 mt-2">{designation}</p>
+          <Heading
+            title={name}
+            size="sm"
+            align="left"
+            className="tracking-wide font-semibold"
+          />
+          { department && (
+          <p className="text-sm text-gray-600 ">{department}</p>)}
+          <p className="text-sm text-gray-700 mt-1">{designation}</p>
         </div>
 
         {/* RIGHT — CONTACT DETAILS */}
         <div className="flex flex-col justify-center p-6 space-y-2">
-          <h2 className="text-xl font-semibold tracking-wide">Contact</h2>
+          <Heading
+            title="Contact"
+            size="sm"
+            align="left"
+            className="tracking-wide font-semibold"
+          />
 
           {/* Phone */}
           <p className="flex items-center gap-2 text-gray-700 text-sm">

@@ -2,15 +2,15 @@ import React from "react";
 import campus from "@/assets/images/aasc_building.webp";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import { CircularPreviewData } from "@/data/CircularPreviewData.js";
-import HeadingUnderline from "@/components/HeadingUnderline";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
 const Circular = () => {
   // Sort by latest date
-const sortedCirculars = [...CircularPreviewData].sort((a, b) => {
-  const dateA = new Date(a.date || 0).getTime();
-  const dateB = new Date(b.date || 0).getTime();
-  return dateB - dateA; // latest first
-});
+  const sortedCirculars = [...CircularPreviewData].sort((a, b) => {
+    const dateA = new Date(a.date || 0).getTime();
+    const dateB = new Date(b.date || 0).getTime();
+    return dateB - dateA; // latest first
+  });
 
   return (
     <>
@@ -53,7 +53,8 @@ const sortedCirculars = [...CircularPreviewData].sort((a, b) => {
                 {/* Posted By + File */}
                 <div className="flex items-center justify-between mt-4">
                   <p className="text-sm text-gray-600 italic">
-                    Posted by: <span className="font-medium">{item.postedBy}</span>
+                    Posted by:{" "}
+                    <span className="font-medium">{item.postedBy}</span>
                   </p>
 
                   <a

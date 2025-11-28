@@ -1,21 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import HeadingUnderline from "./HeadingUnderline";
+import HeadingUnderline from "./reusable/HeadingUnderline";
+import Heading from "./reusable/Heading";
 
-const videosRaw = [
-  // provided iframe embed (kept as embed src)
-  "https://www.youtube.com/embed/DCS3cdSSXdM",
-  // short youtu.be link -> normalized to embed id
-  "https://youtu.be/si-MknERvy4",
-  // provided iframe embed
-  "https://www.youtube.com/embed/jrtTtCIVOCw",
-  // provided iframe embed (kept as embed src)
-  "https://www.youtube.com/embed/DCS3cdSSXdM",
-  // short youtu.be link -> normalized to embed id
-  "https://youtu.be/si-MknERvy4",
-  // provided iframe embed
-  "https://www.youtube.com/embed/jrtTtCIVOCw",
-];
+interface TestimonialsProps {
+  title: string;
+  videos: string[];
+}
 
 const normalizeToEmbed = (url: string) => {
   // handle youtu.be short links and full youtube watch URLs
@@ -39,7 +30,10 @@ const normalizeToEmbed = (url: string) => {
   return url;
 };
 
-const Testimonials: React.FC = () => {
+const Testimonials: React.FC<TestimonialsProps> = ({
+  title,
+  videos: videosRaw,
+}) => {
   const videos = useMemo(() => videosRaw.map((v) => normalizeToEmbed(v)), []);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -47,16 +41,23 @@ const Testimonials: React.FC = () => {
 
   // fixed item size (you asked constant width/height)
   // We'll adapt itemWidth based on itemsPerPage so layout stays consistent
-  const itemWidth = 360; // px
+  const [itemWidth, setItemWidth] = useState(360);
   const itemHeight = 202; // px (approx 16:9 scaled)
 
-  // responsive items per page
+  // responsive items per page and item width
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      if (w < 640) setItemsPerPage(1); // mobile
-      else if (w < 1024) setItemsPerPage(2); // tablet
-      else setItemsPerPage(3); // desktop
+      if (w < 640) {
+        setItemsPerPage(1);
+        setItemWidth(w - 48); // Full width minus padding
+      } else if (w < 1024) {
+        setItemsPerPage(2);
+        setItemWidth(360);
+      } else {
+        setItemsPerPage(3);
+        setItemWidth(360);
+      }
     };
     update();
     window.addEventListener("resize", update);
@@ -91,10 +92,10 @@ const Testimonials: React.FC = () => {
   return (
     <div className="w-full container">
       <div className="container mx-auto px-4">
-          <div>
-        <h2 className="text-3xl font-bold text-center text-purple">Testimonials</h2>
-        <HeadingUnderline width={200} align="center" />
-      </div>
+        <div>
+          <Heading title={title} size="lg" align="center" />
+          <HeadingUnderline width={200} align="center" />
+        </div>
         <div className="relative">
           {/* Left Arrow */}
           {/* <button
@@ -116,46 +117,46 @@ const Testimonials: React.FC = () => {
             <ChevronRight className="w-6 h-6 text-purple" />
           </button> */}
 
-            <div className="w-full flex justify-center">
-          {/* Visible viewport */}
-          <div
-            className="overflow-hidden"
-            style={{
-              width: itemsPerPage * (itemWidth + 16) - 16, // account for gaps
-            }}
-            ref={containerRef}
-          >
-            {/* Sliding track */}
+          <div className="w-full flex justify-center">
+            {/* Visible viewport */}
             <div
-              className="flex items-start gap-4 transition-transform duration-500 ease-in-out"
+              className="overflow-hidden"
               style={{
-                transform: `translateX(${translateX}px)`,
+                width: itemsPerPage * (itemWidth + 16) - 16, // account for gaps
               }}
+              ref={containerRef}
             >
-              {/* Render videos, duplicate sequence to allow smoother wrap if desired */}
-              {videos.map((src, idx) => (
-                <div
-                  key={idx}
-                  className="flex-shrink-0 rounded-lg overflow-hidden shadow-md bg-black"
-                  style={{
-                    width: itemWidth,
-                    height: itemHeight,
-                  }}
-                >
-                  <iframe
-                    title={`video-${idx}`}
-                    src={`${src}?rel=0&modestbranding=1`}
-                    width={itemWidth}
-                    height={itemHeight}
-                    frameBorder={0}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-              ))}
+              {/* Sliding track */}
+              <div
+                className="flex items-start gap-4 transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(${translateX}px)`,
+                }}
+              >
+                {/* Render videos, duplicate sequence to allow smoother wrap if desired */}
+                {videos.map((src, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-shrink-0 rounded-lg overflow-hidden shadow-md bg-black"
+                    style={{
+                      width: itemWidth,
+                      height: itemHeight,
+                    }}
+                  >
+                    <iframe
+                      title={`video-${idx}`}
+                      src={`${src}?rel=0&modestbranding=1`}
+                      width={itemWidth}
+                      height={itemHeight}
+                      frameBorder={0}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
           </div>
         </div>
 

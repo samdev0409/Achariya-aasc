@@ -9,7 +9,7 @@ const OurTeam = () => {
     <>
       <BannerAndBreadCrumb title="Our Team" img={campus} />
 
-      <div className="container min-h-screen flex flex-col md:flex-row bg-gray-50">
+      <div className=" min-h-screen flex flex-col md:flex-row bg-gray-50">
         <OurTeamSidebar />
         <OurTeamFacultySection />
       </div>

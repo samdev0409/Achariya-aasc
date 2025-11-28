@@ -12,12 +12,12 @@ const AcademicDepartments = () => {
   const activeDepartment =
     activeDept === "all"
       ? "all"
-      : AcademicDepartmentsData.find((dept) => dept.id === activeDept);
+      : AcademicDepartmentsData.find((dept:any) => dept.id === activeDept);
 
   return (
     <>
       <BannerAndBreadCrumb title="Departments" img={campus} />
-      <section className="mx-auto container">
+      <section className="mx-auto ">
         <div className="flex flex-col md:flex-row">
           <AcademicDepartmentsSidebar
             departments={AcademicDepartmentsData}

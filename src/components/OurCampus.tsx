@@ -1,131 +1,47 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Play, X } from "lucide-react";
-import campus from "@/assets/images/aasc_building.png";
-import { Head } from "react-day-picker";
-import HeadingUnderline from "./HeadingUnderline";
+import { motion } from "framer-motion";
+import { Play } from "lucide-react";
+import HeadingUnderline from "./reusable/HeadingUnderline";
+import VideoPopup from "./reusable/VideoPopup";
+import Heading from "./reusable/Heading";
 
-const OurCampus: React.FC = () => {
+const OurCampus = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <section className="bg-background ">
-      <div className="flex flex-col md:flex-row gap-10">
-        {/* 🎥 Video Section */}
-        <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
-          {/* Placeholder thumbnail */}
-          <img
-            src={campus}
-            alt="Our Campus"
-            className="w-full h-full object-cover"
-          />
-
-          {/* Animated Play Button */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              className="absolute rounded-full border-4 border-white/40 w-20 h-20"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [1, 0.4, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            <motion.button
-              onClick={() => setIsOpen(true)}
-              className="relative bg-white/90 rounded-full p-4 shadow-md hover:scale-110 transition-transform"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Play className="w-8 h-8 text-purple-700" />
-            </motion.button>
-          </div>
+    <section className="bg-background px-4 md:px-0">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+        {/* {mobile screen heading} */}
+        <div className="md:hidden block">
+          <Heading title={data.title} size="lg" align="left" />
+          <HeadingUnderline width={150} align="left" />
         </div>
 
-        {/* 🏫 Content Section */}
-        <div className="md:w-1/2 text-center md:text-left space-y-4">
-          <div>
-            <h2 className="text-3xl font-bold text-purple">Our Campus</h2>
+        {/* Thumbnail + Play (THIS MUST TRIGGER POPUP) */}
+        <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
+          <VideoPopup thumbnail={data.image} videoUrl={data.videoUrl} />
+        </div>
+
+        {/* Text */}
+        <div className="md:w-1/2 text-center md:text-left">
+          {/* {large screen heading} */}
+          <div className="md:block hidden">
+            <Heading title={data.title} size="lg" align="left" />
             <HeadingUnderline width={150} align="left" />
           </div>
-
-          <p className=" leading-relaxed">
-            Achariya Arts and Science College, Puducherry, is one of the premier
-            institutions under the Achariya Group of Educational Institutions.
-            Established with a vision to provide holistic education and empower
-            students with academic excellence, values, and skills, Achariya
-            offers a wide range of undergraduate and postgraduate programs in
-            arts, science, and commerce. The college fosters innovation,
-            discipline, and leadership among its students.
-          </p>
-          <p className=" leading-relaxed">
-            Achariya Arts and Science College, Puducherry, is one of the premier
-            institutions under the Achariya Group of Educational Institutions.
-            Established with a vision to provide holistic education and empower
-            students with academic excellence, values, and skills, Achariya
-            offers a wide range of undergraduate and postgraduate programs in
-            arts, science, and commerce. The college fosters innovation,
-            discipline, and leadership among its students.
-          </p>
-          <div>
-            <a href="#contact" className="red-btn">
-              For Admissions
-            </a>
+          <div className="mb-7">
+            {data.paragraphs.map((p, i) => (
+              <p key={i} className="leading-relaxed mb-3">
+                {p}
+              </p>
+            ))}
           </div>
+
+          <a href="#contact" className="red-btn">
+            For Admissions
+          </a>
         </div>
       </div>
-
-      {/* 🎬 Fullscreen Video Popup */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black/95 flex items-center justify-center z-[1000]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)} // Close when clicking outside
-          >
-            <motion.div
-              className="w-full max-w-4xl aspect-video relative"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              onClick={(e) => e.stopPropagation()} // Prevent outside close
-            >
-              {/* CLOSE BUTTON */}
-              <button
-                onClick={() => setIsOpen(false)}
-                className="absolute -top-12 right-0 text-white hover:text-purple-400 transition"
-              >
-                <X className="w-8 h-8" />
-              </button>
-
-              {/* LOADING OVERLAY */}
-              {isLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 rounded-lg z-10">
-                  <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <p className="text-white mt-3">Loading video...</p>
-                </div>
-              )}
-
-              {/* VIMEO VIDEO */}
-              <iframe
-                className="w-full h-full rounded-lg"
-                title="vimeo-player"
-                src="https://player.vimeo.com/video/996960549?h=83a2493a4d&autoplay=1"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                allowFullScreen
-                onLoad={() => setIsLoading(false)} // Hide loader when ready
-              ></iframe>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };

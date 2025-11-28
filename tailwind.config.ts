@@ -15,6 +15,7 @@ export default {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        "xxl": "1441px",
       },
     },
     extend: {

@@ -19,7 +19,7 @@ import img18 from "@/assets/images/events/481274782_1182352047234175_50146317335
 import img19 from "@/assets/images/events/481972505_1179815054154541_1564668636187110153_n-300x168.jpg";
 import img20 from "@/assets/images/events/481156343_1179813107488069_5565408897738541370_n-300x225.jpg";
 
-const galleryEvents = [
+const eventsData = [
   {
     id: "capacity-building-workshop",
     title: "Capacity Building Workshop - PACS",
@@ -162,4 +162,4 @@ const galleryEvents = [
   },
 ];
 
-export default galleryEvents;
+export default eventsData;

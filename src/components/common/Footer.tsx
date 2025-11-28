@@ -1,12 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+  Globe,
+} from "lucide-react";
 import AASCLogo from "@/assets/images/common/AASC-Logo.png";
+import { socialLinks, contactInfo } from "@/data/contact/contactdata.js";
+import { Link } from "react-router-dom";
+import Heading from "../reusable/Heading";
 
 const Footer = () => {
   return (
     <footer className="px-10 mt-10 bg-purple text-white relative border-t border-purple">
-      {/* Pattern BG */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -16,46 +26,37 @@ const Footer = () => {
       ></div>
 
       <div className="relative z-10 container-lg py-10 grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
-        {/* Logo */}
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <img
-            src={AASCLogo}
-            width={150}
-            alt="AASC Logo"
-            className="mx-auto md:mx-0 bg-white p-4"
-          />
-
-          <h3 className="text-lg font-semibold text-white">Visitors</h3>
-          <div className="flex space-x-1 bg-black/40 p-2 rounded">
-            {"0123456".split("").map((num, i) => (
-              <span
-                key={i}
-                className="px-2 py-1 bg-black/70 text-green-300 font-mono text-sm rounded"
-              >
-                {num}
-              </span>
-            ))}
-          </div>
-        </div>
-
         {/* About */}
-        <div>
-          <h3 className="text-xl font-semibold text-white mb-2">About Us</h3>
-          <p className="text-sm text-gray-100 leading-relaxed">
+        <div className="">
+          <Heading
+            title="About Us"
+            size="sm"
+            align="left"
+            className="text-white mb-2 font-semibold"
+          />
+          <Link to="/">
+            <img
+              src={AASCLogo}
+              width={150}
+              className="bg-white mx-auto md:mx-0 p-2 my-3"
+              alt="AASC Logo"
+            />
+          </Link>
+          <p className=" text-gray-100 leading-relaxed">
             Achariya Arts and Science College, Puducherry provides a holistic
             education with focus on excellence, innovation, discipline and
-            leadership—offering a wide range of UG & PG programs. Achariya Arts
-            and Science College, Puducherry provides a holistic education with
-            focus on excellence, innovation, discipline .
+            leadership—offering a wide range of UG & PG programs.
           </p>
         </div>
-
         {/* Important Links */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-2">
-            Important Links
-          </h3>
-          <ul className="space-y-1 text-sm text-gray-100">
+          <Heading
+            title="Quick Links"
+            size="sm"
+            align="left"
+            className="text-white mb-2 font-semibold"
+          />
+          <ul className="space-y-1  text-gray-100">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -65,56 +66,152 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/about/principal-desk">Principal Desk</Link>
+              <Link to="/academics/ug-programs">UG Programme</Link>
+            </li>
+            <li>
+              <Link to="/academics/pg-programs">PG Programme</Link>
             </li>
             <li>
               <Link to="/about/chief-mentors-desk">Chief Mentor's Desk</Link>
             </li>
             <li>
-              <Link to="/about/media-talks">Media Talks</Link>
+              <Link to="/about/principal-desk">Principal Desk</Link>
+            </li>
+            <li>
+              <Link to="/circulars">Circulars</Link>
+            </li>
+            <li>
+              <Link to="/campus-life/events">Events</Link>
             </li>
             <li>
               <Link to="/about/press-releases">Press Releases</Link>
             </li>
           </ul>
         </div>
-
-        {/* Academic + Others */}
+        {/* Contact Details */}
         <div>
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-2">
-              Contact Details
-            </h3>
-            <ul className="space-y-1 text-sm text-gray-100">
-              <li>info@achariya.ac.in</li>
-              <li>https://www.achariya.ac.in</li>
-              <li>
-                Achariya Arts and Science College, <br />
-                Villianur, Puducherry – 605110
-              </li>
-              <li>+91 413 2615596 / 2615597</li>
-            </ul>
-            <div className="flex gap-3 mt-3">
+          <Heading
+            title="Contact Details"
+            size="sm"
+            align="left"
+            className="text-white mb-2 font-semibold"
+          />
+          <ul className="space-y-3">
+            {/* Phone */}
+            <li className="flex md:justify-start justify-center items-start gap-3">
+              <Phone className="w-5 h-5 mt-1" />
+              <div className="space-y-1">
+                {contactInfo.phone.map((item, i) => (
+                  <div key={i}>{item.value}</div>
+                ))}
+              </div>
+            </li>
+            {/* Email */}
+            <li className="flex md:justify-start justify-center items-start gap-3">
+              <Mail className="w-5 h-5 mt-1" />
+              <div className="space-y-1">
+                {contactInfo.email.map((item, i) => (
+                  <div key={i}>{item.value}</div>
+                ))}
+              </div>
+            </li>
+
+            {/* Website */}
+            {/* <li className="flex items-start gap-3">
+              <Globe className="w-5 h-5 mt-1" />
+              <div className="space-y-1">
+                {contactInfo.website.map((item, i) => (
+                  <a
+                    key={i}
+                    href={item.value}
+                    target="_blank"
+                    className="hover:underline"
+                  >
+                    {item.value}
+                  </a>
+                ))}
+              </div>
+            </li> */}
+
+            {/* Address */}
+            <li className="flex items-start gap-3">
+              <MapPin className="w-11 h-11 mt-1" />
+              <div className="space-y-1">
+                {contactInfo.address.map((item, i) => (
+                  <div key={i}>{item.value}</div>
+                ))}
+              </div>
+            </li>
+          </ul>
+          {/* Social Icons */}
+          <Heading
+            title="Follow us"
+            size="sm"
+            align="left"
+            className="text-white py-2 pt-4 font-semibold text-lg"
+          />
+          <div className="flex justify-center md:justify-start gap-3">
+            {socialLinks.facebook && (
               <a
-                href="#"
-                className="bg-red-600 p-2 rounded-full hover:scale-105 transition"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+                href={socialLinks.facebook.path}
+                target="_blank"
                 className="bg-blue-600 p-2 rounded-full hover:scale-105 transition"
               >
                 <Facebook className="w-5 h-5" />
               </a>
+            )}
+
+            {socialLinks.instagram && (
               <a
-                href="#"
+                href={socialLinks.instagram.path}
+                target="_blank"
                 className="bg-pink-600 p-2 rounded-full hover:scale-105 transition"
               >
                 <Instagram className="w-5 h-5" />
               </a>
-            </div>
+            )}
+
+            {socialLinks.youtube && (
+              <a
+                href={socialLinks.youtube.path}
+                target="_blank"
+                className="bg-red-600 p-2 rounded-full hover:scale-105 transition"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+            )}
+
+            {socialLinks.linkedin && (
+              <a
+                href={socialLinks.linkedin.path}
+                target="_blank"
+                className="bg-blue-700 p-2 rounded-full hover:scale-105 transition"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            )}
+
+            {socialLinks.twitter && (
+              <a
+                href={socialLinks.twitter.path}
+                target="_blank"
+                className="bg-sky-500 p-2 rounded-full hover:scale-105 transition"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+            )}
           </div>
+        </div>
+
+        {/* Map */}
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.0429352919946!2d79.75171117458889!3d11.902098837423953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536013d5bd3895%3A0xd0824e4201b08665!2sAchariya%20Arts%20and%20Science%20college!5e0!3m2!1sen!2sin!4v1764060961171!5m2!1sen!2sin"
+            className="w-full h-full md:h-full rounded-lg border-0"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
 

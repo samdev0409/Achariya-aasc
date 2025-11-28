@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Play, X } from "lucide-react";
 import campus from "@/assets/images/aasc_building.png";
 import { Head } from "react-day-picker";
-import HeadingUnderline from "@/components/HeadingUnderline";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import FacultyProfile from "@/components/FacultyProfile";
 import TrainingAndPlacementsData from "@/data/TrainingAndPlacementsData.js";
+import { homeData } from "@/data/home/allhomedata";
+import Heading from "@/components/reusable/Heading";
 
 const TrainingAndPlacementsCell = () => {
   const { TrainingAndPlacementsFacultyData, activities } =
@@ -63,9 +65,11 @@ const TrainingAndPlacementsCell = () => {
             {/* 🏫 Content Section */}
             <div className="md:w-1/2 text-center md:text-left space-y-4">
               <div>
-                <h2 className="text-3xl font-bold text-purple">
-                  Training and placements Cell
-                </h2>
+                <Heading
+                  title="Training and placements Cell"
+                  size="lg"
+                  align="left"
+                />
                 <HeadingUnderline width={150} align="left" />
               </div>
 
@@ -149,9 +153,11 @@ const TrainingAndPlacementsCell = () => {
             {/* 🏫 Content Section */}
             <div className="md:w-1/2 text-center md:text-left space-y-4">
               <div>
-                <h2 className="text-3xl font-bold text-purple">
-                  Training and placements Cell - Activities
-                </h2>
+                <Heading
+                  title="Training and placements Cell - Activities"
+                  size="lg"
+                  align="left"
+                />
                 <HeadingUnderline width={150} align="left" />
               </div>
 
@@ -185,9 +191,7 @@ const TrainingAndPlacementsCell = () => {
 
         <section className="py-10">
           <div>
-            <h2 className="text-3xl text-center font-bold text-purple">
-              Faculty
-            </h2>
+            <Heading title="Faculty" size="lg" align="center" />
             <HeadingUnderline width={150} align="center" />
           </div>
           {TrainingAndPlacementsFacultyData.map((faculty, index) => (
@@ -205,7 +209,10 @@ const TrainingAndPlacementsCell = () => {
 
         <section>
           <div className="py-10">
-            <OurRecruiters />
+            <OurRecruiters
+              title={homeData.recruiters.title}
+              logos={homeData.recruiters.logos}
+            />
           </div>
         </section>
       </div>

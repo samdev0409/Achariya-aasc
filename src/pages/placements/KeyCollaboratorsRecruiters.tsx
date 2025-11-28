@@ -1,10 +1,11 @@
 import React from "react";
 import { FileText } from "lucide-react";
-import HeadingUnderline from "@/components/HeadingUnderline";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import { placementRecords } from "@/data/PlacementRecords.js";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 import OurRecruiters from "@/components/OurRecruiters";
+import homeData from "@/data/home/allhomedata";
 
 const KeyCollaboratorsRecruiters = () => {
   return (
@@ -12,7 +13,10 @@ const KeyCollaboratorsRecruiters = () => {
       <BannerAndBreadCrumb img={campus} title="Key Collaborators Recruiters" />
       <section className="bg-background py-10 ">
         <div className="container mx-auto px-4">
-          <OurRecruiters />
+          <OurRecruiters
+            title={homeData.recruiters.title}
+            logos={homeData.recruiters.logos}
+          />
         </div>
       </section>
     </>

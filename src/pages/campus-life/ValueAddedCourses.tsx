@@ -1,7 +1,7 @@
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import React from "react";
 import campus from "@/assets/images/aasc_building.webp";
-import HeadingUnderline from "@/components/HeadingUnderline";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import FacultyProfile from "@/components/FacultyProfile";
 import addoncourseddata from "@/data/ValueAddedCoursesData.js";
 import { Phone, Mail } from "lucide-react";
@@ -162,10 +162,8 @@ const ValueAddedCourses = () => {
         </section>
 
         <section className="py-10">
-           <div>
-            <h2 className="text-3xl font-bold text-center">
-              For More Enquiry
-            </h2>
+          <div>
+            <h2 className="text-3xl font-bold text-center">For More Enquiry</h2>
             <HeadingUnderline width={150} align="center" />
           </div>
           {AdditionalCoursesDataGeneralIncharge.map((fac, index) => (

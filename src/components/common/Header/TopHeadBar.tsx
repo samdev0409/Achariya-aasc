@@ -40,7 +40,7 @@ const TopHeaderBar = () => {
 
           {/* Badge 3 - ISO */}
           <div className="bg-red px-2 h-8 flex items-center justify-center">
-            <a href='#contact' className="text-white text-xs font-bold">For Admissions</a>
+            <a href='/#contact' className="text-white text-xs font-bold">For Admissions</a>
           </div>
 
                    {/* Badge 4 - AISHE */}

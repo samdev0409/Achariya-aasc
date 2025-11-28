@@ -1,14 +1,18 @@
 import React from "react";
 import { GraduationCap, FileText, Mail } from "lucide-react";
-import HeadingUnderline from "@/components/HeadingUnderline";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
+import Heading from "@/components/reusable/Heading";
 
 const CommitteeSection = ({ slug, committeeData }) => {
   if (!committeeData) {
     return (
-      <div className="flex-1 p-6 border-r border-gray-400">
-        <h1 className="text-xl font-semibold text-red-600">
-          Committee Not Found
-        </h1>
+      <div className="flex-1 md:p-6 p-4 border-r border-gray-400">
+        <Heading
+          title="Committee Not Found"
+          size="sm"
+          align="left"
+          className="text-red-600 font-semibold"
+        />
         <p className="text-gray-600">Please choose a valid committee.</p>
       </div>
     );
@@ -24,29 +28,32 @@ const CommitteeSection = ({ slug, committeeData }) => {
   return (
     <div className="flex-1 px-6 border-r border-gray-400">
       {/* ===== TOP JUMP MENU ===== */}
-      <div className="flex  items-center border-b border-t border-gray-300 py-3 mb-6 sticky top-0 bg-white z-10">
-        <a
-          href="#objectives"
-          className="px-4 py-2 border-r border-gray-200 hover:underline"
-        >
-          Objectives
-        </a>
+      <div className=" mb-6 py-4  sticky md:sticky-none md:top-auto md:text-left text-center top-[130px] bg-white z-[100] md:z-0">
+        <Heading title={title} size="md" align="left" />
+        <div className="flex items-center border-b  border-gray-300 py-3">
+          <a
+            href="#objectives"
+            className="px-4 py-2 border-r border-gray-200 hover:underline"
+          >
+            Objectives
+          </a>
 
-        <a
-          href="#members"
-          className="px-4 py-2 border-r border-gray-200 hover:underline"
-        >
-          Members
-        </a>
+          <a
+            href="#members"
+            className="px-4 py-2 border-r border-gray-200 hover:underline"
+          >
+            Members
+          </a>
 
-        <a href="#circulars" className="px-4 py-2 hover:underline">
-          Circulars
-        </a>
+          <a href="#circulars" className="px-4 py-2 hover:underline">
+            Circulars
+          </a>
+        </div>
       </div>
 
       {/* OBJECTIVES */}
       <section id="objectives" className="mb-12">
-        <h2 className="text-2xl font-bold">{title} — Objectives</h2>
+        <Heading title="Objectives" size="md" align="left" />
         <HeadingUnderline width={150} align="left" />
 
         {objectives.length > 0 ? (
@@ -65,7 +72,7 @@ const CommitteeSection = ({ slug, committeeData }) => {
 
       {/* MEMBERS */}
       <section id="members" className="mb-12">
-        <h2 className="text-2xl font-bold">Members</h2>
+        <Heading title="Members" size="md" align="left" />
         <HeadingUnderline width={120} align="left" />
 
         {members.length > 0 ? (
@@ -88,13 +95,23 @@ const CommitteeSection = ({ slug, committeeData }) => {
 
                 {/* MIDDLE */}
                 <div className="flex flex-col justify-center p-6 border-b md:border-b-0 md:border-r border-gray-300 text-center md:text-left">
-                  <h3 className="text-xl font-semibold">{m.name}</h3>
+                  <Heading
+                    title={m.name}
+                    size="sm"
+                    align="left"
+                    className="font-semibold"
+                  />
                   <p className="text-sm text-gray-700 mt-2">{m.designation}</p>
                 </div>
 
                 {/* RIGHT */}
                 <div className="flex flex-col justify-center p-6">
-                  <h3 className="text-xl font-semibold mb-2">Contact</h3>
+                  <Heading
+                    title="Contact"
+                    size="sm"
+                    align="left"
+                    className="mb-2 font-semibold"
+                  />
                   <p className="flex gap-2 items-center text-sm text-gray-700 break-all">
                     <Mail size={17} className="flex-shrink-0" />
                     <a
@@ -115,7 +132,7 @@ const CommitteeSection = ({ slug, committeeData }) => {
 
       {/* CIRCULARS */}
       <section id="circulars">
-        <h2 className="text-2xl font-bold">Circulars</h2>
+        <Heading title="Circulars" size="md" align="left" />
         <HeadingUnderline width={120} align="left" />
         {circulars.length > 0 ? (
           <ul className="space-y-4">

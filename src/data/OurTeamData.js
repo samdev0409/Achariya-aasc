@@ -376,31 +376,37 @@ const ourTeamData = {
       name: "Mr. MATHIVANAN",
       designation: "Office Superintendent",
       email: "admin.aasc@achariya.org",
+      department: "",
     },
     {
       name: "Mr. JAYAMADHUMOHAN",
       designation: "Admin",
       email: "accadmin.aasc@achariya.org",
+      department: "",
     },
     {
       name: "Mr. THIRUKKUMARANN",
       designation: "Lab Instructor",
       email: "itsupport.aasc@achariya.org",
+      department: "",
     },
     {
       name: "Mrs. RAJI",
       designation: "Lab Instructor",
       email: "raja29685@gmail.com",
+      department: "",
     },
     {
       name: "Mr. S THAMIZH SELVAN",
       designation: "Supervisor",
       email: "custodiancustodian.aasc@achariya.org",
+      department: "",
     },
     {
       name: "Mrs. RAJAVALLI",
       designation: "DEO",
       email: "aascoffice@achariya.org",
+      department: "",
     },
   ],
 
@@ -409,11 +415,13 @@ const ourTeamData = {
       name: "Media Person 1",
       designation: "Media Staff",
       email: "placeholder1@achariya.org",
+      department: "",
     },
     {
       name: "Media Person 2",
       designation: "Media Staff",
       email: "placeholder2@achariya.org",
+      department: "",
     },
   ],
 };

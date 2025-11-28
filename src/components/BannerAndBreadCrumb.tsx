@@ -15,7 +15,7 @@ const BannerAndBreadCrumb = ({ title = "Page Title", img }) => {
     <section
       className="
         w-full 
-        h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px]
+        h-[300px] sm:h-[150px] md:h-[300px] lg:h-[300px] xl:h-[300px]
         relative flex items-center justify-center text-white
       "
       style={{
@@ -59,15 +59,19 @@ const BannerAndBreadCrumb = ({ title = "Page Title", img }) => {
       </div>
 
       {/* Title */}
-      <h1
-        className="
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
-          font-bold z-10 text-center drop-shadow-lg px-4
-        "
-        style={{color:"#fff"}}
-      >
-        {title}
-      </h1>
+    <h1
+  className="
+    text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl
+    font-bold z-10 text-center drop-shadow-lg px-4
+  "
+  style={{
+    color: "#fff",
+    textShadow: "0 0 10px rgba(0,0,0,0.6)"
+  }}
+>
+  {title}
+</h1>
+
     </section>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import NIRFlogo from "@/assets/images/NIRF/NIRF.jpg";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
-import campus from '@/assets/images/aasc_building.webp';
-import HeadingUnderline from "@/components/HeadingUnderline";
+import campus from "@/assets/images/aasc_building.webp";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import { nirfInfo, nirfdoc } from "@/data/nirfdata.js";
 import { GraduationCap, FileText, MoveRight } from "lucide-react";
 
@@ -43,29 +43,29 @@ const NIRF = () => {
                 </li>
               ))}
             </ul>
-<hr />
+            <hr />
             <div>
-                 <ul className="mt-5 space-y-3">
-          {nirfdoc.map((doc, index) => (
-            <li key={index} className="flex items-center gap-3">
-              <div className="w-7 h-7  flex items-center justify-center">
-                <FileText className="w-7 h-7 border rounded-full p-1 text-purple-700" />
-              </div>
+              <ul className="mt-5 space-y-3">
+                {nirfdoc.map((doc, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div className="w-7 h-7  flex items-center justify-center">
+                      <FileText className="w-7 h-7 border rounded-full p-1 text-purple-700" />
+                    </div>
 
-              <a
-                href={doc.doc}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 underline"
-              >
-                {doc.label}
-              </a>
-               <div className="w-5 h-5 flex items-center justify-center">
-                <MoveRight className="w-5 h-5 p-1 text-purple-700" />
-              </div>
-            </li>
-          ))}
-        </ul>
+                    <a
+                      href={doc.doc}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 underline"
+                    >
+                      {doc.label}
+                    </a>
+                    <div className="w-5 h-5 flex items-center justify-center">
+                      <MoveRight className="w-5 h-5 p-1 text-purple-700" />
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

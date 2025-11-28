@@ -4,6 +4,7 @@ import Achariyalogo from "@/assets/images/common/achariya-logo-300x300.jpg";
 import { Facebook, Instagram, Youtube, ExternalLink } from "lucide-react";
 import campus from "@/assets/images/aasc_building.webp";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
+import Heading from "@/components/reusable/Heading";
 
 const socialMediaLinks = [
   {
@@ -56,12 +57,12 @@ const MediaTalks = () => {
                 width={250}
                 alt="AASC Logo"
               />
-              <h1
-                className="text-3xl md:text-4xl font-bold text-purple mb-4"
-                style={{ textTransform: "capitalize" }}
-              >
-                Connect With Us
-              </h1>
+              <Heading
+                title="Connect With Us"
+                size="lg"
+                align="center"
+                className="mb-4 capitalize"
+              />
               <p className="text-base leading-relaxed max-w-3xl mx-auto px-4">
                 Stay connected with Achariya Arts and Science College through
                 our social media channels. Get the latest updates on events,
@@ -92,13 +93,20 @@ const MediaTalks = () => {
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl font-semibold text-gray-800 mb-2 flex items-center justify-center gap-2">
-                        {social.label}
-                        <ExternalLink
-                          size={16}
-                          className="opacity-0 group-hover:opacity-100 transition-opacity"
-                        />
-                      </h3>
+                      <Heading
+                        title={
+                          <span className="flex items-center justify-center gap-2">
+                            {social.label}
+                            <ExternalLink
+                              size={16}
+                              className="opacity-0 group-hover:opacity-100 transition-opacity"
+                            />
+                          </span>
+                        }
+                        size="sm"
+                        align="center"
+                        className="text-gray-800 mb-2 font-semibold"
+                      />
 
                       {/* Description */}
                       <p className="text-sm text-gray-600 mb-4">
@@ -117,9 +125,12 @@ const MediaTalks = () => {
           {/* Additional Info Section */}
           <section className="py-8 bg-gray-50 mt-6">
             <div className="text-center max-w-4xl mx-auto px-4">
-              <h2 className="text-2xl font-bold text-purple mb-4">
-                Stay Updated
-              </h2>
+              <Heading
+                title="Stay Updated"
+                size="md"
+                align="center"
+                className="mb-4"
+              />
               <p className="text-gray-700 leading-relaxed">
                 Join thousands of students, alumni, and education enthusiasts
                 who follow us on social media. Be the first to know about

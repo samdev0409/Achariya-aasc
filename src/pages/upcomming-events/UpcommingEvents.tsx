@@ -1,7 +1,7 @@
 import React from "react";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
-import HeadingUnderline from "@/components/HeadingUnderline";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import { UpcommingEventsPreviewData } from "@/data/UpcommingEventsPreviewData.js";
 
 const UpcomingEvents = () => {
@@ -18,7 +18,6 @@ const UpcomingEvents = () => {
 
       <section className="container bg-background py-10">
         <div className="container mx-auto px-4">
-          
           {/* Title */}
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-purple">Upcoming Events</h2>
@@ -80,7 +79,6 @@ const UpcomingEvents = () => {
               </div>
             ))}
           </div>
-
         </div>
       </section>
     </>

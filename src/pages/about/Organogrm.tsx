@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
+import Heading from "@/components/reusable/Heading";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
 const boxBase =
   "bg-white p-4 border border-gray-300 shadow-sm text-center text-[15px] tracking-wide";
@@ -24,9 +26,13 @@ const Organogram = () => {
       <BannerAndBreadCrumb title="Organogram" img={campus} />
 
       <section className="bg-background container py-10 relative">
-        <h2 className="text-3xl font-semibold text-purple text-center mb-14">
-          Organogram
-        </h2>
+        <Heading
+          title="Organogram"
+          size="lg"
+          align="center"
+          className="font-semibold"
+        />
+        <HeadingUnderline width={150} align="center" />
 
         {/* -------------------- TOP SECTION -------------------- */}
         <div className="flex flex-col items-center relative">
@@ -57,7 +63,7 @@ const Organogram = () => {
             {/* HOD (Left Side) */}
             <div className="relative flex flex-col items-center">
               <div id="hod" className={`${boxBase} w-full`}>
-                <div className="flex items-center justify-center gap-2 text-purple mb-2">
+                <div className="flex items-center gap-2 text-purple mb-2">
                   <GraduationCap size={18} />
                   Heads of Departments
                 </div>
@@ -86,21 +92,22 @@ const Organogram = () => {
                 Students
               </div>
             </div>
-
-            {/* Examination Cell */}
-            <div className="flex flex-col items-center">
-              <div id="exam" className={`${boxBase} w-full`}>
+            {/* Examination Column */}
+            <div className="grid grid-cols-3 gap-6 justify-items-center w-full">
+              <div id="exam" className={`${boxBase} w-full h-[130px]`}>
                 <FileSpreadsheet
                   className="text-purple mb-1 mx-auto"
                   size={18}
                 />
                 Examination Cell
               </div>
-              <div id="physical" className={`${boxBase} w-full`}>
+
+              <div id="physical" className={`${boxBase} w-full h-[130px]`}>
                 <Users className="text-purple mb-1 mx-auto" size={18} />
                 Director of Physical Education
               </div>
-              <div id="library" className={`${boxBase} w-full`}>
+
+              <div id="library" className={`${boxBase} w-full h-[130px]`}>
                 <Library className="text-purple mb-1 mx-auto" size={18} />
                 Library
               </div>
@@ -143,48 +150,59 @@ const Organogram = () => {
           showHead={false}
           color="gray"
           strokeWidth={2}
-          path="smooth"
+          path="straight"
         />
 
         {/* Principal → five main boxes */}
         <Xarrow
           start="principal"
           end="hod"
+          startAnchor="left"
+          endAnchor="top"
           showHead={false}
           color="gray"
-          path="smooth"
+          path="grid"
           strokeWidth={2}
         />
         <Xarrow
           start="principal"
           end="exam"
+          startAnchor="bottom"
+          endAnchor="top"
           showHead={false}
           color="gray"
-          path="smooth"
           strokeWidth={2}
+          path="smooth"
         />
         <Xarrow
           start="principal"
           end="physical"
+          startAnchor="bottom"
+          endAnchor="top"
           showHead={false}
           color="gray"
-          path="smooth"
           strokeWidth={2}
+          path="straight"
         />
         <Xarrow
           start="principal"
           end="library"
+          startAnchor="bottom"
+          endAnchor="top"
           showHead={false}
           color="gray"
-          path="smooth"
           strokeWidth={2}
+          path="smooth"
         />
+
         <Xarrow
           start="principal"
           end="tpo"
+          startAnchor="right"
+          endAnchor="top"
           showHead={false}
           color="gray"
-          path="smooth"
+          path="grid"
           strokeWidth={2}
         />
 
@@ -211,7 +229,7 @@ const Organogram = () => {
           showHead={false}
           color="gray"
           strokeWidth={2}
-          path="smooth"
+          path="straight"
         />
 
         {/* TPO → HR → 4 items */}
@@ -221,36 +239,13 @@ const Organogram = () => {
           showHead={false}
           color="gray"
           strokeWidth={2}
-          path="smooth"
+          path="straight"
         />
-        <Xarrow
-          start="hr"
-          end="transport"
-          showHead={false}
-          color="gray"
-          path="smooth"
-        />
-        <Xarrow
-          start="hr"
-          end="admin"
-          showHead={false}
-          color="gray"
-          path="smooth"
-        />
-        <Xarrow
-          start="hr"
-          end="maintenance"
-          showHead={false}
-          color="gray"
-          path="smooth"
-        />
-        <Xarrow
-          start="hr"
-          end="hostel"
-          showHead={false}
-          color="gray"
-          path="smooth"
-        />
+       <Xarrow start="hr" end="transport" showHead={false} color="gray" path="straight" />
+<Xarrow start="hr" end="admin" showHead={false} color="gray" path="straight" />
+<Xarrow start="hr" end="maintenance" showHead={false} color="gray" path="straight" />
+<Xarrow start="hr" end="hostel" showHead={false} color="gray" path="straight" />
+
 
         <hr className="mt-12" />
       </section>
