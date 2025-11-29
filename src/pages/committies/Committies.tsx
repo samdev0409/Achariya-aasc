@@ -6,19 +6,19 @@ import campus from "@/assets/images/aasc_building.webp";
 import CommitteesSidebar from "./CommittiesSidebar";
 import CommitteeSection from "./CommittiesSection";
 
-import { committeeDataMapper } from "@/data/committiesdata.js";
+import { committeeDataMapper } from "@/data/commitees/committiesdata.js";
 
 const Committees = () => {
   const { slug } = useParams();
 
-  const committeeData = committeeDataMapper[slug] || null;
+  const committeeData = committeeDataMapper[slug] || committeeDataMapper[0];
 
   return (
-    <div >
-     <div className="md:mt-0 mt-14">
+    <div>
+      <div className="md:mt-0 mt-14">
         <BannerAndBreadCrumb img={campus} title="Committees" />
       </div>
-      <div className=" min-h-screen flex flex-col md:flex-row  bg-gray-50">
+      <div className=" min-h-screen  2xl:container flex flex-col md:flex-row  bg-gray-50">
         <CommitteesSidebar />
         <CommitteeSection slug={slug} committeeData={committeeData} />
       </div>

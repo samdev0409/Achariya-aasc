@@ -1,3 +1,4 @@
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import ImagePopup from "@/components/reusable/ImagePopup";
 import React, { useState, useEffect } from "react";
 
@@ -39,12 +40,13 @@ const PressReleasesGallery = ({ images, year }) => {
 
   return (
     <div className="flex-1 p-6 border-r border-gray-400">
-      <h1 className="text-2xl font-bold text-purple-800 mb-6">
+      <h1 className="text-2xl font-bold text-purple text-center md:text-left ">
         {year} Press Releases
       </h1>
+      <HeadingUnderline width={150}/>
 
       {/* GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {formattedImages.map((img, index) => (
           <div
             key={index}

@@ -63,7 +63,7 @@ const Prospectus = () => {
     <div>
       <BannerAndBreadCrumb img={campus} title="Prospectus" />
 
-      <section className="bg-background container py-16">
+      <section className="bg-background md:container md:py-16 py-6 px-4">
         {/* Title */}
         <div className="text-center">
           <Heading title="Prospectus" size="lg" align="center" />
@@ -71,7 +71,7 @@ const Prospectus = () => {
         </div>
 
         {/* YEARS SELECTOR */}
-        <div className="max-w-3xl mx-auto mt-10 flex items-center justify-center gap-3">
+        <div className="max-w-3xl mx-auto mt-10 mb-4 flex items-center justify-center gap-3">
           {/* Prev arrow */}
           <button
             onClick={showPrev}

@@ -1,4 +1,5 @@
 import sampledoc from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250108.pdf";
+import placeholderimg from "@/assets/images/17122.webp";
 
 // =========================
 // SIDEBAR MENU STRUCTURE
@@ -161,54 +162,64 @@ export const academicCouncilCommittee = {
       name: "Dr. Janarthanan",
       designation: "Vice Principal",
       email: "janajien@gmail.com",
+      image: placeholderimg,
     },
     {
       id: 2,
       name: "Dr. Askar Ali. M",
       designation: "HOD/Language",
       email: "maskarali.aasc@achariya.org",
+      image: placeholderimg,
     },
     {
       id: 3,
       name: "Mrs Shanmugapriya.G",
       designation: "Assistant Professor",
       email: "shanupriya87@gmail.com",
+      image: placeholderimg,
     },
     {
       id: 4,
       name: "Mr. Murugadass",
       designation: "HOD/Computer Science",
       email: "dossmuruga690@gmail.com",
+      image: placeholderimg,
     },
     {
       id: 5,
       name: "Dr. Arulkumar.A",
       designation: "HOD/Biotechnology",
       email: "aruul3@gmail.com",
+      image: placeholderimg,
     },
     {
       id: 6,
       name: "Mr. Netra Prakash.B",
       designation: "HOD/BBA",
       email: "netraboy@gmail.com",
+      image: placeholderimg,
     },
     {
       id: 7,
       name: "Dr. Sadish Kadhane. D",
       designation: "HOD/Commerce",
       email: "sadish.sam@gmail.com",
+      image: placeholderimg,
     },
     {
       id: 8,
       name: "Mrs. Mangaiyarkarasi.S",
       designation: "HOD/Visual Communication",
       email: "indhuchinn@gmail.com",
+      image: placeholderimg,
     },
   ],
-  circulars: [{
-    title: "Academic Council Committee - 20 Nov 2025",
-    file: sampledoc
-  }],
+  circulars: [
+    {
+      title: "Academic Council Committee - 20 Nov 2025",
+      file: sampledoc,
+    },
+  ],
   objectives: [
     {
       id: 1,
@@ -261,6 +272,8 @@ export const governingBodyCouncil = {
       name: "Dr. R. Ushadevi",
       designation: "Principal",
       email: "aaschead@achariya.org",
+            image: placeholderimg,
+
     },
     {
       id: 2,

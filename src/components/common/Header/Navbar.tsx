@@ -270,7 +270,13 @@ const Navbar = () => {
           <Menu size={28} />
         </button>
       </div>
-
+      {/* Overlay for mobile menu */}
+      {mobileOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-[199]"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
       {/* MOBILE SIDEBAR */}
       <div
         id="mobileSidebar"
@@ -287,7 +293,8 @@ const Navbar = () => {
 
         <ul className="flex flex-col gap-1">
           {navItems.map((item, index) => (
-            <li key={index}>
+            
+            <Link to={item.path} key={index}><li >
               <div
                 className="flex justify-between items-center py-2 text-gray-800 font-medium"
                 onClick={() =>
@@ -298,16 +305,17 @@ const Navbar = () => {
                     : setMobileOpen(false)
                 }
               >
-                <Link to={item.path}>{item.label}</Link>
+                {item.label}
 
                 {item.dropdown && <ChevronDown />}
               </div>
+              
 
               {/* Mobile Submenu */}
               {item.dropdown && mobileSubmenu === item.label && (
                 <ul className="ml-4 border-l pl-3">
                   {item.dropdown.map((sub, i) => (
-                    <li key={i}>
+                    <Link to={sub.path}><li key={i}>
                       <div
                         className="flex justify-between py-2 text-gray-700"
                         onClick={() =>
@@ -320,7 +328,7 @@ const Navbar = () => {
                             : setMobileOpen(false)
                         }
                       >
-                        <Link to={sub.path}>{sub.label}</Link>
+                        {sub.label}
                         {sub.submenu && <ChevronDown size={16} />}
                       </div>
 
@@ -328,21 +336,25 @@ const Navbar = () => {
                       {sub.submenu && mobileSubSubmenu === sub.label && (
                         <ul className="ml-4 border-l pl-3 text-sm">
                           {sub.submenu.map((ss, j) => (
+                            <Link to={ss.path}>
                             <li
                               key={j}
                               className="py-1"
                               onClick={() => setMobileOpen(false)}
                             >
-                              <Link to={ss.path}>{ss.label}</Link>
+                              {ss.label}
                             </li>
+                            </Link>
                           ))}
                         </ul>
                       )}
                     </li>
+                    </Link>
                   ))}
                 </ul>
               )}
             </li>
+            </Link>
           ))}
         </ul>
       </div>

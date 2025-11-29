@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import galleryEvents from "@/data/eventsdata.js";
+import galleryEvents from "@/data/events/eventsdata.js";
 import ImagePopup from "@/components/reusable/ImagePopup";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
 const EventsSection = () => {
   const { eventId } = useParams();
@@ -41,8 +42,9 @@ const EventsSection = () => {
 
   return (
     <div className="flex-1 p-6">
-      <h1 className="text-2xl font-bold text-purple">{event.title}</h1>
-      <p className="text-gray-600 mt-2 mb-6">{event.description}</p>
+      <h1 className="text-2xl font-bold text-purple md:text-left text-center">{event.title}</h1>
+      <HeadingUnderline width={150} align="left" />
+      <p className="text-gray-600 mt-2 mb-6 md:text-left text-center">{event.description}</p>
 
       {/* Image grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

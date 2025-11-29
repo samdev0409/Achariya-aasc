@@ -2,7 +2,6 @@ import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import React from "react";
 import campus from "@/assets/images/aasc_building.webp";
 import { governingBodyMembersData } from "@/data/about/governingbodycouncildata.js";
-import { Phone, Mail } from "lucide-react";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import Heading from "@/components/reusable/Heading";
 
@@ -10,6 +9,7 @@ const GoverningBodyCouncil = () => {
   return (
     <div>
       <BannerAndBreadCrumb title="Governing Body Council" img={campus} />
+
       <div className="text-center py-10 ">
         <Heading
           title="Governing Body Council - Members"
@@ -18,15 +18,16 @@ const GoverningBodyCouncil = () => {
         />
         <HeadingUnderline width={200} align="center" />
       </div>
+
       <div className="container space-y-3">
         {governingBodyMembersData.map((member, index) => (
-          <div
+          <section
             key={index}
-            className="grid grid-cols-1 md:grid-cols-3  rounded-md overflow-hidden"
+            className="border-b border-gray-300 py-6 grid grid-cols-3 md:grid-cols-3 rounded-md overflow-hidden"
           >
-            {/* LEFT — IMAGE */}
-            <div className="flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-300 p-6">
-              <div className="w-40 h-40 rounded-full ring-1 ring-gray-300 overflow-hidden">
+            {/* IMAGE (1/3 mobile) */}
+            <div className="flex items-center justify-center col-span-1 md:border-r border-gray-300 px-4 pb-4 md:pb-0">
+              <div className="w-24 h-24 md:w-40 md:h-40 rounded-full ring-1 ring-gray-300 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -35,28 +36,30 @@ const GoverningBodyCouncil = () => {
               </div>
             </div>
 
-            {/* MIDDLE — INFO */}
-            <div className="flex flex-col justify-center text-center md:text-left border-b md:border-b-0 md:border-r border-gray-300 p-6">
-              <Heading
-                title={member.name}
-                size="sm"
-                align="left"
-                className="tracking-wide font-semibold"
-              />
-              <p className=" text-gray-600 mt-1">{member.department}</p>
+            {/* NAME + INFO (2/3 mobile) */}
+            <div className="flex flex-col justify-center text-left px-4 gap-1 col-span-2 md:col-span-1 md:border-r border-gray-300 pb-4 md:pb-0">
+              <h4 className="md:text-xl text-md font-semibold">
+                {member.name}
+              </h4>
+              <p className="text-sm text-gray-600">{member.department}</p>
+
+              {/* Designation visible only on md+ */}
+              <p className="text-sm text-gray-700 md:block hidden mt-1">
+                {member.designation}
+              </p>
             </div>
 
-            {/* RIGHT — CONTACT */}
-            <div className="flex flex-col justify-center p-6 space-y-2">
+            {/* RIGHT — DESIGNATION (md+ only) */}
+            <div className="hidden md:flex flex-col justify-center p-6">
               <Heading
                 title="Designation"
                 size="sm"
                 align="left"
-                className="tracking-wide font-semibold"
+                className="tracking-wide font-semibold mb-2"
               />
-              <p className=" text-gray-700 mt-2">{member.designation}</p>
+              <p className="text-gray-700">{member.designation}</p>
             </div>
-          </div>
+          </section>
         ))}
       </div>
     </div>

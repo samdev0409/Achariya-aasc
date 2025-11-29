@@ -25,8 +25,17 @@ const TrainingAndPlacementsCell = () => {
           title="Training And Placements Cell"
         />
       </section>
-      <div className="container py-10">
+      <div className="container md:py-10 py-3">
         <section className="bg-background py-10">
+          <div className="md:hidden block ">
+            <Heading
+              title="Training and placements Cell"
+              size="lg"
+              align="left"
+            />
+            <HeadingUnderline width={150} align="left" />
+          </div>
+
           <div className="flex flex-col md:flex-row gap-10">
             {/* 🎥 Video Section */}
             <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
@@ -64,7 +73,7 @@ const TrainingAndPlacementsCell = () => {
 
             {/* 🏫 Content Section */}
             <div className="md:w-1/2 text-center md:text-left space-y-4">
-              <div>
+              <div className="md:block hidden">
                 <Heading
                   title="Training and placements Cell"
                   size="lg"
@@ -151,7 +160,7 @@ const TrainingAndPlacementsCell = () => {
         <section className="bg-background py-10">
           <div className="flex flex-col md:flex-row gap-10">
             {/* 🏫 Content Section */}
-            <div className="md:w-1/2 text-center md:text-left space-y-4">
+            <div className="md:w-1/2 text-center md:text-left space-y-5">
               <div>
                 <Heading
                   title="Training and placements Cell - Activities"
@@ -160,10 +169,17 @@ const TrainingAndPlacementsCell = () => {
                 />
                 <HeadingUnderline width={150} align="left" />
               </div>
-
-              <ul className="space-y-3">
+              <div className="relative md:hidden  block  w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
+                {/* Placeholder thumbnail */}
+                <img
+                  src={campus}
+                  alt="Our Campus"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <ul className="space-y-3 ">
                 {activities.map((item) => (
-                  <li key={item.id} className="flex gap-3">
+                  <li key={item.id} className="flex gap-3 text-left">
                     <div className="w-5 h-5 flex items-start justify-center pt-1">
                       <GraduationCap className="w-4 h-4 text-purple-700" />
                     </div>
@@ -178,7 +194,7 @@ const TrainingAndPlacementsCell = () => {
                 </a>
               </div> */}
             </div>
-            <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
+            <div className="relative md:block hidden w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
               {/* Placeholder thumbnail */}
               <img
                 src={campus}

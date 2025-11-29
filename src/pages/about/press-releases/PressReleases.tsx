@@ -14,7 +14,7 @@ const PressReleases = () => {
     <>
       <BannerAndBreadCrumb title="Press Releases" img={campus} />
 
-      <section className="mx-auto">
+      <section className="mx-auto 2xl:container">
         <div className="flex">
           <PressReleasesSidebar
             years={years}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { galleryData } from "@/data/gallery/gallerydata.js";
 import ImagePopup from "@/components/reusable/ImagePopup";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
 const GallerySection = () => {
   const { slug } = useParams();
@@ -43,13 +44,14 @@ const GallerySection = () => {
   }
 
   return (
-    <div className="flex-1 p-6">
-      <h1 className="text-2xl font-bold text-purple capitalize">
+    <div className="flex-1 p-6 border-r  border-gray-300">
+      <h1 className="text-2xl font-bold text-purple text-center md:text-left capitalize">
         {activeSlug.replace(/([A-Z])/g, " $1")}
       </h1>
+      <HeadingUnderline width={150} align="left"/>
 
       {/* Masonry Grid */}
-      <div className="mt-6 columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+      <div className="mt-6 columns-2 sm:columns-2 md:columns-3 md:gap-4 md:space-y-4 gap-2 space-y-2">
         {images.map((img, index) => (
           <div
             key={index}

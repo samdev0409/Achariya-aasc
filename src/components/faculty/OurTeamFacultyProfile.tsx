@@ -12,11 +12,13 @@ const OurTeamFacultyProfile = ({
   email,
 }) => {
   return (
-    <section className="w-full mx-auto border border-gray-200">
-      <div className="grid grid-cols-1 md:grid-cols-3">
-        {/* LEFT — IMAGE */}
-        <div className="flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-300 p-6">
-          <div className="w-24 h-24 rounded-full ring-1 ring-gray-300 overflow-hidden">
+    <section className="w-full mx-auto border-b border-gray-300 py-6">
+      {/* GRID: small = 2 columns, md+ = 3 columns */}
+      <div className="grid grid-cols-3 md:grid-cols-3">
+
+        {/* LEFT — IMAGE (1/3 mobile) */}
+        <div className="flex items-center justify-center col-span-1 md:border-r border-gray-300 px-4 pb-4 md:pb-0">
+          <div className="w-20 h-20 md:w-32 md:h-32 rounded-full ring-1 ring-gray-300 overflow-hidden">
             <img
               src={image || placeholder}
               alt={name}
@@ -25,39 +27,18 @@ const OurTeamFacultyProfile = ({
           </div>
         </div>
 
-        {/* MIDDLE — NAME + DEPARTMENT + DESIGNATION */}
-        <div className="flex flex-col justify-center text-center md:text-left border-b md:border-b-0 md:border-r border-gray-300 p-6">
-          <Heading
-            title={name}
-            size="sm"
-            align="left"
-            className="tracking-wide font-semibold"
-          />
-{ department && (
-          <p className="text-sm text-gray-600 ">{department}</p>)}
-          <p className="text-sm text-gray-700 mt-1">{designation}</p>       
-             </div>
+        {/* MIDDLE — INFO (2/3 mobile) */}
+        <div className="flex flex-col justify-center text-left px-4 gap-1 col-span-2 md:col-span-1 md:border-r border-gray-300 pb-4 md:pb-0">
+          <h4 className="md:text-xl text-md font-semibold">{name}</h4>
 
-        {/* RIGHT — CONTACT DETAILS */}
-        <div className="flex flex-col justify-center p-6 space-y-1">
-          <Heading
-            title="Contact"
-            size="sm"
-            align="left"
-            className="tracking-wide font-semibold"
-          />
+          {department ? (
+            <p className="text-sm text-gray-600">{department}</p>
+          ) : (            <p className="text-sm text-gray-600 md:hidden block">{designation}</p>)}
 
-          {/* Phone */}
-          {/* <p className="flex items-center gap-2 text-gray-700 text-sm">
-            <Phone size={17} />
-            <a href={`tel:${phone}`} className="hover:text-black duration-200">
-              {phone}
-            </a>
-          </p> */}
+          <p className="text-sm text-gray-700 md:block hidden">{designation}</p>
 
-          {/* Email */}
-          <p className="flex items-center gap-2 text-gray-700 text-sm break-all">
-            <Mail size={17} />
+          {/* Email visible on mobile */}
+          <p className="flex items-start md:hidden text-[13px] text-gray-700 break-all">
             <a
               href={`mailto:${email}`}
               className="hover:text-black duration-200"
@@ -66,6 +47,27 @@ const OurTeamFacultyProfile = ({
             </a>
           </p>
         </div>
+
+        {/* RIGHT — CONTACT (hidden on mobile, visible on md+) */}
+        <div className="hidden md:flex flex-col justify-center px-4 gap-1">
+          <Heading
+            title="Contact"
+            size="sm"
+            align="left"
+            className="tracking-wide font-semibold"
+          />
+
+          <p className="flex items-center gap-2 text-gray-700 text-sm">
+            <Mail size={17} />
+            <a
+              href={`mailto:${email}`}
+              className="hover:text-black duration-200 break-all"
+            >
+              {email}
+            </a>
+          </p>
+        </div>
+
       </div>
     </section>
   );

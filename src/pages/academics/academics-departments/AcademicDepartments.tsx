@@ -1,34 +1,26 @@
-// AcademicDepartments.jsx
-import React, { useState } from "react";
-import AcademicDepartmentsData from "@/data/AcademicDepartmentsData.js";
-import AcademicDepartmentsSidebar from "./AcademicDepartmentsSidebar";
-import AcademicDepartmentsContent from "./AcademicDepartmentsContent";
+import React from "react";
+import { useParams } from "react-router-dom";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
+import AcademicDepartmentsSidebar from "./AcademicDepartmentsSidebar";
+import AcademicDepartmentsSection from "./AcademicDepartmentsSection";
+import { departmentDataMapper } from "@/data/academics/departmentsdata.js";
 
 const AcademicDepartments = () => {
-  const [activeDept, setActiveDept] = useState("all"); // Start with "all" view
-
-  const activeDepartment =
-    activeDept === "all"
-      ? "all"
-      : AcademicDepartmentsData.find((dept:any) => dept.id === activeDept);
+  const { slug } = useParams();
+  const departmentData = departmentDataMapper[slug] || null;
 
   return (
     <>
-      <BannerAndBreadCrumb title="Departments" img={campus} />
-      <section className="mx-auto ">
-        <div className="flex flex-col md:flex-row">
-          <AcademicDepartmentsSidebar
-            departments={AcademicDepartmentsData}
-            activeDept={activeDept}
-            setActiveDept={setActiveDept}
-          />
-
-          <AcademicDepartmentsContent
-            department={activeDepartment}
-            departments={AcademicDepartmentsData}
-            setActiveDept={setActiveDept}
+      <div className="md:mt-0 mt-14">
+        <BannerAndBreadCrumb title="Departments" img={campus} />
+      </div>
+      <section className="mx-auto 2xl:container">
+        <div className="min-h-screen flex flex-col md:flex-row bg-gray-50">
+          <AcademicDepartmentsSidebar />
+          <AcademicDepartmentsSection
+            slug={slug}
+            departmentData={departmentData}
           />
         </div>
       </section>

@@ -10,7 +10,7 @@ const Events = () => {
       <div className="md:mt-0 mt-14">
         <BannerAndBreadCrumb img={campus} title="Events" />
       </div>
-      <div className=" min-h-screen flex flex-col md:flex-row bg-gray-50">
+      <div className=" min-h-screen 2xl:container flex flex-col md:flex-row bg-gray-50">
         <EventsSidebar />
         <EventsSection />
       </div>

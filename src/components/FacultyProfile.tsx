@@ -11,11 +11,14 @@ const FacultyProfile = ({
   email,
 }) => {
   return (
-    <section className="w-full mx-auto ">
-      <div className="grid grid-cols-1 md:grid-cols-3">
-        {/* LEFT — IMAGE */}
-        <div className="flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-300 p-6">
-          <div className="w-40 h-40 rounded-full ring-1 ring-gray-300 overflow-hidden">
+    <section className="w-full mx-auto">
+
+      {/* GRID: small = 2 columns, md+ = 3 columns */}
+      <div className="grid grid-cols-3 md:grid-cols-3 border-b border-gray-300 py-6">
+
+        {/* LEFT — IMAGE (1/3 on mobile, 1/3 on md+) */}
+        <div className="flex items-center justify-center col-span-1 md:border-r border-gray-300 px-4 pb-4 md:pb-0">
+          <div className="w-20 h-20 md:w-40 md:h-40 rounded-full ring-1 ring-gray-300 overflow-hidden">
             <img
               src={image}
               alt={name}
@@ -24,21 +27,31 @@ const FacultyProfile = ({
           </div>
         </div>
 
-        {/* MIDDLE — NAME + DEPARTMENT + DESIGNATION */}
-        <div className="flex flex-col justify-center text-center md:text-left border-b md:border-b-0 md:border-r border-gray-300 p-6">
-          <Heading
-            title={name}
-            size="sm"
-            align="left"
-            className="tracking-wide font-semibold"
-          />
-          { department && (
-          <p className="text-sm text-gray-600 ">{department}</p>)}
-          <p className="text-sm text-gray-700 mt-1">{designation}</p>
+        {/* MIDDLE — NAME + DEPT + DESIGNATION + EMAIL (2/3 on mobile, middle column on md+) */}
+        <div className="flex flex-col justify-center text-left px-4 gap-1 col-span-2 md:col-span-1 md:border-r border-gray-300 pb-4 md:pb-0">
+
+          <h4 className="md:text-xl text-md font-semibold">{name}</h4>
+
+          {department && (
+            <p className="text-sm text-gray-600">{department}</p>
+          )}
+
+          <p className="text-sm text-gray-700 md:block hidden">{designation}</p>
+
+          {/* Email visible on small device only */}
+          <p className="flex items-start md:hidden gap-2 text-gray-700 text-[13px] break-all">
+            <a
+              href={`mailto:${email}`}
+              className="hover:text-black duration-200"
+            >
+              {email}
+            </a>
+          </p>
         </div>
 
-        {/* RIGHT — CONTACT DETAILS */}
-        <div className="flex flex-col justify-center p-6 space-y-2">
+        {/* RIGHT — CONTACT (hidden on mobile, visible on md+) */}
+        <div className="hidden md:flex flex-col justify-center px-4 gap-2">
+
           <Heading
             title="Contact"
             size="sm"

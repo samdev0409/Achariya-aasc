@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Search } from "lucide-react";
 import ugprogramsdatadetails from "@/data/ugprogramsdatadetails.js";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
 const UGProgramsSection = () => {
   const { programType } = useParams();
@@ -35,12 +36,13 @@ const UGProgramsSection = () => {
   }, [search, list]);
 
   return (
-    <div className="flex-1 p-6 border-r border-gray-400">
+    <div className="flex-1 md:p-6 p-2 py-6">
       {/* Header and Search */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-        <h1 className="text-2xl font-bold text-purple capitalize mb-4 md:mb-0">
+        <h1 className="text-2xl font-bold text-purple  mx-auto md:mx-0 capitalize ">
           {activeCategory === "existing" ? "Existing Programs" : "Proposed Programs"}
         </h1>
+        <HeadingUnderline width={150} align="left"/>
         
         <div className="relative w-full md:w-96">
           <input
@@ -63,17 +65,17 @@ const UGProgramsSection = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-purple text-white text-left">
-                <th className="py-3 px-4 border-r border-gray-400 w-12">S.No</th>
+                <th className="md:block hidden py-3 px-4 border-r border-gray-400">S.No</th>
                 <th className="py-3 px-4 border-r border-gray-400">Programme</th>
                 <th className="py-3 px-4 border-r border-gray-400">Degree</th>
                 <th className="py-3 px-4">Stream</th>
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className="text-[12px] md:text-[14px]">
               {filtered.map((item, index) => (
                 <tr key={item.id} className="border-b border-gray-300 hover:bg-gray-50">
-                  <td className="py-3 px-4 border-r border-gray-300 text-center">
+                  <td className="md:block hidden py-3 px-4 border-r border-gray-300 text-center">
                     {index + 1}
                   </td>
                   <td className="py-3 px-4 border-r border-gray-300">

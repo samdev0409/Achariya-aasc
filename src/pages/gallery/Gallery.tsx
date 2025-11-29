@@ -12,7 +12,7 @@ const Gallery = () => {
         <BannerAndBreadCrumb img={campus} title="Gallery" />
       </div>
 
-      <div className="xxl:container min-h-screen flex flex-col md:flex-row bg-gray-50">
+      <div className="2xl:container min-h-screen flex  flex-col md:flex-row bg-gray-50">
         <GallerySidebar />
         <GallerySection />
       </div>

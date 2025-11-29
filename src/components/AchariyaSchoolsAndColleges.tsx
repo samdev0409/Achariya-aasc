@@ -35,7 +35,7 @@ const RowScroller = ({ logos, direction = "ltr", speed }) => {
       <div
         className={`flex gap-10 items-center whitespace-nowrap 
           ${
-            direction === "rtl" ? "animate-marquee-rtl" : "animate-marquee-ltr"
+            direction === "rtl" ? "animate-marquee-rtl " : "animate-marquee-ltr"
           }`}
         style={{ animationDuration: speed }}
       >

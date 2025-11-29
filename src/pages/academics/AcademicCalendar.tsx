@@ -17,7 +17,7 @@ const AcademicCalendar = () => {
     <div>
       <BannerAndBreadCrumb img={campus} title="Academic Calendar" />
 
-      <section className="bg-background container py-16">
+      <section className="bg-background md:container md:py-16 py-6 ">
         {/* Title */}
         <div className="text-center space-y-2 ">
           <Heading title="Academic Calendar" size="lg" align="center" />

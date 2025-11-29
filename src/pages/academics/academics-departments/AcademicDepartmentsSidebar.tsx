@@ -1,32 +1,14 @@
 import React from "react";
 import GlobalSidebar from "@/components/sidebar/GlobalSidebar";
+import { departmentsSidebarMenu } from "@/data/academics/departmentsdata.js";
 
-const AcademicDepartmentsSidebar = ({
-  departments,
-  activeDept,
-  setActiveDept,
-}) => {
-  const menuItems = [
-    {
-      id: "all",
-      label: "All Departments",
-      onClick: () => setActiveDept("all"),
-      isActive: activeDept === "all",
-    },
-    ...departments.map((dept) => ({
-      id: dept.id,
-      label: dept.name,
-      onClick: () => setActiveDept(dept.id),
-      isActive: activeDept === dept.id,
-    })),
-  ];
-
+const AcademicDepartmentsSidebar = () => {
   return (
     <div>
       <GlobalSidebar
-        title="Academic Departments"
+        title="Departments"
         type="none"
-        menu={menuItems}
+        menu={departmentsSidebarMenu}
       />
     </div>
   );

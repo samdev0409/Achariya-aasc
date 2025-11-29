@@ -5,6 +5,7 @@ import campus from "@/assets/images/aasc_building.webp";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import { nirfInfo, nirfdoc } from "@/data/nirfdata.js";
 import { GraduationCap, FileText, MoveRight } from "lucide-react";
+import Heading from "@/components/reusable/Heading";
 
 const NIRF = () => {
   return (
@@ -27,15 +28,13 @@ const NIRF = () => {
           {/* Content Section */}
           <div className="md:w-1/2 text-center md:text-left space-y-4">
             <div>
-              <h2 className="text-3xl font-bold text-purple">
-                National Institutional Ranking Framework (NIRF)
-              </h2>
+              <Heading title="National Institutional Ranking Framework (NIRF)" size="lg" align="left" />
               <HeadingUnderline width={150} align="left" />
             </div>
 
             <ul className="space-y-3">
               {nirfInfo.map((item) => (
-                <li key={item.id} className="flex gap-3">
+                <li key={item.id} className="flex text-start gap-3">
                   <div className="w-5 h-5 flex items-start justify-center pt-1">
                     <GraduationCap className="w-4 h-4 text-purple-700" />
                   </div>

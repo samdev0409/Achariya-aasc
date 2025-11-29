@@ -3,25 +3,28 @@ import campus from "@/assets/images/aasc_building.webp";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import { seedData } from "@/data/campus-life/seeddata";
+import Heading from "@/components/reusable/Heading";
 
 const SEED = () => {
   return (
     <section className="bg-background">
       <BannerAndBreadCrumb img={campus} title="SEED" />
 
-      <div className="container mx-auto py-16">
+      <div className="container mx-auto md:py-16 py-10">
         {/* 🔹 Page Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-purple">
-            School for Entrepreneurial and Employability Skill Development
-          </h2>
+        <div className="text-center mb-3">
+          <Heading
+            title="School for Entrepreneurial and Employability Skill Development"
+            size="lg"
+            align="center"
+          />
           <div className="flex justify-center">
             <HeadingUnderline width={180} align="center" />
           </div>
         </div>
 
         {/* 🔹 Content Blocks */}
-        <div className="space-y-20">
+        <div className="md:space-y-20 space-y-10">
           {seedData.map((item, index) => (
             <div
               key={item.id}

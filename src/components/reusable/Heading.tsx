@@ -16,9 +16,9 @@ const Heading: React.FC<HeadingProps> = ({
   // Font size mapping for mobile + desktop
   const sizeMap = {
     sm: "text-xl md:text-xl",
-    md: "text-xl md:text-3xl",
-    lg: "text-2xl md:text-4xl",
-    xl: "text-3xl md:text-5xl",
+    md: "text-2xl md:text-2xl",
+    lg: "text-2xl md:text-3xl",
+    xl: "text-3xl md:text-4xl",
   };
 
   // Alignment (mobile always centered)
