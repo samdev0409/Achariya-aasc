@@ -14,7 +14,7 @@ import ugprogramsdatadetails from "@/data/academics/ugprogramsdatadetails.js";
 import pgprogramsdatadetails from "@/data/academics/pgprogrammsdetails.js";
 
 // ⭐ Add your Google Web App URL
-const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/a/macros/achariya.org/s/AKfycbz9DTFghmQHOH623OoTXnLwE9NLQ-dCF5dVa2Gt8ADDMlfWSL11zGvlRHRtyPiDYB4/exec";
 
 const ForAdmissionForm = () => {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -108,6 +108,7 @@ const ForAdmissionForm = () => {
 
           <Select
             required
+              value={formData.course}   
             onValueChange={(value) =>
               setFormData({ ...formData, course: value })
             }
@@ -125,9 +126,9 @@ const ForAdmissionForm = () => {
                 <SelectItem
                   className="text-start"
                   key={program.id}
-                  value={program.programme}
+                  value={`${program.degree} ${program.stream}`}
                 >
-                  {program.programme}
+                  {program.degree} - {program.stream}
                 </SelectItem>
               ))}
 
@@ -139,9 +140,9 @@ const ForAdmissionForm = () => {
                 <SelectItem
                   className="text-start"
                   key={program.id}
-                  value={program.programme}
+                  value={`${program.degree} ${program.stream}`}
                 >
-                  {program.programme}
+                  {program.degree} - {program.stream}
                 </SelectItem>
               ))}
             </SelectContent>

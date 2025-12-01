@@ -4,7 +4,13 @@ import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import Heading from "@/components/reusable/Heading";
 import campus from "@/assets/images/aasc_building.webp";
 import { prospectusData } from "@/data/academics/prospectusdata.js";
-import { Download, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Download,
+  ChevronLeft,
+  ChevronRight,
+  FileText,
+  FileTextIcon,
+} from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Prospectus = () => {
@@ -47,11 +53,11 @@ const Prospectus = () => {
 
   const handleSelectYear = (pdf) => {
     setSelectedPDF(pdf);
-    toast({
-      title: "Year Selected",
-      description: "The selected Prospectus is now displayed.",
-      duration: 1500,
-    });
+    // toast({
+    //   title: "Year Selected",
+    //   description: "The selected Prospectus is now displayed.",
+    //   duration: 1500,
+    // });
   };
 
   const visibleYears = prospectusData.slice(
@@ -122,6 +128,15 @@ const Prospectus = () => {
 
         {/* PDF PREVIEW BOX */}
         <div className="max-w-5xl mx-auto bg-white shadow-md rounded-xl md:p-10 space-y-8">
+          <div className="flex flex-wrap gap-2 items-center justify-center">
+            <div className="w-8 h-8 flex items-center justify-center">
+              <FileTextIcon className="w-8 h-8 p-1 text-purple-700" />
+            </div>
+            <h3 className="font-semibold text-xl text-center capitalize">
+              {selectedPDF.split("/").pop()}
+            </h3>
+          </div>
+
           <div className="w-full h-[80vh] border rounded-xl overflow-hidden bg-gray-50">
             <iframe
               src={selectedPDF}

@@ -27,7 +27,7 @@ const socialMediaLinks = [
   },
   {
     label: "AASC in Youtube",
-    path: "https://youtube.com/@achariyaartsandscienceco-ri2tv",
+    path: "https://www.youtube.com/@ACHARIYA.ArtsandScience",
     icon: Youtube,
     color: "text-red-600",
     hoverColor: "hover:bg-red-50",

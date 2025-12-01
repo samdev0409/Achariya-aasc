@@ -11,6 +11,7 @@ import FacultyProfile from "@/components/FacultyProfile";
 import TrainingAndPlacementsData from "@/data/placdements/TrainingAndPlacementsData.js";
 import { homeData } from "@/data/home/allhomedata";
 import Heading from "@/components/reusable/Heading";
+import ForAdmission from "@/components/ForAdmission";
 
 const TrainingAndPlacementsCell = () => {
   const { TrainingAndPlacementsFacultyData, activities } =
@@ -230,6 +231,10 @@ const TrainingAndPlacementsCell = () => {
               logos={homeData.recruiters.logos}
             />
           </div>
+        </section>
+
+        <section id="contact" className="py-6 md:py-12 container">
+          <ForAdmission data={homeData.admission} />
         </section>
       </div>
     </>
