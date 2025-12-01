@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { galleryData } from "@/data/gallery/gallerydata.js";
-import eventsData from "@/data/eventsdata.js";
+import eventsData from "@/data/events/eventsdata.js";
 import { departmentDataMapper } from "@/data/academics/departmentsdata.js";
 import Home from "./pages/home/Home";
 import NotFound from "./pages/NotFound";

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import galleryEvents from "@/data/events/eventsdata.js";
 import ImagePopup from "@/components/reusable/ImagePopup";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
+import eventsData from "@/data/events/eventsdata.js";
 
 const EventsSection = () => {
   const { eventId } = useParams();
   const event = eventId
-    ? galleryEvents.find((e) => e.id === eventId)
-    : galleryEvents[0];
+    ? eventsData.find((e) => e.id === eventId)
+    : eventsData[0];
 
   const [selectedIndex, setSelectedIndex] = useState(null);
 

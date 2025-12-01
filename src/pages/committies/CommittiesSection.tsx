@@ -2,6 +2,7 @@ import React from "react";
 import { GraduationCap, FileText, Mail } from "lucide-react";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import Heading from "@/components/reusable/Heading";
+import placeholder from "@/assets/images/17122.webp";
 
 const CommitteeSection = ({ slug, committeeData }) => {
   if (!committeeData) {
@@ -86,7 +87,7 @@ const CommitteeSection = ({ slug, committeeData }) => {
           <div className="flex items-center justify-center col-span-1 p-6 md:border-r md:border-b-0 border-b border-gray-300">
             <div className="w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden ring-1 ring-gray-300">
               <img
-                src={m.image || '/placeholder-profile.jpg'}
+                src={m.image || placeholder }
                 alt={m.name}
                 className="w-full h-full object-cover"
               />
