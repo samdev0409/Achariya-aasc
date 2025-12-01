@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Search } from "lucide-react";
-import ugprogramsdatadetails from "@/data/ugprogramsdatadetails.js";
+import ugprogramsdatadetails from "@/data/academics/ugprogramsdatadetails.js";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
 const UGProgramsSection = () => {
@@ -13,7 +13,9 @@ const UGProgramsSection = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const data = ugprogramsdatadetails.filter((item) => item.category === activeCategory);
+    const data = ugprogramsdatadetails.filter(
+      (item) => item.category === activeCategory
+    );
     setList(data);
     setFiltered(data);
     setSearch(""); // Reset search when category changes
@@ -38,12 +40,16 @@ const UGProgramsSection = () => {
   return (
     <div className="flex-1 md:p-6 p-2 py-6">
       {/* Header and Search */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-        <h1 className="text-2xl font-bold text-purple  mx-auto md:mx-0 capitalize ">
-          {activeCategory === "existing" ? "Existing Programs" : "Proposed Programs"}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+       <div className="mx-auto md:mx-0">
+         <h1 className="text-2xl font-bold text-purple  mx-auto md:mx-0 capitalize ">
+          {activeCategory === "existing"
+            ? "Existing Programs"
+            : "Proposed Programs"}
         </h1>
-        <HeadingUnderline width={150} align="left"/>
-        
+        <HeadingUnderline width={150} align="left" />
+
+       </div>
         <div className="relative w-full md:w-96">
           <input
             type="text"
@@ -52,9 +58,9 @@ const UGProgramsSection = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <Search 
-            size={18} 
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" 
+          <Search
+            size={18}
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
           />
         </div>
       </div>
@@ -65,8 +71,12 @@ const UGProgramsSection = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-purple text-white text-left">
-                <th className="md:block hidden py-3 px-4 border-r border-gray-400">S.No</th>
-                <th className="py-3 px-4 border-r border-gray-400">Programme</th>
+                <th className="md:block hidden py-3 px-4 border-r border-gray-400">
+                  S.No
+                </th>
+                <th className="py-3 px-4 border-r border-gray-400">
+                  Programme
+                </th>
                 <th className="py-3 px-4 border-r border-gray-400">Degree</th>
                 <th className="py-3 px-4">Stream</th>
               </tr>
@@ -74,7 +84,10 @@ const UGProgramsSection = () => {
 
             <tbody className="text-[12px] md:text-[14px]">
               {filtered.map((item, index) => (
-                <tr key={item.id} className="border-b border-gray-300 hover:bg-gray-50">
+                <tr
+                  key={item.id}
+                  className="border-b border-gray-300 hover:bg-gray-50"
+                >
                   <td className="md:block hidden py-3 px-4 border-r border-gray-300 text-center">
                     {index + 1}
                   </td>

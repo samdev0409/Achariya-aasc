@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ourTeamData from "@/data/OurTeamData.js";
+import ourTeamData from "@/data/about/OurTeamData.js";
 import { Filter } from "lucide-react";
 import FacultyProfile from "@/components/FacultyProfile";
 import OurTeamFacultyProfile from "@/components/faculty/OurTeamFacultyProfile";

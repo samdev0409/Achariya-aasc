@@ -1,7 +1,7 @@
 import React from "react";
 import campus from "@/assets/images/aasc_building.webp";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
-import { CircularPreviewData } from "@/data/CircularPreviewData.js";
+import { CircularPreviewData } from "@/data/home/CircularPreviewData.js";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
 const Circular = () => {

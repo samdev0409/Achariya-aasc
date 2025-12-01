@@ -1,6 +1,6 @@
 // PressReleases.jsx
 import React, { useState } from "react";
-import pressReleases from "@/data/PressReleasesData.js";
+import pressReleases from "@/data/about/PressReleasesData.js";
 import PressReleasesSidebar from "./PressReleasesSidebar";
 import PressReleasesGallery from "./PressReleasesGallery";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";

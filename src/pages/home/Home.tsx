@@ -57,8 +57,7 @@ const Home = () => {
 
           <section className="py-6 md:py-12 pb-14 px-6 bg-gray-200">
             <EventsHighlightsPreview
-              title={homeData.gallery.title}
-              events={homeData.gallery.events}
+              events={homeData.events}
             />
           </section>
 

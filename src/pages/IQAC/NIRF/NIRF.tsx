@@ -3,7 +3,7 @@ import NIRFlogo from "@/assets/images/NIRF/NIRF.jpg";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
-import { nirfInfo, nirfdoc } from "@/data/nirfdata.js";
+import { nirfInfo, nirfdoc } from "@/data/iqac/nirfdata.js";
 import { GraduationCap, FileText, MoveRight } from "lucide-react";
 import Heading from "@/components/reusable/Heading";
 

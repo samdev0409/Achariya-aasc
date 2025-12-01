@@ -8,7 +8,7 @@ import { Head } from "react-day-picker";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import FacultyProfile from "@/components/FacultyProfile";
-import TrainingAndPlacementsData from "@/data/TrainingAndPlacementsData.js";
+import TrainingAndPlacementsData from "@/data/placdements/TrainingAndPlacementsData.js";
 import { homeData } from "@/data/home/allhomedata";
 import Heading from "@/components/reusable/Heading";
 

@@ -1,11 +1,13 @@
+import {principalData} from "@/data/about/principaldata";
 const ourTeamData = {
   faculty: [
     // PRINCIPAL
     {
-      name: "Dr. R. Ushadevi",
+      name: principalData?.content?.signOff?.name || "Dr. R. Ushadevi",
       designation: "Principal",
-      email: "aaschead@achariya.org",
+      email: principalData?.content?.email || "aaschead@achariya.org",
       department: "Principal",
+      image : principalData?.content?.image
     },
 
     // DEPARTMENT OF ENGLISH

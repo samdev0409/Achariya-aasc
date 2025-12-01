@@ -1,6 +1,8 @@
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import { chiefMentorData } from "@/data/about/chiefmentordata";
 import Heading from "@/components/reusable/Heading";
+import HeadingUnderline from "@/components/reusable/HeadingUnderline";
+import React from "react";
 
 const CheifMentorDesk = () => {
   const { banner, content } = chiefMentorData;
@@ -13,7 +15,7 @@ const CheifMentorDesk = () => {
         <div className="flex flex-col md:flex-row gap-10 flex items-center">
           <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
             <img
-              src={content.image}
+              src={content.cheifmentordeskimage}
               alt="Chief Mentor"
               className="w-full h-full object-cover"
             />
@@ -21,13 +23,8 @@ const CheifMentorDesk = () => {
 
           {/* 🏫 Content Section */}
           <div className="md:w-1/2 text-center md:text-left">
-            <Heading
-              title={content.title}
-              size="lg"
-              align="left"
-      
-            />
-                          <HeadingUnderline width={200} align="left" />
+            <Heading title={content.title} size="lg" align="left" />
+            <HeadingUnderline width={200} align="left" />
 
             {content.paragraphs.map((paragraph, index) => (
               <React.Fragment key={index}>
@@ -35,19 +32,19 @@ const CheifMentorDesk = () => {
                 {index < content.paragraphs.length - 1 && <br />}
               </React.Fragment>
             ))}
-
-            <div className="mt-5">
-              <a href={content.cta.link} className="red-btn ">
-                {content.cta.text}
-              </a>
-            </div>
           </div>
         </div>
+        <div className="flex flex-col text-right py-6">
+          <p>{content.signOff.text}</p>
+          <h4 className="md:text-xl text-md font-bold">
+            {content.signOff.name}
+          </h4>
+          <em>{content.signOff.title}</em>
+        </div>
+        <hr className="container" />
       </section>
     </>
   );
 };
 
-import React from "react"; // Import React for Fragment
-import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 export default CheifMentorDesk;

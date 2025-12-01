@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import pgprogrammsdetails from "@/data/pgprogrammsdetails.js"; 
+import pgprogrammsdetails from "@/data/academics/pgprogrammsdetails.js";
 import { Search } from "lucide-react";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
@@ -13,7 +13,9 @@ const PGProgramsSection = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const data = pgprogrammsdetails.filter((item) => item.category === activeCategory);
+    const data = pgprogrammsdetails.filter(
+      (item) => item.category === activeCategory
+    );
     setList(data);
     setFiltered(data);
     setSearch("");
@@ -37,10 +39,15 @@ const PGProgramsSection = () => {
   return (
     <div className="flex-1 md:p-6 p-2 py-6 border-r border-gray-400">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-          <h1 className="text-2xl font-bold text-purple  mx-auto md:mx-0 capitalize ">
-          {activeCategory === "existing" ? "Existing Programs" : "Proposed Programs"}
+        <div className="mx-auto md:mx-0">
+         <h1 className="text-2xl font-bold text-purple  mx-auto md:mx-0 capitalize ">
+          {activeCategory === "existing"
+            ? "Existing Programs"
+            : "Proposed Programs"}
         </h1>
-        <HeadingUnderline width={150} align="left"/>
+        <HeadingUnderline width={150} align="left" />
+
+       </div>
 
         <div className="relative w-full md:w-96">
           <input
@@ -63,8 +70,12 @@ const PGProgramsSection = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-purple text-white text-left">
-                <th className="md:block hidden py-3 px-4 border-r  border-gray-400 ">S.No</th>
-                <th className="py-3 px-4 border-r border-gray-400">Programme</th>
+                <th className="md:block hidden py-3 px-4 border-r  border-gray-400 ">
+                  S.No
+                </th>
+                <th className="py-3 px-4 border-r border-gray-400">
+                  Programme
+                </th>
                 <th className="py-3 px-4 border-r border-gray-400">Degree</th>
                 <th className="py-3 px-4">Stream</th>
               </tr>
@@ -72,7 +83,10 @@ const PGProgramsSection = () => {
 
             <tbody className="text-[12px] md:text-[14px]">
               {filtered.map((item, index) => (
-                <tr key={item.id} className="border-b border-gray-300 hover:bg-gray-50">
+                <tr
+                  key={item.id}
+                  className="border-b border-gray-300 hover:bg-gray-50"
+                >
                   <td className="py-3 px-4 md:block hidden border-r border-gray-300 text-center">
                     {index + 1}
                   </td>

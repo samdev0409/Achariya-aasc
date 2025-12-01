@@ -3,7 +3,7 @@ import React from "react";
 import campus from "@/assets/images/aasc_building.webp";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import FacultyProfile from "@/components/FacultyProfile";
-import addoncourseddata from "@/data/ValueAddedCoursesData.js";
+import addoncourseddata from "@/data/academics/ValueAddedCoursesData.js";
 import { Phone, Mail } from "lucide-react";
 
 const ValueAddedCourses = () => {

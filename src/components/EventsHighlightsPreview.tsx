@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import HeadingUnderline from "./reusable/HeadingUnderline";
 import Heading from "./reusable/Heading";
 
-const EventsHighlightsPreview = ({ title, events: galleryEvents }) => {
+const EventsHighlightsPreview = ({  events: galleryEvents }) => {
   // Triple the events array for seamless infinite loop
   const tripleEvents = [...galleryEvents, ...galleryEvents, ...galleryEvents];
 
@@ -17,7 +17,7 @@ const EventsHighlightsPreview = ({ title, events: galleryEvents }) => {
       {/* Header */}
       <div className="container mx-auto px-4 mb-8">
         <div>
-          <Heading title={title} size="lg" align="center" />
+          <Heading title="Our Events Highlights" size="lg" align="center" />
           <HeadingUnderline width={200} align="center" />
         </div>
       </div>

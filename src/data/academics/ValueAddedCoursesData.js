@@ -1,6 +1,14 @@
 import ai from "@/assets/icons/additonal-courses/artificial-intelligence.png";
 import AiImg from "@/assets/images/additional-courses/ai.jpg";
 import ramesh from "@/assets/images/17122.webp";
+import iotimg from "@/assets/icons/additonal-courses/networking.png"
+import cloudimg from "@/assets/icons/additonal-courses/cloud-storage.png"
+import dataimg from "@/assets/icons/additonal-courses/exploratory-analysis.png";
+import retailimg from "@/assets/icons/additonal-courses/retailer.png";
+import entrepreneurshipimg from "@/assets/icons/additonal-courses/entrepreneurship.png";
+import tallyimg from "@/assets/icons/additonal-courses/count.png";
+import medicalimg from "@/assets/icons/additonal-courses/healthcare.png";
+import dialysisimg from "@/assets/icons/additonal-courses/healthcare.png";
 
 const AdditionalCoursesData = [
   {
@@ -24,81 +32,81 @@ const AdditionalCoursesData = [
 
   {
     title: "Cloud Architecture",
-    icon: ai,
+    icon: cloudimg,
     courseDescription:
       "Learn cloud computing, AWS, Azure, DevOps pipeline, virtualization, and scalable architecture design.",
     syllabusPdf: "/pdf/syllabus/cloud.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [cloudimg, cloudimg, cloudimg],
     faculty: [],
   },
 
   {
     title: "Data Science and Analytics",
-    icon: ai,
+    icon: dataimg,
     courseDescription:
       "Covers statistics, Python, R, data visualization, machine learning, and predictive analytics.",
     syllabusPdf: "/pdf/syllabus/data-science.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [dataimg, dataimg, dataimg],
     faculty: [],
   },
 
   {
     title: "Internet of Things",
-    icon: ai,
+    icon: iotimg,
     courseDescription:
       "Hands-on learning with sensors, boards, IoT cloud integration, automation, and embedded systems.",
     syllabusPdf: "/pdf/syllabus/iot.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [iotimg, iotimg, iotimg],
     faculty: [],
   },
 
   {
     title: "Entrepreneurship",
-    icon: ai,
+    icon:   entrepreneurshipimg,
     courseDescription:
       "A program focused on business models, innovation, startup funding, marketing, and leadership.",
     syllabusPdf: "/pdf/syllabus/entrepreneurship.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [entrepreneurshipimg, AiImg, AiImg],  
     faculty: [],
   },
 
   {
     title: "Tally ERP 9",
-    icon: ai,
+    icon: tallyimg,
     courseDescription:
       "Learn accounting fundamentals, GST, payroll, financial statements, and Tally ERP 9 practical training.",
     syllabusPdf: "/pdf/syllabus/tally.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [ tallyimg, AiImg, AiImg],
     faculty: [],
   },
 
   {
     title: "Retail Training",
-    icon: ai,
+    icon: retailimg,
     courseDescription:
       "Covers retail operations, customer handling, POS, merchandising, and store management.",
     syllabusPdf: "/pdf/syllabus/retail.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [retailimg, AiImg, AiImg],
     faculty: [],
   },
 
   {
     title: "Medical Coding",
-    icon: ai,
+    icon: medicalimg,
     courseDescription:
       "Learn ICD, CPT, HCPCS codes with medical terminology for healthcare documentation and billing.",
     syllabusPdf: "/pdf/syllabus/medical-coding.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [medicalimg, AiImg, AiImg],
     faculty: [],
   },
 
   {
     title: "Dialysis Technology",
-    icon: ai,
+    icon: dialysisimg,
     courseDescription:
       "A paramedical program focused on dialysis principles, equipment handling, patient care & clinical practice.",
     syllabusPdf: "/pdf/syllabus/dialysis.pdf",
-    images: [AiImg, AiImg, AiImg],
+    images: [dialysisimg, AiImg, AiImg],
     faculty: [],
   },
 ];

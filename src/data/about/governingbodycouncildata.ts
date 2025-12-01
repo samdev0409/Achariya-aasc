@@ -1,12 +1,15 @@
 import placeholderImg from "@/assets/images/17122.webp";
-import chairman from "@/assets/images/cheif-mentor/Dr.-J.arawindhan.webp"
+import chairman from "@/assets/images/cheif-mentor/Dr.-J.arawindhan.webp";
+import { principalData } from "@/data/about/principaldata";
+import { chiefMentorData } from "@/data/about/chiefmentordata";
 
 export const governingBodyMembersData = [
   {
     id: 1,
-    image: chairman,
-    name: "Dr. J. Arawindhan",
-    department: "Managing Trustee, Achariya Group of Educational Institutions, Puducherry – 605110.",
+    image: chiefMentorData?.content?.ourleadsimage,
+    name: chiefMentorData?.content?.signOff?.name || "Dr. J. Arawindhan",
+    department:
+      "Managing Trustee, Achariya Group of Educational Institutions, Puducherry – 605110.",
     designation: "Chairman",
     phone: "0000000000",
     email: "info@achariya.in",
@@ -15,7 +18,8 @@ export const governingBodyMembersData = [
     id: 2,
     image: placeholderImg,
     name: "Smt. A. Vinothini",
-    department: "Trustee, Achariya Group of Educational Institutions, Puducherry – 605110.",
+    department:
+      "Trustee, Achariya Group of Educational Institutions, Puducherry – 605110.",
     designation: "Member",
     phone: "0000000000",
     email: "info@achariya.in",
@@ -24,8 +28,7 @@ export const governingBodyMembersData = [
     id: 3,
     image: placeholderImg,
     name: "Dr. H. Kalpana",
-    department:
-      "Professor, Department of English, Pondicherry University.",
+    department: "Professor, Department of English, Pondicherry University.",
     designation: "Member / University Nominee",
     phone: "0000000000",
     email: "kalpana@pondiuni.ac.in",
@@ -42,13 +45,13 @@ export const governingBodyMembersData = [
   },
   {
     id: 5,
-    image: placeholderImg,
-    name: "Dr. R. Ushadevi",
+
+    name: principalData?.content?.signOff?.name || "Dr. R. Ushadevi",
+    email: principalData?.content?.email || "aaschead@achariya.org",
     department:
       "Principal, Achariya Arts and Science College, Villianur, Puducherry – 605110.",
     designation: "Member / Secretary",
-    phone: "0000000000",
-    email: "vimalanand@achariya.in",
+    image: principalData?.content?.image,
   },
   {
     id: 6,

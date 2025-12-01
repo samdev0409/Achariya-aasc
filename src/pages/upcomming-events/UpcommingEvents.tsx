@@ -2,7 +2,7 @@ import React from "react";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
-import { UpcommingEventsPreviewData } from "@/data/UpcommingEventsPreviewData.js";
+import { UpcommingEventsPreviewData } from "@/data/events/UpcommingEventsPreviewData.js";
 
 const UpcomingEvents = () => {
   // Sort by latest date
