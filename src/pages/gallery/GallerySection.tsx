@@ -78,7 +78,6 @@ const GallerySection = () => {
         onClose={closePopup}
         onNext={nextImage}
         onPrev={prevImage}
-        zoom={zoom}
       />
     </div>
   );
