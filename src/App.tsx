@@ -59,6 +59,7 @@ import AdminDashboard from "./admin/AdminDashboard";
 import AdminLogin from "./admin/pages/AdminLogin";
 import ProtectedRoute from "./admin/components/ProtectedRoute";
 import AASCBeats from "./pages/aasc-beats/AASCBeats";
+import LeftRightBorder from "./components/common/LeftRightBorder";
 
 const queryClient = new QueryClient();
 
@@ -282,6 +283,7 @@ const App = () => (
 
         {/*test badge*/}
         <FloatingPwrdBadge2 />
+        <LeftRightBorder/>
         {/* <FloatingPwrdBadge/> */}
       </BrowserRouter>
     </TooltipProvider>
