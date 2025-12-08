@@ -9,6 +9,7 @@ import entrepreneurshipimg from "@/assets/icons/additonal-courses/entrepreneursh
 import tallyimg from "@/assets/icons/additonal-courses/count.png";
 import medicalimg from "@/assets/icons/additonal-courses/healthcare.png";
 import dialysisimg from "@/assets/icons/additonal-courses/healthcare.png";
+import bcaSherifBaig from "@/assets/images/our-team/faculty/BCA Dept/Mr. Sherif Baig.I.jpeg";
 
 const AdditionalCoursesData = [
   {
@@ -20,12 +21,11 @@ const AdditionalCoursesData = [
     images: [AiImg, AiImg, AiImg],
     faculty: [
       {
-        image: "/images/faculty/ramesh.jpg",
-        name: "Dr. C. Ramesh Kumar",
-        department: "Computer Science",
-        designation: "Assistant Professor",
-        phone: "+91 9842367710",
-        email: "aascplacement@achariya.org",
+        image: bcaSherifBaig,
+        name: "Mr. Sherif Baig I	",
+        department: "Computer Applications (BCA)	",
+        designation: "Assistant Professor/HOD",
+        email: "sherif.aasc@achariya.org",
       },
     ],
   },
@@ -112,14 +112,15 @@ const AdditionalCoursesData = [
 ];
 
 const AdditionalCoursesDataGeneralIncharge = [
-  {
-    image: ramesh,
-    name: "Dr. C. Ramesh Kumar",
-    department: "Commerce",
-    designation: "Assistant Professor & Training and Placement Cell Officer",
-    phone: "+91 9842367710",
-    email: "aascplacement@achariya.org",
-  },
+ 
+      {
+        image: bcaSherifBaig,
+        name: "Mr. Sherif Baig I	",
+        department: "Computer Applications (BCA)	",
+        designation: "Assistant Professor/HOD",
+        email: "sherif.aasc@achariya.org",
+      },
+  
 ];
 
 export default { AdditionalCoursesData, AdditionalCoursesDataGeneralIncharge };

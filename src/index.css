@@ -48,8 +48,7 @@
   html, body{
     overflow-x: hidden;
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-    background-color: transparent;
+    scroll-padding-top: 140px;
   }
 
   body {

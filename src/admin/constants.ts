@@ -7,20 +7,12 @@ export const COLLECTIONS = [
   { id: "about__profileofcollegedata", label: "About: College Profile" },
   { id: "academics__academiccalendardata", label: "Academics: Calendar" },
   { id: "academics__departmentsdata", label: "Academics: Departments" },
-<<<<<<< HEAD
-  { id: "academics__pgprogrammsdetails", label: "Academics: PG Programs" },
-=======
   { id: "academics__pgprogramsdetails", label: "Academics: PG Programs" },
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
   { id: "academics__prospectusdata", label: "Academics: Prospectus" },
   { id: "academics__ugprogramsdatadetails", label: "Academics: UG Programs" },
   { id: "academics__valueaddedcoursesdata", label: "Academics: Value Added" },
   { id: "campus-life__seeddata", label: "Campus Life" },
-<<<<<<< HEAD
-  { id: "committees__committiesdata", label: "Committees" },
-=======
   { id: "commitees__committiesdata", label: "Committees" },
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
   { id: "contact__contactdata", label: "Contact Data" },
   { id: "events__eventsdata", label: "Events" },
   {

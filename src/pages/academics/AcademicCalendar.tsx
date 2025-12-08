@@ -28,7 +28,7 @@ const AcademicCalendar = () => {
         </div>
 
         {/* PDF Preview Box */}
-        <div className="max-w-5xl mx-auto bg-white shadow-md rounded-xl p-6 md:p-10 space-y-8">
+        <div className="w-full mx-auto bg-white shadow-md rounded-xl p-6 md:p-10 space-y-8">
           {/* Icon
           <div className="flex justify-center">
             <BookOpen className="w-14 h-14 text-purple-700" />

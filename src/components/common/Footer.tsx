@@ -16,7 +16,7 @@ import Heading from "../reusable/Heading";
 
 const Footer = () => {
   return (
-    <footer className="px-10 mt-10 bg-purple text-white z-[99] relative border-t border-purple">
+    <footer className="px-10 mt-10 bg-purple text-white relative border-t border-purple">
       <div
         className="absolute inset-0 opacity-10"
         style={{

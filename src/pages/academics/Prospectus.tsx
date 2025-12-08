@@ -127,7 +127,7 @@ const Prospectus = () => {
         </div>
 
         {/* PDF PREVIEW BOX */}
-        <div className="max-w-5xl mx-auto bg-white shadow-md rounded-xl md:p-10 space-y-8">
+        <div className="w-full mx-auto bg-white shadow-md rounded-xl md:p-10 space-y-8">
           <div className="flex flex-wrap gap-2 items-center justify-center">
             <div className="w-8 h-8 flex items-center justify-center">
               <FileTextIcon className="w-8 h-8 p-1 text-purple-700" />

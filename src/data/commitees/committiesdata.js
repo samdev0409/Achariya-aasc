@@ -1,6 +1,47 @@
 import sampledoc from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250108.pdf";
 import placeholderimg from "@/assets/images/17122.webp";
 
+// Import images from ourTeamData
+import principalDrUshadevi from "@/assets/images/our-team/faculty/Principal/Dr. Ushadevi R.jpeg";
+import vicePrincipalNetraPrakash from "@/assets/images/our-team/faculty/Vice Principal/Mr. Netra Prakash.B.jpeg";
+import languageAskarAli from "@/assets/images/our-team/faculty/Language Dept/Dr.Askar Ali. M.jpeg";
+import languageRajaraman from "@/assets/images/our-team/faculty/Language Dept/Dr. Rajaraman. A.jpg";
+import languageSilambarasan from "@/assets/images/our-team/faculty/Language Dept/Dr. Silambarasan. K.jpeg";
+import mathsShanmugapriya from "@/assets/images/our-team/faculty/Maths Dept/Mrs .Shanmugapriya.G.jpeg";
+import bcaSherifBaig from "@/assets/images/our-team/faculty/BCA Dept/Mr. Sherif Baig.I.jpeg";
+import bcaVinodhini from "@/assets/images/our-team/faculty/BCA Dept/Mrs. Vinodhini.J.jpeg";
+import bcaIlakiya from "@/assets/images/our-team/faculty/BCA Dept/Mrs. Ilakiya.jpg";
+import csKalaiselvi from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.P.Kalaiselvi.jpg";
+import csRevathy from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.R.Revathy.jpg";
+import csNishanthi from "@/assets/images/our-team/faculty/Computer Science Dept/Ms.M.Nishanthi.jpg";
+import itKarpagavalli from "@/assets/images/our-team/faculty/Information Technology Dept/Mrs. Karpagavalli C.jpeg";
+import bioArulkumar from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Arulkumar.A.jpeg";
+import bioPanjatcharam from "@/assets/images/our-team/faculty/BioTechnology Dept/Mr. Panjatcharam.V.jpeg";
+import bbaSureshRajan from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Dr. Suresh Rajan. S. G.jpeg";
+import bbaPrathap from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Mr. Prathap K.jpeg";
+import commerceSadishKadhane from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Sadish Kadhane. D.jpeg";
+import commerceRajaprabu from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Rajaprabu.D.jpg";
+import commerceKesavan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Kesavan A.jpeg";
+import commerceSakthivelu from "@/assets/images/our-team/faculty/Commerce Dept/Dr.Sakthivelu.S.jpg";
+import commerceUshenaBegam from "@/assets/images/our-team/faculty/Commerce Dept/Ms.Ushena Begam S.jpeg";
+import commerceEzhilan from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Ezhilan K.jpeg";
+import commerceElavarasan from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Elavarasan K.jpg";
+import commerceMathivanan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Mathivanan P.jpeg";
+import csRameshKumar from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.png";
+import csRaziaSultana from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Mrs. Razia Sultana A.jpeg";
+import csKokulaKarthiga from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Mrs. Kokula Karthiga K.jpeg";
+import vcMangaiyarkarasi from "@/assets/images/our-team/faculty/Visual Communication Dept/Mrs. Mangaiyarkarasi S.jpeg";
+import vcDineshSaravanan from "@/assets/images/our-team/faculty/Visual Communication Dept/Mr. Dinesh Saravanan M.jpeg";
+import vcVinu from "@/assets/images/our-team/faculty/Visual Communication Dept/Mr. Vinu A.jpg";
+import librarySenthilKoumar from "@/assets/images/our-team/faculty/Library/Dr. S. SENTHILKOUMAR.png";
+import libraryThambiraj from "@/assets/images/our-team/faculty/Library/Mr. Thambiraj Biscot L.png";
+import peAnitharaj from "@/assets/images/our-team/faculty/Physical Education Dept/Mr.Anitharaj.jpeg";
+import peRajalakshmi from "@/assets/images/our-team/faculty/Physical Education Dept/Mrs. Rajalakshmi K.jpeg";
+import labThirukumaran from "@/assets/images/our-team/faculty/Laboratory Assistants/Mr.Thirukumaran.jpeg";
+import englishUmarani from "@/assets/images/our-team/faculty/English Dept/Mrs. Umarani. J.jpg";
+import englishNithiyaParameswari from "@/assets/images/our-team/faculty/English Dept/Dr. Nithiya Parameswari. V.jpg";
+import englishRadhapriya from "@/assets/images/our-team/faculty/English Dept/Mrs. Radhapriya. A.jpg";
+
 // =========================
 // SIDEBAR MENU STRUCTURE
 // =========================
@@ -115,7 +156,6 @@ export const committiesdatasidebarMenu = [
       },
     ],
   },
-
   {
     id: 19,
     label: "Cells",
@@ -132,7 +172,6 @@ export const committiesdatasidebarMenu = [
       { id: 23, label: "NSS", url: "/cells/nss", children: [] },
     ],
   },
-
   {
     id: 24,
     label: "Clubs",
@@ -159,59 +198,59 @@ export const academicCouncilCommittee = {
   members: [
     {
       id: 1,
-      name: "Dr. Janarthanan",
+      name: "Mr. Netra Prakash B",
       designation: "Vice Principal",
-      email: "janajien@gmail.com",
-      image: placeholderimg,
+      email: "vp.aasc@achariya.org",
+      image: vicePrincipalNetraPrakash,
     },
     {
       id: 2,
-      name: "Dr. Askar Ali. M",
-      designation: "HOD/Language",
+      name: "Dr. Askar Ali M",
+      designation: "Assistant Professor/HOD - Language",
       email: "maskarali.aasc@achariya.org",
-      image: placeholderimg,
+      image: languageAskarAli,
     },
     {
       id: 3,
-      name: "Mrs Shanmugapriya.G",
-      designation: "Assistant Professor",
+      name: "Mrs. Shanmugapriya G",
+      designation: "Assistant Professor - Mathematics",
       email: "shanupriya87@gmail.com",
-      image: placeholderimg,
+      image: mathsShanmugapriya,
     },
     {
       id: 4,
-      name: "Mr. Murugadass",
-      designation: "HOD/Computer Science",
-      email: "dossmuruga690@gmail.com",
-      image: placeholderimg,
+      name: "Mrs. Kalaiselvi P",
+      designation: "Assistant Professor/HOD - Computer Science",
+      email: "pkalaiselvimphil@gmail.com",
+      image: csKalaiselvi,
     },
     {
       id: 5,
-      name: "Dr. Arulkumar.A",
-      designation: "HOD/Biotechnology",
-      email: "aruul3@gmail.com",
-      image: placeholderimg,
+      name: "Dr. Arulkumar A",
+      designation: "Assistant Professor/HOD - Biotechnology",
+      email: "head.bt.aasc@achariya.org",
+      image: bioArulkumar,
     },
     {
       id: 6,
-      name: "Mr. Netra Prakash.B",
-      designation: "HOD/BBA",
-      email: "netraboy@gmail.com",
-      image: placeholderimg,
+      name: "Mr. Netra Prakash B",
+      designation: "Assistant Professor/HOD - Management Studies (BBA)",
+      email: "b.netraprakash.aasc@achariya.org",
+      image: vicePrincipalNetraPrakash,
     },
     {
       id: 7,
-      name: "Dr. Sadish Kadhane. D",
-      designation: "HOD/Commerce",
+      name: "Dr. Sadish Kadhane D",
+      designation: "Assistant Professor/HOD - Commerce",
       email: "sadish.sam@gmail.com",
-      image: placeholderimg,
+      image: commerceSadishKadhane,
     },
     {
       id: 8,
-      name: "Mrs. Mangaiyarkarasi.S",
-      designation: "HOD/Visual Communication",
+      name: "Mrs. Mangaiyarkarasi S",
+      designation: "Assistant Professor/HOD - Visual Communication",
       email: "indhuchinn@gmail.com",
-      image: placeholderimg,
+      image: vcMangaiyarkarasi,
     },
   ],
   circulars: [
@@ -259,7 +298,7 @@ export const academicCouncilCommittee = {
     },
     {
       id: 10,
-      text: "To advise on academic planning, scheduling, and overall progression to maintain the institution’s academic excellence.",
+      text: "To advise on academic planning, scheduling, and overall progression to maintain the institution's academic excellence.",
     },
   ],
 };
@@ -269,28 +308,31 @@ export const governingBodyCouncil = {
   members: [
     {
       id: 1,
-      name: "Dr. R. Ushadevi",
+      name: "Dr. Ushadevi R",
       designation: "Principal",
       email: "aaschead@achariya.org",
-      image: placeholderimg,
+      image: principalDrUshadevi,
     },
     {
       id: 2,
-      name: "Dr. Janarthanan .T",
+      name: "Mr. Netra Prakash B",
       designation: "Vice Principal",
-      email: "janajien@gmail.com",
+      email: "vp.aasc@achariya.org",
+      image: vicePrincipalNetraPrakash,
     },
     {
       id: 3,
-      name: "Mr. Netra Prakash.B",
-      designation: "HOD/BBA",
-      email: "netraboy@gmail.com",
+      name: "Mr. Netra Prakash B",
+      designation: "Assistant Professor/HOD - Management Studies (BBA)",
+      email: "b.netraprakash.aasc@achariya.org",
+      image: vicePrincipalNetraPrakash,
     },
     {
       id: 4,
-      name: "Mrs. Yasothapriya. M",
-      designation: "Assistant Professor",
-      email: "yasothapriya2010@gmail.com",
+      name: "Dr. Suresh Rajan S. G",
+      designation: "Assistant Professor - Management Studies (BBA)",
+      email: "sureshrajan1971@gmail.com",
+      image: bbaSureshRajan,
     },
   ],
   circulars: [],
@@ -302,45 +344,38 @@ export const admissionCommittee = {
   members: [
     {
       id: 1,
-      name: "Dr. Janarthanan",
+      name: "Mr. Netra Prakash B",
       designation: "Vice Principal",
-      email: "janajien@gmail.com",
+      email: "vp.aasc@achariya.org",
+      image: vicePrincipalNetraPrakash,
     },
     {
       id: 2,
-      name: "Dr. Elangovan. A",
-      designation: "Assistant Professor",
-      email: "elangovana.aasc@achariya.org",
+      name: "Mrs. Kalaiselvi P",
+      designation: "Assistant Professor/HOD - Computer Science & IT",
+      email: "pkalaiselvimphil@gmail.com",
+      image: csKalaiselvi,
     },
     {
       id: 3,
-      name: "Mrs. Kalaiselvi.P",
-      designation: "Assistant Professor",
-      email: "pkalaiselvimphil@gmail.com",
+      name: "Dr. Suresh Rajan S. G",
+      designation: "Assistant Professor - Management Studies (BBA)",
+      email: "sureshrajan1971@gmail.com",
+      image: bbaSureshRajan,
     },
     {
       id: 4,
-      name: "Dr. Suresh Rajan. S. G",
-      designation: "Assistant Professor",
-      email: "sureshrajan1971@gmail.com",
+      name: "Ms. Ushena Begam S",
+      designation: "Assistant Professor - Commerce",
+      email: "ushenabegam.aasc@achariya.org",
+      image: commerceUshenaBegam,
     },
     {
       id: 5,
-      name: "Ms. Ushena Begam S",
-      designation: "Assistant Professor",
-      email: "ushenabegam.aasc@achariya.org",
-    },
-    {
-      id: 6,
-      name: "Dr. Rajaraman. A",
-      designation: "Assistant Professor",
+      name: "Dr. Rajaraman A",
+      designation: "Assistant Professor - Language",
       email: "rajaraman.aasc@achariya.org",
-    },
-    {
-      id: 7,
-      name: "Mrs. Josephine Dayana.F",
-      designation: "Assistant Professor",
-      email: "jas6daya@gmail.com",
+      image: languageRajaraman,
     },
   ],
   circulars: [],
@@ -352,51 +387,45 @@ export const libraryBodyCouncil = {
   members: [
     {
       id: 1,
-      name: "Dr. Senthil Koumar.S",
+      name: "Dr. Senthil Koumar S",
       designation: "Librarian",
       email: "library.aasc@achariya.org",
+      image: librarySenthilKoumar,
     },
     {
       id: 2,
       name: "Mr. Thambiraj Biscot L",
       designation: "Assistant Librarian",
-      email: "thambiraj157@gmail.com",
+      email: "thambirajworkplace.org.in@gmail.com",
+      image: libraryThambiraj,
     },
     {
       id: 3,
-      name: "Dr.Sakthivelu.S",
-      designation: "Assistant Professor",
+      name: "Dr. Sakthivelu S",
+      designation: "Assistant Professor - Commerce",
       email: "sakthivel.aasc@achariya.org",
+      image: commerceSakthivelu,
     },
     {
       id: 4,
-      name: "Dr. Selva Kumar",
-      designation: "Assistant Professor",
-      email: "selvvaa@gmail.com",
+      name: "Mrs. Karpagavalli C",
+      designation: "Assistant Professor - Information Technology",
+      email: "karpagavalli.aasc@achariya.org",
+      image: itKarpagavalli,
     },
     {
       id: 5,
-      name: "M Karpagavalli C",
-      designation: "Assistant Professor",
-      email: "karpagavalli.aasc@achariya.org",
+      name: "Mr. Dinesh Saravanan M",
+      designation: "Assistant Professor - Visual Communication",
+      email: "dineshsaravanan.aasc@achariya.org",
+      image: vcDineshSaravanan,
     },
     {
       id: 6,
-      name: "Ms. Delphin Mary. A",
-      designation: "Assistant Professor",
-      email: "delphidelphina322@gmail.com",
-    },
-    {
-      id: 7,
-      name: "Mr. Dinesh Saravanan",
-      designation: "Assistant Professor",
-      email: "dineshsaravanan.aasc@achariya.org",
-    },
-    {
-      id: 8,
-      name: "Mr. Kesavan .A",
-      designation: "Assistant Professor",
+      name: "Mr. Kesavan A",
+      designation: "Assistant Professor - Commerce",
       email: "kesaviji16@gmail.com",
+      image: commerceKesavan,
     },
   ],
   circulars: [],
@@ -408,39 +437,38 @@ export const maintenanceCommittee = {
   members: [
     {
       id: 1,
-      name: "Dr. Rajaprabu.D",
-      designation: "Assistant Professor",
+      name: "Dr. Rajaprabu D",
+      designation: "Assistant Professor - Commerce",
       email: "rajapraburaj@gmail.com",
+      image: commerceRajaprabu,
     },
     {
       id: 2,
-      name: "Dr. Rishi Iniyan P",
-      designation: "Assistant Professor",
-      email: "rishiiniyanp.aasc@achariya.org",
+      name: "Mr. Panjatcharam V",
+      designation: "Assistant Professor - Biotechnology",
+      email: "vpanjatcharam.aasc@achariya.org",
+      image: bioPanjatcharam,
     },
     {
       id: 3,
-      name: "Mr. Panjatcharam. V",
-      designation: "Assistant Professor",
-      email: "vpanjatcharam.aasc@achariya.org",
+      name: "Mrs. Vinodhini J",
+      designation: "Assistant Professor - Computer Application (BCA)",
+      email: "vinoedwin@gmail.com",
+      image: bcaVinodhini,
     },
     {
       id: 4,
-      name: "Mrs. Vinodhini.J",
-      designation: "Assistant Professor",
-      email: "vinoedwin@gmail.com",
+      name: "Mr. Prathap K",
+      designation: "Assistant Professor - Management Studies (BBA)",
+      email: "prathaap145@gmail.com",
+      image: bbaPrathap,
     },
     {
       id: 5,
-      name: "Mr. Prathap K",
-      designation: "Assistant Professor",
-      email: "prathaap145@gmail.com",
-    },
-    {
-      id: 6,
       name: "Dr. Elavarasan K",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor - Commerce",
       email: "k.elavarasank@yahoomail.com",
+      image: commerceElavarasan,
     },
   ],
   circulars: [],
@@ -453,14 +481,16 @@ export const hostelCommittee = {
     {
       id: 1,
       name: "Mrs. Revathy R",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor - Computer Science",
       email: "revathy.aasc@achariya.org",
+      image: csRevathy,
     },
     {
       id: 2,
       name: "Mr. Vinu A",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor - Visual Communication",
       email: "vinu.aasc@achariya.org",
+      image: vcVinu,
     },
   ],
   circulars: [],
@@ -472,39 +502,45 @@ export const disciplineCommittee = {
   members: [
     {
       id: 1,
-      name: "Mr. Anitharaj N",
-      designation: "Department of Physical Education",
+      name: "Mr. Anitharaj",
+      designation: "Director of Physical Education",
       email: "anith2008.sports@gmail.com",
+      image: peAnitharaj,
     },
     {
       id: 2,
       name: "Mrs. Rajalakshmi K",
-      designation: "Department of Physical Education",
-      email: "rajalakshmi.aasc@achariya.org",
+      designation: "Assistant Directress of Physical Education",
+      email: "vimal.suguna.raji@gmail.com",
+      image: peRajalakshmi,
     },
     {
       id: 3,
       name: "Dr. Sadish Kadhane D",
-      designation: "HOD/Commerce",
+      designation: "Assistant Professor/HOD - Commerce",
       email: "sadish.sam@gmail.com",
+      image: commerceSadishKadhane,
     },
     {
       id: 4,
-      name: "Dr. A. Arulkumar",
-      designation: "HOD/Biotechnology",
-      email: "sureshrajan1971@gmail.com",
+      name: "Dr. Arulkumar A",
+      designation: "Assistant Professor/HOD - Biotechnology",
+      email: "head.bt.aasc@achariya.org",
+      image: bioArulkumar,
     },
     {
       id: 5,
       name: "Mrs. Umarani J",
-      designation: "Assistant Professor",
-      email: "uma.sandan@gmail.com",
+      designation: "Assistant Professor - English",
+      email: "umarani.aasc@achariya.org",
+      image: englishUmarani,
     },
     {
       id: 6,
-      name: "Mrs. Kokulakarthika K",
-      designation: "Assistant Professor",
+      name: "Mrs. Kokula Karthiga K",
+      designation: "Assistant Professor - Corporate Secretaryship",
       email: "kkogulakarthiga@gmail.com",
+      image: csKokulaKarthiga,
     },
   ],
   circulars: [],
@@ -516,39 +552,38 @@ export const culturalCommittee = {
   members: [
     {
       id: 1,
-      name: "Mr. Karthik S",
-      designation: "Assistant Professor",
-      email: "kathiks.aasc@achariya.org",
+      name: "Mrs. Ilakiya",
+      designation: "Assistant Professor - Computer Application (BCA)",
+      email: "ilakiya.achariya@gmail.com",
+      image: bcaIlakiya,
     },
     {
       id: 2,
-      name: "Mrs. Ilakkiya S",
-      designation: "Assistant Professor",
-      email: "ilakiya.achariya@gmail.com",
+      name: "Dr. Nithiya Parameswari V",
+      designation: "Assistant Professor - English",
+      email: "nithiprakash289@gmail.com",
+      image: englishNithiyaParameswari,
     },
     {
       id: 3,
-      name: "Dr. Nithiya Parameswari V",
-      designation: "Assistant Professor",
-      email: "nithiprakash289@gmail.com",
+      name: "Ms. Nishanthi M",
+      designation: "Assistant Professor - Computer Science",
+      email: "nishanthiofficial23@gmail",
+      image: csNishanthi,
     },
     {
       id: 4,
-      name: "Ms. Nishanthi M",
-      designation: "Assistant Professor",
-      email: "nishanthiofficial23@gmail",
+      name: "Mrs. Radhapriya A",
+      designation: "Assistant Professor/HOD - English",
+      email: "radhapriya.aasc@achariya.org",
+      image: englishRadhapriya,
     },
     {
       id: 5,
-      name: "Mrs. Radhapriya A",
-      designation: "Assistant Professor",
-      email: "priyadoss91@gmail.com",
-    },
-    {
-      id: 6,
       name: "Mrs. Razia Sultana A",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor - Corporate Secretaryship",
       email: "arazia13@gmail.com",
+      image: csRaziaSultana,
     },
   ],
   circulars: [],
@@ -561,26 +596,30 @@ export const socialMediaCommittee = {
     {
       id: 1,
       name: "Mrs. Mangaiyarkarasi S",
-      designation: "HOD/Visual Communication",
+      designation: "Assistant Professor/HOD - Visual Communication",
       email: "indhuchinn@gmail.com",
+      image: vcMangaiyarkarasi,
     },
     {
       id: 2,
       name: "Mr. Vinu A",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor - Visual Communication",
       email: "vinu.aasc@achariya.org",
+      image: vcVinu,
     },
     {
       id: 3,
       name: "Dr. Ezhilan K",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor - Commerce",
       email: "drkezhilan2017@gmail.com",
+      image: commerceEzhilan,
     },
     {
       id: 4,
       name: "Mr. Mathivanan P",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor - Commerce",
       email: "mathipdy20@gmail.com",
+      image: commerceMathivanan,
     },
   ],
   circulars: [],
@@ -593,8 +632,9 @@ export const websiteCommittee = {
     {
       id: 1,
       name: "Mr. Sherif Baig I",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor/HOD - Computer Application (BCA)",
       email: "sherif.aasc@achariya.org",
+      image: bcaSherifBaig,
     },
   ],
   circulars: [],
@@ -645,26 +685,30 @@ export const examCell = {
     {
       id: 1,
       name: "Mr. Netra Prakash B",
-      designation: "HOD/BBA",
-      email: "netraboy@gmail.com",
+      designation: "Vice Principal & HOD - Management Studies (BBA)",
+      email: "vp.aasc@achariya.org",
+      image: vicePrincipalNetraPrakash,
     },
     {
       id: 2,
-      name: "Dr. Askar Ali  M",
-      designation: "HOD/Language",
+      name: "Dr. Askar Ali M",
+      designation: "Assistant Professor/HOD - Language",
       email: "maskarali.aasc@achariya.org",
+      image: languageAskarAli,
     },
     {
       id: 3,
       name: "Mr. Sherif Baig I",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor/HOD - Computer Application (BCA)",
       email: "sherif.aasc@achariya.org",
+      image: bcaSherifBaig,
     },
     {
       id: 4,
-      name: "Mr. Thirukkumarann",
-      designation: "Lab Instructor",
-      email: "itsupport.aasc@achariya.org",
+      name: "Mr. Thirukumaran",
+      designation: "Lab Assistant",
+      email: "bharanivijay16@gmail.com",
+      image: labThirukumaran,
     },
   ],
   circulars: [],
@@ -677,8 +721,9 @@ export const trainingPlacementCell = {
     {
       id: 1,
       name: "Dr. Ramesh Kumar C",
-      designation: "Assistant Professor",
+      designation: "Assistant Professor & Training and Placement Cell Officer - Corporate Secretaryship",
       email: "prof.rameshkkl@gmail.com",
+      image: csRameshKumar,
     },
   ],
   circulars: [],
@@ -697,9 +742,10 @@ export const nssCell = {
   members: [
     {
       id: 1,
-      name: "Dr. Silambarasan  K",
-      designation: "Assistant Professor",
-      email: "simbu1541987@gmail.com",
+      name: "Dr. Silambarasan K",
+      designation: "Assistant Professor - Language",
+      email: "simbu154987@gmail.com",
+      image: languageSilambarasan,
     },
   ],
   circulars: [],
@@ -720,7 +766,7 @@ export const jciClub = { members: [], circulars: [], objectives: [] };
 export const achariyaCodeClub = { members: [], circulars: [], objectives: [] };
 
 // =====================================================
-// ========  SLUG TO DATA MAPPER (KEY FIX!)  ===========
+// ========  SLUG TO DATA MAPPER  ===========
 // =====================================================
 
 export const committeeDataMapper = {
@@ -753,8 +799,3 @@ export const committeeDataMapper = {
   jci: jciClub,
   "code-club": achariyaCodeClub,
 };
-
-export default Object.entries(committeeDataMapper).map(([slug, data]) => ({
-  slug,
-  ...data,
-}));

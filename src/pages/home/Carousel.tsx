@@ -41,7 +41,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative w-full h-[50vh] sm:h-[65vh] md:h-[70vh] lg:h-[75vh] z-[99] overflow-hidden bg-gray-900">
+    <div className="relative w-full h-[50vh] sm:h-[65vh] md:h-[70vh] lg:h-[75vh] overflow-hidden bg-gray-900">
       <div className="relative w-full h-full">
         <AnimatePresence initial={false} custom={direction}>
           <motion.img

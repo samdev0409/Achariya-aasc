@@ -12,22 +12,11 @@ import ChiefMentorDataManager from "./managers/ChiefMentorDataManager";
 import GoverningBodyCouncilDataManager from "./managers/GoverningBodyCouncilDataManager";
 import PrincipalDataManager from "./managers/PrincipalDataManager";
 import ProfileOfCollegeDataManager from "./managers/ProfileOfCollegeDataManager";
-<<<<<<< HEAD
-import OurTeamDataManager from "./managers/OurTeamDataManager";
-import PressReleasesDataManager from "./managers/PressReleasesDataManager";
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
 // Academics Section
 import AcademicCalendarDataManager from "./managers/AcademicCalendarDataManager";
 import DepartmentsDataManager from "./managers/DepartmentsDataManager";
 import ProspectusDataManager from "./managers/ProspectusDataManager";
-<<<<<<< HEAD
-import PGProgramsDetailsManager from "./managers/PGProgramsDetailsManager";
-import UGProgramsDetailsManager from "./managers/UGProgramsDetailsManager";
-import ValueAddedCoursesDataManager from "./managers/ValueAddedCoursesDataManager";
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
 // Campus Life Section
 import SeedDataManager from "./managers/SeedDataManager";
@@ -41,10 +30,6 @@ import ContactDataManager from "./managers/ContactDataManager";
 // Events Section
 import UpcomingEventsPreviewDataManager from "./managers/UpcomingEventsPreviewDataManager";
 import CircularPreviewDataManager from "./managers/CircularPreviewDataManager";
-<<<<<<< HEAD
-import EventsDataManager from "./managers/EventsDataManager";
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
 // Home Section
 import AchievementsStatsDataManager from "./managers/AchievementsStatsDataManager";
@@ -59,30 +44,16 @@ import OurSchoolsCollegesDataManager from "./managers/OurSchoolsCollegesDataMana
 import RecruitersDataManager from "./managers/RecruitersDataManager";
 import TestimonialsDataManager from "./managers/TestimonialsDataManager";
 import WelcomeDataManager from "./managers/WelcomeDataManager";
-<<<<<<< HEAD
-import AnnouncementsDataManager from "./managers/AnnouncementsDataManager";
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
 // IQAC Section
 import NIRFDataManager from "./managers/NIRFDataManager";
 
 // Placements Section
 import PlacementRecordsManager from "./managers/PlacementRecordsManager";
-<<<<<<< HEAD
-import TrainingAndPlacementsDataManager from "./managers/TrainingAndPlacementsDataManager";
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
 // Users
 import UsersManager from "./managers/UsersManager";
 
-<<<<<<< HEAD
-// Generic Manager
-import DynamicCollectionManager from "./components/DynamicCollectionManager";
-
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 const AdminDashboard: React.FC = () => {
   return (
     <Routes>
@@ -118,17 +89,6 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/about__profileofcollegedata"
                     element={<ProfileOfCollegeDataManager />}
                   />
-<<<<<<< HEAD
-                  <Route
-                    path="/collection/about__ourteamdata"
-                    element={<OurTeamDataManager />}
-                  />
-                  <Route
-                    path="/collection/about__pressreleasesdata"
-                    element={<PressReleasesDataManager />}
-                  />
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
                   {/* Academics Section Routes */}
                   <Route
@@ -143,21 +103,6 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/academics__prospectusdata"
                     element={<ProspectusDataManager />}
                   />
-<<<<<<< HEAD
-                  <Route
-                    path="/collection/academics__pgprogrammsdetails"
-                    element={<PGProgramsDetailsManager />}
-                  />
-                  <Route
-                    path="/collection/academics__ugprogramsdatadetails"
-                    element={<UGProgramsDetailsManager />}
-                  />
-                  <Route
-                    path="/collection/academics__valueaddedcoursesdata"
-                    element={<ValueAddedCoursesDataManager />}
-                  />
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
                   {/* Campus Life Section Routes */}
                   <Route
@@ -167,11 +112,7 @@ const AdminDashboard: React.FC = () => {
 
                   {/* Committees Section Routes */}
                   <Route
-<<<<<<< HEAD
-                    path="/collection/committees__committiesdata"
-=======
                     path="/collection/commitees__committiesdata"
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
                     element={<CommittiesDataManager />}
                   />
 
@@ -190,13 +131,6 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/home__circularpreviewdata"
                     element={<CircularPreviewDataManager />}
                   />
-<<<<<<< HEAD
-                  <Route
-                    path="/collection/events__eventsdata"
-                    element={<EventsDataManager />}
-                  />
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
                   {/* Home Section Routes */}
                   <Route
@@ -247,13 +181,6 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/home__welcomedata"
                     element={<WelcomeDataManager />}
                   />
-<<<<<<< HEAD
-                  <Route
-                    path="/collection/home__announcementsdata"
-                    element={<AnnouncementsDataManager />}
-                  />
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
                   {/* IQAC Section Routes */}
                   <Route
@@ -266,26 +193,10 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/placements__placementrecords"
                     element={<PlacementRecordsManager />}
                   />
-<<<<<<< HEAD
-                  <Route
-                    path="/collection/placements__trainingandplacementsdata"
-                    element={<TrainingAndPlacementsDataManager />}
-                  />
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
                   {/* Users Route */}
                   <Route path="/collection/users" element={<UsersManager />} />
 
-<<<<<<< HEAD
-                  {/* Generic Route for all other collections */}
-                  <Route
-                    path="/collection/:collectionId"
-                    element={<DynamicCollectionManager />}
-                  />
-
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
                   {/* Default redirect */}
                   <Route
                     path="/"

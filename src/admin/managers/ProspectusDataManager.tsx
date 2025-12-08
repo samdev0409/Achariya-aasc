@@ -15,11 +15,7 @@ const ProspectusDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<ProspectusData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-<<<<<<< HEAD
-  const collectionName = "academics/prospectusdata";
-=======
   const collectionName = "academics__prospectusdata";
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
   useEffect(() => {
     fetchData();

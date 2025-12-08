@@ -2,7 +2,7 @@ import OurLeads from "@/data/home/OurLeads.js";
 import welcomeData from "@/data/home/welcomedata";
 import statsData from "@/data/home/achievementsstatsdata";
 import campusData from "@/data/home/ourcampusdata";
-import missionVisionData from "@/data/home/missionvisiondata";
+import missionVisionData from "@/data/home/missionvissiondata";
 import recruitersData from "@/data/home/recruitersdata";
 import admissionData from "@/data/home/admissionsdata";
 import announcementsData from "@/data/home/announcementsdata";

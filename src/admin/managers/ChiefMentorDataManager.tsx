@@ -10,7 +10,7 @@ interface ChiefMentorData {
     };
     content: {
       title: string;
-      ourleadsimage: string;
+      ourleadsimage: string;    
       cheifmentordeskimage: string;
       paragraphs: string[];
       signOff: {
@@ -31,7 +31,7 @@ const ChiefMentorDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<ChiefMentorData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "about/chiefmentordata";
+  const collectionName = "about__chiefmentordata";
 
   useEffect(() => {
     fetchData();

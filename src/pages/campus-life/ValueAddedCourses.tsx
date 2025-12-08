@@ -155,7 +155,6 @@ const ValueAddedCourses = () => {
               department={fac.department}
               designation={fac.designation}
               image={fac.image}
-              phone={fac.phone}
               email={fac.email}
             />
           ))}

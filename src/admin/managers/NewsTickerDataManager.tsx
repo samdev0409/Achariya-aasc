@@ -38,7 +38,7 @@ const NewsTickerDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<NewsTickerData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home/newstickerdata";
+  const collectionName = "home__newstickerdata";
 
   // ---------------------------------------------
   // Fetch & Sanitize Data
@@ -50,9 +50,8 @@ const NewsTickerDataManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
 
-      const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
-        sanitizeItem
-      );
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
+        .map(sanitizeItem);
 
       setData(cleaned);
     } catch (e: any) {

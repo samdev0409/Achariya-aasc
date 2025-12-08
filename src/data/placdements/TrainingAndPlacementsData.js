@@ -1,10 +1,11 @@
-import ramesh from '@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.png'
+import ramesh from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.png"
+
 
 const TrainingAndPlacementsFacultyData = [
   {
     image: ramesh,
     name: "Dr. Ramesh Kumar C",
-    department: "Commerce & Corporate Secretaryship",
+    department: "Commerce",
     designation: "Assistant Professor & Training and Placement Cell Officer",
     email: "aascplacement@achariya.org",
   },

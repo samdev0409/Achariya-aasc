@@ -23,8 +23,9 @@ const AcademicDepartmentsSection = ({ slug, departmentData }) => {
   return (
     <div className="flex-1 px-6 border-r border-gray-400">
       {/* Department Header */}
-      <div className="mb-6 py-4 sticky md:sticky-none md:top-auto md:text-left text-center top-[130px] bg-white z-[100] md:z-0">
-        <Heading title={name} size="md" align="left" />
+      <div className=" pt-5 sticky md:sticky-none md:top-auto md:text-left text-center top-[130px] bg-white z-[100] md:z-0">
+        <Heading title={name} size="md" align="center" />
+        <HeadingUnderline width={150} align="center" />
       </div>
 
       {/* Department Image */}
@@ -40,19 +41,21 @@ const AcademicDepartmentsSection = ({ slug, departmentData }) => {
 
       {/* About Section */}
       <section className="mb-12">
-        <Heading title="About" size="md" align="left" />
-        <HeadingUnderline width={80} align="left" />
-        <p className="text-gray-700 leading-relaxed mt-4">{about}</p>
+        <Heading title="About" size="md" align="center" />
+        <HeadingUnderline width={120} align="center" />
+        <p className="text-gray-700 leading-relaxed text-center max-w-3xl mx-auto mt-4">
+          {about}
+        </p>
       </section>
-
+<hr className="container max-w-2xl pb-10" />
       {/* Description Sections */}
       {description.length > 0 && (
         <section className="space-y-8">
           {description.map((section, index) => (
             <div key={index} className="mb-8">
-              <Heading title={section.title} size="sm" align="left" />
-              <HeadingUnderline width={120} align="left" />
-              <p className="text-gray-700 leading-relaxed mt-4 whitespace-pre-line">
+              <Heading title={section.title} size="md" align="center" />
+              <HeadingUnderline width={120} align="center" />
+              <p className="text-gray-700 text-center max-w-3xl mx-auto leading-relaxed mt-4 whitespace-pre-line">
                 {section.content}
               </p>
             </div>
@@ -60,11 +63,14 @@ const AcademicDepartmentsSection = ({ slug, departmentData }) => {
         </section>
       )}
 
+      <hr className="container max-w-2xl py-10 mt-8" />
+
+
       {/* Faculty Section */}
       {faculty.length > 0 && (
-        <section className="mt-12">
-          <Heading title="Our Faculty" size="md" align="left" />
-          <HeadingUnderline width={120} align="left" />
+        <section >
+          <Heading title="Our Faculty" size="md" align="center" />
+          <HeadingUnderline width={120} align="center" />
           <div className="mt-6 space-y-4">
             {faculty.map((member, index) => (
               <OurTeamFacultyProfile

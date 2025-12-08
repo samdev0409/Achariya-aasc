@@ -246,20 +246,20 @@ export const commerceAndManagementDepartment = {
 };
 
 // ⭐ Corporate Secretaryship
-// export const corporateSecretaryshipDepartment = {
-//   name: "Corporate Secretaryship",
-//   image: history,
-//   about:
-//     "The department trains students in corporate law, governance, and secretarial practice.",
-//   description: [
-//     {
-//       title: "About the Department",
-//       content:
-//         "Students are equipped with strong knowledge in legal procedures, company law, and governance, preparing them for corporate secretary roles.",
-//     },
-//   ],
-//   faculty: getFacultyByDepartment("Corporate Secretaryship"),
-// };
+export const corporateSecretaryshipDepartment = {
+  name: "Corporate Secretaryship",
+  image: history,
+  about:
+    "The department trains students in corporate law, governance, and secretarial practice.",
+  description: [
+    {
+      title: "About the Department",
+      content:
+        "Students are equipped with strong knowledge in legal procedures, company law, and governance, preparing them for corporate secretary roles.",
+    },
+  ],
+  faculty: getFacultyByDepartment("Corporate Secretaryship"),
+};
 
 // ⭐ Visual Communication
 export const visualCommunicationDepartment = {
@@ -305,7 +305,7 @@ export const departmentDataMapper = {
   "information-technology": informationTechnologyDepartment,
   "bio-technology": bioTechnologyDepartment,
   "commerce-and-management": commerceAndManagementDepartment,
-  // "corporate-secretaryship": corporateSecretaryshipDepartment,
+  "corporate-secretaryship": corporateSecretaryshipDepartment,
   "visual-communication": visualCommunicationDepartment,
   library: libraryDepartment,
 };

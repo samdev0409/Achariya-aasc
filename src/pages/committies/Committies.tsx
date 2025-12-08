@@ -6,7 +6,7 @@ import campus from "@/assets/images/aasc_building.webp";
 import CommitteesSidebar from "./CommittiesSidebar";
 import CommitteeSection from "./CommittiesSection";
 
-import { committeeDataMapper } from "@/data/committees/committiesdata.js";
+import { committeeDataMapper } from "@/data/commitees/committiesdata.js";
 
 const Committees = () => {
   const { slug } = useParams();

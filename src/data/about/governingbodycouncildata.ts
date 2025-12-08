@@ -2,6 +2,7 @@ import placeholderImg from "@/assets/images/17122.webp";
 import chairman from "@/assets/images/cheif-mentor/Dr.-J.arawindhan.webp";
 import { principalData } from "@/data/about/principaldata";
 import { chiefMentorData } from "@/data/about/chiefmentordata";
+import vicePrincipalNetraPrakash from "@/assets/images/our-team/faculty/Vice Principal/Mr. Netra Prakash.B.jpeg";
 
 export const governingBodyMembersData = [
   {
@@ -17,7 +18,7 @@ export const governingBodyMembersData = [
   {
     id: 2,
     image: placeholderImg,
-    name: "Smt. A. Vinothini",
+    name: "Smt. Vinothini A",
     department:
       "Trustee, Achariya Group of Educational Institutions, Puducherry – 605110.",
     designation: "Member",
@@ -27,7 +28,7 @@ export const governingBodyMembersData = [
   {
     id: 3,
     image: placeholderImg,
-    name: "Dr. H. Kalpana",
+    name: "Dr. Kalpana H",
     department: "Professor, Department of English, Pondicherry University.",
     designation: "Member / University Nominee",
     phone: "0000000000",
@@ -45,8 +46,7 @@ export const governingBodyMembersData = [
   },
   {
     id: 5,
-
-    name: principalData?.content?.signOff?.name || "Dr. R. Ushadevi",
+    name: principalData?.content?.signOff?.name || "Dr. Ushadevi R",
     email: principalData?.content?.email || "aaschead@achariya.org",
     department:
       "Principal, Achariya Arts and Science College, Villianur, Puducherry – 605110.",
@@ -55,22 +55,22 @@ export const governingBodyMembersData = [
   },
   {
     id: 6,
-    image: placeholderImg,
-    name: "Dr. T. Janarthanan",
+    image: vicePrincipalNetraPrakash,
+    name: "Mr. Netra Prakash B",
     department:
-      "Vice Principal, Department of English, Achariya Arts and Science College, Villianur, Puducherry – 605110.",
+      "Vice Principal, Achariya Arts and Science College, Villianur, Puducherry – 605110.",
     designation: "Teacher Representative / Member",
     phone: "0000000000",
-    email: "janarthanan@achariya.in",
+    email: "vp.aasc@achariya.org",
   },
-  {
-    id: 7,
-    image: placeholderImg,
-    name: "Mr. B. Netra Prakash",
-    department:
-      "Head, Department of Commerce & Management, Achariya Arts and Science College, Villianur, Puducherry – 605110.",
-    designation: "Teacher Representative / Member",
-    phone: "0000000000",
-    email: "netraprakash@achariya.in",
-  },
+  // {
+  //   id: 7,
+  //   image: vicePrincipalNetraPrakash,
+  //   name: "Mr. Netra Prakash B",
+  //   department:
+  //     "Head, Department of Management Studies (BBA), Achariya Arts and Science College, Villianur, Puducherry – 605110.",
+  //   designation: "Teacher Representative / Member",
+  //   phone: "0000000000",
+  //   email: "b.netraprakash.aasc@achariya.org",
+  // },
 ];

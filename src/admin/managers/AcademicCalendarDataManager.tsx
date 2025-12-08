@@ -26,11 +26,7 @@ const AcademicCalendarDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<AcademicCalendarData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-<<<<<<< HEAD
-  const collectionName = "academics/academiccalendardata";
-=======
   const collectionName = "academics__academiccalendardata";
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
   useEffect(() => {
     fetchData();

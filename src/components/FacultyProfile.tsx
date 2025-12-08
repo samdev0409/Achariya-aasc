@@ -7,7 +7,6 @@ const FacultyProfile = ({
   name,
   department,
   designation,
-  phone,
   email,
 }) => {
   return (
@@ -60,12 +59,12 @@ const FacultyProfile = ({
           />
 
           {/* Phone */}
-          <p className="flex items-center gap-2 text-gray-700 text-sm">
+          {/* <p className="flex items-center gap-2 text-gray-700 text-sm">
             <Phone size={17} />
             <a href={`tel:${phone}`} className="hover:text-black duration-200">
               {phone}
             </a>
-          </p>
+          </p> */}
 
           {/* Email */}
           <p className="flex items-center gap-2 text-gray-700 text-sm break-all">

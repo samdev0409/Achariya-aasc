@@ -1,7 +1,21 @@
-import React from 'react';
-import file from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250108.pdf"
+import React from "react";
+import file from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250108.pdf";
+import { Link, useNavigate } from "react-router-dom";
 
 const TopHeaderBar = () => {
+   const navigate = useNavigate();
+
+   const handleClick = () => {
+    navigate("/"); // Go to home page first
+
+    // Wait for home to finish rendering, then scroll
+    setTimeout(() => {
+      const el = document.getElementById("contact");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 200); // 200ms ensures home page is fully rendered
+  };
   return (
     <div className="bg-purple py-2 overflow-x-auto border-b border-b-[2px] border-gray-200">
       <div className=" mx-auto px-8 flex items-center justify-between">
@@ -40,14 +54,18 @@ const TopHeaderBar = () => {
 
           {/* Badge 3 - ISO */}
           <div className="bg-red px-2 h-8 flex items-center justify-center">
-            <a href='/#contact' className="text-white text-xs font-bold">For Admissions</a>
+           <button 
+        onClick={handleClick} 
+        className="text-white text-xs font-bold"
+      >
+        For Admissions
+      </button>
           </div>
-
-                   {/* Badge 4 - AISHE */}
+          {/* Badge 4 - AISHE */}
           <div className="bg-white w-14 h-8 flex items-center justify-center border border-gray-300">
-            <a 
-              href={file} 
-              target="_blank" 
+            <a
+              href={file}
+              target="_blank"
               rel="noopener noreferrer"
               className="text-black text-xs font-bold hover:text-heading-purple transition-colors"
             >

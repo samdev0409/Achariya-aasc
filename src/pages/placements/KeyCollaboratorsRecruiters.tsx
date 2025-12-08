@@ -1,7 +1,7 @@
 import React from "react";
 import { FileText } from "lucide-react";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
-import { placementRecords } from "@/data/placements/PlacementRecords.js";
+import { placementRecords } from "@/data/placdements/PlacementRecords.js";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 import OurRecruiters from "@/components/OurRecruiters";

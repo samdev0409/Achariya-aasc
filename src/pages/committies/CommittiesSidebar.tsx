@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
-import { committiesdatasidebarMenu } from "@/data/committees/committiesdata";
+import { committiesdatasidebarMenu } from "@/data/commitees/committiesdata";
 import GlobalSidebar from "@/components/sidebar/GlobalSidebar";
 
 const CommitteesSidebar = () => {

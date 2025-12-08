@@ -88,29 +88,28 @@ const Navbar = () => {
         { label: "UG Programme", path: "/academics/ug-programs" },
         { label: "PG Programme", path: "/academics/pg-programs " },
         { label: "Departments", path: "/academics/departments" },
-        {label: "Value Added Courses", path: "/academics/value-added-courses"},
         { label: "Academic Calendar", path: "/academics/academic-calendar" },
         { label: "Prospectus", path: "/academics/prospectus" },
       ],
     },
 
-    {
-      label: "Facilities",
-      path: "/facilities",
-      dropdown: [
-        { label: "Infrastructure", path: "/facilities/infrastructure" },
-        { label: "ICT Facilities", path: "/facilities/ict-facilities" },
-        { label: "Laboratories", path: "/facilities/laboratories" },
-        { label: "Library", path: "/facilities/library" },
-        { label: "Sports", path: "/facilities/sports" },
-        { label: "Hostel Facilities", path: "/facilities/hostel-facilities" },
-        {
-          label: "Transport Facilities",
-          path: "/facilities/transport-facilities",
-        },
-        { label: "Cafeteria", path: "/facilities/cafeteria" },
-      ],
-    },
+    // {
+    //   label: "Facilities",
+    //   path: "/facilities",
+    //   dropdown: [
+    //     { label: "Infrastructure", path: "/facilities/infrastructure" },
+    //     { label: "ICT Facilities", path: "/facilities/ict-facilities" },
+    //     { label: "Laboratories", path: "/facilities/laboratories" },
+    //     { label: "Library", path: "/facilities/library" },
+    //     { label: "Sports", path: "/facilities/sports" },
+    //     { label: "Hostel Facilities", path: "/facilities/hostel-facilities" },
+    //     {
+    //       label: "Transport Facilities",
+    //       path: "/facilities/transport-facilities",
+    //     },
+    //     { label: "Cafeteria", path: "/facilities/cafeteria" },
+    //   ],
+    // },
 
     {
       label: "Placements",
@@ -125,7 +124,7 @@ const Navbar = () => {
           path: "/placements/key-collaborators-recruiters",
         },
         { label: "Records", path: "/placements/records" },
-        { label: "Photo Gallery", path: "/placements/photo-gallery" },
+        // { label: "Photo Gallery", path: "/placements/photo-gallery" },
       ],
     },
 
@@ -135,16 +134,25 @@ const Navbar = () => {
       dropdown: [
         { label: "SEED", path: "/campus-life/seed" },
         { label: "Events", path: "/campus-life/events" },
-       
+        {
+          label: "Value-Added Courses",
+          path: "/campus-life/value-added-courses",
+        },
         { label: "Department Clubs", path: "/campus-life/department-clubs" },
         { label: "Cultural", path: "/campus-life/cultural" },
         { label: "Sports", path: "/campus-life/sports" },
       ],
     },
 
+    // {
+    //   label: "Gallery",
+    //   path: "/gallery/",
+    //   dropdown: null,
+    // },
+
     {
-      label: "Gallery",
-      path: "/gallery/",
+      label: "AASC Beats",
+      path: "/aasc-beats",
       dropdown: null,
     },
 
@@ -154,7 +162,7 @@ const Navbar = () => {
       dropdown: [
         { label: "NIRF", path: "/national-institutional-ranking-ramework" },
         { label: "NAAC", path: "/iqac/naac" },
-        { label: "Circulars", path: "/iqac/circulars" },
+        // { label: "Circulars", path: "/iqac/circulars" },
         // { label: "Contact Us", path: "/iqac/contact-us" },
         { label: "About IQAC", path: "/iqac/about-iqac" },
       ],
@@ -178,8 +186,11 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="hidden md:block sticky top-0 z-[100] bg-white shadow-white">
-        <nav className="flex items-center justify-between p-3 bg-purple backdrop-blur-md">
+      <div className="hidden md:block sticky top-0 z-[100]  bg-white shadow-white">
+        <div className="md:block hidden">
+          <TopHeaderBar />
+        </div>
+        <nav className="flex items-center justify-between p-3 ps-5 bg-purple backdrop-blur-md">
           <Link to="/">
             <img
               src={AASCLOGO}

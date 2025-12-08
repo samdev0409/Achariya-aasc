@@ -30,11 +30,7 @@ const PrincipalDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<PrincipalData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-<<<<<<< HEAD
-  const collectionName = "about/principaldata";
-=======
   const collectionName = "about__principaldata";
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
   useEffect(() => {
     fetchData();
@@ -46,10 +42,6 @@ const PrincipalDataManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
       setData(Array.isArray(res.data) ? res.data : [res.data]);
-<<<<<<< HEAD
-      console.log(res);
-=======
->>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
     } catch (e: any) {
       setError("Failed to load data: " + e.message);
     } finally {
