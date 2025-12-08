@@ -88,6 +88,7 @@ const Navbar = () => {
         { label: "UG Programme", path: "/academics/ug-programs" },
         { label: "PG Programme", path: "/academics/pg-programs " },
         { label: "Departments", path: "/academics/departments" },
+        {label: "Value Added Courses", path: "/academics/value-added-courses"},
         { label: "Academic Calendar", path: "/academics/academic-calendar" },
         { label: "Prospectus", path: "/academics/prospectus" },
       ],
@@ -134,19 +135,21 @@ const Navbar = () => {
       dropdown: [
         { label: "SEED", path: "/campus-life/seed" },
         { label: "Events", path: "/campus-life/events" },
-        {
-          label: "Value-Added Courses",
-          path: "/campus-life/value-added-courses",
-        },
+       
         { label: "Department Clubs", path: "/campus-life/department-clubs" },
         { label: "Cultural", path: "/campus-life/cultural" },
         { label: "Sports", path: "/campus-life/sports" },
       ],
     },
 
+    // {
+    //   label: "Gallery",
+    //   path: "/gallery/",
+    //   dropdown: null,
+    // },
     {
-      label: "Gallery",
-      path: "/gallery/",
+      label: "AASC Beats",
+      path: "/aasc-beats",
       dropdown: null,
     },
 
@@ -180,7 +183,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="hidden md:block sticky top-0 z-[100] bg-white shadow-white">
+      <div className="hidden md:block sticky top-0 z-[100] w-full bg-white shadow-white">
+        <div className="md:block hidden">
+          <TopHeaderBar />
+        </div>
         <nav className="flex items-center justify-between p-3 bg-purple backdrop-blur-md">
           <Link to="/">
             <img
@@ -293,67 +299,67 @@ const Navbar = () => {
 
         <ul className="flex flex-col gap-1">
           {navItems.map((item, index) => (
-            
-            <Link to={item.path} key={index}><li >
-              <div
-                className="flex justify-between items-center py-2 text-gray-800 font-medium"
-                onClick={() =>
-                  item.dropdown
-                    ? setMobileSubmenu(
-                        mobileSubmenu === item.label ? null : item.label
-                      )
-                    : setMobileOpen(false)
-                }
-              >
-                {item.label}
+            <Link to={item.path} key={index}>
+              <li>
+                <div
+                  className="flex justify-between items-center py-2 text-gray-800 font-medium"
+                  onClick={() =>
+                    item.dropdown
+                      ? setMobileSubmenu(
+                          mobileSubmenu === item.label ? null : item.label
+                        )
+                      : setMobileOpen(false)
+                  }
+                >
+                  {item.label}
 
-                {item.dropdown && <ChevronDown />}
-              </div>
-              
+                  {item.dropdown && <ChevronDown />}
+                </div>
 
-              {/* Mobile Submenu */}
-              {item.dropdown && mobileSubmenu === item.label && (
-                <ul className="ml-4 border-l pl-3">
-                  {item.dropdown.map((sub, i) => (
-                    <Link to={sub.path}><li key={i}>
-                      <div
-                        className="flex justify-between py-2 text-gray-700"
-                        onClick={() =>
-                          sub.submenu
-                            ? setMobileSubSubmenu(
-                                mobileSubSubmenu === sub.label
-                                  ? null
-                                  : sub.label
-                              )
-                            : setMobileOpen(false)
-                        }
-                      >
-                        {sub.label}
-                        {sub.submenu && <ChevronDown size={16} />}
-                      </div>
+                {/* Mobile Submenu */}
+                {item.dropdown && mobileSubmenu === item.label && (
+                  <ul className="ml-4 border-l pl-3">
+                    {item.dropdown.map((sub, i) => (
+                      <Link to={sub.path}>
+                        <li key={i}>
+                          <div
+                            className="flex justify-between py-2 text-gray-700"
+                            onClick={() =>
+                              sub.submenu
+                                ? setMobileSubSubmenu(
+                                    mobileSubSubmenu === sub.label
+                                      ? null
+                                      : sub.label
+                                  )
+                                : setMobileOpen(false)
+                            }
+                          >
+                            {sub.label}
+                            {sub.submenu && <ChevronDown size={16} />}
+                          </div>
 
-                      {/* Third Level */}
-                      {sub.submenu && mobileSubSubmenu === sub.label && (
-                        <ul className="ml-4 border-l pl-3 text-sm">
-                          {sub.submenu.map((ss, j) => (
-                            <Link to={ss.path}>
-                            <li
-                              key={j}
-                              className="py-1"
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {ss.label}
-                            </li>
-                            </Link>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                    </Link>
-                  ))}
-                </ul>
-              )}
-            </li>
+                          {/* Third Level */}
+                          {sub.submenu && mobileSubSubmenu === sub.label && (
+                            <ul className="ml-4 border-l pl-3 text-sm">
+                              {sub.submenu.map((ss, j) => (
+                                <Link to={ss.path}>
+                                  <li
+                                    key={j}
+                                    className="py-1"
+                                    onClick={() => setMobileOpen(false)}
+                                  >
+                                    {ss.label}
+                                  </li>
+                                </Link>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      </Link>
+                    ))}
+                  </ul>
+                )}
+              </li>
             </Link>
           ))}
         </ul>

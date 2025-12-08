@@ -54,176 +54,258 @@ import Events from "./pages/Events/Events";
 import Gallery from "./pages/gallery/Gallery";
 import FloatingPwrdBadge2 from "./components/test/Test2";
 import FloatingPwrdBadge from "./components/test/Test";
-import { committeeDataMapper } from "@/data/commitees/committiesdata.js";
+import { committeeDataMapper } from "@/data/committees/committiesdata.js";
+import AdminDashboard from "./admin/AdminDashboard";
+import AdminLogin from "./admin/pages/AdminLogin";
+import ProtectedRoute from "./admin/components/ProtectedRoute";
+import AASCBeats from "./pages/aasc-beats/AASCBeats";
+import LeftRightBorder from "./components/common/LeftRightBorder";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <div className="md:block hidden">
-          <TopHeaderBar />
-        </div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* Abou US Pages Routes */}
-          <Route
-            path="/about/profile-of-the-college"
-            element={<ProfileOfCollege />}
-          />
-          <Route
-            path="/about/chief-mentors-desk"
-            element={<CheifMentorDesk />}
-          />
-          <Route path="/about/our-team/:teamType" element={<OurTeam />} />
-          <Route path="/about/our-team" element={<OurTeam />} />
-          <Route path="/about/principal-desk" element={<PrincipalDesk />} />
-          <Route path="/about/organogram" element={<Organogrm />} />
-          <Route
-            path="/about/governing-body-counsil"
-            element={<GoverningBodyCouncil />}
-          />
-          <Route path="/about/press-releases" element={<PressReleases />} />
-          <Route path="/about/media-talks" element={<MediaTalks />} />
-          {/* Academic Pages START*/}
-          <Route
-            path="/academics/departments"
-            element={
-              <Navigate
-                to={`/academics/departments/${
-                  Object.keys(departmentDataMapper)[0]
-                }`}
-                replace
-              />
-            }
-          />
-          <Route
-            path="/academics/departments/:slug"
-            element={<AcademicDepartments />}
-          />
-          <Route
-            path="/academics/ug-programs"
-            element={<Navigate to="/academics/ug-programs/existing" replace />}
-          />
-          <Route
-            path="/academics/ug-programs/:programType"
-            element={<UGPrograms />}
-          />
-          <Route
-            path="/academics/pg-programs"
-            element={<Navigate to="/academics/pg-programs/existing" replace />}
-          />
-          <Route
-            path="/academics/pg-programs/:programType"
-            element={<PGPrograms />}
-          />
-          <Route
-            path="/academics/academic-calendar"
-            element={<AcademicCalendar />}
-          />
-          <Route path="/academics/prospectus" element={<Prospectus />} />
-          {/* Academic Pages END*/}
-          {/* FACILITIES Pages START*/}
-          <Route path="/facilities/library/" element={<Library />} />
-          <Route path="/facilities/cafeteria" element={<Cafeteria />} />
-          <Route path="/facilities/hostel-facilities" element={<Hostel />} />
-          <Route path="/facilities/ict-facilities" element={<ICTFacilites />} />
-          <Route path="/facilities/sports" element={<Sports />} />
-          <Route
-            path="/facilities/infrastructure"
-            element={<Infrasctructe />}
-          />
-          <Route path="/facilities/laboratories" element={<Laboratories />} />
-          <Route
-            path="/facilities/transport-facilities"
-            element={<Transports />}
-          />
-          {/* FACILITIES Pages END*/}
-          {/* Placements Pages START*/}
-          <Route
-            path="/placements/training-and-placement-cell"
-            element={<TrainingAndPlacementsCell />}
-          />
-          <Route path="/placements/records" element={<PlacementRecords />} />
-          <Route
-            path="/placements/key-collaborators-recruiters"
-            element={<KeyCollaboratorsRecruiters />}
-          />
-          {/* Placements Pages END*/}
-          {/* Campus Life pages START*/}
-          <Route
-            path="/campus-life/value-added-courses"
-            element={<ValueAddedCourses />}
-          />
-          <Route path="/campus-life/seed" element={<SEED />} />
-          <Route
-            path="/campus-life/events"
-            element={
-              <Navigate
-                to={`/campus-life/events/${eventsData[0].id}`}
-                replace
-              />
-            }
-          />
-          <Route path="/campus-life/events/:eventId" element={<Events />} />
-          <Route path="/campus-life/sports" element={<Sports />} />
-          <Route path="/campus-life/cultural" element={<Cultural />} />
-          <Route
-            path="/campus-life/department-clubs"
-            element={<DepartmentsClubs />}
-          />
-          {/* Campus Life pages END*/}
-          {/* IQAC & NIRF Pages START */}
-          <Route
-            path="/national-institutional-ranking-ramework"
-            element={<NIRF />}
-          />
-          <Route path="/iqac/naac" element={<NAAC />} />
-          <Route path="/iqac/circulars" element={<CirclularsIQAC />} />
-          <Route path="/iqac/about-iqac" element={<AboutIQAC />} />
-          {/* IQAC & NIRF Pages END */}
+  <div className="bg-transparent">
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            {/* Admin Routes - No Navbar/Footer */}
+            <Route path="/admin/*" element={<AdminDashboard />} />
 
-          {/* Committies pages START*/}
-          <Route path="/committees/:slug" element={<Committees />} />
-          <Route path="/cells/:slug" element={<Committees />} />
-          <Route path="/clubs/:slug" element={<Committees />} />
-          <Route
-            path="/committees"
-            element={
-              <Navigate
-                to={`/committees/${Object.keys(committeeDataMapper)[0]}`}
-              />
-            }
-          />
-          {/* Committies pages END*/}
+            {/* Public Routes - With Navbar/Footer */}
+            <Route
+              path="*"
+              element={
+                <>
+                  <Navbar />
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    {/* Abou US Pages Routes */}
+                    <Route
+                      path="/about/profile-of-the-college"
+                      element={<ProfileOfCollege />}
+                    />
+                    <Route
+                      path="/about/chief-mentors-desk"
+                      element={<CheifMentorDesk />}
+                    />
+                    <Route
+                      path="/about/our-team/:teamType"
+                      element={<OurTeam />}
+                    />
+                    <Route path="/about/our-team" element={<OurTeam />} />
+                    <Route
+                      path="/about/principal-desk"
+                      element={<PrincipalDesk />}
+                    />
+                    <Route path="/about/organogram" element={<Organogrm />} />
+                    <Route
+                      path="/about/governing-body-counsil"
+                      element={<GoverningBodyCouncil />}
+                    />
+                    <Route
+                      path="/about/press-releases"
+                      element={<PressReleases />}
+                    />
+                    <Route path="/about/media-talks" element={<MediaTalks />} />
+                    {/* Academic Pages START*/}
+                    <Route
+                      path="/academics/departments"
+                      element={
+                        <Navigate
+                          to={`/academics/departments/${
+                            Object.keys(departmentDataMapper)[0]
+                          }`}
+                          replace
+                        />
+                      }
+                    />
+                    <Route
+                      path="/academics/departments/:slug"
+                      element={<AcademicDepartments />}
+                    />
+                    <Route
+                      path="/academics/ug-programs"
+                      element={
+                        <Navigate
+                          to="/academics/ug-programs/existing"
+                          replace
+                        />
+                      }
+                    />
+                    <Route
+                      path="/academics/ug-programs/:programType"
+                      element={<UGPrograms />}
+                    />
+                    <Route
+                      path="/academics/pg-programs"
+                      element={
+                        <Navigate
+                          to="/academics/pg-programs/existing"
+                          replace
+                        />
+                      }
+                    />
+                    <Route
+                      path="/academics/pg-programs/:programType"
+                      element={<PGPrograms />}
+                    />
+                    <Route
+                      path="/academics/value-added-courses"
+                      element={<ValueAddedCourses />}
+                    />
+                    <Route
+                      path="/academics/academic-calendar"
+                      element={<AcademicCalendar />}
+                    />
+                    <Route
+                      path="/academics/prospectus"
+                      element={<Prospectus />}
+                    />
+                    {/* Academic Pages END*/}
+                    {/* FACILITIES Pages START*/}
+                    <Route path="/facilities/library/" element={<Library />} />
+                    <Route
+                      path="/facilities/cafeteria"
+                      element={<Cafeteria />}
+                    />
+                    <Route
+                      path="/facilities/hostel-facilities"
+                      element={<Hostel />}
+                    />
+                    <Route
+                      path="/facilities/ict-facilities"
+                      element={<ICTFacilites />}
+                    />
+                    <Route path="/facilities/sports" element={<Sports />} />
+                    <Route
+                      path="/facilities/infrastructure"
+                      element={<Infrasctructe />}
+                    />
+                    <Route
+                      path="/facilities/laboratories"
+                      element={<Laboratories />}
+                    />
+                    <Route
+                      path="/facilities/transport-facilities"
+                      element={<Transports />}
+                    />
+                    {/* FACILITIES Pages END*/}
+                    {/* Placements Pages START*/}
+                    <Route
+                      path="/placements/training-and-placement-cell"
+                      element={<TrainingAndPlacementsCell />}
+                    />
+                    <Route
+                      path="/placements/records"
+                      element={<PlacementRecords />}
+                    />
+                    <Route
+                      path="/placements/key-collaborators-recruiters"
+                      element={<KeyCollaboratorsRecruiters />}
+                    />
+                    {/* Placements Pages END*/}
+                    {/* Campus Life pages START*/}
 
-          {/* Gallery Pages START */}
-          <Route
-            path="/gallery"
-            element={
-              <Navigate to={`/gallery/${Object.keys(galleryData)[0]}`} />
-            }
-          />
-          <Route path="/gallery/:slug" element={<Gallery />} />
-          {/* Gallery Pages END */}
-          {/* 404 error */}
-          <Route path="*" element={<NotFound />} />
-          <Route path="/upcomming-events" element={<UpcomingEvents />} />
-          <Route path="/circulars" element={<Circular />} />
-        </Routes>
-        <Footer />
+                    <Route path="/campus-life/seed" element={<SEED />} />
+                    <Route
+                      path="/campus-life/events"
+                      element={
+                        <Navigate
+                          to={`/campus-life/events/${eventsData[0].id}`}
+                          replace
+                        />
+                      }
+                    />
+                    <Route
+                      path="/campus-life/events/:eventId"
+                      element={<Events />}
+                    />
+                    <Route path="/campus-life/sports" element={<Sports />} />
+                    <Route
+                      path="/campus-life/cultural"
+                      element={<Cultural />}
+                    />
+                    <Route
+                      path="/campus-life/department-clubs"
+                      element={<DepartmentsClubs />}
+                    />
+                    {/* Campus Life pages END*/}
+                    {/* IQAC & NIRF Pages START */}
+                    <Route
+                      path="/national-institutional-ranking-ramework"
+                      element={<NIRF />}
+                    />
+                    <Route path="/iqac/naac" element={<NAAC />} />
+                    <Route
+                      path="/iqac/circulars"
+                      element={<CirclularsIQAC />}
+                    />
+                    <Route path="/iqac/about-iqac" element={<AboutIQAC />} />
+                    {/* IQAC & NIRF Pages END */}
 
-        {/*test badge*/}
-        <FloatingPwrdBadge2 />
-        {/* <FloatingPwrdBadge/> */}
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+                    {/* Committies pages START*/}
+                    <Route path="/committees/:slug" element={<Committees />} />
+                    <Route path="/cells/:slug" element={<Committees />} />
+                    <Route path="/clubs/:slug" element={<Committees />} />
+                    <Route
+                      path="/committees"
+                      element={
+                        <Navigate
+                          to={`/committees/${
+                            Object.keys(committeeDataMapper)[0]
+                          }`}
+                        />
+                      }
+                    />
+                    {/* Committies pages END*/}
+
+                    {/* AASC Beats Pages START */}
+
+                    {/* AASC Beats default view */}
+                    <Route path="/aasc-beats" element={<AASCBeats />} />
+
+                    {/* AASC Beats month view (november, october, etc.) */}
+                    <Route path="/aasc-beats/:month" element={<AASCBeats />} />
+
+                    {/*  AASC Beats Pages END */}
+
+                    {/* Gallery Pages START */}
+                    {/* <Route
+                    path="/gallery"
+                    element={
+                      <Navigate
+                        to={`/gallery/${Object.keys(galleryData)[0]}`}
+                      />
+                    }
+                  /> */}
+                    <Route path="/gallery/:slug" element={<Gallery />} />
+                    {/* Gallery Pages END */}
+                    {/* 404 error */}
+                    <Route path="*" element={<NotFound />} />
+                    <Route
+                      path="/upcomming-events"
+                      element={<UpcomingEvents />}
+                    />
+                    <Route path="/circulars" element={<Circular />} />
+                  </Routes>
+                  <Footer />
+                </>
+              }
+            />
+          </Routes>
+
+          {/*test badge*/}
+          <FloatingPwrdBadge2 />
+          <LeftRightBorder />
+          {/* <FloatingPwrdBadge/> */}
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </div>
 );
 
 export default App;

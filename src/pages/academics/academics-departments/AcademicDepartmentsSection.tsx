@@ -1,6 +1,7 @@
 import React from "react";
 import Heading from "@/components/reusable/Heading";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
+import OurTeamFacultyProfile from "@/components/faculty/OurTeamFacultyProfile";
 
 const AcademicDepartmentsSection = ({ slug, departmentData }) => {
   if (!departmentData) {
@@ -17,7 +18,7 @@ const AcademicDepartmentsSection = ({ slug, departmentData }) => {
     );
   }
 
-  const { name, image, about, description = [] } = departmentData;
+  const { name, image, about, description = [], faculty = [] } = departmentData;
 
   return (
     <div className="flex-1 px-6 border-r border-gray-400">
@@ -56,6 +57,27 @@ const AcademicDepartmentsSection = ({ slug, departmentData }) => {
               </p>
             </div>
           ))}
+        </section>
+      )}
+
+      {/* Faculty Section */}
+      {faculty.length > 0 && (
+        <section className="mt-12">
+          <Heading title="Our Faculty" size="md" align="left" />
+          <HeadingUnderline width={120} align="left" />
+          <div className="mt-6 space-y-4">
+            {faculty.map((member, index) => (
+              <OurTeamFacultyProfile
+                key={`${member.email}-${index}`}
+                name={member.name}
+                phone={member.phone}
+                department={member.department}
+                designation={member.designation}
+                email={member.email}
+                image={member.image}
+              />
+            ))}
+          </div>
         </section>
       )}
     </div>

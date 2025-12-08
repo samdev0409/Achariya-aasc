@@ -1,41 +1,56 @@
-import { CircularPreviewData } from "@/data/home/CircularPreviewData.js";
-import { UpcommingEventsPreviewData } from "@/data/events/UpcommingEventsPreviewData.js";
-import ugprogramsdatadetails from "@/data/academics/ugprogramsdatadetails.js";
-import pgprogrammsdetails from "@/data/academics/pgprogrammsdetails.js";
-
 export const announcementsData = {
   title: "Important Announcements",
   description:
     "Achariya Arts and Science College, Puducherry, is one of the premier institutions under the Achariya Group of Educational Institutions. Established with a vision to provide holistic education and empower students with academic excellence, values, and skills, Achariya offers a wide range of undergraduate and postgraduate programs in arts, science, and commerce. The college fosters innovation, discipline, and leadership among its students.",
   circulars: {
     title: "E-Circulars",
-    items: CircularPreviewData,
+    items: [
+      {
+        id: "admission-2025",
+        title: "Admission Circular 2025 Released",
+        path: "/circulars/admission-2025",
+        file: "/pdf/circulars/admission-2025.pdf",
+        description: "Details regarding admission procedures...",
+        date: "2025-01-10",
+        postedBy: "Academic Office",
+      },
+    ],
   },
   upcomingEvents: {
     title: "Upcoming Events",
-    items: UpcommingEventsPreviewData,
+    items: [
+      {
+        title: "Annual Sports Day - Dec 2025",
+        path: "/events/sports-day-2025",
+        date: "2025-12-18",
+        description: "Our Annual Sports Day will feature track events...",
+        image: "aasc_building.webp",
+        postedBy: "Physical Education Department",
+        file: "/pdf/events/sports-day-schedule.pdf",
+      },
+    ],
   },
   admissionsOpen: {
     title: "Admissions Open",
     items: [
-      ...ugprogramsdatadetails.map((item) => ({
-        id: `UG-${item.id}`,
-        programme: item.programme,
-        degree: item.degree,
-        stream: item.stream,
+      {
+        id: "UG-1",
+        programme: "BACHELOR OF COMMERCE",
+        degree: "B.COM",
+        stream: "COMMERCE",
         level: "UG",
-        category: item.category,
-        path: `/programs/ug/${item.id}`,
-      })),
-      ...pgprogrammsdetails.map((item) => ({
-        id: `PG-${item.id}`,
-        programme: item.programme,
-        degree: item.degree,
-        stream: item.stream,
+        category: "existing",
+        path: "/programs/ug/1",
+      },
+      {
+        id: "PG-1",
+        programme: "MASTER OF COMMERCE",
+        degree: "M.COM",
+        stream: "COMMERCE",
         level: "PG",
-        category: item.category,
-        path: `/programs/pg/${item.id}`,
-      })),
+        category: "existing",
+        path: "/programs/pg/1",
+      },
     ],
   },
 };

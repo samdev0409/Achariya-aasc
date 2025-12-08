@@ -12,9 +12,27 @@ import AchariyaSchoolsAndColleges from "@/components/AchariyaSchoolsAndColleges"
 import NewsTicker from "@/components/common/Header/NewsTicker";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import Heading from "@/components/reusable/Heading";
-import { homeData } from "@/data/home/allhomedata.ts";
+import { useHomeData } from "@/hooks/useHomeData";
 
 const Home = () => {
+  const { data: homeData, isLoading, error } = useHomeData();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
+
+  if (error || !homeData) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-red-500">
+        Error loading data
+      </div>
+    );
+  }
+
   return (
     <>
       <Carousel images={homeData.carousel.images} />
@@ -56,9 +74,7 @@ const Home = () => {
           </section>
 
           <section className="py-6 md:py-12 pb-14 px-6 bg-gray-200">
-            <EventsHighlightsPreview
-              events={homeData.events}
-            />
+            <EventsHighlightsPreview events={homeData.events} />
           </section>
 
           <section className="py-6 md:py-12 container">

@@ -2,14 +2,17 @@ import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import HeadingUnderline from "./reusable/HeadingUnderline";
 import Heading from "./reusable/Heading";
+import { useNavigate } from "react-router-dom";
 
 const EventsHighlightsPreview = ({  events: galleryEvents }) => {
   // Triple the events array for seamless infinite loop
   const tripleEvents = [...galleryEvents, ...galleryEvents, ...galleryEvents];
 
+  const navigate = useNavigate();
+
   const handleEventClick = (eventId) => {
     console.log(`Navigate to event: ${eventId}`);
-    // navigate(`/campus-life/events/${eventId}`);
+    navigate(`/campus-life/events/${eventId}`);
   };
 
   return (

@@ -49,6 +49,7 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
+    background-color: transparent;
   }
 
   body {

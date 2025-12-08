@@ -8,9 +8,11 @@ import carousel7 from "@/assets/images/carousel/24-2048x908.png";
 import carousel8 from "@/assets/images/carousel/25-2048x908.png";
 import carousel9 from "@/assets/images/carousel/boobesh-2048x908.jpg";
 import carousel10 from "@/assets/images/carousel/Untitled-2480-x-909-px-2048x908.png";
+import carousel11 from "@/assets/images/carousel/gold-medalist (2).jpg";
 
 export const carouselData = {
   images: [
+    carousel11,
     carousel10,
     carousel2,
     carousel3,

@@ -147,8 +147,9 @@ const OurTeamFacultySection = () => {
             <HeadingUnderline align="center" width={150} />
           </div>
           <div className="overflow-x-auto   py-2">
-            {grouped[dep].map((item) => (
+            {grouped[dep].map((item, idx) => (
               <OurTeamFacultyProfile
+                key={`${item.email}-${idx}`}
                 name={item.name}
                 phone={item.phone}
                 department={item.deparment}
