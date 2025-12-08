@@ -16,7 +16,11 @@ const DepartmentsDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<DepartmentData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
+<<<<<<< HEAD
   const collectionName = "academics/departmentsdata";
+=======
+  const collectionName = "academics__departmentsdata";
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
   useEffect(() => {
     fetchData();

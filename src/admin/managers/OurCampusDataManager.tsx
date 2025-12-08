@@ -50,7 +50,11 @@ const OurCampusDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<OurCampusData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
+<<<<<<< HEAD
   const collectionName = "home/ourcampusdata";
+=======
+  const collectionName = "home__ourcampusdata";
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
   // -------------------------------------------------------
   // Fetch + Sanitize Data
@@ -62,9 +66,14 @@ const OurCampusDataManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
 
+<<<<<<< HEAD
       const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
         sanitizeItem
       );
+=======
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
+        .map(sanitizeItem);
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
       setData(cleaned);
     } catch (e: any) {
@@ -157,9 +166,13 @@ const OurCampusDataManager: React.FC = () => {
     if (!editItem) return;
 
     const updated = sanitizeItem(editItem);
+<<<<<<< HEAD
     updated.data.paragraphs = updated.data.paragraphs.filter(
       (_, i) => i !== index
     );
+=======
+    updated.data.paragraphs = updated.data.paragraphs.filter((_, i) => i !== index);
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
     setEditItem(updated);
   };
@@ -185,12 +198,16 @@ const OurCampusDataManager: React.FC = () => {
             type="text"
             value={safe.data.title}
             onChange={(e) => updateField("data.title", e.target.value)}
+<<<<<<< HEAD
             style={{
               width: "100%",
               padding: ".5rem",
               borderRadius: 4,
               border: "1px solid #ccc",
             }}
+=======
+            style={{ width: "100%", padding: ".5rem", borderRadius: 4, border: "1px solid #ccc" }}
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
           />
         </div>
 
@@ -201,12 +218,16 @@ const OurCampusDataManager: React.FC = () => {
             type="text"
             value={safe.data.image}
             onChange={(e) => updateField("data.image", e.target.value)}
+<<<<<<< HEAD
             style={{
               width: "100%",
               padding: ".5rem",
               borderRadius: 4,
               border: "1px solid #ccc",
             }}
+=======
+            style={{ width: "100%", padding: ".5rem", borderRadius: 4, border: "1px solid #ccc" }}
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
           />
         </div>
 
@@ -217,17 +238,22 @@ const OurCampusDataManager: React.FC = () => {
             type="text"
             value={safe.data.videoUrl}
             onChange={(e) => updateField("data.videoUrl", e.target.value)}
+<<<<<<< HEAD
             style={{
               width: "100%",
               padding: ".5rem",
               borderRadius: 4,
               border: "1px solid #ccc",
             }}
+=======
+            style={{ width: "100%", padding: ".5rem", borderRadius: 4, border: "1px solid #ccc" }}
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
           />
         </div>
 
         {/* Paragraphs */}
         <div style={{ marginTop: "1.5rem" }}>
+<<<<<<< HEAD
           <div
             style={{
               display: "flex",
@@ -235,6 +261,9 @@ const OurCampusDataManager: React.FC = () => {
               marginBottom: 8,
             }}
           >
+=======
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
             <strong>Paragraphs ({safe.data.paragraphs.length})</strong>
             <button className="btn btn-primary" onClick={addParagraph}>
               + Add Paragraph
@@ -252,6 +281,7 @@ const OurCampusDataManager: React.FC = () => {
                 marginBottom: "1rem",
               }}
             >
+<<<<<<< HEAD
               <div
                 style={{
                   display: "flex",
@@ -259,6 +289,9 @@ const OurCampusDataManager: React.FC = () => {
                   marginBottom: 8,
                 }}
               >
+=======
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
                 <label>Paragraph {index + 1}</label>
                 <button
                   className="btn"
@@ -286,6 +319,7 @@ const OurCampusDataManager: React.FC = () => {
 
         {/* Save Buttons */}
         <div style={{ marginTop: 20, display: "flex", gap: 12 }}>
+<<<<<<< HEAD
           <button className="btn btn-primary" onClick={handleSave}>
             Save
           </button>
@@ -294,6 +328,10 @@ const OurCampusDataManager: React.FC = () => {
             style={{ background: "#ccc" }}
             onClick={() => setIsEditing(false)}
           >
+=======
+          <button className="btn btn-primary" onClick={handleSave}>Save</button>
+          <button className="btn" style={{ background: "#ccc" }} onClick={() => setIsEditing(false)}>
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
             Cancel
           </button>
         </div>

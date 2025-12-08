@@ -41,7 +41,11 @@ const OurSchoolsCollegesDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<OurSchoolsCollegesData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
+<<<<<<< HEAD
   const collectionName = "home/ourschoolscollegesdata";
+=======
+  const collectionName = "home__ourschoolscollegesdata";
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
   // -------------------------------------------------------
   // Fetch + SANITIZE result
@@ -52,9 +56,14 @@ const OurSchoolsCollegesDataManager: React.FC = () => {
 
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
+<<<<<<< HEAD
       const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
         sanitizeItem
       );
+=======
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
+        .map(sanitizeItem);
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
       setData(cleaned);
     } catch (err: any) {
       setError("Failed to load data: " + err.message);
@@ -191,7 +200,14 @@ const OurSchoolsCollegesDataManager: React.FC = () => {
             }}
           >
             <strong>School/College Logos ({safe.data.logos.length})</strong>
+<<<<<<< HEAD
             <button className="btn btn-primary" onClick={addLogo}>
+=======
+            <button
+              className="btn btn-primary"
+              onClick={addLogo}
+            >
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
               + Add Logo
             </button>
           </div>

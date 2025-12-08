@@ -20,7 +20,11 @@ const GoverningBodyCouncilDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<GoverningBodyMember | null>(null);
   const [isNew, setIsNew] = useState(false);
 
+<<<<<<< HEAD
   const collectionName = "about/governingbodycouncildata";
+=======
+  const collectionName = "about__governingbodycouncildata";
+>>>>>>> 1b17a56e442edb060756e636a4b6ea5a773a68bb
 
   useEffect(() => {
     fetchData();

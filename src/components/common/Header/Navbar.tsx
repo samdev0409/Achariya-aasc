@@ -142,14 +142,9 @@ const Navbar = () => {
       ],
     },
 
-    // {
-    //   label: "Gallery",
-    //   path: "/gallery/",
-    //   dropdown: null,
-    // },
     {
-      label: "AASC Beats",
-      path: "/aasc-beats",
+      label: "Gallery",
+      path: "/gallery/",
       dropdown: null,
     },
 
@@ -183,10 +178,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="hidden md:block sticky top-0 z-[100] w-full bg-white shadow-white">
-        <div className="md:block hidden">
-          <TopHeaderBar />
-        </div>
+      <div className="hidden md:block sticky top-0 z-[100] bg-white shadow-white">
         <nav className="flex items-center justify-between p-3 bg-purple backdrop-blur-md">
           <Link to="/">
             <img
