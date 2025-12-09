@@ -13,6 +13,7 @@ import NewsTicker from "@/components/common/Header/NewsTicker";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import Heading from "@/components/reusable/Heading";
 import { useHomeData } from "@/hooks/useHomeData";
+import LeftRightBorder from "@/components/common/LeftRightBorder";
 
 const Home = () => {
   const { data: homeData, isLoading, error } = useHomeData();
@@ -39,7 +40,7 @@ const Home = () => {
       <NewsTicker items={homeData.newsTicker.items} />
       <div className="min-h-screen flex flex-col ">
         <main className="flex-grow space-y-6">
-          <section className="bg-secondary container py-6 md:py-12 mt-6 border-border">
+          <section className="bg-secondary  py-6 md:py-12 mt-6 border-border">
             <div className="text-center">
               <Heading
                 title={homeData.welcome.title}
@@ -64,7 +65,7 @@ const Home = () => {
             <AchievementsStats stats={homeData.stats.items} />
           </section>
 
-          <section className="py-6 md:py-12 container">
+          <section className="bg-secondary container py-6 md:py-12 mt-6 border-border">
             <OurCampus data={homeData.campus} />
           </section>
           <hr className=" container" />
@@ -76,8 +77,7 @@ const Home = () => {
           <section className="py-6 md:py-12 pb-14 px-6 bg-gray-200">
             <EventsHighlightsPreview events={homeData.events} />
           </section>
-
-          <section className="py-6 md:py-12 container">
+          <section className="container py-6 md:py-12">
             <OurRecruiters
               title={homeData.recruiters.title}
               logos={homeData.recruiters.logos}
@@ -88,6 +88,7 @@ const Home = () => {
           <section id="contact" className="py-6 md:py-12 container">
             <ForAdmission data={homeData.admission} />
           </section>
+
           <hr className="text-gray-200 container" />
           <section className="py-6 md:py-12 container">
             <CircularAndUpcomingEvents data={homeData.announcements} />

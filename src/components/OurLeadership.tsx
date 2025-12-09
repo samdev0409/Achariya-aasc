@@ -19,7 +19,7 @@ const OurLeadership: React.FC<OurLeadershipProps> = ({ leads }) => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-background text-foreground pt-8">
+    <section className=" pt-8">
       <div className="container px-4">
         <div
           className="flex flex-col md:flex-row justify-center

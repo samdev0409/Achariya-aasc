@@ -30,7 +30,7 @@ const VideoPopup = ({ thumbnail, videoUrl }) => {
   return (
     <>
       {/* ---------- THUMBNAIL & PLAY BUTTON (Outside Popup) ---------- */}
-      <div className="relative w-full h-full aspect-video overflow-hidden shadow-lg cursor-pointer">
+      <div className="relative w-full h-full aspect-video overflow-hidden shadow-lg cursor-pointer ">
         <img
           src={thumbnail}
           alt="thumbnail"
@@ -63,19 +63,19 @@ const VideoPopup = ({ thumbnail, videoUrl }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[999]"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[9999]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closePopup}
           >
-            {/* Close Button */}
-              <button
-                onClick={closePopup}
-                className="absolute top-10 z[100] right-10 text-white hover:text-purple-400 transition"
-              >
-                <X className="w-10 h-10" />
-              </button>
+            <button
+              onClick={closePopup}
+              className="absolute top-10 right-10 text-white hover:text-purple-400 transition z-[10000]"
+            >
+              <X className="w-10 h-10" />
+            </button>
+
             {/* ---------- POPUP BOX ---------- */}
             <motion.div
               className="w-full max-w-4xl aspect-video relative rounded-lg overflow-hidden"
@@ -85,8 +85,6 @@ const VideoPopup = ({ thumbnail, videoUrl }) => {
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
             >
-              
-
               {/* THUMBNAIL INSIDE POPUP BEFORE PLAY */}
               {!showVideo && (
                 <div

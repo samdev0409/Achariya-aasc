@@ -60,6 +60,8 @@ import AdminLogin from "./admin/pages/AdminLogin";
 import ProtectedRoute from "./admin/components/ProtectedRoute";
 import AASCBeats from "./pages/aasc-beats/AASCBeats";
 import LeftRightBorder from "./components/common/LeftRightBorder";
+import PosterCampaign from "./pages/IQAC/bestpractices/PosterCampaign";
+import SpritualityInAASC from "./pages/IQAC/bestpractices/SpritualityInAASC";
 
 const queryClient = new QueryClient();
 
@@ -222,12 +224,14 @@ const App = () => (
                   {/* Campus Life pages END*/}
                   {/* IQAC & NIRF Pages START */}
                   <Route
-                    path="/national-institutional-ranking-ramework"
+                    path="/national-institutional-ranking-framework"
                     element={<NIRF />}
                   />
                   <Route path="/iqac/naac" element={<NAAC />} />
                   <Route path="/iqac/circulars" element={<CirclularsIQAC />} />
                   <Route path="/iqac/about-iqac" element={<AboutIQAC />} />
+                  <Route path="/iqac/best-practices/poster-campaign" element={<PosterCampaign />} />
+                  <Route path="/iqac/best-practices/spirituality-in-aasc" element={<SpritualityInAASC />} />
                   {/* IQAC & NIRF Pages END */}
 
                   {/* Committies pages START*/}
@@ -245,15 +249,10 @@ const App = () => (
                     }
                   />
                   {/* Committies pages END*/}
-
+                  
                   {/* AASC Beats Pages START */}
-                
-                    {/* AASC Beats default view */}
                     <Route path="/aasc-beats" element={<AASCBeats />} />
-
-                    {/* AASC Beats month view (november, october, etc.) */}
                     <Route path="/aasc-beats/:month" element={<AASCBeats />} />
-               
                   {/*  AASC Beats Pages END */}
 
                   {/* Gallery Pages START */}
@@ -283,7 +282,7 @@ const App = () => (
 
         {/*test badge*/}
         <FloatingPwrdBadge2 />
-        {/* <LeftRightBorder/> */}
+        <LeftRightBorder/>
         {/* <FloatingPwrdBadge/> */}
       </BrowserRouter>
     </TooltipProvider>

@@ -2,53 +2,48 @@ import React from "react";
 import bgLeft from "@/assets/images/bg/bg-pattern-1.png";
 import bgRight from "@/assets/images/bg/bg-pattern-2.png";
 
-const LeftRightBorder: React.FC = () => {
+interface BorderWrapperProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const LeftRightBorder: React.FC<BorderWrapperProps> = ({ children, className }) => {
   return (
-    <div className="w-full">
-      {/* LEFT FLOATING BORDER IMAGE */}
+    <div className={`relative w-full ${className || ""}`}>
+      {/* LEFT BORDER */}
       <img
         src={bgLeft}
         alt="Left Border"
         className="
-          fixed top-0 left-0
-          h-screen
-          w-[50px]
-          md:w-[180px]
-          lg:w-[270px]
+          absolute top-0 left-0
+          h-full
+          w-[40px] sm:w-[80px] md:w-[150px] lg:w-[220px]
           object-cover
-          opacity-20
+          opacity-15
           pointer-events-none
-          z-[98]
-          transition-all duration-300
-          my-12
+          mix-blend-multiply
         "
-        style={{
-          mixBlendMode: 'multiply',
-          backgroundColor: 'transparent'
-        }}
       />
-      {/* RIGHT FLOATING BORDER IMAGE */}
+
+      {/* RIGHT BORDER */}
       <img
         src={bgRight}
         alt="Right Border"
         className="
-          fixed top-0 right-0
-          h-screen
-          w-[50px]
-          md:w-[180px]
-          lg:w-[270px]
+          absolute top-0 right-0
+          h-full
+          w-[40px] sm:w-[80px] md:w-[150px] lg:w-[220px]
           object-cover
-          opacity-20
+          opacity-15
           pointer-events-none
-          z-[98]
-          transition-all duration-300
-          my-12
+          mix-blend-multiply
         "
-        style={{
-          mixBlendMode: 'multiply',
-          backgroundColor: 'transparent'
-        }}
       />
+
+      {/* MAIN CONTENT */}
+      <div className="relative z-[2]">
+        {children}
+      </div>
     </div>
   );
 };

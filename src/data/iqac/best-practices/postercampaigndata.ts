@@ -1,0 +1,35 @@
+import poster1 from "@/assets/images/best-pratices/poster-campaign/hand-sanitizer.jpg";
+import poster2 from "@/assets/images/best-pratices/poster-campaign/now-wash-your-hands-poster-campaign-1.jpg";
+import poster3 from "@/assets/images/best-pratices/poster-campaign/stay-home-poster-campaign-1.jpg";
+import poster4 from "@/assets/images/best-pratices/poster-campaign/washing-hands-poster-campaign-1.jpg";
+
+export const postercampaigndata = {
+  posters: [
+    {
+      label: "Hand Sanitizer Awareness",
+      image: poster1,
+    },
+    {
+      label: "Wash Your Hands – Hygiene Campaign",
+      image: poster2,
+    },
+    {
+      label: "Stay Home – Safety Campaign",
+      image: poster3,
+    },
+    {
+      label: "Proper Hand Washing Technique",
+      image: poster4,
+    },
+     {
+      label: "Hand Sanitizer Awareness",
+      image: poster1,
+    },
+     {
+      label: "Hand Sanitizer Awareness",
+      image: poster1,
+    },
+  ],
+};
+
+export default postercampaigndata;
