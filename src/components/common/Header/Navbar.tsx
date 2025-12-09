@@ -20,7 +20,10 @@ const Navbar = () => {
   // Close sidebar when clicking outside
   useEffect(() => {
     const handleClick = (e) => {
-      if (!e.target.closest("#mobileSidebar") && !e.target.closest("#hamburgerBtn")) {
+      if (
+        !e.target.closest("#mobileSidebar") &&
+        !e.target.closest("#hamburgerBtn")
+      ) {
         setMobileOpen(false);
         setMobileSubmenu(null);
         setMobileSubSubmenu(null);
@@ -38,18 +41,27 @@ const Navbar = () => {
       label: "About Us",
       path: "/about",
       dropdown: [
-        { label: "Profile Of The College", path: "/about/profile-of-the-college" },
+        {
+          label: "Profile Of The College",
+          path: "/about/profile-of-the-college",
+        },
         { label: "Chief Mentor's Desk", path: "/about/chief-mentors-desk" },
         { label: "Principal's Desk", path: "/about/principal-desk" },
-        { label: "Governing Body Council", path: "/about/governing-body-counsil" },
+        {
+          label: "Governing Body Council",
+          path: "/about/governing-body-counsil",
+        },
         { label: "Organogram", path: "/about/organogram" },
         {
           label: "Our Team",
           path: "/about/our-team/faculty",
           submenu: [
             { label: "Faculty", path: "/about/our-team/faculty" },
-            { label: "Administrative Team", path: "/about/our-team/administrative-team" },
-            { label: "Media Team", path: "/about/our-team/media-team" },
+            {
+              label: "Administrative Team",
+              path: "/about/our-team/administrative",
+            },
+            { label: "Media Team", path: "/about/our-team/media" },
           ],
         },
         { label: "Press Releases", path: "/about/press-releases" },
@@ -73,8 +85,14 @@ const Navbar = () => {
       label: "Placements",
       path: "/placements",
       dropdown: [
-        { label: "Training And Placement Cell", path: "/placements/training-and-placement-cell" },
-        { label: "Key Collaborators/Recruiters", path: "/placements/key-collaborators-recruiters" },
+        {
+          label: "Training And Placement Cell",
+          path: "/placements/training-and-placement-cell",
+        },
+        {
+          label: "Key Collaborators/Recruiters",
+          path: "/placements/key-collaborators-recruiters",
+        },
         { label: "Records", path: "/placements/records" },
       ],
     },
@@ -85,7 +103,10 @@ const Navbar = () => {
       dropdown: [
         { label: "SEED", path: "/campus-life/seed" },
         { label: "Events", path: "/campus-life/events" },
-        { label: "Value-Added Courses", path: "/campus-life/value-added-courses" },
+        {
+          label: "Value-Added Courses",
+          path: "/campus-life/value-added-courses",
+        },
         { label: "Department Clubs", path: "/campus-life/department-clubs" },
         { label: "Cultural", path: "/campus-life/cultural" },
         { label: "Sports", path: "/campus-life/sports" },
@@ -106,9 +127,15 @@ const Navbar = () => {
           label: "Best Practices",
           path: "/iqac/best-practices/poster-campaign",
           submenu: [
-            { label: "Poster Campaign", path: "/iqac/best-practices/poster-campaign" },
+            {
+              label: "Poster Campaign",
+              path: "/iqac/best-practices/poster-campaign",
+            },
             { label: "LMS", path: "/iqac/best-practices/lms" },
-            { label: "Spirituality in AASC", path: "/iqac/best-practices/spirituality-in-aasc" },
+            {
+              label: "Spirituality in AASC",
+              path: "/iqac/best-practices/spirituality-in-aasc",
+            },
             { label: "Webinars", path: "/iqac/best-practices/webinars" },
           ],
         },
@@ -141,8 +168,16 @@ const Navbar = () => {
               >
                 {/* MAIN ITEM */}
                 <div className="relative text-white text-[15px] py-4 px-3 cursor-pointer hover:bg-white/10 flex items-center gap-1 group">
-                  <Link to={item.path}>{item.label}</Link>
+                  {item.dropdown ? (
+                    // 🚫 Not Clickable Label
+                    <span className="pointer-events-none">{item.label}</span>
+                  ) : (
+                    // ✅ Clickable Link (Only if NO dropdown)
+                    <Link to={item.path}>{item.label}</Link>
+                  )}
+
                   {item.dropdown && <ChevronDown className="w-4 h-4" />}
+
                   {/* Center animated underline */}
                   <span className="absolute left-1/2 bottom-1 h-[2px] w-0 bg-white/80 -translate-x-1/2 group-hover:w-4/5 transition-all duration-300 ease-out" />
                 </div>
@@ -251,7 +286,9 @@ const Navbar = () => {
                 className="flex justify-between py-2 text-gray-800 font-medium"
                 onClick={() =>
                   item.dropdown
-                    ? setMobileSubmenu(mobileSubmenu === item.label ? null : item.label)
+                    ? setMobileSubmenu(
+                        mobileSubmenu === item.label ? null : item.label
+                      )
                     : setMobileOpen(false)
                 }
               >
@@ -269,7 +306,9 @@ const Navbar = () => {
                         onClick={() =>
                           sub.submenu
                             ? setMobileSubSubmenu(
-                                mobileSubSubmenu === sub.label ? null : sub.label
+                                mobileSubSubmenu === sub.label
+                                  ? null
+                                  : sub.label
                               )
                             : setMobileOpen(false)
                         }
