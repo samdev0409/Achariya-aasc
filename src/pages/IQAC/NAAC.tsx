@@ -1,5 +1,5 @@
 import React from "react";
-import naacPlaceholder from "@/assets/images/NAAC/NAAC-Logo.jpg"; // 🔁 Replace with actual NAAC image later
+import naacPlaceholder from "@/assets/images/NAAC/NAAC-Logo.webp"; // 🔁 Replace with actual NAAC image later
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";

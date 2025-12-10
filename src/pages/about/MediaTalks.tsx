@@ -1,6 +1,6 @@
 import React from "react";
-import AASClogo from "@/assets/images/common/AASC-Logo.png";
-import Achariyalogo from "@/assets/images/common/achariya-logo-300x300.jpg";
+import AASClogo from "@/assets/images/common/AASC-Logo.webp";
+import Achariyalogo from "@/assets/images/common/achariya-logo-300x300.webp";
 import { Facebook, Instagram, Youtube, ExternalLink } from "lucide-react";
 import campus from "@/assets/images/aasc_building.webp";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";

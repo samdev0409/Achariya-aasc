@@ -1,102 +1,102 @@
 // Principal
-import principalDrUshadevi from "@/assets/images/our-team/faculty/Principal/Dr. Ushadevi R.jpeg";
+import principalDrUshadevi from "@/assets/images/our-team/faculty/Principal/Dr. Ushadevi R.webp";
 
 // Vice Principal
-import vicePrincipalNetraPrakash from "@/assets/images/our-team/faculty/Vice Principal/Mr. Netra Prakash.B.jpeg";
+import vicePrincipalNetraPrakash from "@/assets/images/our-team/faculty/Vice Principal/Mr. Netra Prakash.B.webp";
 
 // English Department
-import englishRadhapriya from "@/assets/images/our-team/faculty/English Dept/Mrs. Radhapriya. A.jpg";
-import englishUmarani from "@/assets/images/our-team/faculty/English Dept/Mrs. Umarani. J.jpg";
-import englishNithiyaParameswari from "@/assets/images/our-team/faculty/English Dept/Dr. Nithiya Parameswari. V.jpg";
-import englishPriyanga from "@/assets/images/our-team/faculty/English Dept/Dr. Priyanga V.jpg";
-import englishShalini from "@/assets/images/our-team/faculty/English Dept/Ms. Shalini R.jpg";
-import englishKanimozhi from "@/assets/images/our-team/faculty/English Dept/Mrs. Kanimozhi.jpg";
+import englishRadhapriya from "@/assets/images/our-team/faculty/English Dept/Mrs. Radhapriya. A.webp";
+import englishUmarani from "@/assets/images/our-team/faculty/English Dept/Mrs. Umarani. J.webp";
+import englishNithiyaParameswari from "@/assets/images/our-team/faculty/English Dept/Dr. Nithiya Parameswari. V.webp";
+import englishPriyanga from "@/assets/images/our-team/faculty/English Dept/Dr. Priyanga V.webp";
+import englishShalini from "@/assets/images/our-team/faculty/English Dept/Ms. Shalini R.webp";
+import englishKanimozhi from "@/assets/images/our-team/faculty/English Dept/Mrs. Kanimozhi.webp";
 
 // Language Department
-import languageAskarAli from "@/assets/images/our-team/faculty/Language Dept/Dr.Askar Ali. M.jpeg";
-import languageUmamagechavary from "@/assets/images/our-team/faculty/Language Dept/Dr.Umamagechavary. S.jpeg";
-import languageRajaraman from "@/assets/images/our-team/faculty/Language Dept/Dr. Rajaraman. A.jpg";
-import languageSilambarasan from "@/assets/images/our-team/faculty/Language Dept/Dr. Silambarasan. K.jpeg";
-import languageSenthilKumaran from "@/assets/images/our-team/faculty/Language Dept/Dr. Senthil Kumaran N.jpeg";
-import languageAravindhan from "@/assets/images/our-team/faculty/Language Dept/Mr. Aravindhan.jpg";
+import languageAskarAli from "@/assets/images/our-team/faculty/Language Dept/Dr.Askar Ali. M.webp";
+import languageUmamagechavary from "@/assets/images/our-team/faculty/Language Dept/Dr.Umamagechavary. S.webp";
+import languageRajaraman from "@/assets/images/our-team/faculty/Language Dept/Dr. Rajaraman. A.webp";
+import languageSilambarasan from "@/assets/images/our-team/faculty/Language Dept/Dr. Silambarasan. K.webp";
+import languageSenthilKumaran from "@/assets/images/our-team/faculty/Language Dept/Dr. Senthil Kumaran N.webp";
+import languageAravindhan from "@/assets/images/our-team/faculty/Language Dept/Mr. Aravindhan.webp";
 
 // Mathematics Department
-import mathsDianaVinster from "@/assets/images/our-team/faculty/Maths Dept/Mrs. Diana Vinster Nadeen. A.jpeg";
-import mathsShanmugapriya from "@/assets/images/our-team/faculty/Maths Dept/Mrs .Shanmugapriya.G.jpeg";
-import mathsDiviya from "@/assets/images/our-team/faculty/Maths Dept/Mrs .Diviya.P.jpeg";
+import mathsDianaVinster from "@/assets/images/our-team/faculty/Maths Dept/Mrs. Diana Vinster Nadeen. A.webp";
+import mathsShanmugapriya from "@/assets/images/our-team/faculty/Maths Dept/Mrs .Shanmugapriya.G.webp";
+import mathsDiviya from "@/assets/images/our-team/faculty/Maths Dept/Mrs .Diviya.P.webp";
 
 // Computer Application (BCA) Department
-import bcaSherifBaig from "@/assets/images/our-team/faculty/BCA Dept/Mr. Sherif Baig.I.jpeg";
-import bcaVinodhini from "@/assets/images/our-team/faculty/BCA Dept/Mrs. Vinodhini.J.jpeg";
-import bcaIlakiya from "@/assets/images/our-team/faculty/BCA Dept/Mrs. Ilakiya.jpg";
-import bcaVakiswaran from "@/assets/images/our-team/faculty/BCA Dept/Mr. Vakiswaran P.jpeg";
+import bcaSherifBaig from "@/assets/images/our-team/faculty/BCA Dept/Mr. Sherif Baig.I.webp";
+import bcaVinodhini from "@/assets/images/our-team/faculty/BCA Dept/Mrs. Vinodhini.J.webp";
+import bcaIlakiya from "@/assets/images/our-team/faculty/BCA Dept/Mrs. Ilakiya.webp";
+import bcaVakiswaran from "@/assets/images/our-team/faculty/BCA Dept/Mr. Vakiswaran P.webp";
 
 // Computer Science Department
-import csKalaiselvi from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.P.Kalaiselvi.jpg";
-import csRevathy from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.R.Revathy.jpg";
-import csNishanthi from "@/assets/images/our-team/faculty/Computer Science Dept/Ms.M.Nishanthi.jpg";
-import csPriyanka from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.V.Priyanka.png";
+import csKalaiselvi from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.P.Kalaiselvi.webp";
+import csRevathy from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.R.Revathy.webp";
+import csNishanthi from "@/assets/images/our-team/faculty/Computer Science Dept/Ms.M.Nishanthi.webp";
+import csPriyanka from "@/assets/images/our-team/faculty/Computer Science Dept/Mrs.V.Priyanka.webp";
 
 // Information Technology Department
-import itKalaiselvi from "@/assets/images/our-team/faculty/Information Technology Dept/Mrs.P.Kalaiselvi.jpg";
-import itKarpagavalli from "@/assets/images/our-team/faculty/Information Technology Dept/Mrs. Karpagavalli C.jpeg";
-import itDhinahar from "@/assets/images/our-team/faculty/Information Technology Dept/Mr. Dhinahar V.jpeg";
-import itBeulaGrace from "@/assets/images/our-team/faculty/Information Technology Dept/Mrs.Beula Grace B.jpeg";
+import itKalaiselvi from "@/assets/images/our-team/faculty/Information Technology Dept/Mrs.P.Kalaiselvi.webp";
+import itKarpagavalli from "@/assets/images/our-team/faculty/Information Technology Dept/Mrs. Karpagavalli C.webp";
+import itDhinahar from "@/assets/images/our-team/faculty/Information Technology Dept/Mr. Dhinahar V.webp";
+import itBeulaGrace from "@/assets/images/our-team/faculty/Information Technology Dept/Mrs.Beula Grace B.webp";
 
 // Biotechnology Department
-import bioArulkumar from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Arulkumar.A.jpeg";
-import bioRajalakshmi from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Rajalakshmi. R.jpeg";
-import bioPanjatcharam from "@/assets/images/our-team/faculty/BioTechnology Dept/Mr. Panjatcharam.V.jpeg";
-import bioUdhayaraja from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Udhayaraja P.jpeg";
-import bioPriyadharshini from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Priyadharshini S.jpeg";
-import bioSubasri from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Subasri J.jpeg";
+import bioArulkumar from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Arulkumar.A.webp";
+import bioRajalakshmi from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Rajalakshmi. R.webp";
+import bioPanjatcharam from "@/assets/images/our-team/faculty/BioTechnology Dept/Mr. Panjatcharam.V.webp";
+import bioUdhayaraja from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Udhayaraja P.webp";
+import bioPriyadharshini from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Priyadharshini S.webp";
+import bioSubasri from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Subasri J.webp";
 
 // Management Studies (BBA) Department
-import bbaNetraPrakash from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Mr. Netra Prakash.B.jpeg";
-import bbaSureshRajan from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Dr. Suresh Rajan. S. G.jpeg";
-import bbaPrathap from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Mr. Prathap K.jpeg";
-import bbaSushma from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Dr.Sushma R.jpeg";
+import bbaNetraPrakash from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Mr. Netra Prakash.B.webp";
+import bbaSureshRajan from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Dr. Suresh Rajan. S. G.webp";
+import bbaPrathap from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Mr. Prathap K.webp";
+import bbaSushma from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Dr.Sushma R.webp";
 
 // Commerce Department
-import commerceSadishKadhane from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Sadish Kadhane. D.jpeg";
-import commerceRajaprabu from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Rajaprabu.D.jpg";
-import commerceKesavan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Kesavan A.jpeg";
-import commerceSakthivelu from "@/assets/images/our-team/faculty/Commerce Dept/Dr.Sakthivelu.S.jpg";
-import commerceUshenaBegam from "@/assets/images/our-team/faculty/Commerce Dept/Ms.Ushena Begam S.jpeg";
-import commerceEzhilan from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Ezhilan K.jpeg";
-import commerceElavarasan from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Elavarasan K.jpg";
-import commerceMathivanan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Mathivanan P.jpeg";
-import commerceManikandan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Manikandan S.jpeg";
+import commerceSadishKadhane from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Sadish Kadhane. D.webp";
+import commerceRajaprabu from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Rajaprabu.D.webp";
+import commerceKesavan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Kesavan A.webp";
+import commerceSakthivelu from "@/assets/images/our-team/faculty/Commerce Dept/Dr.Sakthivelu.S.webp";
+import commerceUshenaBegam from "@/assets/images/our-team/faculty/Commerce Dept/Ms.Ushena Begam S.webp";
+import commerceEzhilan from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Ezhilan K.webp";
+import commerceElavarasan from "@/assets/images/our-team/faculty/Commerce Dept/Dr. Elavarasan K.webp";
+import commerceMathivanan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Mathivanan P.webp";
+import commerceManikandan from "@/assets/images/our-team/faculty/Commerce Dept/Mr. Manikandan S.webp";
 
 // Corporate Secretaryship Department
-import csManimegalai from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Manimegalai S.jpeg";
-import csRameshKumar from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.png";
-import csRaziaSultana from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Mrs. Razia Sultana A.jpeg";
-import csKokulaKarthiga from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Mrs. Kokula Karthiga K.jpeg";
+import csManimegalai from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Manimegalai S.webp";
+import csRameshKumar from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.webp";
+import csRaziaSultana from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Mrs. Razia Sultana A.webp";
+import csKokulaKarthiga from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Mrs. Kokula Karthiga K.webp";
 
 // Visual Communication Department
-import vcMangaiyarkarasi from "@/assets/images/our-team/faculty/Visual Communication Dept/Mrs. Mangaiyarkarasi S.jpeg";
-import vcDineshSaravanan from "@/assets/images/our-team/faculty/Visual Communication Dept/Mr. Dinesh Saravanan M.jpeg";
-import vcVinu from "@/assets/images/our-team/faculty/Visual Communication Dept/Mr. Vinu A.jpg";
-import vcKritthikaRithani from "@/assets/images/our-team/faculty/Visual Communication Dept/Ms. Kritthika Rithani S R.jpg";
+import vcMangaiyarkarasi from "@/assets/images/our-team/faculty/Visual Communication Dept/Mrs. Mangaiyarkarasi S.webp";
+import vcDineshSaravanan from "@/assets/images/our-team/faculty/Visual Communication Dept/Mr. Dinesh Saravanan M.webp";
+import vcVinu from "@/assets/images/our-team/faculty/Visual Communication Dept/Mr. Vinu A.webp";
+import vcKritthikaRithani from "@/assets/images/our-team/faculty/Visual Communication Dept/Ms. Kritthika Rithani S R.webp";
 
 // Library Department
-import librarySenthilKoumar from "@/assets/images/our-team/faculty/Library/Dr. S. SENTHILKOUMAR.png";
-import libraryThambiraj from "@/assets/images/our-team/faculty/Library/Mr. Thambiraj Biscot L.png";
+import librarySenthilKoumar from "@/assets/images/our-team/faculty/Library/Dr. S. SENTHILKOUMAR.webp";
+import libraryThambiraj from "@/assets/images/our-team/faculty/Library/Mr. Thambiraj Biscot L.webp";
 
 // Physical Education Department
-import peAnitharaj from "@/assets/images/our-team/faculty/Physical Education Dept/Mr.Anitharaj.jpeg";
-import peRajalakshmi from "@/assets/images/our-team/faculty/Physical Education Dept/Mrs. Rajalakshmi K.jpeg";
+import peAnitharaj from "@/assets/images/our-team/faculty/Physical Education Dept/Mr.Anitharaj.webp";
+import peRajalakshmi from "@/assets/images/our-team/faculty/Physical Education Dept/Mrs. Rajalakshmi K.webp";
 
 // Office Administration
-import adminMathivanan from "@/assets/images/our-team/faculty/Office Administration/Mr.Mathivanan M.jpeg";
-import adminJayaMadhu from "@/assets/images/our-team/faculty/Office Administration/Mr.Jaya Madhu Mrmohan V.jpeg";
-import adminKasivani from "@/assets/images/our-team/faculty/Office Administration/Mrs. Kasivani S.jpeg";
+import adminMathivanan from "@/assets/images/our-team/faculty/Office Administration/Mr.Mathivanan M.webp";
+import adminJayaMadhu from "@/assets/images/our-team/faculty/Office Administration/Mr.Jaya Madhu Mrmohan V.webp";
+import adminKasivani from "@/assets/images/our-team/faculty/Office Administration/Mrs. Kasivani S.webp";
 
 // Laboratory Assistants
-import labThirukumaran from "@/assets/images/our-team/faculty/Laboratory Assistants/Mr.Thirukumaran.jpeg";
-import labDharmendra from "@/assets/images/our-team/faculty/Laboratory Assistants/Mr. Dharmendra Pandian.jpeg";
-import labRaji from "@/assets/images/our-team/faculty/Laboratory Assistants/Mrs.Raji M.jpeg";
+import labThirukumaran from "@/assets/images/our-team/faculty/Laboratory Assistants/Mr.Thirukumaran.webp";
+import labDharmendra from "@/assets/images/our-team/faculty/Laboratory Assistants/Mr. Dharmendra Pandian.webp";
+import labRaji from "@/assets/images/our-team/faculty/Laboratory Assistants/Mrs.Raji M.webp";
 
 const ourTeamData = {
   faculty: [

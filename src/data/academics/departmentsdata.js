@@ -1,4 +1,4 @@
-import history from "@/assets/images/academic-departments/history-dept.jpg";
+import history from "@/assets/images/academic-departments/history-dept.webp";
 import ourTeamData from "@/data/about/OurTeamData.js";
 
 // Helper function to get faculty by department

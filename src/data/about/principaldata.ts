@@ -1,5 +1,5 @@
-import principal from "@/assets/images/leads/principal-ushadevi.jpeg";
-import campus from "@/assets/images/aasc_building.png";
+import principal from "@/assets/images/leads/principal-ushadevi.webp";
+import campus from "@/assets/images/aasc_building.webp";
 
 export const principalData = {
   banner: {

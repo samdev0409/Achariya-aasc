@@ -1,6 +1,6 @@
 import React from "react";
-import bgLeft from "@/assets/images/bg/bg-pattern-1.png";
-import bgRight from "@/assets/images/bg/bg-pattern-2.png";
+import bgLeft from "@/assets/images/bg/bg-pattern-1.webp";
+import bgRight from "@/assets/images/bg/bg-pattern-2.webp";
 
 interface BorderWrapperProps {
   children: React.ReactNode;

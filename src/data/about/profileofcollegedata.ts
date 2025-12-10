@@ -1,4 +1,4 @@
-import AASClogo from "@/assets/images/common/AASC-Logo.png";
+import AASClogo from "@/assets/images/common/AASC-Logo.webp";
 import campus from "@/assets/images/aasc_building.webp";
 import {
   Building,

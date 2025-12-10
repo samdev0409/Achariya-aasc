@@ -1,8 +1,8 @@
-import tag from "@/assets/icons/achievements-stats/medal.png";
-import medal from "@/assets/icons/achievements-stats/medal-ribbon.png";
-import internationalPlacement from "@/assets/icons/achievements-stats/airplane-travel-around-the-world.png";
-import gradhat from "@/assets/icons/achievements-stats/graduate.png";
-import studentGroup from "@/assets/icons/achievements-stats/group.png";
+import tag from "@/assets/icons/achievements-stats/medal.webp";
+import medal from "@/assets/icons/achievements-stats/medal-ribbon.webp";
+import internationalPlacement from "@/assets/icons/achievements-stats/airplane-travel-around-the-world.webp";
+import gradhat from "@/assets/icons/achievements-stats/graduate.webp";
+import studentGroup from "@/assets/icons/achievements-stats/group.webp";
 
 export const statsData = {
   items: [

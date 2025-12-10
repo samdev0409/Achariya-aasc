@@ -1,15 +1,15 @@
-import ai from "@/assets/icons/additonal-courses/artificial-intelligence.png";
-import AiImg from "@/assets/images/additional-courses/ai.jpg";
+import ai from "@/assets/icons/additonal-courses/artificial-intelligence.webp";
+import AiImg from "@/assets/images/additional-courses/ai.webp";
 import ramesh from "@/assets/images/17122.webp";
-import iotimg from "@/assets/icons/additonal-courses/networking.png"
-import cloudimg from "@/assets/icons/additonal-courses/cloud-storage.png"
-import dataimg from "@/assets/icons/additonal-courses/exploratory-analysis.png";
-import retailimg from "@/assets/icons/additonal-courses/retailer.png";
-import entrepreneurshipimg from "@/assets/icons/additonal-courses/entrepreneurship.png";
-import tallyimg from "@/assets/icons/additonal-courses/count.png";
-import medicalimg from "@/assets/icons/additonal-courses/healthcare.png";
-import dialysisimg from "@/assets/icons/additonal-courses/healthcare.png";
-import bcaSherifBaig from "@/assets/images/our-team/faculty/BCA Dept/Mr. Sherif Baig.I.jpeg";
+import iotimg from "@/assets/icons/additonal-courses/networking.webp"
+import cloudimg from "@/assets/icons/additonal-courses/cloud-storage.webp"
+import dataimg from "@/assets/icons/additonal-courses/exploratory-analysis.webp";
+import retailimg from "@/assets/icons/additonal-courses/retailer.webp";
+import entrepreneurshipimg from "@/assets/icons/additonal-courses/entrepreneurship.webp";
+import tallyimg from "@/assets/icons/additonal-courses/count.webp";
+import medicalimg from "@/assets/icons/additonal-courses/healthcare.webp";
+import dialysisimg from "@/assets/icons/additonal-courses/healthcare.webp";
+import bcaSherifBaig from "@/assets/images/our-team/faculty/BCA Dept/Mr. Sherif Baig.I.webp";
 
 const AdditionalCoursesData = [
   {

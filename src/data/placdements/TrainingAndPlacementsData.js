@@ -1,4 +1,4 @@
-import ramesh from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.png"
+import ramesh from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.webp"
 
 
 const TrainingAndPlacementsFacultyData = [

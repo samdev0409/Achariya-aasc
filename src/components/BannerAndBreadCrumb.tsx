@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
-import defaultBanner from "@/assets/images/aasc_building.png";
+import defaultBanner from "@/assets/images/aasc_building.webp";
 
 const BannerAndBreadCrumb = ({ title = "Page Title", img }) => {
   const location = useLocation();

@@ -1,4 +1,4 @@
-import thumb from "@/assets/images/md.png";
+import thumb from "@/assets/images/md.webp";
 
 export const missionVisionData = {
   mission: {

@@ -1,5 +1,5 @@
 import React from "react";
-import NIRFlogo from "@/assets/images/NIRF/NIRF.jpg";
+import NIRFlogo from "@/assets/images/NIRF/NIRF.webp";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";

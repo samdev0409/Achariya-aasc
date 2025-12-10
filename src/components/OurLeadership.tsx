@@ -1,5 +1,5 @@
 import React from "react";
-import cementbg from "@/assets/images/bg/2151890618.jpg";
+import cementbg from "@/assets/images/bg/2151890618.webp";
 import HeadingUnderline from "./reusable/HeadingUnderline";
 import Heading from "./reusable/Heading";
 import { useNavigate } from "react-router-dom";

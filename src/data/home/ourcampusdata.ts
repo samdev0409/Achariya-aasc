@@ -1,4 +1,4 @@
-import campus from "@/assets/images/aasc_building.png";
+import campus from "@/assets/images/aasc_building.webp";
 
 export const campusData = {
   title: "Our Campus",

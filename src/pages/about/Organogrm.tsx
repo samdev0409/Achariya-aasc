@@ -16,7 +16,7 @@ import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 import Heading from "@/components/reusable/Heading";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
-import OrganogramImg from "@/assets/images/organogram/College Organizational Structure (1)(1)(1).png"
+import OrganogramImg from "@/assets/images/organogram/College Organizational Structure (1)(1)(1).webp"
 const boxBase =
   "bg-white p-4 border border-gray-300 shadow-sm text-center text-[15px] tracking-wide";
 

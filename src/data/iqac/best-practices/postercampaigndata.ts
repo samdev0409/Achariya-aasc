@@ -1,7 +1,7 @@
-import poster1 from "@/assets/images/best-pratices/poster-campaign/hand-sanitizer.jpg";
-import poster2 from "@/assets/images/best-pratices/poster-campaign/now-wash-your-hands-poster-campaign-1.jpg";
-import poster3 from "@/assets/images/best-pratices/poster-campaign/stay-home-poster-campaign-1.jpg";
-import poster4 from "@/assets/images/best-pratices/poster-campaign/washing-hands-poster-campaign-1.jpg";
+import poster1 from "@/assets/images/best-pratices/poster-campaign/hand-sanitizer.webp";
+import poster2 from "@/assets/images/best-pratices/poster-campaign/now-wash-your-hands-poster-campaign-1.webp";
+import poster3 from "@/assets/images/best-pratices/poster-campaign/stay-home-poster-campaign-1.webp";
+import poster4 from "@/assets/images/best-pratices/poster-campaign/washing-hands-poster-campaign-1.webp";
 
 export const postercampaigndata = {
   posters: [

@@ -2,7 +2,7 @@ import placeholderImg from "@/assets/images/17122.webp";
 import chairman from "@/assets/images/cheif-mentor/Dr.-J.arawindhan.webp";
 import { principalData } from "@/data/about/principaldata";
 import { chiefMentorData } from "@/data/about/chiefmentordata";
-import vicePrincipalNetraPrakash from "@/assets/images/our-team/faculty/Vice Principal/Mr. Netra Prakash.B.jpeg";
+import vicePrincipalNetraPrakash from "@/assets/images/our-team/faculty/Vice Principal/Mr. Netra Prakash.B.webp";
 
 export const governingBodyMembersData = [
   {

@@ -9,7 +9,7 @@ import {
   MapPin,
   Globe,
 } from "lucide-react";
-import AASCLogo from "@/assets/images/common/AASC-Logo.png";
+import AASCLogo from "@/assets/images/common/AASC-Logo.webp";
 import { socialLinks, contactInfo } from "@/data/contact/contactdata.js";
 import { Link } from "react-router-dom";
 import Heading from "../reusable/Heading";

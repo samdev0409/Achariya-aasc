@@ -1,5 +1,5 @@
 import React from "react";
-import underline from "@/assets/images/underline/decorative-line-divider-design.png";
+import underline from "@/assets/images/underline/decorative-line-divider-design.webp";
 
 const HeadingUnderline = ({ width = 300, className = "", align = "center" }) => {
   // Map align prop to Tailwind classes

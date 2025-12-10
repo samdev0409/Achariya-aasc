@@ -3,7 +3,7 @@ import OurRecruiters from "@/components/OurRecruiters";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Play, X } from "lucide-react";
-import campus from "@/assets/images/aasc_building.png";
+import campus from "@/assets/images/aasc_building.webp";
 import { Head } from "react-day-picker";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
