@@ -36,7 +36,7 @@ const TestimonialsDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<TestimonialsData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__testimonialdata";
+  const collectionName = "home/testimonialdata";
 
   // -------------------------------
   // FETCH WITH SANITIZATION

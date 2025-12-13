@@ -41,7 +41,7 @@ const RecruitersDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<RecruitersData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__recruitersdata";
+  const collectionName = "home/recruitersdata";
 
   // -------------------------------------------------------
   // Fetch + SANITIZE
@@ -53,8 +53,9 @@ const RecruitersDataManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
 
-      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
-        .map(sanitizeItem);
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
+        sanitizeItem
+      );
 
       setData(cleaned);
     } catch (e: any) {

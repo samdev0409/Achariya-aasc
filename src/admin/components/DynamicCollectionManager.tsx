@@ -18,7 +18,7 @@ const META_FIELDS = new Set([
   "__origin_file",
   "__v",
   "createdAt",
-  "updatedAt"
+  "updatedAt",
 ]);
 
 // Recursive helper to extract only editable fields from data
@@ -75,7 +75,7 @@ const CenteredModal: React.FC<{
         zIndex: 9999,
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       <div
@@ -84,7 +84,7 @@ const CenteredModal: React.FC<{
           position: "absolute",
           inset: 0,
           backdropFilter: "blur(6px)",
-          background: "rgba(15,23,42,0.35)"
+          background: "rgba(15,23,42,0.35)",
         }}
       />
 
@@ -99,14 +99,18 @@ const CenteredModal: React.FC<{
           width: "min(600px, 90%)",
           maxHeight: "80vh",
           overflow: "auto",
-          boxShadow: "0 8px 30px rgba(2,6,23,0.2)"
+          boxShadow: "0 8px 30px rgba(2,6,23,0.2)",
         }}
       >
         {title && <h3 style={{ marginBottom: 8 }}>{title}</h3>}
         <div style={{ marginBottom: 16 }}>{message}</div>
 
         <div style={{ display: "flex", justifyContent: "flex-end", gap: 8 }}>
-          <button className="btn" onClick={onCancel} style={{ background: "#e6eef8" }}>
+          <button
+            className="btn"
+            onClick={onCancel}
+            style={{ background: "#e6eef8" }}
+          >
             Cancel
           </button>
           <button
@@ -125,8 +129,17 @@ const CenteredModal: React.FC<{
 // --------------------------------------
 // Main Component
 // --------------------------------------
-const DynamicCollectionManager: React.FC = () => {
-  const { collectionId } = useParams<{ collectionId: string }>();
+interface DynamicCollectionManagerProps {
+  collectionId?: string;
+}
+
+const DynamicCollectionManager: React.FC<DynamicCollectionManagerProps> = ({
+  collectionId: propCollectionId,
+}) => {
+  const { collectionId: paramCollectionId } = useParams<{
+    collectionId: string;
+  }>();
+  const collectionId = propCollectionId || paramCollectionId;
 
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
@@ -135,7 +148,9 @@ const DynamicCollectionManager: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
   const [isNew, setIsNew] = useState(false);
-  const [itemStructure, setItemStructure] = useState<"flat" | "nested">("nested");
+  const [itemStructure, setItemStructure] = useState<"flat" | "nested">(
+    "nested"
+  );
 
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [selectAll, setSelectAll] = useState(false);
@@ -172,13 +187,16 @@ const DynamicCollectionManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionId}`);
       setData(res.data);
+      console.log(res)
     } catch (e) {
       console.warn("Backend failed. Trying fallback…");
       try {
         const fallback = loadFallbackData(collectionId!);
         if (fallback) {
           setData(fallback);
-          setError("Backend unavailable — showing local static data (read-only).");
+          setError(
+            "Backend unavailable — showing local static data (read-only)."
+          );
           setIsReadOnly(true);
         }
       } catch {
@@ -210,9 +228,8 @@ const DynamicCollectionManager: React.FC = () => {
 
     try {
       if (isNew) {
-        const payload = itemStructure === "nested" 
-          ? { data: cleanData }
-          : cleanData;
+        const payload =
+          itemStructure === "nested" ? { data: cleanData } : cleanData;
         await axiosInstance.post(`/${collectionId}`, payload);
       } else {
         const payload = isNestedStructure(editItem)
@@ -237,7 +254,9 @@ const DynamicCollectionManager: React.FC = () => {
 
   const handleDeleteSelected = async () => {
     const ids = Array.from(selectedIds);
-    await Promise.all(ids.map((id) => axiosInstance.delete(`/${collectionId}/${id}`)));
+    await Promise.all(
+      ids.map((id) => axiosInstance.delete(`/${collectionId}/${id}`))
+    );
     setSelectedIds(new Set());
     setShowDeleteModal(false);
     fetchData();
@@ -257,7 +276,7 @@ const DynamicCollectionManager: React.FC = () => {
   const updateField = (path: string, newVal: any) => {
     const updated = { ...editItem };
     const parts = path.split(".");
-    
+
     let cur = itemStructure === "nested" ? updated.data : updated;
 
     for (let i = 0; i < parts.length - 1; i++) {
@@ -275,13 +294,13 @@ const DynamicCollectionManager: React.FC = () => {
       itemStructure === "nested" ? editItem.data : editItem,
       path
     );
-    
+
     if (!Array.isArray(array)) return;
 
     // Create empty object with same structure as first item
     const template = array.length > 0 ? array[0] : {};
     const newItem: any = {};
-    
+
     for (const key in template) {
       if (typeof template[key] === "number") newItem[key] = 0;
       else if (typeof template[key] === "boolean") newItem[key] = false;
@@ -292,7 +311,7 @@ const DynamicCollectionManager: React.FC = () => {
       open: true,
       path,
       index: null,
-      item: newItem
+      item: newItem,
     });
   };
 
@@ -301,14 +320,14 @@ const DynamicCollectionManager: React.FC = () => {
       itemStructure === "nested" ? editItem.data : editItem,
       path
     );
-    
+
     if (!Array.isArray(array) || !array[index]) return;
 
     setArrayItemModal({
       open: true,
       path,
       index,
-      item: { ...array[index] }
+      item: { ...array[index] },
     });
   };
 
@@ -319,7 +338,7 @@ const DynamicCollectionManager: React.FC = () => {
       itemStructure === "nested" ? editItem.data : editItem,
       path
     );
-    
+
     if (!Array.isArray(array)) return;
 
     const newArray = array.filter((_, i) => i !== index);
@@ -328,12 +347,12 @@ const DynamicCollectionManager: React.FC = () => {
 
   const saveArrayItem = () => {
     const { path, index, item } = arrayItemModal;
-    
+
     const array = getNestedValue(
       itemStructure === "nested" ? editItem.data : editItem,
       path
     );
-    
+
     if (!Array.isArray(array)) return;
 
     let newArray;
@@ -350,9 +369,9 @@ const DynamicCollectionManager: React.FC = () => {
   };
 
   const updateArrayItemField = (key: string, value: any) => {
-    setArrayItemModal(prev => ({
+    setArrayItemModal((prev) => ({
       ...prev,
-      item: { ...prev.item, [key]: value }
+      item: { ...prev.item, [key]: value },
     }));
   };
 
@@ -371,20 +390,27 @@ const DynamicCollectionManager: React.FC = () => {
       // Handle arrays and objects with JSON editor
       if (Array.isArray(value) || (value && typeof value === "object")) {
         return (
-          <div key={key} className="form-group" style={{ marginBottom: "1rem" }}>
-            <label className="form-label" style={{ display: "block", marginBottom: "0.25rem" }}>
+          <div
+            key={key}
+            className="form-group"
+            style={{ marginBottom: "1rem" }}
+          >
+            <label
+              className="form-label"
+              style={{ display: "block", marginBottom: "0.25rem" }}
+            >
               {label}
             </label>
             <textarea
               className="form-input"
               rows={6}
-              style={{ 
-                width: "100%", 
-                padding: "0.5rem", 
-                borderRadius: 4, 
+              style={{
+                width: "100%",
+                padding: "0.5rem",
+                borderRadius: 4,
                 border: "1px solid #ccc",
                 fontFamily: "monospace",
-                fontSize: "0.85rem"
+                fontSize: "0.85rem",
               }}
               value={JSON.stringify(value, null, 2)}
               onChange={(e) => {
@@ -406,13 +432,21 @@ const DynamicCollectionManager: React.FC = () => {
       // Handle primitives
       return (
         <div key={key} className="form-group" style={{ marginBottom: "1rem" }}>
-          <label className="form-label" style={{ display: "block", marginBottom: "0.25rem" }}>
+          <label
+            className="form-label"
+            style={{ display: "block", marginBottom: "0.25rem" }}
+          >
             {label}
           </label>
           <input
             type="text"
             className="form-input"
-            style={{ width: "100%", padding: "0.5rem", borderRadius: 4, border: "1px solid #ccc" }}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              borderRadius: 4,
+              border: "1px solid #ccc",
+            }}
             value={value ?? ""}
             onChange={(e) => updateArrayItemField(key, e.target.value)}
           />
@@ -424,8 +458,17 @@ const DynamicCollectionManager: React.FC = () => {
   const renderArrayField = (array: any[], path: string, label: string) => {
     return (
       <div style={{ marginBottom: "1.5rem" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.5rem" }}>
-          <strong>{label} ({array.length})</strong>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: "0.5rem",
+          }}
+        >
+          <strong>
+            {label} ({array.length})
+          </strong>
           <button
             className="btn btn-primary"
             style={{ fontSize: "0.85rem", padding: "0.25rem 0.75rem" }}
@@ -435,15 +478,30 @@ const DynamicCollectionManager: React.FC = () => {
           </button>
         </div>
 
-        <div style={{ border: "1px solid #e2e8f0", borderRadius: 6, padding: "0.75rem", background: "#f9fafb" }}>
+        <div
+          style={{
+            border: "1px solid #e2e8f0",
+            borderRadius: 6,
+            padding: "0.75rem",
+            background: "#f9fafb",
+          }}
+        >
           {array.length === 0 ? (
-            <div style={{ color: "#94a3b8", fontSize: "0.9rem" }}>No items yet</div>
+            <div style={{ color: "#94a3b8", fontSize: "0.9rem" }}>
+              No items yet
+            </div>
           ) : (
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem",
+              }}
+            >
               {array.map((item, index) => {
-                const displayText = 
-                  item.name || 
-                  item.title || 
+                const displayText =
+                  item.name ||
+                  item.title ||
                   item.text?.substring(0, 50) ||
                   `Item ${index + 1}`;
 
@@ -457,7 +515,7 @@ const DynamicCollectionManager: React.FC = () => {
                       border: "1px solid #e2e8f0",
                       display: "flex",
                       justifyContent: "space-between",
-                      alignItems: "center"
+                      alignItems: "center",
                     }}
                   >
                     <div style={{ flex: 1, fontSize: "0.9rem" }}>
@@ -467,14 +525,22 @@ const DynamicCollectionManager: React.FC = () => {
                     <div style={{ display: "flex", gap: "0.5rem" }}>
                       <button
                         className="btn"
-                        style={{ fontSize: "0.8rem", padding: "0.25rem 0.5rem" }}
+                        style={{
+                          fontSize: "0.8rem",
+                          padding: "0.25rem 0.5rem",
+                        }}
                         onClick={() => editArrayItem(path, index)}
                       >
                         Edit
                       </button>
                       <button
                         className="btn"
-                        style={{ fontSize: "0.8rem", padding: "0.25rem 0.5rem", background: "#fee2e2", color: "#dc2626" }}
+                        style={{
+                          fontSize: "0.8rem",
+                          padding: "0.25rem 0.5rem",
+                          background: "#fee2e2",
+                          color: "#dc2626",
+                        }}
                         onClick={() => deleteArrayItem(path, index)}
                       >
                         Delete
@@ -503,11 +569,13 @@ const DynamicCollectionManager: React.FC = () => {
       // Handle arrays
       if (Array.isArray(value)) {
         // Check if array contains objects
-        if (value.length > 0 && typeof value[0] === "object" && value[0] !== null) {
+        if (
+          value.length > 0 &&
+          typeof value[0] === "object" &&
+          value[0] !== null
+        ) {
           return (
-            <div key={fullPath}>
-              {renderArrayField(value, fullPath, label)}
-            </div>
+            <div key={fullPath}>{renderArrayField(value, fullPath, label)}</div>
           );
         } else {
           // Simple array (strings, numbers)
@@ -537,8 +605,12 @@ const DynamicCollectionManager: React.FC = () => {
       if (value && typeof value === "object" && !Array.isArray(value)) {
         return (
           <div key={fullPath} style={{ marginBottom: "1rem" }}>
-            <strong style={{ display: "block", marginBottom: "0.5rem" }}>{label}</strong>
-            <div style={{ paddingLeft: "1rem", borderLeft: "2px solid #e2e8f0" }}>
+            <strong style={{ display: "block", marginBottom: "0.5rem" }}>
+              {label}
+            </strong>
+            <div
+              style={{ paddingLeft: "1rem", borderLeft: "2px solid #e2e8f0" }}
+            >
               {renderEditableFields(value, fullPath)}
             </div>
           </div>
@@ -547,14 +619,26 @@ const DynamicCollectionManager: React.FC = () => {
 
       // Handle primitives
       return (
-        <div key={fullPath} className="form-group" style={{ marginBottom: "1rem" }}>
-          <label className="form-label" style={{ display: "block", marginBottom: "0.25rem" }}>
+        <div
+          key={fullPath}
+          className="form-group"
+          style={{ marginBottom: "1rem" }}
+        >
+          <label
+            className="form-label"
+            style={{ display: "block", marginBottom: "0.25rem" }}
+          >
             {label}
           </label>
           <input
             type="text"
             className="form-input"
-            style={{ width: "100%", padding: "0.5rem", borderRadius: 4, border: "1px solid #ccc" }}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              borderRadius: 4,
+              border: "1px solid #ccc",
+            }}
             value={value ?? ""}
             onChange={(e) => updateField(fullPath, e.target.value)}
           />
@@ -570,17 +654,27 @@ const DynamicCollectionManager: React.FC = () => {
 
     return (
       <div className="form-container" style={{ maxWidth: 800 }}>
-        <h3 style={{ marginBottom: "1.5rem" }}>{isNew ? "Create New" : "Edit Item"}</h3>
+        <h3 style={{ marginBottom: "1.5rem" }}>
+          {isNew ? "Create New" : "Edit Item"}
+        </h3>
 
         {renderEditableFields(editable)}
 
-        <div style={{ marginTop: "2rem", display: "flex", gap: "1rem", paddingTop: "1rem", borderTop: "1px solid #e2e8f0" }}>
+        <div
+          style={{
+            marginTop: "2rem",
+            display: "flex",
+            gap: "1rem",
+            paddingTop: "1rem",
+            borderTop: "1px solid #e2e8f0",
+          }}
+        >
           <button className="btn btn-primary" onClick={handleSave}>
             Save Changes
           </button>
-          <button 
-            className="btn" 
-            style={{ background: "#ccc" }} 
+          <button
+            className="btn"
+            style={{ background: "#ccc" }}
             onClick={() => setIsEditing(false)}
           >
             Cancel
@@ -597,7 +691,10 @@ const DynamicCollectionManager: React.FC = () => {
 
   return (
     <div className="collection-manager">
-      <div className="admin-header" style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
+      <div
+        className="admin-header"
+        style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}
+      >
         <h2>{collectionLabel}</h2>
 
         {Array.isArray(data) && !isEditing && (
@@ -606,15 +703,14 @@ const DynamicCollectionManager: React.FC = () => {
               className="btn btn-primary"
               style={{ marginLeft: 12 }}
               onClick={() => {
-                const structure = data.length > 0 && isNestedStructure(data[0]) 
-                  ? "nested" 
-                  : "flat";
+                const structure =
+                  data.length > 0 && isNestedStructure(data[0])
+                    ? "nested"
+                    : "flat";
                 setItemStructure(structure);
-                
-                const newItem = structure === "nested" 
-                  ? { data: {} }
-                  : {};
-                
+
+                const newItem = structure === "nested" ? { data: {} } : {};
+
                 setEditItem(newItem);
                 setIsNew(true);
                 setIsEditing(true);
@@ -675,7 +771,7 @@ const DynamicCollectionManager: React.FC = () => {
                   border: "1px solid #e2e8f0",
                   borderRadius: 6,
                   background: "white",
-                  position: "relative"
+                  position: "relative",
                 }}
               >
                 <input
@@ -684,13 +780,17 @@ const DynamicCollectionManager: React.FC = () => {
                   checked={selectedIds.has(item._id)}
                   onChange={() => {
                     const next = new Set(selectedIds);
-                    next.has(item._id) ? next.delete(item._id) : next.add(item._id);
+                    next.has(item._id)
+                      ? next.delete(item._id)
+                      : next.add(item._id);
                     setSelectedIds(next);
                   }}
                   style={{ position: "absolute", top: 8, right: 8 }}
                 />
 
-                <div style={{ fontWeight: "bold", marginBottom: 8 }}>{displayTitle}</div>
+                <div style={{ fontWeight: "bold", marginBottom: 8 }}>
+                  {displayTitle}
+                </div>
                 <div style={{ color: "#64748b", fontSize: "0.85rem" }}>
                   ID: {item._id}
                 </div>
@@ -699,7 +799,9 @@ const DynamicCollectionManager: React.FC = () => {
                   <button
                     className="btn"
                     onClick={() => {
-                      setItemStructure(isNestedStructure(item) ? "nested" : "flat");
+                      setItemStructure(
+                        isNestedStructure(item) ? "nested" : "flat"
+                      );
                       setEditItem(item);
                       setIsNew(false);
                       setIsEditing(true);
@@ -738,7 +840,9 @@ const DynamicCollectionManager: React.FC = () => {
         open={arrayItemModal.open}
         title={arrayItemModal.index === null ? "Add New Item" : "Edit Item"}
         message={renderArrayItemForm()}
-        onCancel={() => setArrayItemModal({ open: false, path: "", index: null, item: null })}
+        onCancel={() =>
+          setArrayItemModal({ open: false, path: "", index: null, item: null })
+        }
         onConfirm={saveArrayItem}
       />
     </div>

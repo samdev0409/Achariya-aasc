@@ -26,7 +26,7 @@ const AcademicCalendarDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<AcademicCalendarData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "academics__academiccalendardata";
+  const collectionName = "academics/academiccalendardata";
 
   useEffect(() => {
     fetchData();
@@ -125,9 +125,25 @@ const AcademicCalendarDataManager: React.FC = () => {
             }}
           />
         </div>
+         <div className="form-group" style={{ marginBottom: "1rem" }}>
+            <label className="form-label">Uploaded By</label>
+            <input
+              type="text"
+              value={editItem.data.meta.uploadedBy}
+              onChange={(e) =>
+                updateField("data.meta.uploadedBy", e.target.value)
+              }
+              style={{
+                width: "100%",
+                padding: "0.5rem",
+                borderRadius: 4,
+                border: "1px solid #ccc",
+              }}
+            />
+          </div>
 
         {/* Flipbook */}
-        <div
+        {/* <div
           style={{
             marginBottom: "2rem",
             padding: "1rem",
@@ -187,10 +203,10 @@ const AcademicCalendarDataManager: React.FC = () => {
               }}
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Meta */}
-        <div
+             {/*<div
           style={{
             marginBottom: "2rem",
             padding: "1rem",
@@ -198,7 +214,7 @@ const AcademicCalendarDataManager: React.FC = () => {
             borderRadius: 6,
           }}
         >
-          <strong style={{ display: "block", marginBottom: "1rem" }}>
+      <strong style={{ display: "block", marginBottom: "1rem" }}>
             Metadata
           </strong>
 
@@ -217,25 +233,10 @@ const AcademicCalendarDataManager: React.FC = () => {
                 border: "1px solid #ccc",
               }}
             />
-          </div>
+          </div> 
 
-          <div className="form-group" style={{ marginBottom: "1rem" }}>
-            <label className="form-label">Uploaded By</label>
-            <input
-              type="text"
-              value={editItem.data.meta.uploadedBy}
-              onChange={(e) =>
-                updateField("data.meta.uploadedBy", e.target.value)
-              }
-              style={{
-                width: "100%",
-                padding: "0.5rem",
-                borderRadius: 4,
-                border: "1px solid #ccc",
-              }}
-            />
-          </div>
-        </div>
+         
+        </div>*/}
 
         <div
           style={{

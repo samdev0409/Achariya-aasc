@@ -36,7 +36,7 @@ const CommittiesDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<CommitteeData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "commitees__committiesdata";
+  const collectionName = "committees/committiesdata";
 
   useEffect(() => {
     fetchData();

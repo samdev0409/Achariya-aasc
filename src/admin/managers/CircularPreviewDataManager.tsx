@@ -19,7 +19,7 @@ const CircularPreviewDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<CircularPreviewData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__circularpreviewdata";
+  const collectionName = "home/circularpreviewdata";
 
   useEffect(() => {
     fetchData();

@@ -46,7 +46,7 @@ const AdmissionsDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<AdmissionsData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__admissionsdata";
+  const collectionName = "home/admissionsdata";
 
   // -----------------------------------------------------
   // LOAD DATA
@@ -57,8 +57,9 @@ const AdmissionsDataManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
 
-      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
-        .map(sanitizeItem);
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
+        sanitizeItem
+      );
 
       setData(cleaned);
     } catch (e: any) {
@@ -233,9 +234,7 @@ const AdmissionsDataManager: React.FC = () => {
                   marginBottom: "0.5rem",
                 }}
               >
-                <label className="form-label">
-                  Paragraph {index + 1}
-                </label>
+                <label className="form-label">Paragraph {index + 1}</label>
                 <button
                   className="btn"
                   onClick={() => deleteParagraph(index)}

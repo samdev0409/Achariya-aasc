@@ -17,7 +17,7 @@ const OurLeadsDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<OurLeadsData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__ourleads";
+  const collectionName = "home/ourleads";
 
   useEffect(() => {
     fetchData();

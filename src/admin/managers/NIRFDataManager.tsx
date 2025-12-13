@@ -28,7 +28,7 @@ const NIRFDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<NIRFData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "iqac__nirfdata";
+  const collectionName = "iqac/nirfdata";
 
   useEffect(() => {
     fetchData();

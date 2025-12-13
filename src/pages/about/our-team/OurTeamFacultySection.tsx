@@ -2,25 +2,81 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ourTeamData from "@/data/about/OurTeamData.js";
 import { Filter } from "lucide-react";
-import FacultyProfile from "@/components/FacultyProfile";
 import OurTeamFacultyProfile from "@/components/faculty/OurTeamFacultyProfile";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
-const OurTeamFacultySection = () => {
-  const { teamType } = useParams();
-  const activeCategory = teamType || "faculty";
+interface TeamMember {
+  name: string;
+  designation: string;
+  email: string;
+  department?: string;
+  image?: string;
+  phone?: string;
+}
 
-  const [list, setList] = useState([]);
-  const [filtered, setFiltered] = useState([]);
+interface OurTeamData {
+  faculty: TeamMember[];
+  administrative: TeamMember[];
+  media: TeamMember[];
+}
+
+interface OurTeamFacultySectionProps {
+  overrideData?: OurTeamData;
+  activeTab?: string;
+}
+
+const OurTeamFacultySection: React.FC<OurTeamFacultySectionProps> = ({
+  overrideData,
+  activeTab,
+}) => {
+  const { teamType } = useParams();
+
+  // If activeTab (preview mode) is provided, it takes precedence.
+  // Otherwise, use URL params. Default to "faculty".
+  const activeCategory = activeTab || teamType || "faculty";
+
+  const [list, setList] = useState<TeamMember[]>([]);
+  const [filtered, setFiltered] = useState<TeamMember[]>([]);
   const [search, setSearch] = useState("");
   const [departmentFilter, setDepartmentFilter] = useState("");
   const [departmentFilterOpen, setDepartmentFilterOpen] = useState(false);
 
+  // Detect preview mode
+  const isPreview = Boolean(overrideData);
+
+  /**
+   * Universal image resolver (same philosophy as ProfileOfCollege/GoverningBodyCouncil)
+   */
+  const resolveImageUrl = (img: string | undefined) => {
+    if (!img) return "";
+    if (img.startsWith("http://") || img.startsWith("https://")) {
+      return img;
+    }
+    // Temp file during preview
+    if (isPreview && !img.includes("/assets/images/")) {
+      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
+    }
+    // Static asset path
+    return img;
+  };
+
   useEffect(() => {
-    const data = ourTeamData[activeCategory] || [];
-    setList(data);
-    setFiltered(data);
-  }, [teamType]);
+    // Determine source data (Static or Override)
+    // Note: ourTeamData (static) is an object { faculty: [], ... }
+    // overrideData (preview) should be same shape.
+    const sourceData = overrideData || ourTeamData;
+
+    // Safety check for dynamic key access
+    const categoryKey = (
+      activeCategory in sourceData ? activeCategory : "faculty"
+    ) as keyof typeof sourceData;
+    const data = sourceData[categoryKey] || [];
+
+    // If we're in preview, we might need to map images immediately or let the render handle it.
+    // The render handles `resolveImageUrl`, so we just set the list.
+    setList(data as TeamMember[]);
+    setFiltered(data as TeamMember[]);
+  }, [activeCategory, overrideData]);
 
   // FILTER HANDLING
   useEffect(() => {
@@ -147,14 +203,15 @@ const OurTeamFacultySection = () => {
             <HeadingUnderline align="center" width={150} />
           </div>
           <div className="overflow-x-auto   py-2">
-            {grouped[dep].map((item) => (
+            {grouped[dep].map((item, i) => (
               <OurTeamFacultyProfile
+                key={i}
                 name={item.name}
                 phone={item.phone}
-                department={item.deparment}
+                department={item.department} // Typo fix: deparment -> department
                 designation={item.designation}
                 email={item.email}
-                image={item.image}
+                image={resolveImageUrl(item.image)}
               />
             ))}
           </div>

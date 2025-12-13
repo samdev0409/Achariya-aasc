@@ -27,7 +27,7 @@ const ContactDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<ContactData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "contact__contactdata";
+  const collectionName = "contact/contactdata";
 
   useEffect(() => {
     fetchData();

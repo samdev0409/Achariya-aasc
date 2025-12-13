@@ -27,7 +27,7 @@ const MissionVisionDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<MissionVisionData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__missionvissiondata";
+  const collectionName = "home/missionvisiondata";
 
   useEffect(() => {
     fetchData();

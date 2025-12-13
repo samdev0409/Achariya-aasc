@@ -41,7 +41,7 @@ const OurSchoolsCollegesDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<OurSchoolsCollegesData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__ourschoolscollegesdata";
+  const collectionName = "home/ourschoolscollegesdata";
 
   // -------------------------------------------------------
   // Fetch + SANITIZE result
@@ -52,8 +52,9 @@ const OurSchoolsCollegesDataManager: React.FC = () => {
 
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
-      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
-        .map(sanitizeItem);
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
+        sanitizeItem
+      );
       setData(cleaned);
     } catch (err: any) {
       setError("Failed to load data: " + err.message);
@@ -190,10 +191,7 @@ const OurSchoolsCollegesDataManager: React.FC = () => {
             }}
           >
             <strong>School/College Logos ({safe.data.logos.length})</strong>
-            <button
-              className="btn btn-primary"
-              onClick={addLogo}
-            >
+            <button className="btn btn-primary" onClick={addLogo}>
               + Add Logo
             </button>
           </div>

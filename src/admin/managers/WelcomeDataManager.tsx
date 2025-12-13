@@ -33,7 +33,7 @@ const WelcomeDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<WelcomeData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__welcomedata";
+  const collectionName = "home/welcomedata";
 
   useEffect(() => {
     fetchData();

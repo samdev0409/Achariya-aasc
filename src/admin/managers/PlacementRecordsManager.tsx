@@ -15,7 +15,7 @@ const PlacementRecordsManager: React.FC = () => {
   const [editItem, setEditItem] = useState<PlacementRecord | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "placdements__placementrecords";
+  const collectionName = "placements/placementrecords";
 
   useEffect(() => {
     fetchData();

@@ -12,11 +12,16 @@ import ChiefMentorDataManager from "./managers/ChiefMentorDataManager";
 import GoverningBodyCouncilDataManager from "./managers/GoverningBodyCouncilDataManager";
 import PrincipalDataManager from "./managers/PrincipalDataManager";
 import ProfileOfCollegeDataManager from "./managers/ProfileOfCollegeDataManager";
+import OurTeamDataManager from "./managers/OurTeamDataManager";
+import PressReleasesDataManager from "./managers/PressReleasesDataManager";
 
 // Academics Section
 import AcademicCalendarDataManager from "./managers/AcademicCalendarDataManager";
 import DepartmentsDataManager from "./managers/DepartmentsDataManager";
 import ProspectusDataManager from "./managers/ProspectusDataManager";
+import PGProgramsDetailsManager from "./managers/PGProgramsDetailsManager";
+import UGProgramsDetailsManager from "./managers/UGProgramsDetailsManager";
+import ValueAddedCoursesDataManager from "./managers/ValueAddedCoursesDataManager";
 
 // Campus Life Section
 import SeedDataManager from "./managers/SeedDataManager";
@@ -30,6 +35,7 @@ import ContactDataManager from "./managers/ContactDataManager";
 // Events Section
 import UpcomingEventsPreviewDataManager from "./managers/UpcomingEventsPreviewDataManager";
 import CircularPreviewDataManager from "./managers/CircularPreviewDataManager";
+import EventsDataManager from "./managers/EventsDataManager";
 
 // Home Section
 import AchievementsStatsDataManager from "./managers/AchievementsStatsDataManager";
@@ -44,15 +50,20 @@ import OurSchoolsCollegesDataManager from "./managers/OurSchoolsCollegesDataMana
 import RecruitersDataManager from "./managers/RecruitersDataManager";
 import TestimonialsDataManager from "./managers/TestimonialsDataManager";
 import WelcomeDataManager from "./managers/WelcomeDataManager";
+import AnnouncementsDataManager from "./managers/AnnouncementsDataManager";
 
 // IQAC Section
 import NIRFDataManager from "./managers/NIRFDataManager";
 
 // Placements Section
 import PlacementRecordsManager from "./managers/PlacementRecordsManager";
+import TrainingAndPlacementsDataManager from "./managers/TrainingAndPlacementsDataManager";
 
 // Users
 import UsersManager from "./managers/UsersManager";
+
+// Generic Manager
+import DynamicCollectionManager from "./components/DynamicCollectionManager";
 
 const AdminDashboard: React.FC = () => {
   return (
@@ -89,6 +100,14 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/about__profileofcollegedata"
                     element={<ProfileOfCollegeDataManager />}
                   />
+                  <Route
+                    path="/collection/about__ourteamdata"
+                    element={<OurTeamDataManager />}
+                  />
+                  <Route
+                    path="/collection/about__pressreleasesdata"
+                    element={<PressReleasesDataManager />}
+                  />
 
                   {/* Academics Section Routes */}
                   <Route
@@ -103,6 +122,18 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/academics__prospectusdata"
                     element={<ProspectusDataManager />}
                   />
+                  <Route
+                    path="/collection/academics__pgprogrammsdetails"
+                    element={<PGProgramsDetailsManager />}
+                  />
+                  <Route
+                    path="/collection/academics__ugprogramsdatadetails"
+                    element={<UGProgramsDetailsManager />}
+                  />
+                  <Route
+                    path="/collection/academics__valueaddedcoursesdata"
+                    element={<ValueAddedCoursesDataManager />}
+                  />
 
                   {/* Campus Life Section Routes */}
                   <Route
@@ -112,7 +143,7 @@ const AdminDashboard: React.FC = () => {
 
                   {/* Committees Section Routes */}
                   <Route
-                    path="/collection/commitees__committiesdata"
+                    path="/collection/committees__committiesdata"
                     element={<CommittiesDataManager />}
                   />
 
@@ -130,6 +161,10 @@ const AdminDashboard: React.FC = () => {
                   <Route
                     path="/collection/home__circularpreviewdata"
                     element={<CircularPreviewDataManager />}
+                  />
+                  <Route
+                    path="/collection/events__eventsdata"
+                    element={<EventsDataManager />}
                   />
 
                   {/* Home Section Routes */}
@@ -181,6 +216,10 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/home__welcomedata"
                     element={<WelcomeDataManager />}
                   />
+                  <Route
+                    path="/collection/home__announcementsdata"
+                    element={<AnnouncementsDataManager />}
+                  />
 
                   {/* IQAC Section Routes */}
                   <Route
@@ -193,9 +232,19 @@ const AdminDashboard: React.FC = () => {
                     path="/collection/placements__placementrecords"
                     element={<PlacementRecordsManager />}
                   />
+                  <Route
+                    path="/collection/placements__trainingandplacementsdata"
+                    element={<TrainingAndPlacementsDataManager />}
+                  />
 
                   {/* Users Route */}
                   <Route path="/collection/users" element={<UsersManager />} />
+
+                  {/* Generic Route for all other collections */}
+                  <Route
+                    path="/collection/:collectionId"
+                    element={<DynamicCollectionManager />}
+                  />
 
                   {/* Default redirect */}
                   <Route

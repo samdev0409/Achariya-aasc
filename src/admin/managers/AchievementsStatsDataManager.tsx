@@ -27,9 +27,7 @@ const EMPTY_ITEM: StatItem = {
 const sanitizeItem = (item: any): AchievementsStatsData => ({
   _id: item?._id,
   data: {
-    items: Array.isArray(item?.data?.items)
-      ? item.data.items
-      : [],
+    items: Array.isArray(item?.data?.items) ? item.data.items : [],
   },
 });
 
@@ -41,7 +39,7 @@ const AchievementsStatsDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<AchievementsStatsData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__achievementsstatsdata";
+  const collectionName = "home/achievementsstatsdata";
 
   // -------------------------------
   // FETCH DATA (SAFE & CLEAN)
@@ -52,8 +50,9 @@ const AchievementsStatsDataManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
 
-      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
-        .map(sanitizeItem);
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
+        sanitizeItem
+      );
 
       setData(cleaned);
     } catch (e: any) {
@@ -115,11 +114,7 @@ const AchievementsStatsDataManager: React.FC = () => {
     });
   };
 
-  const updateStatItem = (
-    index: number,
-    field: keyof StatItem,
-    value: any
-  ) => {
+  const updateStatItem = (index: number, field: keyof StatItem, value: any) => {
     if (!editItem) return;
 
     const newItems = editItem.data.items.map((item, i) =>

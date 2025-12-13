@@ -20,7 +20,7 @@ const UpcomingEventsPreviewDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<UpcomingEvent | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "events__upcommingeventspreviewdata";
+  const collectionName = "events/upcommingeventspreviewdata";
 
   useEffect(() => {
     fetchData();

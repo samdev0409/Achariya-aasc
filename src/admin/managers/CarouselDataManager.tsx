@@ -17,9 +17,7 @@ interface CarouselData {
 const sanitizeItem = (item: any): CarouselData => ({
   _id: item?._id,
   data: {
-    images: Array.isArray(item?.data?.images)
-      ? item.data.images
-      : [],
+    images: Array.isArray(item?.data?.images) ? item.data.images : [],
   },
 });
 
@@ -40,7 +38,7 @@ const CarouselDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<CarouselData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "home__carouseldata";
+  const collectionName = "home/carouseldata";
 
   // -------------------------------------------------------
   // Fetch Data
@@ -52,8 +50,9 @@ const CarouselDataManager: React.FC = () => {
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
 
-      const cleaned = (Array.isArray(res.data) ? res.data : [res.data])
-        .map(sanitizeItem);
+      const cleaned = (Array.isArray(res.data) ? res.data : [res.data]).map(
+        sanitizeItem
+      );
 
       setData(cleaned);
     } catch (e: any) {

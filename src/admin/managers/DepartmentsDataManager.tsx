@@ -16,7 +16,7 @@ const DepartmentsDataManager: React.FC = () => {
   const [editItem, setEditItem] = useState<DepartmentData | null>(null);
   const [isNew, setIsNew] = useState(false);
 
-  const collectionName = "academics__departmentsdata";
+  const collectionName = "academics/departmentsdata";
 
   useEffect(() => {
     fetchData();
@@ -27,7 +27,14 @@ const DepartmentsDataManager: React.FC = () => {
     setError("");
     try {
       const res = await axiosInstance.get(`/${collectionName}`);
-      setData(Array.isArray(res.data) ? res.data : [res.data]);
+
+      const cleaned = res.data.map((item: any) => ({
+        _id: item._id,
+        ...item.data, // spread id, title, url
+      }));
+
+      setData(cleaned);
+      console.log(cleaned);
     } catch (e: any) {
       setError("Failed to load data: " + e.message);
     } finally {
