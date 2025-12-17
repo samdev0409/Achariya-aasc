@@ -13,9 +13,61 @@ import { homeData } from "@/data/home/allhomedata";
 import Heading from "@/components/reusable/Heading";
 import ForAdmission from "@/components/ForAdmission";
 
-const TrainingAndPlacementsCell = () => {
-  const { TrainingAndPlacementsFacultyData, activities } =
-    TrainingAndPlacementsData;
+interface Faculty {
+  name: string;
+  designation: string;
+  email: string;
+  department?: string;
+  phone?: string;
+  image?: string;
+}
+
+interface Activity {
+  id: number;
+  text: string;
+}
+
+interface TrainingDataOverride {
+  TrainingAndPlacementsFacultyData: Faculty[];
+  activities: Activity[];
+}
+
+interface TrainingAndPlacementsCellProps {
+  overrideData?: TrainingDataOverride;
+}
+
+const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
+  overrideData,
+}) => {
+  // STATIC data → always from data file (public view)
+  const staticData = TrainingAndPlacementsData;
+
+  // DYNAMIC data = overrideData in preview, staticData in public view
+  const dynamicData = overrideData || staticData;
+  const { TrainingAndPlacementsFacultyData, activities } = dynamicData;
+
+  const isPreview = Boolean(overrideData);
+
+  // ----------------------------------------------------
+  // UNIVERSAL IMAGE URL RESOLVER
+  // ----------------------------------------------------
+  function resolveImageUrl(img: string) {
+    if (!img) return "";
+
+    // CASE 1 — Already full URL (after save)
+    if (img.startsWith("http://") || img.startsWith("https://")) {
+      return img;
+    }
+
+    // CASE 2 — Temp file (filename only)
+    if (!img.includes("/assets/images/")) {
+      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
+    }
+
+    // CASE 3 — A backend-built final path already
+    return `${import.meta.env.VITE_API_URL}${img}`;
+  }
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -214,7 +266,7 @@ const TrainingAndPlacementsCell = () => {
           {TrainingAndPlacementsFacultyData.map((faculty, index) => (
             <FacultyProfile
               key={index}
-              image={faculty.image}
+              image={isPreview ? resolveImageUrl(faculty.image) : faculty.image}
               name={faculty.name}
               department={faculty.department}
               designation={faculty.designation}

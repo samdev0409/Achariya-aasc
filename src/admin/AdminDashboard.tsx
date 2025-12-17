@@ -8,56 +8,58 @@ import "./admin.css";
 
 // Import all dedicated collection managers
 // About Section
-import ChiefMentorDataManager from "./managers/ChiefMentorDataManager";
-import GoverningBodyCouncilDataManager from "./managers/GoverningBodyCouncilDataManager";
-import PrincipalDataManager from "./managers/PrincipalDataManager";
-import ProfileOfCollegeDataManager from "./managers/ProfileOfCollegeDataManager";
-import OurTeamDataManager from "./managers/OurTeamDataManager";
-import PressReleasesDataManager from "./managers/PressReleasesDataManager";
+import ChiefMentorDataManager from "./managers/about/ChiefMentorDataManager";
+import GoverningBodyCouncilDataManager from "./managers/about/GoverningBodyCouncilDataManager";
+import PrincipalDataManager from "./managers/about/PrincipalDataManager";
+import ProfileOfCollegeDataManager from "./managers/about/ProfileOfCollegeDataManager";
+import OurTeamDataManager from "./managers/about/OurTeamDataManager";
+import PressReleasesDataManager from "./managers/about/PressReleasesDataManager";
 
 // Academics Section
-import AcademicCalendarDataManager from "./managers/AcademicCalendarDataManager";
-import DepartmentsDataManager from "./managers/DepartmentsDataManager";
+import AcademicCalendarDataManager from "./managers/about/AcademicCalendarDataManager";
+import DepartmentsDataManager from "./managers/academics/DepartmentsDataManager";
 import ProspectusDataManager from "./managers/ProspectusDataManager";
-import PGProgramsDetailsManager from "./managers/PGProgramsDetailsManager";
-import UGProgramsDetailsManager from "./managers/UGProgramsDetailsManager";
-import ValueAddedCoursesDataManager from "./managers/ValueAddedCoursesDataManager";
+import PGProgramsDetailsManager from "./managers/academics/PGProgramsDetailsManager";
+import UGProgramsDetailsManager from "./managers/academics/UGProgramsDetailsManager";
+import ValueAddedCoursesDataManager from "./managers/academics/ValueAddedCoursesDataManager";
 
 // Campus Life Section
 import SeedDataManager from "./managers/SeedDataManager";
 
 // Committees Section
-import CommittiesDataManager from "./managers/CommittiesDataManager";
+import CommittiesDataManager from "./managers/committies/CommittiesDataManager";
 
 // Contact Section
 import ContactDataManager from "./managers/ContactDataManager";
 
 // Events Section
-import UpcomingEventsPreviewDataManager from "./managers/UpcomingEventsPreviewDataManager";
-import CircularPreviewDataManager from "./managers/CircularPreviewDataManager";
-import EventsDataManager from "./managers/EventsDataManager";
+import UpcomingEventsPreviewDataManager from "./managers/upcomming-events/UpcomingEventsPreviewDataManager";
+import CircularPreviewDataManager from "./managers/circulars/CircularPreviewDataManager";
+import EventsDataManager from "./managers/Events/EventsDataManager";
 
 // Home Section
-import AchievementsStatsDataManager from "./managers/AchievementsStatsDataManager";
-import AdmissionsDataManager from "./managers/AdmissionsDataManager";
-import AllHomeDataManager from "./managers/AllHomeDataManager";
-import CarouselDataManager from "./managers/CarouselDataManager";
-import MissionVisionDataManager from "./managers/MissionVisionDataManager";
-import NewsTickerDataManager from "./managers/NewsTickerDataManager";
-import OurCampusDataManager from "./managers/OurCampusDataManager";
-import OurLeadsDataManager from "./managers/OurLeadsDataManager";
-import OurSchoolsCollegesDataManager from "./managers/OurSchoolsCollegesDataManager";
-import RecruitersDataManager from "./managers/RecruitersDataManager";
-import TestimonialsDataManager from "./managers/TestimonialsDataManager";
-import WelcomeDataManager from "./managers/WelcomeDataManager";
-import AnnouncementsDataManager from "./managers/AnnouncementsDataManager";
+import AchievementsStatsDataManager from "./managers/home/AchievementsStatsDataManager";
+import AdmissionsDataManager from "./managers/home/AdmissionsDataManager";
+import AllHomeDataManager from "./managers/home/AllHomeDataManager";
+import CarouselDataManager from "./managers/home/CarouselDataManager";
+import MissionVisionDataManager from "./managers/home/MissionVisionDataManager";
+import NewsTickerDataManager from "./managers/home/NewsTickerDataManager";
+import OurCampusDataManager from "./managers/home/OurCampusDataManager";
+import OurLeadsDataManager from "./managers/home/OurLeadsDataManager";
+import OurSchoolsCollegesDataManager from "./managers/home/OurSchoolsCollegesDataManager";
+import RecruitersDataManager from "./managers/home/RecruitersDataManager";
+import TestimonialsDataManager from "./managers/home/TestimonialsDataManager";
+import WelcomeDataManager from "./managers/home/WelcomeDataManager";
+import AnnouncementsDataManager from "./managers/home/AnnouncementsDataManager";
+import TopHeaderDataManager from "./managers/home/TopHeaderDataManager";
+import AascBeatsDataManager from "./managers/aasc-beats/AascBeatsDataManager";
 
 // IQAC Section
-import NIRFDataManager from "./managers/NIRFDataManager";
+import NIRFDataManager from "./managers/IQAC/NIRFDataManager";
 
 // Placements Section
-import PlacementRecordsManager from "./managers/PlacementRecordsManager";
-import TrainingAndPlacementsDataManager from "./managers/TrainingAndPlacementsDataManager";
+import PlacementRecordsManager from "./managers/placements/PlacementRecordsManager";
+import TrainingAndPlacementsDataManager from "./managers/placements/TrainingAndPlacementsDataManager";
 
 // Users
 import UsersManager from "./managers/UsersManager";
@@ -76,9 +78,9 @@ const AdminDashboard: React.FC = () => {
         path="/*"
         element={
           <ProtectedRoute>
-            <div className="admin-layout">
+            <div className="admin-layout w-full">
               <AdminSidebar />
-              <main className="admin-main">
+              <main className="admin-main w-full">
                 <Routes>
                   {/* Dashboard */}
                   <Route path="/dashboard" element={<DashboardHome />} />
@@ -143,7 +145,7 @@ const AdminDashboard: React.FC = () => {
 
                   {/* Committees Section Routes */}
                   <Route
-                    path="/collection/committees__committiesdata"
+                    path="/collection/commitees__committiesdata"
                     element={<CommittiesDataManager />}
                   />
 
@@ -159,7 +161,7 @@ const AdminDashboard: React.FC = () => {
                     element={<UpcomingEventsPreviewDataManager />}
                   />
                   <Route
-                    path="/collection/home__circularpreviewdata"
+                    path="/collection/circular__circularpreviewdata"
                     element={<CircularPreviewDataManager />}
                   />
                   <Route
@@ -219,6 +221,14 @@ const AdminDashboard: React.FC = () => {
                   <Route
                     path="/collection/home__announcementsdata"
                     element={<AnnouncementsDataManager />}
+                  />
+                  <Route
+                    path="/collection/documents"
+                    element={<TopHeaderDataManager />}
+                  />
+                  <Route
+                    path="/collection/aasc-beats__aascbeatsdata"
+                    element={<AascBeatsDataManager />}
                   />
 
                   {/* IQAC Section Routes */}

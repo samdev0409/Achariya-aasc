@@ -408,7 +408,7 @@
     "//": "COMMITTEES MODULE COLLECTIONS",
     "//": "============================================================",
 
-    "committees__committiesdata": {
+    "commitees__committiesdata": {
       "_id": "693111f3a47373a3d14a6d70",
       "_sourceFile": "commitees\\committiesdata.js",
       "exportName": "academicCouncilCommittee",

@@ -1,51 +1,84 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import HeadingUnderline from "./reusable/HeadingUnderline";
 import Heading from "./reusable/Heading";
+import ourschoolscollegesdata from "@/data/home/ourschoolscollegesdata";
 
+/* ================= TYPES ================= */
 interface AchariyaSchoolsAndCollegesProps {
-  title: string;
-  logos: string[];
+  overrideData?: {
+    title?: string;
+    logos?: string[];
+  };
 }
 
-const AchariyaSchoolsAndColleges: React.FC<AchariyaSchoolsAndCollegesProps> = ({
-  title,
-  logos: recruiters,
-}) => {
-  const rows = [recruiters.slice(0, 5)];
+/* ================= COMPONENT ================= */
+const AchariyaSchoolsAndColleges: React.FC<
+  AchariyaSchoolsAndCollegesProps
+> = ({ overrideData }) => {
+  const isPreview = Boolean(overrideData);
+
+  // 🔒 PUBLIC: always static data file
+  // 🔓 PREVIEW: overrideData
+  const sourceData = overrideData ?? ourschoolscollegesdata;
+
+  // --------------------------------------------------
+  // UNIVERSAL IMAGE URL RESOLVER (PREVIEW ONLY)
+  // --------------------------------------------------
+  const resolveImageUrl = (img: string) => {
+    if (!img) return "";
+    if (img.startsWith("http")) return img;
+
+    // TEMP images only exist in preview
+    if (isPreview) {
+      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
+    }
+
+    // Public images already resolved by Vite
+    return img;
+  };
+
+  // 🧠 CRITICAL FIX: memoize logos array
+  const logos = useMemo(
+    () => (sourceData.logos || []).map(resolveImageUrl),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isPreview, sourceData.logos?.join("|")]
+  );
 
   return (
-    <div className="w-full py-12 bg-white">
-      <div>
-        <Heading title={title} size="lg" align="center" />
-        <HeadingUnderline width={200} align="center" />
+    <section className="w-full py-12 bg-white">
+      <Heading title={sourceData.title} size="lg" align="center" />
+      <HeadingUnderline width={200} align="center" />
+
+      <div className="mt-8">
+        <RowScroller logos={logos} speed="10s" />
       </div>
-      <div className="flex flex-col gap-6">
-        <RowScroller logos={rows[0]} direction="ltr" speed="10s" />
-      </div>
-    </div>
+    </section>
   );
 };
 
-// --------------------------
-// PURE CSS INFINITE LOOP
-// --------------------------
-const RowScroller = ({ logos, direction = "ltr", speed }) => {
+/* ================= SCROLLER (UNCHANGED UI) ================= */
+const RowScroller = ({
+  logos,
+  speed,
+}: {
+  logos: string[];
+  speed?: string;
+}) => {
+  if (!logos.length) return null;
+
   return (
     <div className="overflow-hidden w-full">
       <div
-        className={`flex gap-10 items-center whitespace-nowrap 
-          ${
-            direction === "rtl" ? "animate-marquee-rtl " : "animate-marquee-ltr"
-          }`}
+        className="flex gap-10 items-center whitespace-nowrap animate-marquee-ltr"
         style={{ animationDuration: speed }}
       >
-        {/* Original + Duplicate */}
         {[...logos, ...logos].map((logo, i) => (
           <img
             key={i}
             src={logo}
-            alt="recruiter"
-            className="w-[300px] h-32 object-contain inline-block"
+            alt="school/college"
+            className="w-[300px] h-32 object-contain"
+            loading="lazy"
           />
         ))}
       </div>

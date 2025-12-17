@@ -17,7 +17,7 @@ const TopHeaderBar: React.FC = () => {
   };
 
   return (
-    <div className="bg-purple py-2 overflow-x-auto border-b border-b-[2px] border-gray-200">
+    <div className="bg-purple py-2 border-b border-b-[2px] border-gray-200">
       <div className="mx-auto px-3 ps-4 flex items-center justify-between">
         {/* Left Side */}
         <div className="flex items-center gap-1 text-white text-sm">

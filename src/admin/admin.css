@@ -313,7 +313,7 @@
 
 .btn {
     padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    border-radius: 0px;
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
@@ -340,8 +340,138 @@
     box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
 }
 
+.blue-btn {
+    padding: 0.55rem 1.5rem;
+    /* px-4 py-2.5 */
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    /* Updated btn-primary gradient */
+    color: white;
+    /* text-white */
+    border-radius: 3px;
+    /* rounded-lg */
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.875rem;
+    /* text-sm */
+    flex: 1;
+    /* flex-1 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+    /* subtle shadow for depth */
+}
+
+.blue-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    /* Darker gradient on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.4);
+}
+
+.blue-btn:disabled {
+    opacity: 0.5;
+    /* disabled:opacity-50 */
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.blue-btn:disabled:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    /* Original gradient */
+    transform: none;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+}
+/* ------------------------------------------------------------- */
+.ash-btn {
+    padding: 0.55rem 1.5rem;
+  background-color: #d1d5db;       /* bg-gray-300 */
+  color: #1f2937;                  /* text-gray-800 */
+  border-radius: 3px;           /* rounded-lg */
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.875rem;             /* text-sm */
+  flex: 1;                         /* flex-1 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ash-btn:hover {
+  background-color: #9ca3af;       /* hover:bg-gray-400 */
+}
+
+.ash-btn:disabled {
+  opacity: 0.5;                    /* disabled:opacity-50 */
+  cursor: not-allowed;
+}
+
+.ash-btn:disabled:hover {
+  background-color: #d1d5db;       /* Original gray-300 */
+}
+
+/* ------------------------------------------------------------- */
+.trash-btn {
+  display: inline-flex;            /* flex */
+  align-items: center;             /* items-center */
+  gap: 0.25rem;                    /* gap-1 */
+  padding: 0.45rem 0.45rem;       /* px-3 py-1.5 */
+  background-color: #dc2626;       /* bg-red-600 */
+  color: white;                    /* text-white */
+  border-radius: 100%;         /* rounded */
+  font-size: 0.875rem;             /* text-sm */
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.trash-btn:hover {
+  background-color: #b91c1c;       /* hover:bg-red-700 */
+}
+
+.trash-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* ------------------------------------------------------------- */
+/* Green primary action button */
+.green-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;              /* gap-1 */
+  padding: 8px 16px;     /* py-2 px-4 */
+  background-color: #16a34a; /* bg-green-600 */
+  color: #ffffff;
+  border-radius: 3px;    /* rounded-lg */
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.green-btn:hover {
+  background-color: #15803d; /* bg-green-700 */
+}
+
+.green-btn:active {
+  transform: scale(0.97);
+}
+
+.green-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ------------------------------------------------------------- */
+
 .btn-danger {
-    background: #ef4444;
+    background: #914b4b;
     color: white;
 }
 

@@ -1,5 +1,5 @@
 import nirfdocument from "@/assets/documents/NIRF/Achariya-Arts-and-Science-College20250108.pdf"
-
+import nirflogo from "@/assets/images/NIRF/NIRF.webp";
 export const nirfInfo = [
   {
     id: 1,
@@ -22,5 +22,6 @@ export const nirfInfo = [
 export const nirfdoc = [{
     id: 1,
     doc: nirfdocument,
-    label: "Achariya Arts And Science College - NIRF'2025"
+    label: "Achariya Arts And Science College - NIRF'2025",
+    logo: nirflogo
 }];

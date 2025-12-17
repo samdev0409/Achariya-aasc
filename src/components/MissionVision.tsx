@@ -1,47 +1,69 @@
 import React from "react";
 import HeadingUnderline from "./reusable/HeadingUnderline";
-import VideoPopup from "@/components/reusable/VideoPopup"; // <-- IMPORT POPUP HERE
+import VideoPopup from "@/components/reusable/VideoPopup";
 import Heading from "./reusable/Heading";
+import missionVisionData from "@/data/home/missionvissiondata.js"; // ✅ Static fallback
 
 interface MissionVisionProps {
-  data: {
-    mission: { title: string; description: string };
-    vision: { title: string; description: string };
-    image: string;
-    videoUrl: string;
-    ctaText: string;
-    ctaLink: string;
-  };
+  overrideData?: any; // ✅ Only overrideData like Carousel
 }
 
-const MissionVision: React.FC<MissionVisionProps> = ({ data }) => {
+const MissionVision: React.FC<MissionVisionProps> = ({ overrideData }) => {
+  // ✅ CAROUSEL PATTERN: Static fallback + dynamic override
+  const staticData = missionVisionData;
+  const dynamicData = overrideData || staticData;
+  
+  // ✅ SAFE MERGE (Carousel-style)
+  const safeData = {
+    mission: { title: 'Mission', description: '' },
+    vision: { title: 'Vision', description: '' },
+    image: '',
+    videoUrl: '',
+    ctaText: 'Learn More',
+    ctaLink: '#',
+    ...dynamicData
+  };
+
+  // ✅ CAROUSEL PATTERN: resolveImageUrl for temp files
+  const resolveImageUrl = (img: string) => {
+    if (!img) return 'https://via.placeholder.com/600x400/f3f4f6/6b7280?text=No+Image';
+    if (img.startsWith('http')) return img;
+    if (img.startsWith('temp_') || !img.includes('/assets/')) {
+      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
+    }
+    return img;
+  };
+
+  const thumbnailUrl = resolveImageUrl(safeData.image);
+
+  // ✅ Preview detection like Carousel
+  const isPreview = Boolean(overrideData);
+
+  console.log('MissionVision data flow:', { overrideData, staticData, safeData, thumbnailUrl });
+
   return (
     <section className="bg-background px-4 md:px-0">
       <div className="flex flex-col md:flex-row gap-6 md:gap-10">
-        {/* LEFT SIDE — TEXT */}
         <div className="md:w-1/2 text-center md:text-left">
-          {/* Mission */}
-          <Heading title={data.mission.title} size="lg" align="left" />
+          <Heading title={safeData.mission.title} size="lg" align="left" />
           <HeadingUnderline width={150} align="left" />
-          <p className="leading-relaxed mb-4">{data.mission.description}</p>
+          <p className="leading-relaxed mb-4">{safeData.mission.description}</p>
 
- <div className="md:w-1/2 md:hidden py-6  block ">
-          <VideoPopup thumbnail={data.image} videoUrl={data.videoUrl} />
-        </div>
-          {/* Vision */}
-          <Heading title={data.vision.title} size="lg" align="left" />
+          <div className="md:w-1/2 md:hidden py-6 block">
+            <VideoPopup thumbnail={thumbnailUrl} videoUrl={safeData.videoUrl} />
+          </div>
+          
+          <Heading title={safeData.vision.title} size="lg" align="left" />
           <HeadingUnderline width={150} align="left" />
-          <p className="leading-relaxed mb-6">{data.vision.description}</p>
+          <p className="leading-relaxed mb-6">{safeData.vision.description}</p>
 
-          {/* CTA */}
-          <a href={data.ctaLink} className="red-btn">
-            {data.ctaText}
+          <a href={safeData.ctaLink} className="red-btn">
+            {safeData.ctaText}
           </a>
         </div>
 
-        {/* RIGHT SIDE — VIDEO (REPLACED WITH VideoPopup) */}
         <div className="md:w-1/2 md:block hidden">
-          <VideoPopup thumbnail={data.image} videoUrl={data.videoUrl} />
+          <VideoPopup thumbnail={thumbnailUrl} videoUrl={safeData.videoUrl} />
         </div>
       </div>
     </section>

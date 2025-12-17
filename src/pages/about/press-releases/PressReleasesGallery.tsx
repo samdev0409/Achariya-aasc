@@ -2,31 +2,67 @@ import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import ImagePopup from "@/components/reusable/ImagePopup";
 import React, { useState, useEffect } from "react";
 
-const PressReleasesGallery = ({ images, year }) => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+interface PressReleasesData {
+  [year: string]: string[];
+}
 
+interface PressReleasesGalleryProps {
+  images: string[];
+  year: string;
+  overrideData?: PressReleasesData;
+}
+
+const PressReleasesGallery: React.FC<PressReleasesGalleryProps> = ({
+  images,
+  year,
+  overrideData,
+}) => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  // Detect preview mode
+  const isPreview = Boolean(overrideData);
+
+  /**
+   * Universal image resolver
+   * Handles both static assets and preview temp files
+   */
+  const resolveImageUrl = (img: string) => {
+    if (!img) return "";
+    
+    // Already full URL
+    if (img.startsWith("http://") || img.startsWith("https://")) {
+      return img;
+    }
+    
+    // Temp file during preview (newly uploaded)
+    if (isPreview && !img.includes("/assets/images/")) {
+      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
+    }
+    
+    // Static asset path
+    return img;
+  };
+
+  // Map images with resolved URLs
   const formattedImages = images.map((img, index) => ({
-    image: img,
+    image: resolveImageUrl(img),
     imgTitle: `Press Release ${year} - ${index + 1}`,
   }));
 
-  // NEXT
   const handleNext = () => {
     setSelectedIndex((prev) =>
       prev === formattedImages.length - 1 ? 0 : prev + 1
     );
   };
 
-  // PREV
   const handlePrev = () => {
     setSelectedIndex((prev) =>
       prev === 0 ? formattedImages.length - 1 : prev - 1
     );
   };
 
-  // ESC + Arrow keys
   useEffect(() => {
-    const handleKey = (e) => {
+    const handleKey = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
 
       if (e.key === "ArrowRight") handleNext();
@@ -36,16 +72,15 @@ const PressReleasesGallery = ({ images, year }) => {
 
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [selectedIndex]);
+  }, [selectedIndex, formattedImages.length]);
 
   return (
     <div className="flex-1 p-6 border-r border-gray-400">
       <h1 className="text-2xl font-bold text-purple text-center md:text-left ">
         {year} Press Releases
       </h1>
-      <HeadingUnderline width={150}/>
+      <HeadingUnderline width={150} align="left"/>
 
-      {/* GRID */}
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {formattedImages.map((img, index) => (
           <div
@@ -62,7 +97,6 @@ const PressReleasesGallery = ({ images, year }) => {
         ))}
       </div>
 
-      {/* POPUP VIEWER */}
       <ImagePopup
         images={formattedImages}
         selectedIndex={selectedIndex}

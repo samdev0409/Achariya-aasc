@@ -6,7 +6,56 @@ import { placementRecords } from "@/data/placdements/PlacementRecords.js";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import campus from "@/assets/images/aasc_building.webp";
 
-const PlacementRecords = () => {
+interface PlacementRecordItem {
+  _id?: string;
+  data: {
+    label: string;
+    file: string;
+  };
+}
+
+interface PlacementRecordsProps {
+  overrideData?: PlacementRecordItem[];
+}
+
+const PlacementRecords: React.FC<PlacementRecordsProps> = ({
+  overrideData,
+}) => {
+  // STATIC data → always from data file (public view)
+  const staticData = placementRecords;
+
+  // Normalize static data to match override data structure
+  const normalizedStaticData = staticData.map((item) => ({
+    _id: item._id || item.label,
+    data: item.data || { label: item.label, file: item.file },
+  }));
+
+  // DYNAMIC data = overrideData in preview, normalizedStaticData in public view
+  const dynamicData = overrideData || normalizedStaticData;
+
+  // detect admin live preview mode
+  const isPreview = Boolean(overrideData);
+
+  // ----------------------------------------------------
+  // UNIVERSAL FILE URL RESOLVER
+  // ----------------------------------------------------
+  function resolveFileUrl(file: string) {
+    if (!file) return "";
+
+    // CASE 1 — Already full URL (after save)
+    if (file.startsWith("http://") || file.startsWith("https://")) {
+      return file;
+    }
+
+    // CASE 2 — Temp file (filename only)
+    if (!file.includes("/assets/documents/")) {
+      return `${import.meta.env.VITE_API_URL}/assets/documents/temp/${file}`;
+    }
+
+    // CASE 3 — A backend-built final path already
+    return file;
+  }
+
   return (
     <>
       <BannerAndBreadCrumb
@@ -26,10 +75,12 @@ const PlacementRecords = () => {
 
           {/* Grid of PDF Year Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 lg:grid-cols-5 gap-5 mt-8">
-            {placementRecords.map((item, index) => (
+            {dynamicData.map((item, index) => (
               <a
                 key={index}
-                href={item.file}
+                href={
+                  isPreview ? resolveFileUrl(item.data.file) : item.data.file
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -42,7 +93,9 @@ const PlacementRecords = () => {
               >
                 <FileText className="w-6 h-6 text-purple-700" />
 
-                <span className="font-medium text-gray-700">{item.label}</span>
+                <span className="font-medium text-gray-700">
+                  {item.data.label}
+                </span>
               </a>
             ))}
           </div>

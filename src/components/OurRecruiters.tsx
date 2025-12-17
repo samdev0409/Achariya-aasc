@@ -1,26 +1,57 @@
-import React from "react";
+// ✅ OurRecruiters.tsx (FIRST BLOCK UI + SECOND BLOCK FUNCTIONALITY)
+import React, { useMemo } from "react";
 import HeadingUnderline from "./reusable/HeadingUnderline";
 import Heading from "./reusable/Heading";
+import recruitersData from "@/data/home/recruitersdata";
 
 interface OurRecruitersProps {
-  title: string;
-  logos: string[];
+  overrideData?: {
+    title?: string;
+    logos?: string[];
+  };
 }
 
-const OurRecruiters: React.FC<OurRecruitersProps> = ({ title, logos }) => {
-  const rowCountMobile = 2;
+const OurRecruiters: React.FC<OurRecruitersProps> = ({ overrideData }) => {
+  const isPreview = Boolean(overrideData);
 
+  // 🔒 PUBLIC: always static data file | 🔓 PREVIEW: overrideData
+  const sourceData = overrideData ?? recruitersData;
+
+  // --------------------------------------------------
+  // UNIVERSAL IMAGE URL RESOLVER (PREVIEW ONLY)
+  // --------------------------------------------------
+  const resolveImageUrl = (img: string) => {
+    if (!img) return "";
+    if (img.startsWith("http")) return img;
+
+    // TEMP images only exist in preview
+    if (isPreview) {
+      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
+    }
+
+    // Public images already resolved by Vite
+    return img;
+  };
+
+  // 🧠 CRITICAL: memoize logos array to prevent animation reset
+  const logos = useMemo(
+    () => (sourceData.logos || []).map(resolveImageUrl),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isPreview, sourceData.logos?.join("|")]
+  );
+
+  const rowCountMobile = 2;
   const logosPerDesktopRow = 14; 
   const logosPerMobileRow = Math.ceil(logos.length / rowCountMobile);
 
-  // Desktop: 3 rows
+  // Desktop: 3 rows (FIRST BLOCK UI)
   const desktopRows = [
     logos.slice(0, 14),
     logos.slice(14, 28),
     logos.slice(28, 42),
   ];
 
-  // Mobile: 2 rows with all logos distributed
+  // Mobile: 2 rows with all logos distributed (FIRST BLOCK UI)
   const mobileRows = [
     logos.slice(0, logosPerMobileRow),
     logos.slice(logosPerMobileRow),
@@ -29,7 +60,7 @@ const OurRecruiters: React.FC<OurRecruitersProps> = ({ title, logos }) => {
   return (
     <div className="w-full bg-white">
 
-      {/* Smooth Infinite Marquee CSS */}
+      {/* FIRST BLOCK: Smooth Infinite Marquee CSS */}
       <style>{`
         .marquee {
           animation: marquee 22s linear infinite;
@@ -50,17 +81,17 @@ const OurRecruiters: React.FC<OurRecruitersProps> = ({ title, logos }) => {
       `}</style>
 
       <div>
-        <Heading title={title} size="lg" align="center" />
+        <Heading title={sourceData.title} size="lg" align="center" />
         <HeadingUnderline width={200} align="center" />
       </div>
 
-      {/* MOBILE — 2 rows */}
+      {/* MOBILE — 2 rows (FIRST BLOCK UI) */}
       <div className="flex flex-col gap-7 px-4 md:hidden">
         <RowScroller logos={mobileRows[0]} direction="ltr" />
         <RowScroller logos={mobileRows[1]} direction="rtl" />
       </div>
 
-      {/* DESKTOP — 3 rows */}
+      {/* DESKTOP — 3 rows (FIRST BLOCK UI) */}
       <div className="hidden md:flex flex-col gap-7 px-4 md:px-0">
         <RowScroller logos={desktopRows[0]} direction="ltr" />
         <RowScroller logos={desktopRows[1]} direction="rtl" />
@@ -71,8 +102,7 @@ const OurRecruiters: React.FC<OurRecruitersProps> = ({ title, logos }) => {
 };
 
 const RowScroller = ({ logos, direction = "ltr" }) => {
-  const animationClass =
-    direction === "ltr" ? "marquee" : "marquee-reverse";
+  const animationClass = direction === "ltr" ? "marquee" : "marquee-reverse";
 
   return (
     <div className="overflow-hidden w-full">
@@ -94,6 +124,10 @@ const RowScroller = ({ logos, direction = "ltr" }) => {
               src={logo}
               alt={`Recruiter ${(i % logos.length) + 1}`}
               className="max-w-full max-h-full object-contain mx-auto"
+              loading="lazy"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "/images/fallback-logo.png";
+              }}
             />
           </div>
         ))}

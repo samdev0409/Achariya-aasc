@@ -3,6 +3,7 @@ import cementbg from "@/assets/images/bg/2151890618.webp";
 import HeadingUnderline from "./reusable/HeadingUnderline";
 import Heading from "./reusable/Heading";
 import { useNavigate } from "react-router-dom";
+import { OurLeads } from "@/data/home/OurLeads.js";
 
 interface Lead {
   name: string;
@@ -12,69 +13,66 @@ interface Lead {
 }
 
 interface OurLeadershipProps {
-  leads: Lead[];
+  overrideData?: {
+    leads: Lead[];
+  };
 }
 
-const OurLeadership: React.FC<OurLeadershipProps> = ({ leads }) => {
+const OurLeadership: React.FC<OurLeadershipProps> = ({ overrideData }) => {
   const navigate = useNavigate();
 
+  /** STATIC in public, DYNAMIC in preview */
+  const data = overrideData?.leads || OurLeads;
+
+  /** detect preview mode */
+  const isPreview = Boolean(overrideData);
+
+  /**
+   * UNIVERSAL IMAGE URL RESOLVER
+   * Matches ProfileOfCollege pattern exactly
+   */
+  const resolveImageUrl = (img: string) => {
+    if (!img) return "";
+
+    // CASE 1 — Already full URL (after save)
+    if (img.startsWith("http://") || img.startsWith("https://")) {
+      return img;
+    }
+
+    // CASE 2 — Temp file (filename only)
+    // e.g. "123123-image.png"
+    if (!img.includes("/assets/images/")) {
+      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
+    }
+
+    // CASE 3 — A backend-built final path already
+    return img;
+  };
+
   return (
-    <section className=" pt-8">
+    <section className="pt-8">
       <div className="container px-4">
-        <div
-          className="flex flex-col md:flex-row justify-center
-  "
-        >
-          {leads.map((lead) => (
+        <div className="flex gap-4 flex-col md:flex-row justify-center">
+          {data.map((lead, idx) => (
             <div
-              key={lead.name}
-              className="
-        bg-card 
-        text-center 
-        rounded-lg  
-        p-2 
-        transition-shadow 
-        duration-300 
-        hover:shadow-xl
-      "
+              key={idx}
+              className="bg-card text-center rounded-lg p-2 hover:shadow-xl"
             >
-              {/* Image Wrapper */}
               <div
-                className="
-          mx-auto
-          mb-4 
-          max-w-96 
-         
-          w-full 
-          aspect-square 
-          rounded 
-          overflow-hidden 
-          border 
-          border-gray-300 
-          cursor-pointer
-        "
+                className="mx-auto mb-4 max-w-96 w-full aspect-square rounded overflow-hidden  cursor-pointer"
                 style={{ backgroundImage: `url(${cementbg})` }}
                 onClick={() => navigate(lead.path)}
               >
                 <img
-                  src={lead.img}
+                  src={resolveImageUrl(lead.img)}
                   alt={lead.name}
                   loading="lazy"
                   className="object-cover w-full h-full"
                 />
               </div>
 
-              <Heading
-                title={lead.name}
-                size="sm"
-                align="center"
-                className="mb-1"
-              />
-
-              <p className="text-sm md:text-md text-gray-600 mb-2">
-                {lead.role}
-              </p>
-
+              <Heading title={lead.name} size="sm" align="center" />
+              <p className="text-sm text-gray-600 mb-2">{lead.role}</p>
               <HeadingUnderline width={170} />
             </div>
           ))}

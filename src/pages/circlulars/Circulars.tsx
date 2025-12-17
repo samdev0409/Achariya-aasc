@@ -4,9 +4,53 @@ import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import { CircularPreviewData } from "@/data/home/CircularPreviewData.js";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 
-const Circular = () => {
+interface CircularItem {
+  _id?: string;
+  title: string;
+  path: string;
+  file: string;
+  description: string;
+  date: string;
+  postedBy: string;
+}
+
+interface CircularsProps {
+  overrideData?: CircularItem[];
+}
+
+const Circular: React.FC<CircularsProps> = ({ overrideData }) => {
+  // STATIC data → always from data file (public view)
+  const staticData = CircularPreviewData;
+
+  // DYNAMIC data = overrideData in preview, staticData in public view
+  const dynamicData = overrideData || staticData;
+
+  // detect admin live preview mode
+  const isPreview = Boolean(overrideData);
+
+  // ----------------------------------------------------
+  // UNIVERSAL FILE URL RESOLVER
+  // ----------------------------------------------------
+  function resolveFileUrl(file: string) {
+    if (!file) return "";
+
+    // CASE 1 — Already full URL (after save)
+    if (file.startsWith("http://") || file.startsWith("https://")) {
+      return file;
+    }
+
+    // CASE 2 — Temp file (filename only)
+    // e.g. "123123-document.pdf"
+    if (!file.includes("/assets/documents/")) {
+      return `${import.meta.env.VITE_API_URL}/assets/documents/temp/${file}`;
+    }
+
+    // CASE 3 — A backend-built final path already
+    return file;
+  }
+
   // Sort by latest date
-  const sortedCirculars = [...CircularPreviewData].sort((a, b) => {
+  const sortedCirculars = [...dynamicData].sort((a, b) => {
     const dateA = new Date(a.date || 0).getTime();
     const dateB = new Date(b.date || 0).getTime();
     return dateB - dateA; // latest first
@@ -58,7 +102,7 @@ const Circular = () => {
                   </p>
 
                   <a
-                    href={item.file}
+                    href={isPreview ? resolveFileUrl(item.file) : item.file}
                     target="_blank"
                     className="text-purple font-medium hover:underline"
                   >
