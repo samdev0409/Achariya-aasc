@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import AASCBeats from "@/pages/aasc-beats/AASCBeats";
 import PreviewWrapper from "@/admin/PreviewWrapper";
@@ -115,6 +116,7 @@ const ConfirmationPopup: React.FC<{
 
 /* ================= MAIN COMPONENT ================= */
 const AascBeatsDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [doc, setDoc] = useState<AASCBeatsDoc | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -259,6 +261,10 @@ const AascBeatsDataManager: React.FC = () => {
     };
 
     await saveDoc(updated);
+    toast({
+      title: "Success",
+      description: "Month added successfully!",
+    });
   };
 
   const handleDeleteMonth = (month: string) => {
@@ -273,9 +279,12 @@ const AascBeatsDataManager: React.FC = () => {
     const updated = { ...doc };
     delete updated.data[deleteMonth];
 
-    await saveDoc(updated);
     setSelectedMonth(null);
     setDeleteMonth("");
+    toast({
+      title: "Success",
+      description: "Month deleted successfully!",
+    });
   };
 
   /* ================= ENTRY OPERATIONS ================= */
@@ -307,6 +316,10 @@ const AascBeatsDataManager: React.FC = () => {
     };
 
     await saveDoc(updated);
+    toast({
+      title: "Success",
+      description: "Entry added successfully!",
+    });
   };
 
   const handleEditEntry = (entryIndex: number) => {
@@ -376,10 +389,12 @@ const AascBeatsDataManager: React.FC = () => {
     await saveDoc(updated);
     setDeleteEntryIndex(null);
 
-    if (selectedEntry === deleteEntryIndex) {
-      setSelectedEntry(null);
-      setEditingEntry(null);
-    }
+    setEditingEntry(null);
+
+    toast({
+      title: "Success",
+      description: "Entry deleted successfully!",
+    });
   };
 
   const updateEntryTitle = async (newTitle: string) => {
@@ -440,6 +455,10 @@ const AascBeatsDataManager: React.FC = () => {
     setDoc(updated);
     setEditingEntry({ ...editingEntry, images: finalImages });
     setPendingNewImage("");
+    toast({
+      title: "Success",
+      description: "Image added successfully!",
+    });
   };
 
   const confirmReplaceImage = (index: number, image: string) => {
@@ -482,6 +501,10 @@ const AascBeatsDataManager: React.FC = () => {
     setEditingEntry({ ...editingEntry, images: finalImages });
     setReplaceImageIndex(null);
     setPendingReplaceImage("");
+    toast({
+      title: "Success",
+      description: "Image replaced successfully!",
+    });
   };
 
   const requestDeleteImage = (index: number) => {
@@ -539,6 +562,10 @@ const AascBeatsDataManager: React.FC = () => {
     }
 
     setDeleteImageIndex(null);
+    toast({
+      title: "Success",
+      description: "Image deleted successfully!",
+    });
   };
 
   /* ================= SAVE DOCUMENT ================= */

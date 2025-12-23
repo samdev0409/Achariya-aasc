@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "@/utils/axiosInstance";
 import { Trash2 } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 interface ImageUploadManagerProps {
   label: string;
   value: string;
   onChange: (fileName: string) => void;
   addTemp: (fileName: string) => void;
+  showPreview?: boolean; // Optional prop validation skip
 }
 
 const ImageUploadManager: React.FC<ImageUploadManagerProps> = ({
@@ -15,6 +17,7 @@ const ImageUploadManager: React.FC<ImageUploadManagerProps> = ({
   onChange,
   addTemp,
 }) => {
+  const { toast } = useToast();
   const [uploading, setUploading] = useState(false);
   const [originalDbImage, setOriginalDbImage] = useState<string>("");
 
@@ -54,7 +57,11 @@ const ImageUploadManager: React.FC<ImageUploadManagerProps> = ({
       onChange(fileName); // show temp image
     } catch (error) {
       console.error("Upload failed:", error);
-      alert("Failed to upload image");
+      toast({
+        title: "Upload Failed",
+        description: "Failed to upload image",
+        variant: "destructive",
+      });
     } finally {
       setUploading(false);
     }
@@ -87,9 +94,13 @@ const ImageUploadManager: React.FC<ImageUploadManagerProps> = ({
 
       // Restore DB image
       onChange(originalDbImage || "");
-
     } catch (err) {
       console.error("Failed to delete temp image:", err);
+      toast({
+        title: "Error",
+        description: "Failed to delete temp image",
+        variant: "destructive",
+      });
     }
   };
 

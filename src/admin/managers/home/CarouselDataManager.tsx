@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import ImageUploadManager from "../../components/ImageUploadManager";
@@ -81,12 +82,12 @@ const ConfirmationPopup: React.FC<{
       </div>
 
       <style>{`
-        @keyframes scale-in {
-          from { transform: scale(0.95); opacity: 0; }
-          to { transform: scale(1); opacity: 1; }
-        }
-        .animate-scale-in { animation: scale-in 0.2s ease-out; }
-      `}</style>
+          @keyframes scale-in {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+          }
+          .animate-scale-in { animation: scale-in 0.2s ease-out; }
+        `}</style>
     </div>
   );
 };
@@ -155,6 +156,7 @@ const ExistingImageCard: React.FC<{
 
 /* ================= MAIN COMPONENT ================= */
 const CarouselDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [doc, setDoc] = useState<CarouselData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -281,9 +283,19 @@ const CarouselDataManager: React.FC = () => {
         }
       }
 
+      toast({
+        title: "Success",
+        description: "Image deleted successfully",
+      });
+
       setError("");
     } catch (err: any) {
       setError("Failed to delete image: " + err.message);
+      toast({
+        title: "Error",
+        description: "val" + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
       setDeleteIndex(null);
@@ -305,9 +317,18 @@ const CarouselDataManager: React.FC = () => {
       const withNew = [...doc.data.images, pendingNewImage];
       const finalImages = await processTempFiles(withNew);
       await saveImages(finalImages);
+      toast({
+        title: "Success",
+        description: "Image added successfully",
+      });
       setError("");
     } catch (err: any) {
       setError("Failed to add image: " + err.message);
+      toast({
+        title: "Error",
+        description: "Failed to add image: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
       setPendingNewImage("");

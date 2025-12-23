@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import ProfileOfCollege from "@/pages/about/ProfileOfCollege";
 import PreviewWrapper from "@/admin/PreviewWrapper";
@@ -122,6 +123,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const ProfileOfCollegeDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<ProfileOfCollegeData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -323,9 +325,18 @@ const ProfileOfCollegeDataManager: React.FC = () => {
       setDetailSectionsChanged(
         new Array(editItem.data.details?.length || 0).fill(false)
       );
+      toast({
+        title: "Success",
+        description: "Profile updated successfully!",
+      });
       fetchData();
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Save failed: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       isSavingRef.current = false;
       setLoading(false);

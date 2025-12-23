@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import ImageUploadManager from "../../components/ImageUploadManager";
@@ -53,7 +54,9 @@ const ConfirmationPopup: React.FC<{
               <AlertCircle className="w-6 h-6 text-yellow-600" />
             </div>
             <div className="flex-1 pt-1">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                {title}
+              </h3>
               <p className="text-sm text-gray-600">{message}</p>
             </div>
           </div>
@@ -79,11 +82,14 @@ const ConfirmationPopup: React.FC<{
 };
 
 const MissionVisionDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<MissionVisionData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [editItem, setEditItem] = useState<MissionVisionData | null>(null);
-  const [originalItem, setOriginalItem] = useState<MissionVisionData | null>(null);
+  const [originalItem, setOriginalItem] = useState<MissionVisionData | null>(
+    null
+  );
   const [tempFiles, setTempFiles] = useState<string[]>([]);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [showSavePopup, setShowSavePopup] = useState(false);
@@ -152,7 +158,7 @@ const MissionVisionDataManager: React.FC = () => {
           fileName,
         });
         const finalUrl = res.data.url;
-        
+
         if (finalData.image === fileName) {
           finalData.image = finalUrl;
         }
@@ -179,10 +185,10 @@ const MissionVisionDataManager: React.FC = () => {
       await axiosInstance.put(`/${collectionName}/${editItem._id}`, {
         data: finalData,
       });
-      
+
       const updatedItem = { ...editItem, data: finalData };
-      setData((prev) => 
-        prev.map((item) => item._id === editItem._id ? updatedItem : item)
+      setData((prev) =>
+        prev.map((item) => (item._id === editItem._id ? updatedItem : item))
       );
       setOriginalItem(JSON.parse(JSON.stringify(updatedItem)));
     } catch (err: any) {
@@ -200,8 +206,17 @@ const MissionVisionDataManager: React.FC = () => {
       const finalData = await processTempFiles(editItem.data);
       await saveData(finalData);
       setError("");
+      toast({
+        title: "Success",
+        description: "Mission & Vision saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -261,53 +276,69 @@ const MissionVisionDataManager: React.FC = () => {
       {editItem ? (
         <div style={{ gap: "2rem", position: "relative" }}>
           {hasUnsavedChanges && <ScrollDownToPreview />}
-          
+
           <div className="form-container border border-gray-300 rounded-lg p-6 bg-white">
             <Heading title="Edit Mission & Vision" size="lg" align="left" />
-<div className="grid grid-cols-2 gap-4">
-            <div className=" p-4 bg-gray-50 rounded-lg mt-6">
-              <strong className="block mb-4">Mission</strong>
-              <div className="mb-4">
-                <label className="form-label block text-sm font-medium mb-2">Title</label>
-                <input
-                  type="text"
-                  className="form-input w-full px-3 py-2 border rounded-md"
-                  value={editItem.data.mission.title}
-                  onChange={(e) => updateField("data.mission.title", e.target.value)}
-                />
+            <div className="grid grid-cols-2 gap-4">
+              <div className=" p-4 bg-gray-50 rounded-lg mt-6">
+                <strong className="block mb-4">Mission</strong>
+                <div className="mb-4">
+                  <label className="form-label block text-sm font-medium mb-2">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input w-full px-3 py-2 border rounded-md"
+                    value={editItem.data.mission.title}
+                    onChange={(e) =>
+                      updateField("data.mission.title", e.target.value)
+                    }
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="form-label block text-sm font-medium mb-2">
+                    Description
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="form-input w-full px-3 py-2 border rounded-md"
+                    value={editItem.data.mission.description}
+                    onChange={(e) =>
+                      updateField("data.mission.description", e.target.value)
+                    }
+                  />
+                </div>
               </div>
-              <div className="mb-4">
-                <label className="form-label block text-sm font-medium mb-2">Description</label>
-                <textarea
-                  rows={4}
-                  className="form-input w-full px-3 py-2 border rounded-md"
-                  value={editItem.data.mission.description}
-                  onChange={(e) => updateField("data.mission.description", e.target.value)}
-                />
-              </div>
-            </div>
 
-            <div className=" p-4 bg-gray-50 rounded-lg">
-              <strong className="block mb-4">Vision</strong>
-              <div className="mb-4">
-                <label className="form-label block text-sm font-medium mb-2">Title</label>
-                <input
-                  type="text"
-                  className="form-input w-full px-3 py-2 border rounded-md"
-                  value={editItem.data.vision.title}
-                  onChange={(e) => updateField("data.vision.title", e.target.value)}
-                />
+              <div className=" p-4 bg-gray-50 rounded-lg">
+                <strong className="block mb-4">Vision</strong>
+                <div className="mb-4">
+                  <label className="form-label block text-sm font-medium mb-2">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input w-full px-3 py-2 border rounded-md"
+                    value={editItem.data.vision.title}
+                    onChange={(e) =>
+                      updateField("data.vision.title", e.target.value)
+                    }
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="form-label block text-sm font-medium mb-2">
+                    Description
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="form-input w-full px-3 py-2 border rounded-md"
+                    value={editItem.data.vision.description}
+                    onChange={(e) =>
+                      updateField("data.vision.description", e.target.value)
+                    }
+                  />
+                </div>
               </div>
-              <div className="mb-4">
-                <label className="form-label block text-sm font-medium mb-2">Description</label>
-                <textarea
-                  rows={4}
-                  className="form-input w-full px-3 py-2 border rounded-md"
-                  value={editItem.data.vision.description}
-                  onChange={(e) => updateField("data.vision.description", e.target.value)}
-                />
-              </div>
-            </div>
             </div>
 
             <div className="mb-6 p-4 bg-gray-50 rounded-lg">
@@ -321,7 +352,9 @@ const MissionVisionDataManager: React.FC = () => {
               />
 
               <div className="mb-4 mt-4">
-                <label className="form-label block text-sm font-medium mb-2">Video URL</label>
+                <label className="form-label block text-sm font-medium mb-2">
+                  Video URL
+                </label>
                 <input
                   type="text"
                   className="form-input w-full px-3 py-2 border rounded-md"

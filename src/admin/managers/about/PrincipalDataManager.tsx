@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import PrincipalDesk from "@/pages/about/PrincipalDesk";
 import PreviewWrapper from "@/admin/PreviewWrapper";
@@ -120,6 +121,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const PrincipalDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<PrincipalData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -278,9 +280,18 @@ const PrincipalDataManager: React.FC = () => {
       sessionStorage.removeItem("tempFiles");
       setIsEditing(true);
       setOriginalItem(JSON.parse(JSON.stringify(editItem)));
+      toast({
+        title: "Success",
+        description: "Principal data updated successfully!",
+      });
       fetchData();
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Save failed: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       isSavingRef.current = false;
       setLoading(false);
@@ -322,6 +333,7 @@ const PrincipalDataManager: React.FC = () => {
 
     try {
       await axiosInstance.delete(`/${collectionName}/${deleteItemId}`);
+      toast({ title: "Success", description: "Item deleted successfully" });
       fetchData();
       // If deleted item is current editItem, clear it
       if (editItem && editItem._id === deleteItemId) {
@@ -330,6 +342,11 @@ const PrincipalDataManager: React.FC = () => {
       }
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Delete failed: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setDeleteItemId(null);
     }

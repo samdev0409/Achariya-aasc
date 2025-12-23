@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import DocumentUploadManager from "@/admin/components/DocumentUploadManager";
@@ -95,6 +96,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const PlacementRecordsManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<PlacementRecord[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -227,8 +229,17 @@ const PlacementRecordsManager: React.FC = () => {
       setSelectedRecord(null);
       setIsNew(false);
       setError("");
+      toast({
+        title: "Success",
+        description: "Record saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -243,8 +254,17 @@ const PlacementRecordsManager: React.FC = () => {
       await axiosInstance.delete(`/${collectionName}/${deleteId}`);
       await fetchData();
       setError("");
+      toast({
+        title: "Success",
+        description: "Record deleted successfully!",
+      });
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
       setDeleteId(null);

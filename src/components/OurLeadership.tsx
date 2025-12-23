@@ -50,16 +50,16 @@ const OurLeadership: React.FC<OurLeadershipProps> = ({ overrideData }) => {
   };
 
   return (
-    <section className="pt-8">
+    <section className="py-8">
       <div className="container px-4">
         <div className="flex gap-4 flex-col md:flex-row justify-center">
           {data.map((lead, idx) => (
             <div
               key={idx}
-              className="bg-card text-center rounded-lg p-2 hover:shadow-xl"
+              className="bg-card text-center rounded-lg p-2 hover:shadow-md hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               <div
-                className="mx-auto mb-4 max-w-96 w-full aspect-square rounded overflow-hidden  cursor-pointer"
+                className="mx-auto mb-4 max-w-96 w-full aspect-square rounded overflow-hidden "
                 style={{ backgroundImage: `url(${cementbg})` }}
                 onClick={() => navigate(lead.path)}
               >

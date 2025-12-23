@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import ScrollDownToPreview from "../../components/ScrollDownToPreview";
@@ -133,6 +134,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const TestimonialsDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<TestimonialsData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -246,8 +248,17 @@ const TestimonialsDataManager: React.FC = () => {
       setIsAddingNew(false);
       setNewTestimonial(EMPTY_ITEM);
       await fetchData();
+      toast({
+        title: "Success",
+        description: "New testimonial saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving new testimonial: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving new testimonial: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -279,8 +290,17 @@ const TestimonialsDataManager: React.FC = () => {
 
       // Refresh data from server
       await fetchData();
+      toast({
+        title: "Success",
+        description: "Changes saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -309,8 +329,17 @@ const TestimonialsDataManager: React.FC = () => {
       }
 
       await fetchData();
+      toast({
+        title: "Success",
+        description: "Testimonial deleted successfully!",
+      });
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
       setDeleteId("");
@@ -553,7 +582,7 @@ const TestimonialsDataManager: React.FC = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {editItem.data.videos.map((video, index) => {
               const embedUrl = getEmbedUrl(video);
 
@@ -591,7 +620,7 @@ const TestimonialsDataManager: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4"
                   />
 
-                  <div className="min-h-[240px] border rounded-xl overflow-hidden bg-gray-50">
+                  <div className="min-h-[240px]  rounded-xl overflow-hidden bg-gray-50">
                     {embedUrl ? (
                       <iframe
                         src={embedUrl}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import ImageUploadManager from "../../components/ImageUploadManager";
@@ -94,11 +95,13 @@ const ConfirmationPopup: React.FC<{
 };
 
 const AchievementsStatsDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<AchievementsStatsData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [editItem, setEditItem] = useState<AchievementsStatsData | null>(null);
-  const [originalItem, setOriginalItem] = useState<AchievementsStatsData | null>(null);
+  const [originalItem, setOriginalItem] =
+    useState<AchievementsStatsData | null>(null);
   const [tempFiles, setTempFiles] = useState<string[]>([]);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
@@ -212,8 +215,17 @@ const AchievementsStatsDataManager: React.FC = () => {
       setOriginalItem(JSON.parse(JSON.stringify(cleaned)));
       setEditItem(cleaned);
       fetchData();
+      toast({
+        title: "Success",
+        description: "Stat card saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -273,8 +285,17 @@ const AchievementsStatsDataManager: React.FC = () => {
       setOriginalItem(JSON.parse(JSON.stringify(cleaned)));
       setEditItem(cleaned);
       fetchData();
+      toast({
+        title: "Success",
+        description: "Stat item deleted successfully!",
+      });
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -322,8 +343,17 @@ const AchievementsStatsDataManager: React.FC = () => {
       setOriginalItem(JSON.parse(JSON.stringify(cleaned)));
       setEditItem(cleaned);
       fetchData();
+      toast({
+        title: "Success",
+        description: "New stat added successfully!",
+      });
     } catch (err: any) {
       setError("Error adding stat: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error adding stat: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

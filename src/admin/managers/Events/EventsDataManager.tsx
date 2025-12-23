@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import ImageUploadManager from "@/admin/components/ImageUploadManager";
@@ -155,6 +156,7 @@ const ExistingImageCard: React.FC<{
 };
 
 const EventsDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<Event[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -268,8 +270,17 @@ const EventsDataManager: React.FC = () => {
       setSelectedEvent(null);
       setIsNew(false);
       setError("");
+      toast({
+        title: "Success",
+        description: "Event saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -284,8 +295,17 @@ const EventsDataManager: React.FC = () => {
       await axiosInstance.delete(`/${collectionName}/${deleteEventId}`);
       await fetchData();
       setError("");
+      toast({
+        title: "Success",
+        description: "Event deleted successfully!",
+      });
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
       setDeleteEventId(null);
@@ -368,8 +388,17 @@ const EventsDataManager: React.FC = () => {
         await axiosInstance.post("/upload/delete-file", {
           fileUrl: imageToDelete,
         });
+        toast({
+          title: "Success",
+          description: "Image deleted from server!",
+        });
       } catch (deleteErr) {
         console.error("Failed to delete file from server:", deleteErr);
+        toast({
+          title: "Error",
+          description: "Failed to delete file from server",
+          variant: "destructive",
+        });
       }
     }
 

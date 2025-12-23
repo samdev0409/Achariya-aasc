@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import { AlertCircle, X, Trash2Icon, Edit } from "lucide-react";
@@ -75,6 +76,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const AdmissionsDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<AdmissionsData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -126,8 +128,17 @@ const AdmissionsDataManager: React.FC = () => {
       setOriginalItem(JSON.parse(JSON.stringify(editItem)));
       setIsEditing(false);
       fetchData();
+      toast({
+        title: "Success",
+        description: "Admissions data saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

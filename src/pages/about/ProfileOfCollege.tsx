@@ -98,7 +98,11 @@ const ProfileOfCollege: React.FC<ProfileOfCollegeProps> = ({ overrideData }) => 
                 className="mb-4 capitalize"
               />
 
-              <p className="text-base leading-relaxed">{header.description}</p>
+              {
+                header.description.slice(0, 2).map((desc, i) => (
+                  <p key={i} className="text-base leading-relaxed mb-4 md:max-w-6xl max-w-full mx-auto">{desc}</p>
+                ))
+              }
             </div>
           </section>
 
@@ -175,6 +179,12 @@ const ProfileOfCollege: React.FC<ProfileOfCollegeProps> = ({ overrideData }) => 
               ))}
             </div>
           </section>
+
+             {
+                header.description.slice(2, header.description.length).map((desc, i) => (
+                  <p key={i} className="text-base leading-relaxed mb-4 md:max-w-6xl max-w-full mx-auto text-center">{desc}</p>
+                ))
+              }
         </main>
       </div>
     </>

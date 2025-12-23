@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import { useNavigate, useLocation } from "react-router-dom";
 import axiosInstance from "../../../utils/axiosInstance";
 import ChiefMentorDesk from "@/pages/about/CheifMentorDesk";
@@ -122,6 +123,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const ChiefMentorDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<ChiefMentorData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -285,9 +287,18 @@ const ChiefMentorDataManager: React.FC = () => {
       sessionStorage.removeItem("tempFiles");
       setIsEditing(true);
       setOriginalItem(JSON.parse(JSON.stringify(editItem)));
+      toast({
+        title: "Success",
+        description: "Chief Mentor data saved successfully!",
+      });
       fetchData();
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       isSavingRef.current = false;
       setLoading(false);
@@ -334,9 +345,19 @@ const ChiefMentorDataManager: React.FC = () => {
       if (editItem && editItem._id === deleteItemId) {
         setEditItem(null);
         setOriginalItem(null);
+        setOriginalItem(null);
       }
+      toast({
+        title: "Success",
+        description: "Deleted successfully",
+      });
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setDeleteItemId(null);
     }

@@ -16,7 +16,7 @@ import OurTeamDataManager from "./managers/about/OurTeamDataManager";
 import PressReleasesDataManager from "./managers/about/PressReleasesDataManager";
 
 // Academics Section
-import AcademicCalendarDataManager from "./managers/about/AcademicCalendarDataManager";
+import AcademicCalendarDataManager from "./managers/academics/AcademicCalendarDataManager";
 import DepartmentsDataManager from "./managers/academics/DepartmentsDataManager";
 import ProspectusDataManager from "./managers/ProspectusDataManager";
 import PGProgramsDetailsManager from "./managers/academics/PGProgramsDetailsManager";

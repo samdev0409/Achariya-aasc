@@ -49,15 +49,19 @@ const Home = () => {
                 className="capitalize"
               />
               <HeadingUnderline width={250} />
-              <p className="text-base max-w-5xl text-center mx-auto leading-relaxed">
-                {homeData.welcome.description}
+              <p className="text-base max-w-6xl text-center mx-auto leading-relaxed">
+                {homeData.welcome.description.slice(0, 1).map((desc, i) => (
+                  <p key={i}>{desc}</p>
+                ))}
               </p>
             </div>
             <div>
               <OurLeadership leads={homeData.leadership.leads} />
             </div>
-            <p className="text-base leading-relaxed max-w-5xl text-center mx-auto mt-4">
-              {homeData.welcome.description}
+            <p className="text-base leading-relaxed max-w-6xl text-center mx-auto mt-4">
+              {homeData.welcome.description.slice(1, homeData.welcome.description.length).map((desc, i) => (
+                <p key={i} className="mb-3">{desc}</p>
+              ))}
             </p>
           </section>
 

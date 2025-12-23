@@ -12,6 +12,7 @@ import TrainingAndPlacementsData from "@/data/placdements/TrainingAndPlacementsD
 import { homeData } from "@/data/home/allhomedata";
 import Heading from "@/components/reusable/Heading";
 import ForAdmission from "@/components/ForAdmission";
+import ImagePopup from "@/components/reusable/ImagePopup";
 
 interface Faculty {
   name: string;
@@ -30,6 +31,7 @@ interface Activity {
 interface TrainingDataOverride {
   TrainingAndPlacementsFacultyData: Faculty[];
   activities: Activity[];
+  supportImages: string[];
 }
 
 interface TrainingAndPlacementsCellProps {
@@ -44,7 +46,8 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
 
   // DYNAMIC data = overrideData in preview, staticData in public view
   const dynamicData = overrideData || staticData;
-  const { TrainingAndPlacementsFacultyData, activities } = dynamicData;
+  const { TrainingAndPlacementsFacultyData, activities, supportImages } =
+    dynamicData;
 
   const isPreview = Boolean(overrideData);
 
@@ -68,7 +71,35 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
     return `${import.meta.env.VITE_API_URL}${img}`;
   }
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  );
+
+  const openPopup = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const closePopup = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const nextImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) =>
+        prev === null ? null : (prev + 1) % supportImages.length
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) =>
+        prev === null
+          ? null
+          : (prev - 1 + supportImages.length) % supportImages.length
+      );
+    }
+  };
 
   return (
     <>
@@ -79,7 +110,7 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
         />
       </section>
       <div className="container md:py-10 py-3">
-        <section className="bg-background py-10">
+        {/* <section className="bg-background py-10">
           <div className="md:hidden block ">
             <Heading
               title="Training and placements Cell"
@@ -90,16 +121,13 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
           </div>
 
           <div className="flex flex-col md:flex-row gap-10">
-            {/* 🎥 Video Section */}
             <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
-              {/* Placeholder thumbnail */}
               <img
                 src={campus}
                 alt="Our Campus"
                 className="w-full h-full object-cover"
               />
 
-              {/* Animated Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   className="absolute rounded-full border-4 border-white/40 w-20 h-20"
@@ -124,7 +152,6 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
               </div>
             </div>
 
-            {/* 🏫 Content Section */}
             <div className="md:w-1/2 text-center md:text-left space-y-4">
               <div className="md:block hidden">
                 <Heading
@@ -165,7 +192,6 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
             </div>
           </div>
 
-          {/* 🎬 Fullscreen Video Popup */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -174,7 +200,6 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                {/* Close Button */}
                 <button
                   onClick={() => setIsOpen(false)}
                   className="absolute top-6 right-6 text-white hover:text-purple-400 transition"
@@ -182,7 +207,6 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
                   <X className="w-8 h-8" />
                 </button>
 
-                {/* Vimeo Video (no controls, autoplay) */}
                 <motion.div
                   className="w-full max-w-4xl aspect-video"
                   initial={{ scale: 0.8, opacity: 0 }}
@@ -195,7 +219,7 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
                 className="w-full h-full rounded-lg"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
-              ></iframe> */}
+              ></iframe> 
                   <iframe
                     className="w-full h-full rounded-lg"
                     title="vimeo-player"
@@ -209,7 +233,7 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
               </motion.div>
             )}
           </AnimatePresence>
-        </section>
+        </section> */}
         <section className="bg-background py-10">
           <div className="flex flex-col md:flex-row gap-10">
             {/* 🏫 Content Section */}
@@ -259,6 +283,20 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
         </section>
 
         <section className="py-10">
+          <div className="grid md:grid-cols-4 gap-6">
+            {supportImages.map((image, index) => (
+              <img
+                key={index}
+                src={isPreview ? resolveImageUrl(image) : image}
+                alt={`Support Image ${index + 1}`}
+                className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => openPopup(index)}
+              />
+            ))}
+          </div>
+        </section>
+
+        <section className="py-10">
           <div>
             <Heading title="Faculty" size="lg" align="center" />
             <HeadingUnderline width={150} align="center" />
@@ -270,7 +308,6 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
               name={faculty.name}
               department={faculty.department}
               designation={faculty.designation}
-              phone={faculty.phone}
               email={faculty.email}
             />
           ))}{" "}
@@ -289,6 +326,17 @@ const TrainingAndPlacementsCell: React.FC<TrainingAndPlacementsCellProps> = ({
           <ForAdmission data={homeData.admission} />
         </section>
       </div>
+      <ImagePopup
+  images={supportImages.map((img) => ({
+    image: isPreview ? resolveImageUrl(img) : img,
+    imgTitle: "",
+  }))}
+  selectedIndex={selectedImageIndex}
+  onClose={closePopup}
+  onNext={nextImage}
+  onPrev={prevImage}
+/>
+
     </>
   );
 };

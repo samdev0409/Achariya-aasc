@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import { AlertCircle, X } from "lucide-react";
@@ -74,6 +75,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const WelcomeDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<WelcomeData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -131,8 +133,17 @@ const WelcomeDataManager: React.FC = () => {
       }
       setOriginalItem(JSON.parse(JSON.stringify(editItem)));
       fetchData();
+      toast({
+        title: "Success",
+        description: "Welcome section saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

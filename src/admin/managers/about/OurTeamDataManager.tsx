@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import OurTeam from "@/pages/about/our-team/OurTeam";
 import PreviewWrapper from "@/admin/PreviewWrapper";
@@ -114,6 +115,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const OurTeamDataManager: React.FC = () => {
+  const { toast } = useToast();
   // Main Data State
   // We store the full document here.
   const [fullData, setFullData] = useState<OurTeamData | null>(null);
@@ -286,9 +288,18 @@ const OurTeamDataManager: React.FC = () => {
       setEditingId(null);
       setEditMember(null);
       setFullData(newData); // Optimistic update or fetch
+      toast({
+        title: "Success",
+        description: "Member updated successfully",
+      });
       fetchData(); // Safety fetch
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       isSavingRef.current = false;
       setLoading(false);
@@ -337,8 +348,17 @@ const OurTeamDataManager: React.FC = () => {
         setEditMember(null);
       }
       fetchData();
+      toast({
+        title: "Success",
+        description: "Member deleted successfully",
+      });
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     }
   };
 
@@ -390,8 +410,17 @@ const OurTeamDataManager: React.FC = () => {
       });
       setShowAddForm(false);
       fetchData();
+      toast({
+        title: "Success",
+        description: "Member added successfully",
+      });
     } catch (err: any) {
       setError("Error adding: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error adding: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

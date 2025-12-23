@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "@/utils/axiosInstance";
 import { Trash2, FileText, Download } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 interface DocumentUploadManagerProps {
   label: string;
@@ -15,6 +16,7 @@ const DocumentUploadManager: React.FC<DocumentUploadManagerProps> = ({
   onChange,
   addTemp,
 }) => {
+  const { toast } = useToast();
   const [uploading, setUploading] = useState(false);
   const [originalDbDocument, setOriginalDbDocument] = useState<string>("");
   const [previewUrl, setPreviewUrl] = useState<string>("");
@@ -44,7 +46,9 @@ const DocumentUploadManager: React.FC<DocumentUploadManagerProps> = ({
       if (!isTempDocument) {
         setPreviewUrl(value);
       } else {
-        setPreviewUrl(`${import.meta.env.VITE_API_URL}/assets/documents/temp/${value}`);
+        setPreviewUrl(
+          `${import.meta.env.VITE_API_URL}/assets/documents/temp/${value}`
+        );
       }
     } else {
       setPreviewUrl("");
@@ -78,7 +82,11 @@ const DocumentUploadManager: React.FC<DocumentUploadManagerProps> = ({
       onChange(fileName); // show temp document
     } catch (error) {
       console.error("Upload failed:", error);
-      alert("Failed to upload document");
+      toast({
+        title: "Upload Failed",
+        description: "Failed to upload document",
+        variant: "destructive",
+      });
     } finally {
       setUploading(false);
     }

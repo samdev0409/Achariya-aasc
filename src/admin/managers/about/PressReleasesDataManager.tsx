@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import PressReleases from "@/pages/about/press-releases/PressReleases";
 import PreviewWrapper from "@/admin/PreviewWrapper";
@@ -105,6 +106,7 @@ const ConfirmationPopup: React.FC<{
 
 /* ================= MAIN COMPONENT ================= */
 const PressReleasesDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [doc, setDoc] = useState<PressReleasesDoc | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -402,8 +404,17 @@ const PressReleasesDataManager: React.FC = () => {
         data: updated.data,
       });
       setDoc(updated);
+      toast({
+        title: "Success",
+        description: "Data saved successfully!",
+      });
     } catch (err: any) {
       setError("Failed to save: " + err.message);
+      toast({
+        title: "Error",
+        description: "Failed to save: " + err.message,
+        variant: "destructive",
+      });
       throw err;
     }
   };

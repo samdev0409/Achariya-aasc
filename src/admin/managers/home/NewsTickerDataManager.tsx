@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import { AlertCircle, Trash2Icon, X } from "lucide-react";
@@ -31,15 +32,15 @@ const ConfirmationPopup: React.FC<{
   confirmStyle = "bg-blue-600 hover:bg-blue-700",
 }) => {
   if (!isOpen) return null;
-  
+
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -96,6 +97,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const NewsTickerDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<NewsTickerData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -104,7 +106,7 @@ const NewsTickerDataManager: React.FC = () => {
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [showSavePopup, setShowSavePopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
-  
+
   // Delete confirmation state
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
@@ -168,8 +170,17 @@ const NewsTickerDataManager: React.FC = () => {
       );
       setOriginalItem(JSON.parse(JSON.stringify(updatedItem)));
       setError("");
+      toast({
+        title: "Success",
+        description: "News ticker saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -235,7 +246,11 @@ const NewsTickerDataManager: React.FC = () => {
   };
 
   if (loading && data.length === 0) {
-    return <div className="text-center py-12 px-4 min-h-screen max-w-md mx-auto">Loading...</div>;
+    return (
+      <div className="text-center py-12 px-4 min-h-screen max-w-md mx-auto">
+        Loading...
+      </div>
+    );
   }
 
   return (
@@ -260,10 +275,7 @@ const NewsTickerDataManager: React.FC = () => {
                 <strong className="text-lg font-medium text-gray-900">
                   Ticker Items ({editItem.data.items.length})
                 </strong>
-                <button
-                  className="green-btn"
-                  onClick={addItem}
-                >
+                <button className="green-btn" onClick={addItem}>
                   + Add Item
                 </button>
               </div>
@@ -301,7 +313,7 @@ const NewsTickerDataManager: React.FC = () => {
             </div>
 
             {/* Action Buttons - ProfileOfCollegeDataManager Pattern */}
-           <div className="pt-6 border-t border-gray-200 space-x-2">
+            <div className="pt-6 border-t border-gray-200 space-x-2">
               <button
                 className="blue-btn"
                 onClick={() => setShowSavePopup(true)}
@@ -337,7 +349,9 @@ const NewsTickerDataManager: React.FC = () => {
         </div>
       ) : (
         <div className="text-center py-12 px-4 max-w-md mx-auto">
-          <p className="text-gray-600 text-lg mb-4">No News Ticker data found.</p>
+          <p className="text-gray-600 text-lg mb-4">
+            No News Ticker data found.
+          </p>
           <p className="text-gray-500">Please create one first.</p>
         </div>
       )}
@@ -352,7 +366,7 @@ const NewsTickerDataManager: React.FC = () => {
         confirmText="Save Changes"
         confirmStyle="bg-blue-600 hover:bg-blue-700"
       />
-      
+
       {/* Cancel Confirmation */}
       <ConfirmationPopup
         isOpen={showCancelPopup}
@@ -370,9 +384,12 @@ const NewsTickerDataManager: React.FC = () => {
         onClose={cancelDeleteItem}
         onConfirm={confirmDeleteItem}
         title="Delete Item?"
-        message={deleteIndex !== null ? 
-          `Are you sure you want to delete "Item ${deleteIndex + 1}"? This action cannot be undone.` : 
-          "Are you sure you want to delete this item?"
+        message={
+          deleteIndex !== null
+            ? `Are you sure you want to delete "Item ${
+                deleteIndex + 1
+              }"? This action cannot be undone.`
+            : "Are you sure you want to delete this item?"
         }
         confirmText="Delete"
         confirmStyle="bg-red-600 hover:bg-red-700"

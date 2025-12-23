@@ -1,5 +1,8 @@
 import ramesh from "@/assets/images/our-team/faculty/Coporate Secretaryship Dept/Dr. Ramesh Kumar C.webp"
-
+import supportImage1 from "@/assets/images/training-and-placements/training-and-placement-objectives.webp"
+import supportImage2 from "@/assets/images/training-and-placements/training-and-placement-role.webp"
+import supportImage3 from "@/assets/images/training-and-placements/training-and-placement-policies.webp"
+import supportImage4 from "@/assets/images/training-and-placements/training-and-placement-vision-mission.webp"
 
 const TrainingAndPlacementsFacultyData = [
   {
@@ -39,5 +42,14 @@ const activities = [
   }
 ];
 
+const supportImages =[
+  supportImage3,
+  supportImage4,
+supportImage1,
+supportImage2,
 
-export default {TrainingAndPlacementsFacultyData, activities};
+
+]
+
+
+export default {TrainingAndPlacementsFacultyData, activities, supportImages};

@@ -27,6 +27,7 @@ import TrainingAndPlacementsCell from "./pages/placements/TrainingAndPlacementsC
 import PlacementRecords from "./pages/placements/PlacementRecords";
 import KeyRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
 import KeyCollaboratorsRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
+import PlacementsGalleryPage from "./pages/placements/placements-gallery/PlacementsGalleryPage";
 import ValueAddedCourses from "./pages/campus-life/ValueAddedCourses";
 import Sports from "./pages/facilities/sports/Sports";
 import SEED from "./pages/campus-life/SEED";
@@ -195,6 +196,10 @@ const App = () => (
                   <Route
                     path="/placements/key-collaborators-recruiters"
                     element={<KeyCollaboratorsRecruiters />}
+                  />
+                  <Route
+                    path="/placements/gallery/:galleryId?"
+                    element={<PlacementsGalleryPage />}
                   />
                   {/* Placements Pages END*/}
                   {/* Campus Life pages START*/}

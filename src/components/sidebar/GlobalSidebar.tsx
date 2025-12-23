@@ -33,8 +33,11 @@ const GlobalSidebar = ({ title, menu = [], type = "simple" }) => {
   return (
     <>
       {/* MOBILE TOP HAMBURGER BAR - Now positioned independently */}
-      <div onClick={() => setOpen(true)} className="md:hidden fixed top-[70px] left-0 right-0 w-full bg-gray-200 p-4 flex items-center gap-3 shadow-md z-[110]">
-        <button  aria-label="Open menu">
+      <div
+        onClick={() => setOpen(true)}
+        className="md:hidden fixed top-[70px] left-0 right-0 w-full bg-gray-200 p-4 flex items-center gap-3 shadow-md z-[110]"
+      >
+        <button aria-label="Open menu">
           <Menu size={26} />
         </button>
         <span className="font-medium text-lg">{title} Menu</span>
@@ -56,12 +59,10 @@ const GlobalSidebar = ({ title, menu = [], type = "simple" }) => {
             <X size={28} />
           </button>
         </div>
-
         {/* Desktop Heading */}
         <h2 className="hidden md:block text-lg font-semibold mb-4 border-b border-purple-800 pb-2">
           {title}
         </h2>
-
         {/* ---------------- SIMPLE SIDEBAR (Events) ---------------- */}
         {type === "none" && (
           <ul className="space-y-2">
@@ -101,7 +102,6 @@ const GlobalSidebar = ({ title, menu = [], type = "simple" }) => {
             ))}
           </ul>
         )}
-
         {/* ---------------- DROPDOWN SIDEBAR (Committees) ---------------- */}
         {type === "dropdown" && (
           <ul className="space-y-4">
@@ -220,6 +220,49 @@ const GlobalSidebar = ({ title, menu = [], type = "simple" }) => {
                 </li>
                 <hr />
               </React.Fragment>
+            ))}
+          </ul>
+        )}
+          {/* // In the SIMPLE SIDEBAR section (type === "none"), replace the
+          menu.map: */}
+        {type === "placementgallery" && (
+          <ul className="space-y-2">
+            {menu.map((item, index) => (
+              <li key={`${item.id || item.key}-${index}`}>
+                {" "}
+                {/* Stable key with index */}
+                {/* Preserve ORIGINAL data order - NO SORTING */}
+                {item.onClick ? (
+                  <button
+                    onClick={() => {
+                      item.onClick();
+                      setOpen(false);
+                    }}
+                    className={`block w-full text-left px-3 py-2 rounded-md transition ${
+                      item.isActive
+                        ? "bg-purple-100 text-black"
+                        : "hover:bg-purple-100 hover:text-black"
+                    }`}
+                  >
+                    {item.title || item.label}
+                  </button>
+                ) : (
+                  <NavLink
+                    to={item.url || item || `/campus-life/events/${item.id}`}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `block px-3 py-2 rounded-md transition ${
+                        isActive || item.isActive
+                          ? "bg-purple-100 text-black"
+                          : "hover:bg-purple-100 hover:text-black"
+                      }`
+                    }
+                  >
+                    {item.title || item.label}
+                  </NavLink>
+                )}
+                <hr className="border-gray-200" />
+              </li>
             ))}
           </ul>
         )}

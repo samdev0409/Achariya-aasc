@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
+import { useToast } from "@/components/ui/use-toast";
 
 interface SeedData {
   _id?: string;
@@ -9,6 +10,7 @@ interface SeedData {
 }
 
 const SeedDataManager: React.FC = () => {
+  const { toast } = useToast();
   const collection = "campus-life/seeddata";
 
   const [items, setItems] = useState<SeedData[]>([]);
@@ -55,10 +57,18 @@ const SeedDataManager: React.FC = () => {
         await axiosInstance.put(`/${collection}/${editItem._id}`, editItem);
       }
 
+      toast({
+        title: "Success",
+        description: "Saved successfully",
+      });
       setIsEditing(false);
       fetchItems();
     } catch (err: any) {
-      alert("Save failed: " + err.message);
+      toast({
+        title: "Error",
+        description: "Save failed: " + err.message,
+        variant: "destructive",
+      });
     }
   };
 
@@ -71,9 +81,17 @@ const SeedDataManager: React.FC = () => {
 
     try {
       await axiosInstance.delete(`/${collection}/${id}`);
+      toast({
+        title: "Success",
+        description: "Deleted successfully",
+      });
       fetchItems();
     } catch (err: any) {
-      alert("Delete failed: " + err.message);
+      toast({
+        title: "Error",
+        description: "Delete failed: " + err.message,
+        variant: "destructive",
+      });
     }
   };
 
@@ -138,9 +156,7 @@ const SeedDataManager: React.FC = () => {
 
   return (
     <div className="collection-manager">
-      <div
-        style={{ display: "flex", alignItems: "center", marginBottom: 16 }}
-      >
+      <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
         <h2>SEED Data</h2>
 
         {!isEditing && (
@@ -197,11 +213,14 @@ const SeedDataManager: React.FC = () => {
               </div>
 
               <div style={{ display: "flex", gap: 10, marginTop: 12 }}>
-                <button className="btn" onClick={() => {
-                  setEditItem(item);
-                  setIsNew(false);
-                  setIsEditing(true);
-                }}>
+                <button
+                  className="btn"
+                  onClick={() => {
+                    setEditItem(item);
+                    setIsNew(false);
+                    setIsEditing(true);
+                  }}
+                >
                   Edit
                 </button>
 

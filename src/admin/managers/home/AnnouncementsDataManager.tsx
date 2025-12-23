@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import { AlertCircle, X, Plus, Trash2Icon } from "lucide-react";
@@ -127,6 +128,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const AnnouncementsDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<AnnouncementsData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -186,8 +188,17 @@ const AnnouncementsDataManager: React.FC = () => {
       }
       setOriginalItem(JSON.parse(JSON.stringify(editItem)));
       fetchData();
+      toast({
+        title: "Success",
+        description: "Announcements saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

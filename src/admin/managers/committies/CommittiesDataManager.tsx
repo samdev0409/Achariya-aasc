@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import DocumentUploadManager from "@/admin/components/DocumentUploadManager";
@@ -115,6 +116,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const CommittiesDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<CommitteeData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -234,9 +236,18 @@ const CommittiesDataManager: React.FC = () => {
         selectedCommittee
       );
       await fetchData();
+      toast({
+        title: "Success",
+        description: "Committee saved successfully!",
+      });
       setError("");
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
       setEditingIndex(null);
@@ -254,8 +265,17 @@ const CommittiesDataManager: React.FC = () => {
         await fetchData();
         setSelectedCommittee(null);
         setSelectedSection(null);
+        toast({
+          title: "Success",
+          description: "Committee deleted successfully!",
+        });
       } catch (err: any) {
         setError("Error deleting: " + err.message);
+        toast({
+          title: "Error",
+          description: "Error deleting: " + err.message,
+          variant: "destructive",
+        });
       }
     } else if (
       selectedCommittee &&
@@ -312,9 +332,18 @@ const CommittiesDataManager: React.FC = () => {
 
       await axiosInstance.post(`/${collectionName}`, newCommittee);
       await fetchData();
+      toast({
+        title: "Success",
+        description: "Committee created successfully!",
+      });
       setError("");
     } catch (err: any) {
       setError("Error creating new committee: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error creating new committee: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

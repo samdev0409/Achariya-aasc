@@ -317,7 +317,7 @@ const UpcomingEventsPreviewDataManager: React.FC = () => {
             {data.map((item) => (
               <div
                 key={item._id}
-                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                className="bg-white border border-gray-200 rounded-lg flex justify-between items-center p-4 hover:shadow-md transition-shadow"
               >
                 <div className="mb-3">
                   <h4 className="font-semibold text-gray-900 mb-2">
@@ -331,7 +331,7 @@ const UpcomingEventsPreviewDataManager: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex items-center gap-2">
                   <button
                     onClick={() => {
                       setEditItem(item);
@@ -348,10 +348,11 @@ const UpcomingEventsPreviewDataManager: React.FC = () => {
                       setDeleteId(item._id!);
                       setShowDeletePopup(true);
                     }}
-                    className="trash-btn"
+                    className="trash-btn rounded-md p-3"
+                                          
                     disabled={loading}
                   >
-                    <Trash2Icon size={14} />
+                    <Trash2Icon size={16} />
                   </button>
                 </div>
               </div>

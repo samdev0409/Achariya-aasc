@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { COLLECTIONS } from "../constants";
+import { useToast } from "@/components/ui/use-toast";
 
 // Fallback local imports
 const dataFiles = import.meta.glob("../../data/**/*.{js,ts}", { eager: true });
@@ -136,6 +137,7 @@ interface DynamicCollectionManagerProps {
 const DynamicCollectionManager: React.FC<DynamicCollectionManagerProps> = ({
   collectionId: propCollectionId,
 }) => {
+  const { toast } = useToast();
   const { collectionId: paramCollectionId } = useParams<{
     collectionId: string;
   }>();
@@ -187,7 +189,7 @@ const DynamicCollectionManager: React.FC<DynamicCollectionManagerProps> = ({
     try {
       const res = await axiosInstance.get(`/${collectionId}`);
       setData(res.data);
-      console.log(res)
+      console.log(res);
     } catch (e) {
       console.warn("Backend failed. Trying fallback…");
       try {
@@ -237,11 +239,20 @@ const DynamicCollectionManager: React.FC<DynamicCollectionManagerProps> = ({
           : cleanData;
         await axiosInstance.put(`/${collectionId}/${editItem._id}`, payload);
       }
-      alert("Saved successfully.");
+
+      toast({
+        variant: "success",
+        title: "Success!",
+        description: "Item created successfully.",
+      });
       setIsEditing(false);
       fetchData();
     } catch (err: any) {
-      alert("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     }
   };
 

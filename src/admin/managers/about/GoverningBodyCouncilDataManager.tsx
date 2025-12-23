@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import OurTeamFacultyProfile from "@/components/faculty/OurTeamFacultyProfile";
 import PreviewWrapper from "@/admin/PreviewWrapper";
@@ -107,6 +108,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const GoverningBodyCouncilDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<GoverningBodyMember[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -263,9 +265,18 @@ const GoverningBodyCouncilDataManager: React.FC = () => {
       setEditingMemberId(null);
       setEditItems({});
       setOriginalItems({});
+      toast({
+        title: "Success",
+        description: "Member updated successfully",
+      });
       fetchData();
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       isSavingRef.current = false;
       setLoading(false);
@@ -300,9 +311,18 @@ const GoverningBodyCouncilDataManager: React.FC = () => {
 
     try {
       await axiosInstance.delete(`/${collectionName}/${deleteItemId}`);
+      toast({
+        title: "Success",
+        description: "Member deleted successfully",
+      });
       fetchData();
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setDeleteItemId(null);
     }
@@ -386,11 +406,22 @@ const GoverningBodyCouncilDataManager: React.FC = () => {
       setError("");
 
       await fetchData();
+      toast({
+        title: "Success",
+        description: "Member added successfully",
+      });
     } catch (err: any) {
       console.error("Add member error:", err);
       setError(
         "Error adding member: " + (err.response?.data?.message || err.message)
       );
+      toast({
+        title: "Error",
+        description:
+          "Error adding member: " +
+          (err.response?.data?.message || err.message),
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }

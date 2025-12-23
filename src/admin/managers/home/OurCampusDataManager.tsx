@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import ImageUploadManager from "../../components/ImageUploadManager";
@@ -51,7 +52,9 @@ const ConfirmationPopup: React.FC<{
               <AlertCircle className="w-6 h-6 text-yellow-600" />
             </div>
             <div className="flex-1 pt-1">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                {title}
+              </h3>
               <p className="text-sm text-gray-600">{message}</p>
             </div>
           </div>
@@ -77,6 +80,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const OurCampusDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<OurCampusData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -150,7 +154,7 @@ const OurCampusDataManager: React.FC = () => {
           fileName,
         });
         const finalUrl = res.data.url;
-        
+
         if (finalData.image === fileName) {
           finalData.image = finalUrl;
         }
@@ -177,10 +181,10 @@ const OurCampusDataManager: React.FC = () => {
       await axiosInstance.put(`/${collectionName}/${editItem._id}`, {
         data: finalData,
       });
-      
+
       const updatedItem = { ...editItem, data: finalData };
-      setData((prev) => 
-        prev.map((item) => item._id === editItem._id ? updatedItem : item)
+      setData((prev) =>
+        prev.map((item) => (item._id === editItem._id ? updatedItem : item))
       );
       setOriginalItem(JSON.parse(JSON.stringify(updatedItem)));
     } catch (err: any) {
@@ -198,8 +202,17 @@ const OurCampusDataManager: React.FC = () => {
       const finalData = await processTempFiles(editItem.data);
       await saveData(finalData);
       setError("");
+      toast({
+        title: "Success",
+        description: "Our Campus data saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -289,13 +302,15 @@ const OurCampusDataManager: React.FC = () => {
       {editItem ? (
         <div style={{ gap: "2rem", position: "relative" }}>
           {hasUnsavedChanges && <ScrollDownToPreview />}
-          
+
           <div className="form-container border border-gray-300 rounded-lg p-6 bg-white">
             <Heading title="Edit Our Campus" size="lg" align="left" />
 
             <div className="mb-6 p-4 bg-gray-50 rounded-lg mt-6">
               <div className="mb-4">
-                <label className="form-label block text-sm font-medium mb-2">Title</label>
+                <label className="form-label block text-sm font-medium mb-2">
+                  Title
+                </label>
                 <input
                   type="text"
                   className="form-input w-full px-3 py-2 border rounded-md"
@@ -312,7 +327,9 @@ const OurCampusDataManager: React.FC = () => {
               />
 
               <div className="mb-4 mt-4">
-                <label className="form-label block text-sm font-medium mb-2">Video URL</label>
+                <label className="form-label block text-sm font-medium mb-2">
+                  Video URL
+                </label>
                 <input
                   type="text"
                   className="form-input w-full px-3 py-2 border rounded-md"
@@ -323,7 +340,9 @@ const OurCampusDataManager: React.FC = () => {
 
               <div className="mb-4">
                 <div className="flex justify-between items-center mb-3">
-                  <strong>Paragraphs ({editItem.data.paragraphs.length})</strong>
+                  <strong>
+                    Paragraphs ({editItem.data.paragraphs.length})
+                  </strong>
                   <button
                     className="btn btn-primary px-3 py-1.5 bg-blue-600 text-white rounded-md text-sm"
                     onClick={addParagraph}
@@ -382,10 +401,7 @@ const OurCampusDataManager: React.FC = () => {
               align="left"
               className="mt-5 mb-8"
             />
-            <PreviewWrapper
-              Component={OurCampus}
-              previewData={editItem.data}
-            />
+            <PreviewWrapper Component={OurCampus} previewData={editItem.data} />
           </div>
         </div>
       ) : (

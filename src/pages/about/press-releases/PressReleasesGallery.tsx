@@ -81,7 +81,7 @@ const PressReleasesGallery: React.FC<PressReleasesGalleryProps> = ({
       </h1>
       <HeadingUnderline width={150} align="left"/>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
         {formattedImages.map((img, index) => (
           <div
             key={index}
@@ -91,7 +91,7 @@ const PressReleasesGallery: React.FC<PressReleasesGalleryProps> = ({
             <img
               src={img.image}
               alt={img.imgTitle}
-              className="w-full h-auto object-cover border"
+              className="w-full h-auto object-cover border border-gray-300"
             />
           </div>
         ))}

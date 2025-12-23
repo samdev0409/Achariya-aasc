@@ -8,15 +8,14 @@ const getFacultyByDepartment = (departmentName) => {
   );
 };
 
+// Placeholder Gallery Array
+const placeholderGallery = [history, history, history, history, history];
+
 // =========================
 // SIDEBAR MENU STRUCTURE
 // =========================
 export const departmentsSidebarMenu = [
-  {
-    id: "english",
-    title: "English",
-    url: "/academics/departments/english",
-  },
+  { id: "english", title: "English", url: "/academics/departments/english" },
   {
     id: "language",
     title: "Languages",
@@ -62,235 +61,1084 @@ export const departmentsSidebarMenu = [
     title: "Visual Communication",
     url: "/academics/departments/visual-communication",
   },
-  {
-    id: "library",
-    title: "Library",
-    url: "/academics/departments/library",
-  },
+  { id: "library", title: "Library", url: "/academics/departments/library" },
 ];
 
 // =====================================================
-// ===============   DEPARTMENT DATA   =================
+// ===============  DEPARTMENT DATA  =================
 // =====================================================
 
-// ⭐ English Department
-export const englishDepartment = {
-  name: "English",
+// ⭐ 1. Visual Communication (Multimedia)
+export const visualCommunicationDepartment = {
+  name: "Visual Communication",
   image: history,
+  departmentGallery: placeholderGallery,
   about:
-    "The Department of English had its inception in the year 2009 and widened its horizon by having a larger strength of students and faculty members. It is led by a team of vibrant, aspirant, and experienced faculty members who always strive for the student community.",
-  description: [
+    "The Visual Communication Department fosters excellence in creative and media education, blending artistic expression with professional advancement.",
+  aboutDepartment: {
+    history:
+      "The Visual Communication Department was founded with the aim of fostering excellence in creative and media education. It has grown into a vibrant space where artistic expression meets academic and professional advancement.",
+    overview:
+      "Our programs are thoughtfully crafted to keep pace with the latest developments in media, design, and digital platforms. We emphasize a student-focused learning environment, providing hands-on experience in areas like photography, filmmaking, animation, graphic design, and advertising. This is further enhanced through project-based learning and internship opportunities supported by our experienced teaching team of educators and media professionals.",
+    strengths: [
+      "Experienced educators and professionals from the media and creative industries.",
+      "Hands-on experience in photography, filmmaking, animation, and graphic design.",
+      "Strong partnerships with production houses, studios, and creative agencies.",
+      "Collaborative learning environment emphasizing industry practices and innovation.",
+    ],
+  },
+  vision: [
+    "To be a pioneering department in Visual Communication, cultivating a culture of creative excellence and empowering students to become leaders in the global media and design industry.",
+    "To foster a vibrant academic environment that blends artistic expression with technology, preparing students to craft impactful visual narratives that inspire and inform society.",
+  ],
+  mission: [
+    "To deliver quality education in visual communication by combining creative skills, technical knowledge, and ethical values.",
+    "To nurture talented professionals through hands-on training, research, and industry exposure.",
+    "To empower students with the ability to think visually, communicate effectively, and innovate across media platforms.",
+    "To bridge academics with industry needs through experiential learning and creative exploration.",
+  ],
+  objectives: [
+    "To strengthen practical training through workshops and hands-on sessions in photography, video production, and graphic design.",
+    "To organize guest lectures and seminars with media professionals and industry experts.",
+    "To enhance student participation in short film contests, design exhibitions, and creative competitions.",
+    "To upgrade lab infrastructure and software tools to meet current industry standards.",
+    "To encourage students to undertake internships with reputed media houses and design studios for real-time experience.",
+    "To establish the department as a recognized centre for excellence in media education, research, and creative innovation.",
+    "To build strong industry-academic partnerships for collaborative projects and placements.",
+    "To introduce advanced diploma and postgraduate programs in specialized areas like animation and film production.",
+    "To create a vibrant alumni network that supports mentoring and career opportunities.",
+    "To publish student-led media content such as short films and digital magazines on national and international platforms.",
+  ],
+  programsOffered: [
     {
-      title: "About the Department",
-      content:
-        "The Department of English had its inception in the year 2009 and widened its horizon by having a larger strength of students and faculty members. The department grooms students in communication, critical thinking, and appreciation of literature across genres and eras. The B.A. English course blends the study of language and literature, nurturing creativity, analytical ability, and intellectual curiosity.",
-    },
-    {
-      title: "Department Activities",
-      content:
-        "The department conducts various intra and intercollegiate competitions, seminars, workshops, Literary Meets, and special programs aimed at enhancing students’ communication skills and leadership abilities.",
-    },
-    {
-      title: "Literary Meet and Special Programs",
-      content:
-        "The department periodically organizes Guest Lectures, Literary Forums, Seminars, Workshops, Industrial and Library Visits, providing students space to explore and exhibit their talents while preparing them for diverse career opportunities.",
+      degree: "B.Sc. Visual Communication",
+      duration: "3 Years",
+      description:
+        "A comprehensive program keeping pace with media and digital platforms.",
     },
   ],
-  faculty: getFacultyByDepartment("English"),
+  certificateCourses: ["Digital Photography", "Graphic Designing"],
+  skillPrograms: ["Short film making", "Video Editing"],
+  faculty: getFacultyByDepartment("Visual Communication"),
+  departmentActivities: [
+    {
+      programTitle: "Field Visit to Eden Beach",
+      date: "06.08.2024",
+      location: "Eden Beach - Pondicherry",
+      aboutProgram: [
+        "The Department visited Eden Beach (Chinna Veerampattinam), a Blue Flag-certified beach known for sparkling white sand and backwaters.",
+        "Purpose: Photography for core subjects: Basics of Photography, Page Layout and Design, and Documentary Production.",
+        "25 students participated, capturing sunrise views, the Chunnambar river backwaters, and thick palm groves.",
+      ],
+      programOutcomes: [
+        "Students gained real-world experience and improved social relations outside the classroom.",
+        "Performed tasks with various photographic cameras and learned time-of-day shooting skills.",
+        "Composed frames using different lenses and lighting conditions.",
+        "Contextualized knowledge of natural light, strobe lighting, and supplemental flash.",
+        "Understood report writing for various tourist spots.",
+      ],
+    },
+    {
+      programTitle: "Visual Storytelling Photojournalism Workshop",
+      date: "16.10.2024",
+      location: "Pondicherry University (DEMMC)",
+      aboutProgram: [
+        "Workshop by Mr. Pattabi Raman (Photojournalist) exploring storytelling in editorial contexts.",
+        "Discussed narratives in reporting personal stories and field assignments.",
+        "27 students and 2 faculty members participated in this one-day participative experience.",
+      ],
+      programOutcomes: [
+        "Discussed history of photography, moving images, and photojournalism.",
+        "Demonstrated understanding of news values and sources.",
+        "Explored legal and ethical aspects of photography.",
+        "Assessed digital technology importance and aesthetic principles in composition.",
+      ],
+    },
+    {
+      programTitle: "World Photography Day Workshop",
+      date: "19.08.2024",
+      location: "Achariya Conference Hall",
+      aboutProgram: [
+        "Organized by AVM Club and Canon Company featuring Mr. Karthikeyan (Canon Trainer).",
+        "Hands-on experience with DSLRs and mirrorless cameras, angles, and lighting.",
+        "50 pupils attended the informative and interactive session.",
+      ],
+      programOutcomes: [
+        "Demonstrated artistry by creating images that evoke emotional responses.",
+        "Applied principles of composition to produce professional images.",
+        "Applied mechanics of exposure to control light and influence the final product.",
+      ],
+    },
+    {
+      programTitle: "Television Production Workshop",
+      date: "24.10.2024",
+      location: "Achariya Conference Hall",
+      aboutProgram: [
+        "Session led by Associate Directors Mr. Jagan and Mr. Pushparaj.",
+        "Insights into scripting, camera techniques, lighting, sound, and editing.",
+        "30 pupils attended practical demonstrations and a Q&A session.",
+      ],
+      programOutcomes: [
+        "Provided hands-on experience in various stages of TV production.",
+        "Applied principles of composition and exposure mechanics to final products.",
+      ],
+    },
+    {
+      programTitle: "3D Animation Workshop (Blender)",
+      date: "28.08.2024 - 30.08.2024",
+      location: "Multimedia Lab",
+      aboutProgram: [
+        "Three-day workshop led by Mr. K. Gokul focusing on the 3D pipeline: modelling, rigging, animation, and rendering.",
+        "25 members learned modelling and developed animation skills.",
+      ],
+      programOutcomes: [
+        "Learned how to create 3D models.",
+        "Discovered applications of 3D modelling.",
+        "Designed and created original 3D models.",
+      ],
+    },
+    {
+      programTitle: "Field Trip to Art & Craft Village",
+      date: "09.04.2025",
+      location: "Art & Craft Village - Pondicherry",
+      aboutProgram: [
+        "Trip to enhance aesthetic knowledge. Students observed clay sculptures, kalamkari-style bags, coconut shell crafts, and leather work.",
+        "25 students captured the tradition and modern meet of the village scenery.",
+      ],
+      programOutcomes: [
+        "Students understood real-world experience and social relations.",
+        "Improved creative and aesthetic thinking through artisan observation.",
+      ],
+    },
+    {
+      programTitle: "Field Visit to Pondy Marina and Auroville",
+      date: "12.02.2025",
+      location: "Pondy Marina and Auroville - Pondicherry",
+      aboutProgram: [
+        "Photography visit to Pondy Marina (food-based theme beach) and Auroville (universal township).",
+        "Captured river mouths, sandy beaches, and the Matrimandir concept.",
+      ],
+      programOutcomes: [
+        "Contextualized knowledge of documentary production in a global township setting.",
+        "Learned to find subjects for photography in architectural and natural environments.",
+      ],
+    },
+    {
+      programTitle: "Photography Exhibition: Aesthetics of Achariya",
+      date: "17.03.2025",
+      location: "College Campus",
+      aboutProgram: [
+        "Inaugurated by Mr. Senthil Joseph and Mr. Arul Raj.",
+        "250 students engaged with diverse creative exhibits showcasing exceptional photography skills.",
+      ],
+      programOutcomes: [
+        "Fostered creativity and artistic expression.",
+        "Showcased student talent to industry professionals.",
+      ],
+    },
+    {
+      programTitle: "MOU and Grand Screening (RIFF)",
+      date: "30.04.2025",
+      location: "Main Auditorium",
+      aboutProgram: [
+        "Collaboration with Rameshwaram International Film Festival (RIFF) and IGFS.",
+        "Screening of 'The Little Moon' (USA) and 'Khadima' (India).",
+        "MoU signed for monthly international film screenings and virtual interactions.",
+        "Virtual interaction with filmmakers from UK, Mexico, and USA.",
+      ],
+      programOutcomes: [
+        "Exposure to diverse cinematic narratives from across the globe.",
+        "Direct engagement with acclaimed international filmmakers.",
+      ],
+    },
+    {
+      programTitle: "Guest Lecture: Intercultural Communication",
+      date: "19.02.2025",
+      location: "Seminar Hall",
+      aboutProgram: [
+        "Expert Dr. S. Anand Lenin Vethanayagam delivered a session on 'Developing Multicultural Competency'.",
+        "Discussed Forest Theory and Synergy Theory.",
+      ],
+      programOutcomes: [
+        "Enhanced understanding of cultural perspectives in visual media.",
+      ],
+    },
+    {
+      programTitle: "Animation and VFX Orientation",
+      date: "28.11.2024",
+      location: "Conference Hall",
+      aboutProgram: [
+        "Session by Mr. Thamizhvanan D. from Image Institute.",
+        "Exploration of latest technological advancements and career paths in VFX.",
+      ],
+      programOutcomes: [
+        "Equipped students with industry expectations for the VFX industry.",
+      ],
+    },
+  ],
 };
 
-// ⭐ ⭐ NEW — LANGUAGE DEPARTMENT ⭐ ⭐
-export const languageDepartment = {
-  name: "Languages",
+// ⭐ 2. Information Technology
+export const informationTechnologyDepartment = {
+  name: "Information Technology",
   image: history,
-  about:
-    "The Department of Languages fosters linguistic competence and cultural understanding by offering instruction in Tamil, Hindi, and French. It promotes strong communication skills that build the foundation for academic excellence and personal development.",
-  description: [
+  departmentGallery: placeholderGallery,
+  about: "Founded in 2005, our department has grown into a vibrant center of innovation, learning, and career-focused education.",
+  aboutDepartment: {
+    history: "Since its establishment in 2005, the department has consistently aligned with current tech trends and industry needs.",
+    overview: "Our curriculum blends computer science foundations with domains like networking, cybersecurity, data analytics, software development, and cloud computing. We provide hands-on lab sessions, real-world industry projects, and internships designed to sharpen technical curiosity.",
+    strengths: [
+      "Strong ties with industry and research institutions",
+      "Excellent placement record in MNCs like Sutherland, Iamneo, and Edutech",
+      "Focus on diverse domains: IT Support, Data Analytics, and Cloud Computing",
+      "Hands-on learning through hackathons and skill-building workshops",
+    ],
+  },
+  vision: "To be a leading Department of Information Technology that imparts quality education, fosters innovation, and develops skilled professionals to meet global technological challenges.",
+  mission: [
+    "To provide strong academic foundations in information technology through effective teaching and learning practices.",
+    "To equip students with practical skills in programming, networking, web technologies, and emerging IT trends.",
+    "To promote innovation, research, and ethical values among students.",
+    "To prepare graduates for successful careers and lifelong learning in the IT industry.",
+  ],
+  objectives: [
+    "Align student skills with professional expectations and future technologies.",
+    "Facilitate high-tier placements in national and multinational organizations.",
+    "Encourage research publishing and participation in technical hackathons.",
+    "Empower students to stand out in competitive hiring assessments.",
+  ],
+  programsOffered: [
     {
-      title: "About the Department",
-      content:
-        "The Department of Languages plays a vital role in shaping the linguistic and cultural identity of students by offering a diverse range of language courses including Tamil, Hindi, and French. The department is committed to enhancing students’ proficiency in reading, writing, and speaking, while cultivating an appreciation for linguistic heritage and multiculturalism.",
-    },
-    {
-      title: "Academic Vision",
-      content:
-        "The department aims to develop communicative competence, literary appreciation, and cultural understanding. It encourages students to engage with classical and contemporary works while enhancing their analytical and expressive abilities.",
-    },
-    {
-      title: "Activities and Enrichment",
-      content:
-        "Regular workshops, guest lectures, literary events, translation activities, and cultural programs provide students with opportunities to build confidence, explore linguistic creativity, and understand the wider applications of language in education, media, translation, and public service.",
+      degree: "B.Sc. Information Technology",
+      duration: "3 Years",
+      description: "Focus on networking, web technologies, and software engineering.",
     },
   ],
-  faculty: getFacultyByDepartment("Language"),
+  certificateCourses: ["SWAYAM–NPTEL Online Courses", "Power BI Certification"],
+  skillPrograms: ["AI Data Mining Tools", "IoT Automation using Raspberry Pi", "Azure with AI"],
+  faculty: getFacultyByDepartment("Information Technology"),
+  departmentActivities: [
+    {
+      programTitle: "An one day workshop on AI Data mining Tools - a comprehensive approach",
+      date: "18.09.2025",
+      location: "Conference Hall & IT Lab",
+      aboutProgram: [
+        "Led by Dr. C. Bhuvaneswari (Govt. Arts and Science College).",
+        "Focused on leveraging AI-powered analytics for decision-making.",
+        "Included hands-on experience in analyzing and interpreting data using Power BI."
+      ],
+      programOutcomes: [
+        "Equipped students with practical skills in AI-powered data visualization.",
+        "Boosted student confidence in experimenting with modern AI techniques."
+      ]
+    },
+    {
+      programTitle: "Club Inauguration – Achariya Syntax Squad",
+      date: "18.09.2025",
+      location: "Conference Hall",
+      aboutProgram: [
+        "Official launch of the IT Club and unveiling of the club logo.",
+        "Investiture ceremony to induct student office bearers (President, VP, Treasurer, and Secretaries).",
+        "Aimed at fostering innovation and collaboration among IT students."
+      ],
+      programOutcomes: [
+        "Established a leadership structure for organizing technical club activities.",
+        "Created a platform for student-led innovation and peer learning."
+      ]
+    },
+    {
+      programTitle: "Achariya Syntax squad - Power BI UI/UX Design Roadmap Session",
+      date: "09.10.2025",
+      location: "IT Lab (Online - Mind Luster)",
+      aboutProgram: [
+        "Introduced students to data visualization and interactive dashboard creation.",
+        "Focused on visual design principles, layout consistency, and user interaction.",
+        "Explored visualization types like charts, graphs, and slicers."
+      ],
+      programOutcomes: [
+        "Provided practical knowledge of Power BI tools and customization.",
+        "Improved students' ability to combine technical data handling with creative design."
+      ]
+    },
+    {
+      programTitle: "Achariya Syntax Squad - FunFinity",
+      date: "11.11.2025",
+      location: "IT Lab",
+      aboutProgram: [
+        "A series of engaging activities including Group Discussion, Technical Quiz, Bug Hunt, and Musical Chairs.",
+        "Designed to blend technical knowledge with entertainment."
+      ],
+      programOutcomes: [
+        "Enhanced logical thinking and technical communication.",
+        "Promoted teamwork and individual excellence in a competitive environment."
+      ]
+    },
+    {
+      programTitle: "Guest Lecture: Emerging Technologies in Data Science",
+      date: "17.10.2025",
+      location: "AASC Conference Hall",
+      aboutProgram: [
+        "Delivered by Mrs. S. Divya (Christ Arts and Science College).",
+        "Explored advancements in AI, ML, Big Data, and Cloud Computing.",
+        "Focused on real-world industrial applications and data-driven decision-making."
+      ],
+      programOutcomes: [
+        "Gained insights into the evolving landscape of Data Science and Big Data Analytics.",
+        "Increased awareness of ethical practices and career opportunities in the field."
+      ]
+    },
+    {
+      programTitle: "Guest Lecture: Network Firewall",
+      date: "Academic Session 2024-25",
+      location: "Campus",
+      aboutProgram: ["Speaker: Mr. N. Ravi Bharathi (Accenture Chennai) regarding cross-sector deployment of firewalls."],
+      programOutcomes: ["Understanding of security protocols in modern networking."]
+    },
+    {
+      programTitle: "Field Trip for Community Engagement Service",
+      date: "26.05.2025",
+      location: "Sri Ganga Varaaha Nadheeswarar Temple",
+      aboutProgram: ["Social internship to identify community problems and social responsibilities."],
+      programOutcomes: ["Developed awareness of real-time social challenges and social responsibility."]
+    }
+  ]
 };
 
-// ⭐ Mathematics Department
-export const mathematicsDepartment = {
-  name: "Mathematics",
-  image: history,
-  about:
-    "Mathematics plays an important role in accelerating the social, economical, and technological growth of a nation...",
-  description: [
-    {
-      title: "About the Department",
-      content:
-        "Mathematics plays an important role in accelerating social, economic, and technological growth. The department began in 2004 and continues to produce proficient graduates equipped with strong analytical and problem-solving skills.",
-    },
-    {
-      title: "Leadership History",
-      content:
-        "Leadership transitioned through several experienced faculty heads, contributing to the department’s consistent academic achievements.",
-    },
-    {
-      title: "Achievements and Value-Added Courses",
-      content:
-        "The department has produced several gold medalists and offers value-added courses such as Tally, DTP, call center training, and more to enhance employability.",
-    },
-  ],
-  faculty: getFacultyByDepartment("Mathematics"),
-};
+
 
 // ⭐ Computer Science Department
 export const computerScienceDepartment = {
   name: "Computer Science",
   image: history,
-  about:
-    "The undergraduate program in Computer Science was started in 2004...",
-  description: [
+  departmentGallery: placeholderGallery,
+  about: "The Department of Computer Science (UG) was established in the year 2004 with B.Sc. Computer Science.",
+  aboutDepartment: {
+    history:
+      "The Department of Computer Science (UG) was established in the year 2004 with the introduction of two courses in B.Sc. Computer Science. Since its inception, the department has made an everlasting impression in the world of computer education in the region.",
+    overview:
+      "The department is well-equipped with all the basic and latest technical resources and comprises a well-qualified, dedicated faculty team. The academic performance has been consistently outstanding. We regularly organize seminars, guest lectures, workshops, internships, in-plant training, and symposiums to improve our students' skillset. Our graduates are successfully placed in reputed multinational IT companies worldwide, securing highly competitive career paths.",
+    strengths: [
+      "Well-qualified and dedicated faculty team focused on student success.",
+      "Outstanding academic performance records and global alumni network.",
+      "Equipped with basic and latest technical resources for practical learning.",
+      "Adherence to Choice Based Credit System (CBCS) as recommended by Pondicherry University since 2017-2018.",
+    ],
+  },
+  vision:
+    "To excel in transforming the graduates to be proficient in Computer Technology and Application that generates competent IT professionals, researchers and entrepreneurs globally.",
+  mission: [
+    "M1 - Excellence in Education: To impart quality education by instilling confidence towards taking up various challenges in the ever growing Industrial sectors.",
+    "M2 - Research and Modernization: To indoctrinate innovative research programs through enhancing technical competencies to balance the upgrading industrial and societal needs.",
+    "M3 - Placement and Entrepreneurship: To be recognized as experts by creating extensive global opportunities in placements and cultivating entrepreneurship skills for effective dissemination of creative ideas in business ventures.",
+    "M4 - Moral Ethics: To produce ethically strong professionals by infusing optimistic approach for the significant contribution to the society.",
+  ],
+  objectives: [
+    "To bring Innovation in technology and go beyond fundamentals to build interest in specialized research.",
+    "To guide students in the development of new languages and instill interest in hardware production.",
+    "To invent new operating systems and develop database languages.",
+    "To introduce innovative need-based and skill-based courses through the Choice Based Credit System (CBCS).",
+  ],
+  programsOffered: [
     {
-      title: "About the Department",
-      content:
-        "The Computer Science Department was founded in 2004 and is one of the largest with over 250 students. It provides strong technical education blending theory and practical training.",
-    },
-    {
-      title: "Industry-Institute Interaction",
-      content:
-        "The department organizes seminars, workshops, exhibitions, industrial visits, and project activities to prepare students for the IT industry.",
+      degree: "B.Sc. Computer Science",
+      duration: "3 Years",
+      description:
+        "Standard curriculum focusing on core software principles, hardware production, and system development under the CBCS system.",
     },
   ],
+  certificateCourses: ["Skill-based credits", "UI/UX Design Process"],
+  skillPrograms: ["AWS Cloud Computing", "Robotics Process Automation (RPA)", "AI Fundamentals"],
   faculty: getFacultyByDepartment("Computer Science"),
+  departmentActivities: [
+    {
+      programTitle: "National Workshop on AWS (Amazon Web Services)",
+      date: "25.10.2024",
+      location: "AASC Conference Hall",
+      aboutProgram: [
+        "Led by Mrs. K. Vijayalakshmi, DevOps Engineer at Sivisoft Solutions.",
+        "Morning Session: Comprehensive introduction to AWS key aspects: Compute, Storage, Security, and Identity Compliance.",
+        "Afternoon Session: Hands-on workshop focusing on practical topics: EC2 (Virtual Machines), S3 (Simple Storage Service), and IAM (Identity and Access Management) using Putty.",
+        "77 participants from regional colleges (Saradha Gangadharan, St. Joseph’s, Immaculate, Idhaya, and ACET) attended.",
+      ],
+      programOutcomes: [
+        "Enabled participants to apply cloud knowledge in real-world scenarios.",
+        "Gained practical knowledge in creating virtual machines across different operating systems.",
+        "Learned to manage datasets with S3 and attach security roles/policies through IAM.",
+      ],
+    },
+    {
+      programTitle: "National Workshop on Robotics Process Automation (RPA)",
+      date: "10.11.2023",
+      location: "Achariya Arts & Science College, Conference Hall",
+      aboutProgram: [
+        "Resource Person: Mrs. A. Kavitha, Solution Architect at Wipro Limited.",
+        "Session I: Comprehensive introduction to RPA and deep dive into Automation using UI Path.",
+        "Session II: Hands-on workshop allowing attendees to apply knowledge in a practical setting.",
+        "76 students registered from various institutions including Mailam Engineering, Loyola Chennai, and Sri Manakula Vinayakar.",
+      ],
+      programOutcomes: [
+        "Fostered a deep understanding of automated workflows through UI Path.",
+        "Ability to apply RPA knowledge in practical business automation settings.",
+      ],
+    },
+    {
+      programTitle: "Guest Lecture on UI/UX Design Process",
+      date: "04.04.2024",
+      location: "Campus",
+      aboutProgram: [
+        "Resource Person: Mr. U. Sakthivelu, Technical Staff, Institute of Media Arts & Graphics Effects (IMAGE).",
+        "Focused on recent trends in the UI/UX design field and shared insights from the professional work field.",
+        "Included interactive sessions on current techniques and design challenges.",
+        "75 participants involved enthusiastically.",
+      ],
+      programOutcomes: [
+        "Inspired students to think creatively and push boundaries of traditional design practices.",
+        "Guided students in navigating career paths and developing skills for UI/UX design journey.",
+      ],
+    },
+    {
+      programTitle: "Guest Lecture on Artificial Intelligence",
+      date: "19.08.2024",
+      location: "AASC Conference Hall",
+      aboutProgram: [
+        "Resource Person: Ms. Janani Srinivasan.",
+        "Topics: Introduction of AI perspectives, Machine Learning importance, and Natural Language Processing in day-to-day life.",
+        "Attended by 50 participants.",
+      ],
+      programOutcomes: [
+        "Gained clarity on the role of NLP and Machine Learning in modern technology.",
+        "Enhanced understanding of AI's daily life applications and future perspectives.",
+      ],
+    },
+  ],
 };
 
-// ⭐ Computer Application (BCA)
+// ⭐ 4. Computer Application (BCA)
 export const computerApplicationDepartment = {
   name: "Computer Application (BCA)",
   image: history,
+  departmentGallery: placeholderGallery,
   about:
-    "Started in 2004, the Department of Computer Application prepares students for careers in the IT sector.",
-  description: [
+    "Established in 2004, the Department of Computer Applications was founded to meet the growing demand for highly skilled professionals in the field of computing.",
+  aboutDepartment: {
+    history:
+      "Established in 2004, the Department of Computer Applications was founded to meet the growing demand for highly skilled professionals in the field of computing. It has since evolved to offer a four-year Bachelor of Computer Applications (BCA Honors) program under the National Education Policy (NEP-2020).",
+    overview:
+      "Our department is designed to provide students with a strong foundation in computer science theory alongside practical expertise in software and application development. Our team of dedicated and highly qualified faculty members is committed to guiding students toward academic excellence. To support hands-on training, the department is equipped with a state-of-the-art computer laboratory featuring the latest software tools where students gain extensive practical experience across multiple programming languages.",
+    strengths: [
+      "Dedicated and highly qualified faculty team committed to professional success.",
+      "Curriculum aligned with NEP-2020 Honors standards.",
+      "Emphasis on career readiness, lifelong learning, and higher education.",
+      "State-of-the-art computer laboratory with extensive practical training across multiple languages.",
+    ],
+  },
+  vision:
+    "To be a leading center of excellence in computer applications education, fostering innovation, practical expertise, and global competitiveness. The department envisions producing graduates who are technically proficient, entrepreneurial, and adaptable to the ever-evolving digital landscape.",
+  mission: [
+    "Deliver quality education in computer science and applications through a balanced blend of theory and practical training.",
+    "Empower students with industry-relevant skills in software development, system analysis, and emerging technologies.",
+    "Promote innovation and research by encouraging creative problem-solving and lifelong learning.",
+    "Prepare graduates for global opportunities by instilling professionalism, ethical values, and adaptability to diverse work environments.",
+  ],
+  objectives: [
+    "Provide a strong foundation in computing concepts and business practices to effectively manage enterprise software and information systems.",
+    "Develop analytical skills for system development, enabling students to assess organizational needs and design efficient solutions.",
+    "Equip graduates with software development expertise to pursue careers or entrepreneurial opportunities in both Indian and global markets.",
+    "Offer specialization pathways in legacy application software, system software, and mobile application development to meet diverse industry demands.",
+  ],
+  programsOffered: [
     {
-      title: "About the Department",
-      content:
-        "The BCA program equips students with theoretical and practical knowledge in programming, software development, and computer applications.",
+      degree: "BCA (Honors)",
+      duration: "4 Years",
+      description:
+        "An NEP-2020 aligned program designed to provide a strong foundation in theory and application development.",
     },
   ],
+  certificateCourses: ["Enterprise Software Management", "Legacy Systems"],
+  skillPrograms: ["UI/UX Design Process", "Mobile Application Development"],
   faculty: getFacultyByDepartment("Computer Application (BCA)"),
-};
-
-// ⭐ Information Technology
-export const informationTechnologyDepartment = {
-  name: "Information Technology",
-  image: history,
-  about:
-    "The Department of Information Technology was established in 2005...",
-  description: [
+  departmentActivities: [
     {
-      title: "About the Department",
-      content:
-        "The IT Department focuses on networking, databases, web technologies, and software engineering, preparing graduates for careers in IT and software industries.",
+      programTitle: "Guest Lecture on UI/UX Design Process",
+      date: "04.04.2024",
+      location: "Tech Lab",
+      aboutProgram: [
+        "Organized in collaboration with the Institute of Media Arts.",
+        "The session aimed to inspire students to think creatively and push traditional design boundaries.",
+        "Technical experts shared insights into current trends and challenges in the UI/UX journey.",
+      ],
+      programOutcomes: [
+        "Inspired creative design thinking and navigational skills for design practice.",
+        "Students gained a clear understanding of career paths in the UI/UX field.",
+      ],
+    },
+    {
+      programTitle: "Upcoming Technical Symposium",
+      date: "To be announced",
+      location: "Main Auditorium",
+      aboutProgram: [
+        "A planned gathering for students to showcase software development projects.",
+        "Will involve industry experts as jury members for application design contests.",
+      ],
+      programOutcomes: [
+        "Development of competitive spirit and technical presentation skills.",
+      ],
     },
   ],
-  faculty: getFacultyByDepartment("Information Technology"),
 };
 
-// ⭐ Biotechnology
+// ⭐ 5. English Department
+export const englishDepartment = {
+  name: "English",
+  image: history,
+  departmentGallery: placeholderGallery,
+  about:
+    "The Department of English had its inception in the year 2009 and widened its horizon with a huge strength of students and vibrant faculty members.",
+  aboutDepartment: {
+    history:
+      "The Department of English had its inception in the year 2009 and widened its horizon by having a huge strength of students and faculty members. It is led by a team of vibrant, aspirant, and experienced faculty members who always strive for the student’s community by grooming their thought-process and developing various skills.",
+    overview:
+      "The B.A. English course is the culmination of both teaching language through literature and appreciating the aesthetics of literature through language. It serves with an aim of motivating students to exhibit and explore a wide range of new ideas in literature from the early and modern to the contemporary period. The department is instrumental in conducting various intra and intercollegiate competitions to evaluate student advancement and foster leadership qualities.",
+    strengths: [
+      "Vibrant, aspirant, and experienced faculty team.",
+      "Unique culmination of language teaching and literary aesthetics.",
+      "Annual 'Literary Meet' to accelerate hidden talents.",
+      "Strong emphasis on extra-curricular activities to transform students into responsible citizens.",
+      "Periodical Guest Lectures, Literary forums, and Industrial/Library visits.",
+    ],
+  },
+  vision:
+    "To create morally and intellectually aspiring individuals through language and literature, fostering self-confidence and creativity to face the challenging world.",
+  mission: [
+    "Inaugurate and maintain active Literary Clubs to foster creative expression.",
+    "Provide informative and academically enriching sessions through seminars and workshops.",
+    "Improve phonetic and linguistic understanding through comprehensive curriculum delivery.",
+    "Encourage language skills and leadership through active participation in intercollegiate events.",
+  ],
+  objectives: [
+    "Conduct Literary Meet competitions every year to accelerate hidden talent.",
+    "Train students to be morally and intellectually aspiring individuals.",
+    "Provide guidance on Higher Education, career prospects, and archival research.",
+    "Nurture storytelling, narrative skills, and digital storytelling abilities.",
+  ],
+  programsOffered: [
+    {
+      degree: "B.A. English",
+      duration: "3 Years",
+      description:
+        "Focus on the culmination of language teaching and literary appreciation across historical periods.",
+    },
+  ],
+  certificateCourses: ["Content Writing Workshop", "Digital Storytelling"],
+  skillPrograms: ["Chat Your Story (Narrative Skills)", "Phonetics training", "Archival Practices"],
+  faculty: getFacultyByDepartment("English"),
+  departmentActivities: [
+    {
+      programTitle: "National Level Workshop on Content Writing",
+      date: "21.11.2024",
+      location: "Campus",
+      aboutProgram: [
+        "Led by Mr. N. Mohandas Ganthi, Project Manager, IGNITE Labs.",
+        "60 students from various colleges participated to enhance their writing skills.",
+      ],
+      programOutcomes: ["Enhanced professional writing skills and industry readiness."],
+    },
+    {
+      programTitle: "Literary Film Week (2024 & 2025)",
+      date: "Nov 2024 / Nov 2025",
+      location: "AASC Auditorium",
+      aboutProgram: [
+        "Screening of literary adaptations: Troy, Pride and Prejudice, I Robot (2024) and Harry Potter, Brave (2025).",
+        "Aimed at helping students understand literature through cinematic interpretation.",
+      ],
+      programOutcomes: [
+        "Improved visual literacy and appreciation of symbolic narrative development.",
+      ],
+    },
+    {
+      programTitle: "Educational Visit to National Archives of India",
+      date: "16.09.2024",
+      location: "National Archives, Puducherry",
+      aboutProgram: [
+        "Exposed students to methods of preservation, manuscripts, and official document cataloguing.",
+      ],
+      programOutcomes: [
+        "Valuable insights into archival practices and historical research resources.",
+      ],
+    },
+    {
+      programTitle: "Chat Your Story with Smartphones",
+      date: "19.12.2024",
+      location: "AASC Conference Hall",
+      aboutProgram: [
+        "Nurtured digital storytelling and communication abilities using modern technology.",
+      ],
+      programOutcomes: [
+        "Enhanced narrative skills and confidence in modern digital formats.",
+      ],
+    },
+    {
+      programTitle: "Guest Lecture: Resilience through Literary Texts",
+      date: "18.07.2025 / 30.07.2025",
+      location: "Seminar Hall",
+      aboutProgram: [
+        "Resource Person: Dr. G. Ruby Davaseeli. Explored 'Pandora’s Box' and themes of strength in adversity.",
+      ],
+      programOutcomes: [
+        "Encouraged critical thinking on emotional and psychological strength reflected in texts.",
+      ],
+    },
+    {
+      programTitle: "Freedom Fest (2k24 & 2K25)",
+      date: "August 2024 / 2025",
+      location: "Campus",
+      aboutProgram: [
+        "Elocution, essay writing, and poetry competitions to commemorate independence.",
+      ],
+      programOutcomes: ["Inculcated patriotism and critical expression among students."],
+    },
+    {
+      programTitle: "Academic Field Visit: 'Lit Knowledge Hunting'",
+      date: "12.09.2025",
+      location: "Tranquebar, Poombuhar, and Chidambaram",
+      aboutProgram: [
+        "Exploration of rich cultural and historical heritage to connect classroom knowledge with real-world insights.",
+      ],
+      programOutcomes: ["Academically enriching experience blending education with cultural exploration."],
+    },
+    {
+      programTitle: "Social Outreach: Old Age Home Visit",
+      date: "Oct 2024 / Oct 2025",
+      location: "Pushpagandhi Old Age Home, Korkadu",
+      aboutProgram: [
+        "Diwali celebration with elderly residents to instill compassion and empathy.",
+      ],
+      programOutcomes: [
+        "Emotional connection with the elderly and development of social responsibility.",
+      ],
+    },
+    {
+      programTitle: "Constitution Day Elocution",
+      date: "26.11.2024",
+      location: "Campus",
+      aboutProgram: [
+        "Topic: 'The Role of the Constitution in Shaping Modern India'.",
+      ],
+      programOutcomes: [
+        "Awareness of constitutional values and democratic principles.",
+      ],
+    }
+  ],
+};
+
+// ⭐ 6. Mathematics Department
+export const mathematicsDepartment = {
+  name: "Mathematics",
+  image: history,
+  departmentGallery: placeholderGallery,
+  about:
+    "Mathematics plays an important role in accelerating the social, economical, and technological growth of a nation.",
+  aboutDepartment: {
+    history:
+      "Started in 2004, the department continues to produce proficient graduates equipped with strong analytical and problem-solving skills.",
+    overview:
+      "Leadership has transitioned through several experienced faculty heads, contributing to the department’s consistent academic achievements. The department provides a strong foundation in both pure and applied mathematical sciences, preparing students for research and industrial applications.",
+    strengths: [
+      "Produces several gold medalists consistently.",
+      "Strong research-oriented staff with publications in Scopus, WoS, and UGC journals.",
+      "Integration of value-added courses like Tally, DTP, and SCILAB.",
+      "Active alumni network supporting career guidance and social awareness.",
+    ],
+  },
+  vision:
+    "To produce logically strong graduates capable of solving complex socio-economic problems through mathematical rigor and technological adaptability.",
+  mission: [
+    "Organize workshops on R programming and modern statistical methods.",
+    "Provide Vedic Mathematics usage to enhance competitive skills for graduates.",
+    "Facilitate alumni talks for career guidance and global opportunities.",
+    "Support holistic growth through self-defense workshops and social outreach.",
+  ],
+  objectives: [
+    "Understand the critical importance of Statistics and its scope in various fields.",
+    "Enable the application of Mathematics in business and engineering contexts.",
+    "Promote social awareness regarding human trafficking, drug abuse, and women empowerment.",
+    "Maintain a high standard of research publication in Scopus/WoS/UGC journals.",
+  ],
+  programsOffered: [
+    {
+      degree: "B.Sc. Mathematics",
+      duration: "3 Years",
+      description: "Comprehensive study of Pure and Applied Mathematical Sciences.",
+    },
+  ],
+  certificateCourses: ["R Programming", "Invitation to SCILAB", "Tally & DTP"],
+  skillPrograms: ["Vedic Mathematics", "Data Analysis through SPSS", "Wavelet Transform Processing"],
+  faculty: getFacultyByDepartment("Mathematics"),
+  departmentActivities: [
+    {
+      programTitle: "Girls Lead Girls - Self Defense Workshop",
+      date: "05.11.2024 - 06.11.2024",
+      location: "AASC Auditorium",
+      aboutProgram: [
+        "A two-day intensive workshop. Day 1: All First-year girls; Day 2: All Second-year girls.",
+        "Focused on physical empowerment and safety for female students.",
+      ],
+      programOutcomes: ["Enhanced self-confidence and practical self-defense skills."],
+    },
+    {
+      programTitle: "Fake Feminism - A talk on Women empowerment",
+      date: "24.11.2023",
+      location: "AASC Library Conference Hall",
+      aboutProgram: [
+        "Delivered by Mrs. Vaijainthimala Valarmathi (Advocate and District VP, Mahila Morcha).",
+        "A multi-disciplinary talk involving students from BBA, B.Com, BCA, CS, IT, Maths, and Vis.Com.",
+      ],
+      programOutcomes: ["Increased awareness of psychological and legal aspects of empowerment."],
+    },
+    {
+      programTitle: "Vedic Mathematics - Usage for Graduates",
+      date: "12.05.2023",
+      location: "AASC Library Conference Hall",
+      aboutProgram: [
+        "Resource Person: Dr. K. Thirumurugan.",
+        "Aimed at teaching rapid calculation techniques to BCA, B.Com, and Mathematics students.",
+      ],
+      programOutcomes: ["Improved mental math capabilities for competitive exams."],
+    },
+    {
+      programTitle: "Alumni Talk: Human Trafficking and Drug Abuse",
+      date: "21.02.2024",
+      location: "AASC Library Conference Hall",
+      aboutProgram: [
+        "Session 1: Alumni Mr. Lawrence on 'Human Trafficking and Drug Abuse'.",
+        "Session 2: Alumni Ms. Jenifar on 'Students Stress Management'.",
+      ],
+      programOutcomes: ["Social responsibility and stress management awareness for 80+ participants."],
+    },
+    {
+      programTitle: "Alumni Talk: Studies and Career Overseas",
+      date: "11.04.2025",
+      location: "Campus",
+      aboutProgram: [
+        "Session by Alumni Ms. Swathy Moorthy (Business Administration and Marketing, Paris, France).",
+      ],
+      programOutcomes: ["Guidance on international higher education and career paths."],
+    },
+    {
+      programTitle: "Seminar: Application of Statistical Methods in a New Trend",
+      date: "30.05.2023",
+      location: "AASC Library Conference Hall",
+      aboutProgram: [
+        "Resource Person: Dr. S. Sachithanantham.",
+        "Focused on modern data analytics and statistical trends.",
+      ],
+      programOutcomes: ["Foundational understanding of modern statistical applications."],
+    },
+  ],
+};
+
+// ⭐ REST OF DEPARTMENTS (DUMMY SKELETON)
+const genericActivities = [
+  {
+    programTitle: "Annual Seminar",
+    date: "Upcoming",
+    location: "Main Hall",
+    aboutProgram: ["Scheduled academic session for departmental growth."],
+    programOutcomes: ["Networking and subject knowledge."],
+  },
+];
+
+export const languageDepartment = {
+  name: "Languages",
+  image: history,
+  departmentGallery: placeholderGallery,
+  about: "Fosters linguistic competence in Tamil, Hindi, and French.",
+  aboutDepartment: {
+    history: "Long-standing",
+    overview: "Multi-language focus",
+    strengths: ["Cultural heritage"],
+  },
+  vision: "Universal communication",
+  mission: ["Cultural understanding"],
+  objectives: ["Proficiency"],
+  programsOffered: [
+    {
+      degree: "Foundation Language",
+      duration: "2 Years",
+      description: "Core language support.",
+    },
+  ],
+  certificateCourses: [],
+  skillPrograms: [],
+  faculty: getFacultyByDepartment("Language"),
+  departmentActivities: genericActivities,
+};
+
 export const bioTechnologyDepartment = {
   name: "Bio-Technology",
   image: history,
-  about:
-    "Biotechnology is a frontline field with applications in health, agriculture, environment, and industries.",
-  description: [
+  departmentGallery: placeholderGallery,
+  about: "Applications in health, agriculture, and environment.",
+  aboutDepartment: {
+    history: "Est 2005",
+    overview: "Quality education",
+    strengths: ["Labs"],
+  },
+  vision: "Innovation in life sciences",
+  mission: ["Practical training"],
+  objectives: ["Academic excellence"],
+  programsOffered: [
     {
-      title: "About the Department",
-      content:
-        "Established in 2005, the department offers quality education in biotechnology supported by well-equipped labs and experienced staff.",
+      degree: "B.Sc. Biotechnology",
+      duration: "3 Years",
+      description: "Life sciences.",
     },
   ],
+  certificateCourses: [],
+  skillPrograms: [],
   faculty: getFacultyByDepartment("Biotechnology"),
+  departmentActivities: genericActivities,
 };
 
-// ⭐ Commerce & Management
 export const commerceAndManagementDepartment = {
   name: "Commerce and Management",
   image: history,
-  about:
-    "The Department of Commerce is one of the pioneering departments of AASC.",
-  description: [
+  departmentGallery: placeholderGallery,
+  about: "Preparing students for business leadership and entrepreneurship.",
+  aboutDepartment: {
+    history: "Pioneering",
+    overview: "B.Com and BBA focus",
+    strengths: ["Industry interaction"],
+  },
+  vision: "Corporate leadership",
+  mission: ["Management skills"],
+  objectives: ["Accounting finance expertise"],
+  programsOffered: [
     {
-      title: "Under Graduate Courses - B.Com",
-      content:
-        "The B.Com program prepares students for business leadership, accounting, finance, management, and entrepreneurship.",
-    },
-    {
-      title: "Post Graduate Courses - M.Com",
-      content:
-        "The M.Com program enhances students’ practical and theoretical knowledge for careers in corporate and academic sectors.",
+      degree: "B.Com / BBA",
+      duration: "3 Years",
+      description: "Business studies.",
     },
   ],
+  certificateCourses: [],
+  skillPrograms: [],
   faculty: [
     ...getFacultyByDepartment("Commerce (UG/PG)"),
     ...getFacultyByDepartment("Management Studies (BBA)"),
-    ...getFacultyByDepartment("Corporate Secretaryship"),
   ],
+  departmentActivities: genericActivities,
 };
 
-// ⭐ Corporate Secretaryship
 export const corporateSecretaryshipDepartment = {
   name: "Corporate Secretaryship",
   image: history,
-  about:
-    "The department trains students in corporate law, governance, and secretarial practice.",
-  description: [
-    {
-      title: "About the Department",
-      content:
-        "Students are equipped with strong knowledge in legal procedures, company law, and governance, preparing them for corporate secretary roles.",
-    },
+  departmentGallery: placeholderGallery,
+  about: "The Department of Corporate Secretaryship, founded in 2004, aims to address the evolving needs of businesses and industries in the fields of Management, Accountancy, Costing, Finance, and Company Secretaryship. While professional courses such as ICAI and ICWA cater to these domains, there is a growing demand for skilled professionals to support companies on a daily basis.",
+  aboutDepartment: {
+    history: "Founded in 2004 with a legal focus on addressing evolving business needs in management, accountancy, costing, finance, and company secretaryship.",
+    overview: "The Department of Corporate Secretaryship, founded in 2004, aims toaddress the evolving needs of businesses and industries in the fields ofManagement, Accountancy, Costing, Finance, and CompanySecretaryship. While professional courses such as ICAI and ICWA caterto these domains, there is a growing demand for skilled professionals tosupport companies on a daily basis. This necessitates not onlyincreasing the number of qualified professionals but also developing anew cadre of experts to assist in these critical areas.",
+    strengths: ["Secretarial roles", "Corporate governance expertise", "Industry-relevant training"],
+  },
+  vision: "To be a center of excellence in Corporate Secretaryship education, empowering students to become competent professionals in corporate governance, company law, and secretarial practices. Nurture ethical leaders and dynamic entrepreneurs who drive organizational growth and societal transformation.",
+  mission: [
+    "Provide high-quality, accessible education in Corporate Secretaryship, aligned with global academic standards and industry needs.",
+    "Establish a solid foundation in company law, corporate governance, secretarial practices, and compliance.",
+    "Foster critical thinking, analytical abilities, and sound decision-making skills relevant to corporate governance and business operations.",
+    "Promote professional ethics, integrity, and accountability.",
+    "Develop entrepreneurial spirit and leadership qualities through value-based education and practical exposure.",
+    "Engage students in research, internships, and industry interactions for diverse career opportunities.",
+    "Equip students with skills for action-oriented research in the corporate sector."
   ],
+  objectives: [
+    "Secretarial skills",
+    "Develop skilled professionals equipped with knowledge, values, and practical experience for success in corporate and legal sectors.",
+    "Increase qualified professionals to meet daily company support needs."
+  ],
+  programsOffered: [
+    { degree: "B.Com CS", duration: "3 Years", description: "Corporate law and secretarial practice with focus on governance and compliance." },
+  ],
+  certificateCourses: [],
+  skillPrograms: [],
   faculty: getFacultyByDepartment("Corporate Secretaryship"),
-};
-
-// ⭐ Visual Communication
-export const visualCommunicationDepartment = {
-  name: "Visual Communication",
-  image: history,
-  about:
-    "The Department of Visual Communication started in 2008...",
-  description: [
+  departmentActivities: [
     {
-      title: "About the Department",
-      content:
-        "The department prepares students for careers in visual media, film, photography, radio, and multimedia production.",
+      programTitle: "Guest Lecture: The Role of Marketing in Business Strategy",
+      date: "18.7.2025",
+      location: "Campus",
+      aboutProgram: [
+        "Delivered by Mr. S. J. Vigneshwaran, Assistant Professor from Ayya Nadar Janaki Ammal College, Sivakasi.",
+        "Emphasized strategic importance of marketing with real-time examples."
+      ],
+      programOutcomes: ["Enhanced understanding of marketing's role in business success."],
     },
+    {
+      programTitle: "Orientation Program: Entrepreneurship Outreach Program",
+      date: "19.8.2025",
+      location: "Campus",
+      aboutProgram: [
+        "Delivered by Mr. Andrew Surjith Ronald, Project Head, SPARC.",
+        "Focused on entrepreneurial challenges and incubation hubs."
+      ],
+      programOutcomes: ["Students gained insights into entrepreneurial ecosystem."],
+    },
+    {
+      programTitle: "Industrial Visit",
+      date: "12.9.2025",
+      location: "Historical and cultural sites in Tamil Nadu",
+      aboutProgram: [
+        "Academic field visit for experiential learning beyond classroom."
+      ],
+      programOutcomes: ["Enhanced understanding of history, culture, and heritage."],
+    },
+    {
+      programTitle: "Orientation Program: ACS",
+      date: "11.9.2025",
+      location: "Campus",
+      aboutProgram: [
+        "ACS Orientation on registration process, benefits, subjects, and success tips.",
+        "Chief Guest: Mrs. Chitra, ACS from Institute of Company Secretaries of India."
+      ],
+      programOutcomes: ["Students gained clear roadmap for ACS professional course."],
+    },
+    {
+      programTitle: "Club Inauguration: Achariya Bulls and Bears Club (ABBC)",
+      date: "16.9.2025",
+      location: "Campus",
+      aboutProgram: [
+        "Special session on Finance and Trade by Dr. T. Vigneshwaran, CMA."
+      ],
+      programOutcomes: ["Students enriched with market dynamics and trading knowledge."],
+    },
+    {
+      programTitle: "Guest Lecture: College to Corporate – Business Models",
+      date: "29.9.2025",
+      location: "Campus",
+      aboutProgram: [
+        "Guest lecture bridging academic learning with corporate world."
+      ],
+      programOutcomes: ["Students prepared for corporate transition."],
+    },
+    {
+      programTitle: "Marathon: VASCO PONDY RUN 5K 3.0 – Say No to Drugs",
+      date: "23.11.2025",
+      location: "Beach Road, Puducherry",
+      aboutProgram: [
+        "R. Mukesh from I B.Com (CS) secured 5th place overall."
+      ],
+      programOutcomes: ["Received cash award, medal, and certificate."],
+    },
+    {
+      programTitle: "Munchville-2K25",
+      date: "25.11.2025",
+      location: "Achariya Arts and Science College",
+      aboutProgram: [
+        "Students managed entrepreneurial stalls: SR Accessories, Bakery Payaluga, Bites and Blast, Heist Thattuvadai."
+      ],
+      programOutcomes: ["Showcased entrepreneurial spirit and creativity."],
+    },
+    {
+      programTitle: "Indian Art Contest: Drawing Competition",
+      date: "12.11.2025",
+      location: "External",
+      aboutProgram: [
+        "Subiksha from II B.Com (CS) participated."
+      ],
+      programOutcomes: ["Enhanced artistic skills and participation."],
+    },
+    {
+      programTitle: "Edutainment: Poster Presentation",
+      date: "11.11.2025",
+      location: "Achariya Arts and Science College",
+      aboutProgram: [
+        "I Year: Logo Creation; II Year: Pen Theory; III Year: E-Commerce.",
+        "Coordinated by Mrs. Razia Sultana A."
+      ],
+      programOutcomes: ["Practical exposure to innovative presentation skills."],
+    },
+    {
+      programTitle: "G-Talk: TALLY PRIME 2.0 Seminar",
+      date: "11.11.2025",
+      location: "Campus",
+      aboutProgram: [
+        "Collaboration with GTech Computer Education.",
+        "Session by Mrs. Saraswathi on Tally Prime 2.0 and GST integration."
+      ],
+      programOutcomes: ["Hands-on Tally software training."],
+    },
+    {
+      programTitle: "Sports Activity: Indian Hockey Centenary Celebration",
+      date: "7.11.2025",
+      location: "ACET Campus, Villianur",
+      aboutProgram: [
+        "Runner-Up position in Men's Category."
+      ],
+      programOutcomes: ["Team achievement with students from III & II B.Com CS."],
+    },
+    {
+      programTitle: "Academic Review Meeting",
+      date: "26.11.2025",
+      location: "Auditorium",
+      aboutProgram: [
+        "Alumni invitee: Mr. Jayasurya Janakiraman, Proprietor of Rajagopal Iyer & Son."
+      ],
+      programOutcomes: ["Strategic academic planning and alumni engagement."],
+    },
+    {
+      programTitle: "Guest Lecture: Women Empowerment",
+      date: "13.2.2025",
+      location: "Campus",
+      aboutProgram: [
+        "Delivered by M. Shanmugam (Advocate) and T. Lavanya (Advocate)."
+      ],
+      programOutcomes: ["Insights into legal procedures and socio-legal challenges."],
+    },
+    {
+      programTitle: "All India Tally Exam",
+      date: "18.2.2025",
+      location: "Campus",
+      aboutProgram: [
+        "State-Level Tally Competitive Exam with 36 students.",
+        "Collaboration with G-Tech Computer Education."
+      ],
+      programOutcomes: ["Assessed Tally proficiency and practical skills."],
+    },
+    {
+      programTitle: "Pondicherry University - Globizz 2K25",
+      date: "19-21.2.2025",
+      location: "Pondicherry University",
+      aboutProgram: [
+        "C. Krishna Prakash from I B.Com CS won 1st Prize in Wings of Lens."
+      ],
+      programOutcomes: ["Inter-university competition success."],
+    }
   ],
-  faculty: getFacultyByDepartment("Visual Communication"),
 };
 
-// ⭐ Library
+
 export const libraryDepartment = {
   name: "Library",
   image: history,
-  about:
-    "The library is the central repository of knowledge with over 11,436 books and 5,681 titles.",
-  description: [
+  departmentGallery: placeholderGallery,
+  about: "Repository of knowledge with over 11,000 books.",
+  aboutDepartment: {
+    history: "Established",
+    overview: "Resource hub",
+    strengths: ["Large collection"],
+  },
+  vision: "Knowledge for all",
+  mission: ["Academic support"],
+  objectives: ["E-resources access"],
+  programsOffered: [
     {
-      title: "About the Library",
-      content:
-        "The library supports academic needs across all disciplines with journals, e-resources, reprographic services, and digital access.",
+      degree: "Info Literacy",
+      duration: "Continuous",
+      description: "Database training.",
     },
   ],
+  certificateCourses: [],
+  skillPrograms: [],
   faculty: getFacultyByDepartment("Library"),
+  departmentActivities: genericActivities,
 };
 
 // =====================================================

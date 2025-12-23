@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../utils/axiosInstance";
+import { useToast } from "@/components/ui/use-toast";
 
 interface ContactData {
   _id?: string;
@@ -20,6 +21,7 @@ interface ContactData {
 }
 
 const ContactDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<ContactData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -54,11 +56,18 @@ const ContactDataManager: React.FC = () => {
       } else {
         await axiosInstance.put(`/${collectionName}/${editItem._id}`, editItem);
       }
-      alert("Saved successfully");
+      toast({
+        title: "Success",
+        description: "Saved successfully",
+      });
       setIsEditing(false);
       fetchData();
     } catch (err: any) {
-      alert("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     }
   };
 
@@ -68,7 +77,11 @@ const ContactDataManager: React.FC = () => {
       await axiosInstance.delete(`/${collectionName}/${id}`);
       fetchData();
     } catch (err: any) {
-      alert("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     }
   };
 

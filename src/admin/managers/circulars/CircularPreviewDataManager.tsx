@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import DocumentUploadManager from "../../components/DocumentUploadManager";
@@ -79,6 +80,7 @@ const ConfirmationPopup: React.FC<{
 };
 
 const CircularPreviewDataManager: React.FC = () => {
+  const { toast } = useToast();
   const [data, setData] = useState<CircularPreviewData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -200,8 +202,17 @@ const CircularPreviewDataManager: React.FC = () => {
       setIsEditing(false);
       setIsNew(false);
       fetchData();
+      toast({
+        title: "Success",
+        description: "Circular saved successfully!",
+      });
     } catch (err: any) {
       setError("Error saving: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error saving: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       isSavingRef.current = false;
       setLoading(false);
@@ -235,8 +246,17 @@ const CircularPreviewDataManager: React.FC = () => {
     try {
       await axiosInstance.delete(`/${collectionName}/${deleteId}`);
       fetchData();
+      toast({
+        title: "Success",
+        description: "Circular deleted successfully!",
+      });
     } catch (err: any) {
       setError("Error deleting: " + err.message);
+      toast({
+        title: "Error",
+        description: "Error deleting: " + err.message,
+        variant: "destructive",
+      });
     } finally {
       setDeleteId("");
     }

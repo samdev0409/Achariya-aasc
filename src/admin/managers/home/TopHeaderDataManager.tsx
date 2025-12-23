@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import axiosInstance from "../../../utils/axiosInstance";
 import Heading from "@/components/reusable/Heading";
 import ImageUploadManager from "../../components/ImageUploadManager";
+import DocumentUploadManager from "../../components/DocumentUploadManager";
+import TopHeaderBar from "@/components/common/Header/TopHeadBar";
+import PreviewWrapper from "@/admin/PreviewWrapper";
 import { AlertCircle, X, Trash2Icon } from "lucide-react";
 import ScrollDownToPreview from "../../components/ScrollDownToPreview";
 
@@ -94,6 +97,7 @@ const TopHeaderDataManager: React.FC = () => {
   const [originalItem, setOriginalItem] = useState<TopHeaderData | null>(null);
   const [tempFiles, setTempFiles] = useState<string[]>([]);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [showNewForm, setShowNewForm] = useState(false);
 
   const [showSavePopup, setShowSavePopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
@@ -154,9 +158,18 @@ const TopHeaderDataManager: React.FC = () => {
     setLoading(true);
 
     try {
-      // Save temp files first
       for (const fileName of tempFiles) {
-        const res = await axiosInstance.post("/upload/save-temp-file", {
+        // Check if it's a document (PDF) or image
+        const isDocument =
+          fileName.toLowerCase().endsWith(".pdf") ||
+          fileName.toLowerCase().endsWith(".doc") ||
+          fileName.toLowerCase().endsWith(".docx");
+
+        const endpoint = isDocument
+          ? "/upload/document/save-temp-document"
+          : "/upload/save-temp-file";
+
+        const res = await axiosInstance.post(endpoint, {
           fileName,
         });
         const finalUrl = res.data.url;
@@ -164,6 +177,7 @@ const TopHeaderDataManager: React.FC = () => {
         editItem.data = editItem.data.map((item) => ({
           ...item,
           img: item.img === fileName ? finalUrl : item.img,
+          file: item.file === fileName ? finalUrl : item.file,
         }));
       }
 
@@ -174,6 +188,7 @@ const TopHeaderDataManager: React.FC = () => {
       setTempFiles([]);
       sessionStorage.removeItem("tempFiles");
       setOriginalItem(JSON.parse(JSON.stringify(editItem)));
+      setShowNewForm(false);
       fetchData();
     } catch (err: any) {
       setError("Error saving: " + err.message);
@@ -196,21 +211,55 @@ const TopHeaderDataManager: React.FC = () => {
       if (originalItem) {
         setEditItem(JSON.parse(JSON.stringify(originalItem)));
       }
+      setShowNewForm(false);
     } catch (err: any) {
       console.error("Cancel cleanup failed:", err);
     }
   };
 
+  // NEW FORM STATE AND FUNCTIONS
+  const [newCert, setNewCert] = useState<CertificationItem>({
+    id: `new-${Date.now()}`,
+    label: "",
+    file: "",
+    type: "text",
+  });
+
   const addCertification = () => {
-    if (!editItem) return;
-    const updated = { ...editItem };
-    updated.data.push({
-      id: `cert-${Date.now()}`,
+    setShowNewForm(true);
+  };
+
+  const saveNewCertification = () => {
+    if (!editItem || !newCert.label || !newCert.file) return;
+
+    const updated = JSON.parse(JSON.stringify(editItem));
+    // ADD AT TOP (unshift)
+    updated.data.unshift(newCert);
+    setEditItem(updated);
+    setShowNewForm(false);
+    setNewCert({
+      id: `new-${Date.now()}`,
       label: "",
       file: "",
       type: "text",
     });
-    setEditItem(updated);
+  };
+
+  const cancelNewCertification = () => {
+    setShowNewForm(false);
+    setNewCert({
+      id: `new-${Date.now()}`,
+      label: "",
+      file: "",
+      type: "text",
+    });
+  };
+
+  const updateNewCert = (field: keyof CertificationItem, value: any) => {
+    setNewCert((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
   const updateCertification = (
@@ -219,14 +268,14 @@ const TopHeaderDataManager: React.FC = () => {
     value: any
   ) => {
     if (!editItem) return;
-    const updated = { ...editItem };
+    const updated = JSON.parse(JSON.stringify(editItem));
     (updated.data[index] as any)[field] = value;
     setEditItem(updated);
   };
 
   const deleteCertification = (index: number) => {
     if (!editItem) return;
-    const updated = { ...editItem };
+    const updated = JSON.parse(JSON.stringify(editItem));
     updated.data = updated.data.filter((_, i) => i !== index);
     setEditItem(updated);
   };
@@ -247,125 +296,232 @@ const TopHeaderDataManager: React.FC = () => {
 
           <div className="mb-6 p-4 bg-gray-50 rounded-lg mt-6">
             <div className="flex justify-between items-center mb-4">
-              <strong>Certifications ({editItem.data.length})</strong>
-              <button
-                className="btn btn-primary px-3 py-1.5 bg-blue-600 text-white rounded-md text-sm"
-                onClick={addCertification}
-              >
+              <strong>Documents ({editItem.data.length})</strong>
+              <button className="green-btn" onClick={addCertification}>
                 + Add Certification
               </button>
             </div>
 
-            {editItem.data.map((cert, index) => (
-              <div
-                key={cert.id}
-                className="mb-4 p-4 bg-white rounded border border-gray-200"
-              >
-                <div className="flex justify-between mb-3">
-                  <strong className="text-sm">
-                    {cert.label || `Certification ${index + 1}`}
-                  </strong>
-                  <button
-                    className="text-red-600 hover:text-red-800"
-                    onClick={() => deleteCertification(index)}
-                  >
-                    <Trash2Icon size={16} />
-                  </button>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* ✅ NEW FORM AT TOP */}
+              {showNewForm && (
+                <div className="mb-4 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                  <div className="flex justify-between mb-3">
+                    <strong className="text-sm font-semibold text-blue-800">
+                      New Certification ✨
+                    </strong>
+                    <button
+                      className="trash-btn text-blue-600 hover:text-blue-800"
+                      onClick={cancelNewCertification}
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
 
-                <div className="mb-3">
-                  <label className="form-label block text-xs font-medium mb-1">
-                    Label
-                  </label>
-                  <input
-                    type="text"
-                    className="form-input w-full px-3 py-2 border rounded-md"
-                    value={cert.label}
-                    onChange={(e) =>
-                      updateCertification(index, "label", e.target.value)
-                    }
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label block text-xs font-medium mb-1">
-                    PDF File Path
-                  </label>
-                  <input
-                    type="text"
-                    className="form-input w-full px-3 py-2 border rounded-md"
-                    value={cert.file}
-                    onChange={(e) =>
-                      updateCertification(index, "file", e.target.value)
-                    }
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label block text-xs font-medium mb-1">
-                    Type
-                  </label>
-                  <select
-                    className="form-input w-full px-3 py-2 border rounded-md"
-                    value={cert.type}
-                    onChange={(e) =>
-                      updateCertification(
-                        index,
-                        "type",
-                        e.target.value as "text" | "img"
-                      )
-                    }
-                  >
-                    <option value="text">Text Badge</option>
-                    <option value="img">Image Logo</option>
-                  </select>
-                </div>
-
-                {cert.type === "img" && (
-                  <>
-                    <ImageUploadManager
-                      label="Logo Image"
-                      value={cert.img || ""}
-                      onChange={(v) => updateCertification(index, "img", v)}
-                      addTemp={addTempFile}
+                  <div className="mb-3">
+                    <label className="form-label block text-xs font-medium mb-1 text-blue-800">
+                      Label
+                    </label>
+                    <input
+                      type="text"
+                      className="form-input w-full px-3 py-2 border rounded-md border-blue-300"
+                      value={newCert.label}
+                      onChange={(e) => updateNewCert("label", e.target.value)}
                     />
+                  </div>
 
-                    <div className="mt-3">
-                      <label className="form-label block text-xs font-medium mb-1">
-                        Image Alt Text
-                      </label>
-                      <input
-                        type="text"
-                        className="form-input w-full px-3 py-2 border rounded-md"
-                        value={cert.imgAlt || ""}
-                        onChange={(e) =>
-                          updateCertification(index, "imgAlt", e.target.value)
-                        }
-                      />
-                    </div>
+                  <div className="mb-3">
+                    <label className="form-label block text-xs font-medium mb-1 text-blue-800">
+                      PDF File Path
+                    </label>
+                    <input
+                      type="text"
+                      className="form-input w-full px-3 py-2 border rounded-md border-blue-300"
+                      value={newCert.file}
+                      onChange={(e) => updateNewCert("file", e.target.value)}
+                    />
+                  </div>
 
-                    <div className="mt-3 flex items-center">
-                      <input
-                        type="checkbox"
-                        id={`rounded-${index}`}
-                        checked={cert.rounded || false}
-                        onChange={(e) =>
-                          updateCertification(
-                            index,
-                            "rounded",
-                            e.target.checked
-                          )
-                        }
-                        className="mr-2"
+                  <div className="mb-3">
+                    <label className="form-label block text-xs font-medium mb-1 text-blue-800">
+                      Type
+                    </label>
+                    <select
+                      className="form-input w-full px-3 py-2 border rounded-md border-blue-300"
+                      value={newCert.type}
+                      onChange={(e) =>
+                        updateNewCert("type", e.target.value as "text" | "img")
+                      }
+                    >
+                      <option value="text">Text Badge</option>
+                      <option value="img">Image Logo</option>
+                    </select>
+                  </div>
+
+                  {newCert.type === "img" && (
+                    <>
+                      <ImageUploadManager
+                        label="Logo Image"
+                        value={newCert.img || ""}
+                        onChange={(v) => updateNewCert("img", v)}
+                        addTemp={addTempFile}
                       />
-                      <label htmlFor={`rounded-${index}`} className="text-sm">
-                        Rounded Image
-                      </label>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
+                      <div className="mt-3">
+                        <label className="form-label block text-xs font-medium mb-1 text-blue-800">
+                          Image Alt Text
+                        </label>
+                        <input
+                          type="text"
+                          className="form-input w-full px-3 py-2 border rounded-md border-blue-300"
+                          value={newCert.imgAlt || ""}
+                          onChange={(e) =>
+                            updateNewCert("imgAlt", e.target.value)
+                          }
+                        />
+                      </div>
+                      <div className="mt-3 flex items-center">
+                        <input
+                          type="checkbox"
+                          id="new-rounded"
+                          checked={newCert.rounded || false}
+                          onChange={(e) =>
+                            updateNewCert("rounded", e.target.checked)
+                          }
+                          className="mr-2"
+                        />
+                        <label
+                          htmlFor="new-rounded"
+                          className="text-sm text-blue-800"
+                        >
+                          Rounded Image
+                        </label>
+                      </div>
+                    </>
+                  )}
+
+                  <div className="mt-4 pt-3 border-t border-blue-200 flex gap-3">
+                    <button
+                      className="flex-1 px-3 py-1.5 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700"
+                      onClick={saveNewCertification}
+                      disabled={!newCert.label || !newCert.file}
+                    >
+                      Add Certification
+                    </button>
+                    <button
+                      className="flex-1 px-3 py-1.5 bg-gray-300 text-gray-800 rounded-md text-sm font-medium hover:bg-gray-400"
+                      onClick={cancelNewCertification}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* ✅ EXISTING ITEMS (unchanged) */}
+              {editItem.data.map((cert, index) => (
+                <div
+                  key={cert.id}
+                  className="mb-4 p-4 bg-white rounded border border-gray-200"
+                >
+                  <div className="flex justify-between mb-3">
+                    <strong className="text-sm">
+                      {cert.label || `Certification ${index + 1}`}
+                    </strong>
+                    <button
+                      className="trash-btn"
+                      onClick={() => deleteCertification(index)}
+                    >
+                      <Trash2Icon size={16} />
+                    </button>
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label block text-xs font-medium mb-1">
+                      Label
+                    </label>
+                    <input
+                      type="text"
+                      className="form-input w-full px-3 py-2 border rounded-md"
+                      value={cert.label}
+                      onChange={(e) =>
+                        updateCertification(index, "label", e.target.value)
+                      }
+                    />
+                  </div>
+
+                  <DocumentUploadManager
+                    label="PDF Document"
+                    value={cert.file || ""}
+                    onChange={(v) => updateCertification(index, "file", v)}
+                    addTemp={addTempFile}
+                  />
+
+                  <div className="mb-3">
+                    <label className="form-label block text-xs font-medium mb-1">
+                      Type
+                    </label>
+                    <select
+                      className="form-input w-full px-3 py-2 border rounded-md"
+                      value={cert.type}
+                      onChange={(e) =>
+                        updateCertification(
+                          index,
+                          "type",
+                          e.target.value as "text" | "img"
+                        )
+                      }
+                    >
+                      <option value="text">Text Badge</option>
+                      <option value="img">Image Logo</option>
+                    </select>
+                  </div>
+
+                  {cert.type === "img" && (
+                    <>
+                      <ImageUploadManager
+                        label="Logo Image"
+                        value={cert.img || ""}
+                        onChange={(v) => updateCertification(index, "img", v)}
+                        addTemp={addTempFile}
+                      />
+
+                      <div className="mt-3">
+                        <label className="form-label block text-xs font-medium mb-1">
+                          Image Alt Text
+                        </label>
+                        <input
+                          type="text"
+                          className="form-input w-full px-3 py-2 border rounded-md"
+                          value={cert.imgAlt || ""}
+                          onChange={(e) =>
+                            updateCertification(index, "imgAlt", e.target.value)
+                          }
+                        />
+                      </div>
+
+                      <div className="mt-3 flex items-center">
+                        <input
+                          type="checkbox"
+                          id={`rounded-${index}`}
+                          checked={cert.rounded || false}
+                          onChange={(e) =>
+                            updateCertification(
+                              index,
+                              "rounded",
+                              e.target.checked
+                            )
+                          }
+                          className="mr-2"
+                        />
+                        <label htmlFor={`rounded-${index}`} className="text-sm">
+                          Rounded Image
+                        </label>
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-6 pt-6 border-t border-gray-200 flex gap-4">
@@ -384,6 +540,20 @@ const TopHeaderDataManager: React.FC = () => {
               Cancel
             </button>
           </div>
+        </div>
+
+        {/* Live Preview Section */}
+        <div className="py-4 mt-10 border border-gray-300 rounded-2xl p-8 bg-white">
+          <Heading
+            title="Live Preview"
+            size="lg"
+            align="left"
+            className="mt-5"
+          />
+          <PreviewWrapper
+            Component={TopHeaderBar}
+            previewData={editItem.data}
+          />
         </div>
       </div>
     );
