@@ -1,5 +1,6 @@
 import Carousel from "./Carousel";
 import EventsHighlightsPreview from "@/components/EventsHighlightsPreview";
+import GalleryPreviewSlider from "@/components/GalleryPreviewSlider";
 import OurLeadership from "@/components/OurLeadership";
 import AchievementsStats from "@/components/AchievementsStats";
 import CircularAndUpcomingEvents from "@/components/CircularAndUpcommingEvents";
@@ -14,6 +15,7 @@ import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import Heading from "@/components/reusable/Heading";
 import { useHomeData } from "@/hooks/useHomeData";
 import LeftRightBorder from "@/components/common/LeftRightBorder";
+import HomeAdmissionPopup from "@/components/HomeAdmissionPopup";
 
 const Home = () => {
   const { data: homeData, isLoading, error } = useHomeData();
@@ -59,9 +61,13 @@ const Home = () => {
               <OurLeadership leads={homeData.leadership.leads} />
             </div>
             <p className="text-base leading-relaxed max-w-6xl text-center mx-auto mt-4">
-              {homeData.welcome.description.slice(1, homeData.welcome.description.length).map((desc, i) => (
-                <p key={i} className="mb-3">{desc}</p>
-              ))}
+              {homeData.welcome.description
+                .slice(1, homeData.welcome.description.length)
+                .map((desc, i) => (
+                  <p key={i} className="mb-3">
+                    {desc}
+                  </p>
+                ))}
             </p>
           </section>
 
@@ -79,8 +85,13 @@ const Home = () => {
           </section>
 
           <section className="py-6 md:py-12 pb-14 px-6 bg-gray-200">
-            <EventsHighlightsPreview events={homeData.events} />
+            {/* <EventsHighlightsPreview events={homeData.events} /> */}
+                <GalleryPreviewSlider />
           </section>
+
+          {/* <section className="">
+            <GalleryPreviewSlider />
+          </section> */}
           <section className="container py-6 md:py-12">
             <OurRecruiters
               title={homeData.recruiters.title}
@@ -92,11 +103,10 @@ const Home = () => {
           <section id="contact" className="py-6 md:py-12 container">
             <ForAdmission data={homeData.admission} />
           </section>
-
-          <hr className="text-gray-200 container" />
-          <section className="py-6 md:py-12 container">
+          {/*          <hr className="text-gray-200 container" />
+ <section className="py-6 md:py-12 container">
             <CircularAndUpcomingEvents data={homeData.announcements} />
-          </section>
+          </section> */}
 
           <section className="py-6 md:py-12 bg-gray-200 ">
             <Testimonials
@@ -113,6 +123,7 @@ const Home = () => {
           </section>
         </main>
       </div>
+      <HomeAdmissionPopup />
     </>
   );
 };

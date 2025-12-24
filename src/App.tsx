@@ -227,6 +227,9 @@ const App = () => (
                     path="/campus-life/department-clubs"
                     element={<DepartmentsClubs />}
                   />
+                    {/* Gallery Pages START */}
+                  <Route path="/campus-life/gallery" element={<Gallery />} />
+                  {/* Gallery Pages END */}
                   {/* Campus Life pages END*/}
                   {/* IQAC & NIRF Pages START */}
                   <Route
@@ -267,17 +270,7 @@ const App = () => (
                   <Route path="/aasc-beats/:month" element={<AASCBeats />} />
                   {/*  AASC Beats Pages END */}
 
-                  {/* Gallery Pages START */}
-                  <Route
-                    path="/gallery"
-                    element={
-                      <Navigate
-                        to={`/gallery/${Object.keys(galleryData)[0]}`}
-                      />
-                    }
-                  />
-                  <Route path="/gallery/:slug" element={<Gallery />} />
-                  {/* Gallery Pages END */}
+                
                   {/* 404 error */}
                   <Route path="*" element={<NotFound />} />
                   <Route

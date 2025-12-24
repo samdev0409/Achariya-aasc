@@ -103,7 +103,7 @@ const Navbar = () => {
       path: "/campus-life",
       dropdown: [
         { label: "SEED", path: "/campus-life/seed" },
-        { label: "Events", path: "/campus-life/events" },
+        { label: "Gallery", path: "/campus-life/gallery" },
         {
           label: "Value-Added Courses",
           path: "/campus-life/value-added-courses",

@@ -9,10 +9,13 @@ import carousel8 from "@/assets/images/carousel/25-2048x908.webp";
 import carousel9 from "@/assets/images/carousel/boobesh-2048x908.webp";
 import carousel10 from "@/assets/images/carousel/Untitled-2480-x-909-px-2048x908.webp";
 import carousel11 from "@/assets/images/carousel/gold-medalist (2).webp";
-
+import carousel12 from "@/assets/images/carousel/25goldmedalistimg1.jpeg";
+import carousel13 from "@/assets/images/carousel/christmas-celeb-25.jpeg"
 export const carouselData = {
   images: [
     carousel11,
+    carousel12, 
+    carousel13,
     carousel10,
     carousel2,
     carousel3,

@@ -1,13 +1,28 @@
 import history from "@/assets/images/academic-departments/history-dept.webp";
 import ourTeamData from "@/data/about/OurTeamData.js";
 
+import viscomMissionImage from "@/assets/images/departments/VISCOM/mission.webp";
+import viscomObjectivesImage from "@/assets/images/departments/VISCOM/objectives.webp";
+import csMissionImage from "@/assets/images/departments/computer-science/mission.webp";
+import csObjectivesImage from "@/assets/images/departments/computer-science/objectives.webp";
+import bcaBannerImage from "@/assets/images/departments/computerapplication/banner.jpeg"
+import bcaMissionImage from "@/assets/images/departments/computerapplication/mission.webp";
+import bcaObjectivesImage from "@/assets/images/departments/computerapplication/objectives.jpg";
+import englishMissionImage from "@/assets/images/departments/english/mission.webp";
+import englishObjectivesImage from "@/assets/images/departments/english/objectives.webp";
+import mathsMissionImage from "@/assets/images/departments/maths/mission.webp";
+import mathsObjectivesImage from "@/assets/images/departments/maths/objectives.webp";
+import commerceMissionImage from "@/assets/images/departments/commerce/mission.webp";
+import commerceObjectivesImage from "@/assets/images/departments/commerce/objectives.webp";
+import managementMissionImage from "@/assets/images/departments/management/mission.webp";
+import managementObjectivesImage from "@/assets/images/departments/management/objectives.webp";
+
 // Helper function to get faculty by department
 const getFacultyByDepartment = (departmentName) => {
   return ourTeamData.faculty.filter(
     (faculty) => faculty.department === departmentName
   );
 };
-
 // Placeholder Gallery Array
 const placeholderGallery = [history, history, history, history, history];
 
@@ -15,17 +30,6 @@ const placeholderGallery = [history, history, history, history, history];
 // SIDEBAR MENU STRUCTURE
 // =========================
 export const departmentsSidebarMenu = [
-  { id: "english", title: "English", url: "/academics/departments/english" },
-  {
-    id: "language",
-    title: "Languages",
-    url: "/academics/departments/language",
-  },
-  {
-    id: "mathematics",
-    title: "Mathematics",
-    url: "/academics/departments/mathematics",
-  },
   {
     id: "computer-science",
     title: "Computer Science",
@@ -46,10 +50,26 @@ export const departmentsSidebarMenu = [
     title: "Bio-Technology",
     url: "/academics/departments/bio-technology",
   },
+  { id: "english", title: "English", url: "/academics/departments/english" },
+  // {
+  //   id: "language",
+  //   title: "Languages",
+  //   url: "/academics/departments/language",
+  // },
+  {
+    id: "mathematics",
+    title: "Mathematics",
+    url: "/academics/departments/mathematics",
+  },
   {
     id: "commerce-and-management",
-    title: "Commerce and Management",
+    title: "Commerce",
     url: "/academics/departments/commerce-and-management",
+  },
+  {
+    id: "management",
+    title: "Management",
+    url: "/academics/departments/management",
   },
   {
     id: "corporate-secretaryship",
@@ -63,7 +83,16 @@ export const departmentsSidebarMenu = [
   },
   { id: "library", title: "Library", url: "/academics/departments/library" },
 ];
-
+// ⭐ REST OF DEPARTMENTS (DUMMY SKELETON)
+const genericActivities = [
+  {
+    programTitle: "Annual Seminar",
+    date: "Upcoming",
+    location: "Main Hall",
+    aboutProgram: ["Scheduled academic session for departmental growth."],
+    programOutcomes: ["Networking and subject knowledge."],
+  },
+];
 // =====================================================
 // ===============  DEPARTMENT DATA  =================
 // =====================================================
@@ -71,7 +100,7 @@ export const departmentsSidebarMenu = [
 // ⭐ 1. Visual Communication (Multimedia)
 export const visualCommunicationDepartment = {
   name: "Visual Communication",
-  image: history,
+  image: viscomMissionImage,
   departmentGallery: placeholderGallery,
   about:
     "The Visual Communication Department fosters excellence in creative and media education, blending artistic expression with professional advancement.",
@@ -97,18 +126,20 @@ export const visualCommunicationDepartment = {
     "To empower students with the ability to think visually, communicate effectively, and innovate across media platforms.",
     "To bridge academics with industry needs through experiential learning and creative exploration.",
   ],
+  missionImage: viscomMissionImage,
   objectives: [
     "To strengthen practical training through workshops and hands-on sessions in photography, video production, and graphic design.",
     "To organize guest lectures and seminars with media professionals and industry experts.",
     "To enhance student participation in short film contests, design exhibitions, and creative competitions.",
     "To upgrade lab infrastructure and software tools to meet current industry standards.",
     "To encourage students to undertake internships with reputed media houses and design studios for real-time experience.",
-    "To establish the department as a recognized centre for excellence in media education, research, and creative innovation.",
-    "To build strong industry-academic partnerships for collaborative projects and placements.",
-    "To introduce advanced diploma and postgraduate programs in specialized areas like animation and film production.",
-    "To create a vibrant alumni network that supports mentoring and career opportunities.",
-    "To publish student-led media content such as short films and digital magazines on national and international platforms.",
+    // "To establish the department as a recognized centre for excellence in media education, research, and creative innovation.",
+    // "To build strong industry-academic partnerships for collaborative projects and placements.",
+    // "To introduce advanced diploma and postgraduate programs in specialized areas like animation and film production.",
+    // "To create a vibrant alumni network that supports mentoring and career opportunities.",
+    // "To publish student-led media content such as short films and digital magazines on national and international platforms.",
   ],
+  objectivesImage: viscomObjectivesImage,
   programsOffered: [
     {
       degree: "B.Sc. Visual Communication",
@@ -283,10 +314,13 @@ export const informationTechnologyDepartment = {
   name: "Information Technology",
   image: history,
   departmentGallery: placeholderGallery,
-  about: "Founded in 2005, our department has grown into a vibrant center of innovation, learning, and career-focused education.",
+  about:
+    "Founded in 2005, our department has grown into a vibrant center of innovation, learning, and career-focused education.",
   aboutDepartment: {
-    history: "Since its establishment in 2005, the department has consistently aligned with current tech trends and industry needs.",
-    overview: "Our curriculum blends computer science foundations with domains like networking, cybersecurity, data analytics, software development, and cloud computing. We provide hands-on lab sessions, real-world industry projects, and internships designed to sharpen technical curiosity.",
+    history:
+      "Since its establishment in 2005, the department has consistently aligned with current tech trends and industry needs.",
+    overview:
+      "Our curriculum blends computer science foundations with domains like networking, cybersecurity, data analytics, software development, and cloud computing. We provide hands-on lab sessions, real-world industry projects, and internships designed to sharpen technical curiosity.",
     strengths: [
       "Strong ties with industry and research institutions",
       "Excellent placement record in MNCs like Sutherland, Iamneo, and Edutech",
@@ -294,43 +328,52 @@ export const informationTechnologyDepartment = {
       "Hands-on learning through hackathons and skill-building workshops",
     ],
   },
-  vision: "To be a leading Department of Information Technology that imparts quality education, fosters innovation, and develops skilled professionals to meet global technological challenges.",
+  vision:
+    "To be a leading Department of Information Technology that imparts quality education, fosters innovation, and develops skilled professionals to meet global technological challenges.",
   mission: [
     "To provide strong academic foundations in information technology through effective teaching and learning practices.",
     "To equip students with practical skills in programming, networking, web technologies, and emerging IT trends.",
     "To promote innovation, research, and ethical values among students.",
     "To prepare graduates for successful careers and lifelong learning in the IT industry.",
   ],
+  missionImage: history,
   objectives: [
     "Align student skills with professional expectations and future technologies.",
     "Facilitate high-tier placements in national and multinational organizations.",
     "Encourage research publishing and participation in technical hackathons.",
     "Empower students to stand out in competitive hiring assessments.",
   ],
+  objectivesImage: history,
   programsOffered: [
     {
       degree: "B.Sc. Information Technology",
       duration: "3 Years",
-      description: "Focus on networking, web technologies, and software engineering.",
+      description:
+        "Focus on networking, web technologies, and software engineering.",
     },
   ],
   certificateCourses: ["SWAYAM–NPTEL Online Courses", "Power BI Certification"],
-  skillPrograms: ["AI Data Mining Tools", "IoT Automation using Raspberry Pi", "Azure with AI"],
+  skillPrograms: [
+    "AI Data Mining Tools",
+    "IoT Automation using Raspberry Pi",
+    "Azure with AI",
+  ],
   faculty: getFacultyByDepartment("Information Technology"),
   departmentActivities: [
     {
-      programTitle: "An one day workshop on AI Data mining Tools - a comprehensive approach",
+      programTitle:
+        "An one day workshop on AI Data mining Tools - a comprehensive approach",
       date: "18.09.2025",
       location: "Conference Hall & IT Lab",
       aboutProgram: [
         "Led by Dr. C. Bhuvaneswari (Govt. Arts and Science College).",
         "Focused on leveraging AI-powered analytics for decision-making.",
-        "Included hands-on experience in analyzing and interpreting data using Power BI."
+        "Included hands-on experience in analyzing and interpreting data using Power BI.",
       ],
       programOutcomes: [
         "Equipped students with practical skills in AI-powered data visualization.",
-        "Boosted student confidence in experimenting with modern AI techniques."
-      ]
+        "Boosted student confidence in experimenting with modern AI techniques.",
+      ],
     },
     {
       programTitle: "Club Inauguration – Achariya Syntax Squad",
@@ -339,26 +382,27 @@ export const informationTechnologyDepartment = {
       aboutProgram: [
         "Official launch of the IT Club and unveiling of the club logo.",
         "Investiture ceremony to induct student office bearers (President, VP, Treasurer, and Secretaries).",
-        "Aimed at fostering innovation and collaboration among IT students."
+        "Aimed at fostering innovation and collaboration among IT students.",
       ],
       programOutcomes: [
         "Established a leadership structure for organizing technical club activities.",
-        "Created a platform for student-led innovation and peer learning."
-      ]
+        "Created a platform for student-led innovation and peer learning.",
+      ],
     },
     {
-      programTitle: "Achariya Syntax squad - Power BI UI/UX Design Roadmap Session",
+      programTitle:
+        "Achariya Syntax squad - Power BI UI/UX Design Roadmap Session",
       date: "09.10.2025",
       location: "IT Lab (Online - Mind Luster)",
       aboutProgram: [
         "Introduced students to data visualization and interactive dashboard creation.",
         "Focused on visual design principles, layout consistency, and user interaction.",
-        "Explored visualization types like charts, graphs, and slicers."
+        "Explored visualization types like charts, graphs, and slicers.",
       ],
       programOutcomes: [
         "Provided practical knowledge of Power BI tools and customization.",
-        "Improved students' ability to combine technical data handling with creative design."
-      ]
+        "Improved students' ability to combine technical data handling with creative design.",
+      ],
     },
     {
       programTitle: "Achariya Syntax Squad - FunFinity",
@@ -366,12 +410,12 @@ export const informationTechnologyDepartment = {
       location: "IT Lab",
       aboutProgram: [
         "A series of engaging activities including Group Discussion, Technical Quiz, Bug Hunt, and Musical Chairs.",
-        "Designed to blend technical knowledge with entertainment."
+        "Designed to blend technical knowledge with entertainment.",
       ],
       programOutcomes: [
         "Enhanced logical thinking and technical communication.",
-        "Promoted teamwork and individual excellence in a competitive environment."
-      ]
+        "Promoted teamwork and individual excellence in a competitive environment.",
+      ],
     },
     {
       programTitle: "Guest Lecture: Emerging Technologies in Data Science",
@@ -380,38 +424,45 @@ export const informationTechnologyDepartment = {
       aboutProgram: [
         "Delivered by Mrs. S. Divya (Christ Arts and Science College).",
         "Explored advancements in AI, ML, Big Data, and Cloud Computing.",
-        "Focused on real-world industrial applications and data-driven decision-making."
+        "Focused on real-world industrial applications and data-driven decision-making.",
       ],
       programOutcomes: [
         "Gained insights into the evolving landscape of Data Science and Big Data Analytics.",
-        "Increased awareness of ethical practices and career opportunities in the field."
-      ]
+        "Increased awareness of ethical practices and career opportunities in the field.",
+      ],
     },
     {
       programTitle: "Guest Lecture: Network Firewall",
       date: "Academic Session 2024-25",
       location: "Campus",
-      aboutProgram: ["Speaker: Mr. N. Ravi Bharathi (Accenture Chennai) regarding cross-sector deployment of firewalls."],
-      programOutcomes: ["Understanding of security protocols in modern networking."]
+      aboutProgram: [
+        "Speaker: Mr. N. Ravi Bharathi (Accenture Chennai) regarding cross-sector deployment of firewalls.",
+      ],
+      programOutcomes: [
+        "Understanding of security protocols in modern networking.",
+      ],
     },
     {
       programTitle: "Field Trip for Community Engagement Service",
       date: "26.05.2025",
       location: "Sri Ganga Varaaha Nadheeswarar Temple",
-      aboutProgram: ["Social internship to identify community problems and social responsibilities."],
-      programOutcomes: ["Developed awareness of real-time social challenges and social responsibility."]
-    }
-  ]
+      aboutProgram: [
+        "Social internship to identify community problems and social responsibilities.",
+      ],
+      programOutcomes: [
+        "Developed awareness of real-time social challenges and social responsibility.",
+      ],
+    },
+  ],
 };
-
-
 
 // ⭐ Computer Science Department
 export const computerScienceDepartment = {
   name: "Computer Science",
-  image: history,
+  image: csObjectivesImage,
   departmentGallery: placeholderGallery,
-  about: "The Department of Computer Science (UG) was established in the year 2004 with B.Sc. Computer Science.",
+  about:
+    "The Department of Computer Science (UG) was established in the year 2004 with B.Sc. Computer Science.",
   aboutDepartment: {
     history:
       "The Department of Computer Science (UG) was established in the year 2004 with the introduction of two courses in B.Sc. Computer Science. Since its inception, the department has made an everlasting impression in the world of computer education in the region.",
@@ -432,12 +483,14 @@ export const computerScienceDepartment = {
     "M3 - Placement and Entrepreneurship: To be recognized as experts by creating extensive global opportunities in placements and cultivating entrepreneurship skills for effective dissemination of creative ideas in business ventures.",
     "M4 - Moral Ethics: To produce ethically strong professionals by infusing optimistic approach for the significant contribution to the society.",
   ],
+  missionImage: csMissionImage,
   objectives: [
     "To bring Innovation in technology and go beyond fundamentals to build interest in specialized research.",
     "To guide students in the development of new languages and instill interest in hardware production.",
     "To invent new operating systems and develop database languages.",
     "To introduce innovative need-based and skill-based courses through the Choice Based Credit System (CBCS).",
   ],
+  objectivesImage: csObjectivesImage,
   programsOffered: [
     {
       degree: "B.Sc. Computer Science",
@@ -447,7 +500,11 @@ export const computerScienceDepartment = {
     },
   ],
   certificateCourses: ["Skill-based credits", "UI/UX Design Process"],
-  skillPrograms: ["AWS Cloud Computing", "Robotics Process Automation (RPA)", "AI Fundamentals"],
+  skillPrograms: [
+    "AWS Cloud Computing",
+    "Robotics Process Automation (RPA)",
+    "AI Fundamentals",
+  ],
   faculty: getFacultyByDepartment("Computer Science"),
   departmentActivities: [
     {
@@ -516,7 +573,7 @@ export const computerScienceDepartment = {
 // ⭐ 4. Computer Application (BCA)
 export const computerApplicationDepartment = {
   name: "Computer Application (BCA)",
-  image: history,
+  image: bcaBannerImage,
   departmentGallery: placeholderGallery,
   about:
     "Established in 2004, the Department of Computer Applications was founded to meet the growing demand for highly skilled professionals in the field of computing.",
@@ -540,12 +597,14 @@ export const computerApplicationDepartment = {
     "Promote innovation and research by encouraging creative problem-solving and lifelong learning.",
     "Prepare graduates for global opportunities by instilling professionalism, ethical values, and adaptability to diverse work environments.",
   ],
+  missionImage: bcaMissionImage,
   objectives: [
     "Provide a strong foundation in computing concepts and business practices to effectively manage enterprise software and information systems.",
     "Develop analytical skills for system development, enabling students to assess organizational needs and design efficient solutions.",
     "Equip graduates with software development expertise to pursue careers or entrepreneurial opportunities in both Indian and global markets.",
     "Offer specialization pathways in legacy application software, system software, and mobile application development to meet diverse industry demands.",
   ],
+  objectivesImage: bcaObjectivesImage,
   programsOffered: [
     {
       degree: "BCA (Honors)",
@@ -590,7 +649,7 @@ export const computerApplicationDepartment = {
 // ⭐ 5. English Department
 export const englishDepartment = {
   name: "English",
-  image: history,
+  image: englishMissionImage,
   departmentGallery: placeholderGallery,
   about:
     "The Department of English had its inception in the year 2009 and widened its horizon with a huge strength of students and vibrant faculty members.",
@@ -615,12 +674,14 @@ export const englishDepartment = {
     "Improve phonetic and linguistic understanding through comprehensive curriculum delivery.",
     "Encourage language skills and leadership through active participation in intercollegiate events.",
   ],
+  missionImage: englishMissionImage,
   objectives: [
     "Conduct Literary Meet competitions every year to accelerate hidden talent.",
     "Train students to be morally and intellectually aspiring individuals.",
     "Provide guidance on Higher Education, career prospects, and archival research.",
     "Nurture storytelling, narrative skills, and digital storytelling abilities.",
   ],
+  objectivesImage: englishObjectivesImage,
   programsOffered: [
     {
       degree: "B.A. English",
@@ -630,7 +691,11 @@ export const englishDepartment = {
     },
   ],
   certificateCourses: ["Content Writing Workshop", "Digital Storytelling"],
-  skillPrograms: ["Chat Your Story (Narrative Skills)", "Phonetics training", "Archival Practices"],
+  skillPrograms: [
+    "Chat Your Story (Narrative Skills)",
+    "Phonetics training",
+    "Archival Practices",
+  ],
   faculty: getFacultyByDepartment("English"),
   departmentActivities: [
     {
@@ -641,7 +706,9 @@ export const englishDepartment = {
         "Led by Mr. N. Mohandas Ganthi, Project Manager, IGNITE Labs.",
         "60 students from various colleges participated to enhance their writing skills.",
       ],
-      programOutcomes: ["Enhanced professional writing skills and industry readiness."],
+      programOutcomes: [
+        "Enhanced professional writing skills and industry readiness.",
+      ],
     },
     {
       programTitle: "Literary Film Week (2024 & 2025)",
@@ -695,7 +762,9 @@ export const englishDepartment = {
       aboutProgram: [
         "Elocution, essay writing, and poetry competitions to commemorate independence.",
       ],
-      programOutcomes: ["Inculcated patriotism and critical expression among students."],
+      programOutcomes: [
+        "Inculcated patriotism and critical expression among students.",
+      ],
     },
     {
       programTitle: "Academic Field Visit: 'Lit Knowledge Hunting'",
@@ -704,7 +773,9 @@ export const englishDepartment = {
       aboutProgram: [
         "Exploration of rich cultural and historical heritage to connect classroom knowledge with real-world insights.",
       ],
-      programOutcomes: ["Academically enriching experience blending education with cultural exploration."],
+      programOutcomes: [
+        "Academically enriching experience blending education with cultural exploration.",
+      ],
     },
     {
       programTitle: "Social Outreach: Old Age Home Visit",
@@ -727,52 +798,56 @@ export const englishDepartment = {
       programOutcomes: [
         "Awareness of constitutional values and democratic principles.",
       ],
-    }
+    },
   ],
 };
 
 // ⭐ 6. Mathematics Department
 export const mathematicsDepartment = {
   name: "Mathematics",
-  image: history,
+  image: mathsObjectivesImage,
   departmentGallery: placeholderGallery,
   about:
-    "Mathematics plays an important role in accelerating the social, economical, and technological growth of a nation.",
+    "The Department of Mathematics was established in 2004 as a pivot of academic and professional growth with curriculum aligned to industrial and research trends. Proudly presented 3 Gold Medallions with exemplary pass percentage and 352 centums (Non-CBCS) + 77 'O' Grades (CBCS).",
   aboutDepartment: {
     history:
-      "Started in 2004, the department continues to produce proficient graduates equipped with strong analytical and problem-solving skills.",
+      "Established in 2004, consistently producing proficient graduates with 3 Gold Medallions, exemplary pass percentage from 2004-2024, 352 centums under Non-CBCS, and 77 'O' Grades under CBCS pattern.",
     overview:
-      "Leadership has transitioned through several experienced faculty heads, contributing to the department’s consistent academic achievements. The department provides a strong foundation in both pure and applied mathematical sciences, preparing students for research and industrial applications.",
+      "The Department of Mathematics was established with a vision to deliver excellence in Mathematics. Our department is a pivot of academic and professional growth since 2004, with a curriculum aligned to industrial and research trends. We aim to prepare future-ready professionals. Our faculty comprises experienced educators and researchers committed to student success. The department of Mathematics proudly presented 3 Gold Medallions so far. Also all the passed out batches from 2004 to 2024 are having exemplary pass percentage. In addition to it number of centum produced by the department is 352 under Non CBCS Pattern and 77 ‘O’ Grades under CBCS (choice based credit system) Pattern.",
     strengths: [
-      "Produces several gold medalists consistently.",
-      "Strong research-oriented staff with publications in Scopus, WoS, and UGC journals.",
-      "Integration of value-added courses like Tally, DTP, and SCILAB.",
-      "Active alumni network supporting career guidance and social awareness.",
+      "3 Gold Medallions and exceptional academic records (352 centums, 77 'O' Grades)",
+      "Experienced faculty focused on student success and research",
+      "Curriculum aligned with industrial and research trends",
+      "Consistent 100% pass percentage across all batches since 2004",
     ],
   },
   vision:
-    "To produce logically strong graduates capable of solving complex socio-economic problems through mathematical rigor and technological adaptability.",
+    "To be a vibrant nucleus for mathematical exploration, fostering logical thinking and problem-solving skills essential for a dynamic world. Inspire deep appreciation for mathematics across disciplines and cultivate mathematically literate, critical-thinking graduates contributing to society.",
+  visionimg: history,
   mission: [
-    "Organize workshops on R programming and modern statistical methods.",
-    "Provide Vedic Mathematics usage to enhance competitive skills for graduates.",
-    "Facilitate alumni talks for career guidance and global opportunities.",
-    "Support holistic growth through self-defense workshops and social outreach.",
+    "Provide high-quality, student-centered education through innovative teaching and engagement.",
+    "Promote supportive, collaborative learning environment encouraging inquiry, creativity, and intellectual growth.",
+    "Equip students with strong foundation in mathematical concepts for diverse career paths and further studies.",
   ],
+  missionImage: mathsMissionImage,
   objectives: [
-    "Understand the critical importance of Statistics and its scope in various fields.",
-    "Enable the application of Mathematics in business and engineering contexts.",
-    "Promote social awareness regarding human trafficking, drug abuse, and women empowerment.",
-    "Maintain a high standard of research publication in Scopus/WoS/UGC journals.",
+    "Implement active learning strategies (think-pair-share, group problem-solving) in core courses like Calculus, Linear Algebra, Discrete Mathematics.",
+    "Develop targeted remedial resources (video tutorials, practice sets) for struggling students.",
+    "Increase faculty-student interaction through office hours, forums, and Q&A sessions.",
+    "Integrate real-world applications and conduct mid-semester feedback for continuous improvement.",
+    "Establish Center of Excellence in computational mathematics/data science or mathematical modeling.",
   ],
+  objectivesImage: mathsObjectivesImage,
   programsOffered: [
     {
       degree: "B.Sc. Mathematics",
       duration: "3 Years",
-      description: "Comprehensive study of Pure and Applied Mathematical Sciences.",
+      description:
+        "Comprehensive program developing analytical skills with industrial/research alignment under CBCS.",
     },
   ],
-  certificateCourses: ["R Programming", "Invitation to SCILAB", "Tally & DTP"],
-  skillPrograms: ["Vedic Mathematics", "Data Analysis through SPSS", "Wavelet Transform Processing"],
+  certificateCourses: ["SCILAB", "Tally", "DTP"],
+  skillPrograms: ["R Programming", "Vedic Mathematics", "SPSS Data Analysis"],
   faculty: getFacultyByDepartment("Mathematics"),
   departmentActivities: [
     {
@@ -780,73 +855,51 @@ export const mathematicsDepartment = {
       date: "05.11.2024 - 06.11.2024",
       location: "AASC Auditorium",
       aboutProgram: [
-        "A two-day intensive workshop. Day 1: All First-year girls; Day 2: All Second-year girls.",
-        "Focused on physical empowerment and safety for female students.",
+        "Two-day intensive workshop for First-year (Day 1) and Second-year (Day 2) girls.",
+        "Focused on physical empowerment and safety awareness.",
       ],
-      programOutcomes: ["Enhanced self-confidence and practical self-defense skills."],
+      programOutcomes: [
+        "Enhanced self-confidence and practical self-defense skills.",
+      ],
     },
     {
-      programTitle: "Fake Feminism - A talk on Women empowerment",
+      programTitle: "Fake Feminism - Women Empowerment Talk",
       date: "24.11.2023",
       location: "AASC Library Conference Hall",
       aboutProgram: [
-        "Delivered by Mrs. Vaijainthimala Valarmathi (Advocate and District VP, Mahila Morcha).",
-        "A multi-disciplinary talk involving students from BBA, B.Com, BCA, CS, IT, Maths, and Vis.Com.",
+        "Delivered by Mrs. Vaijainthimala Valarmathi (Advocate, District VP, Mahila Morcha).",
+        "Multi-disciplinary event for BBA, B.Com, BCA, CS, IT, Maths, Vis.Com students.",
       ],
-      programOutcomes: ["Increased awareness of psychological and legal aspects of empowerment."],
+      programOutcomes: [
+        "Increased awareness of psychological/legal aspects of empowerment.",
+      ],
     },
     {
-      programTitle: "Vedic Mathematics - Usage for Graduates",
+      programTitle: "Vedic Mathematics for Graduates",
       date: "12.05.2023",
       location: "AASC Library Conference Hall",
       aboutProgram: [
         "Resource Person: Dr. K. Thirumurugan.",
-        "Aimed at teaching rapid calculation techniques to BCA, B.Com, and Mathematics students.",
+        "Rapid calculation techniques for BCA, B.Com, Mathematics students.",
       ],
-      programOutcomes: ["Improved mental math capabilities for competitive exams."],
+      programOutcomes: [
+        "Improved mental math for competitive exams and daily applications.",
+      ],
     },
     {
-      programTitle: "Alumni Talk: Human Trafficking and Drug Abuse",
+      programTitle: "Alumni Talk: Human Trafficking & Drug Abuse",
       date: "21.02.2024",
       location: "AASC Library Conference Hall",
       aboutProgram: [
-        "Session 1: Alumni Mr. Lawrence on 'Human Trafficking and Drug Abuse'.",
-        "Session 2: Alumni Ms. Jenifar on 'Students Stress Management'.",
+        "Session 1: Mr. Lawrence (Human Trafficking/Drug Abuse).",
+        "Session 2: Ms. Jenifar (Students Stress Management). 80+ participants.",
       ],
-      programOutcomes: ["Social responsibility and stress management awareness for 80+ participants."],
-    },
-    {
-      programTitle: "Alumni Talk: Studies and Career Overseas",
-      date: "11.04.2025",
-      location: "Campus",
-      aboutProgram: [
-        "Session by Alumni Ms. Swathy Moorthy (Business Administration and Marketing, Paris, France).",
+      programOutcomes: [
+        "Social responsibility and stress management awareness.",
       ],
-      programOutcomes: ["Guidance on international higher education and career paths."],
-    },
-    {
-      programTitle: "Seminar: Application of Statistical Methods in a New Trend",
-      date: "30.05.2023",
-      location: "AASC Library Conference Hall",
-      aboutProgram: [
-        "Resource Person: Dr. S. Sachithanantham.",
-        "Focused on modern data analytics and statistical trends.",
-      ],
-      programOutcomes: ["Foundational understanding of modern statistical applications."],
     },
   ],
 };
-
-// ⭐ REST OF DEPARTMENTS (DUMMY SKELETON)
-const genericActivities = [
-  {
-    programTitle: "Annual Seminar",
-    date: "Upcoming",
-    location: "Main Hall",
-    aboutProgram: ["Scheduled academic session for departmental growth."],
-    programOutcomes: ["Networking and subject knowledge."],
-  },
-];
 
 export const languageDepartment = {
   name: "Languages",
@@ -860,7 +913,9 @@ export const languageDepartment = {
   },
   vision: "Universal communication",
   mission: ["Cultural understanding"],
+  missionImage: history,
   objectives: ["Proficiency"],
+  objectivesImage: history,
   programsOffered: [
     {
       degree: "Foundation Language",
@@ -878,68 +933,420 @@ export const bioTechnologyDepartment = {
   name: "Bio-Technology",
   image: history,
   departmentGallery: placeholderGallery,
-  about: "Applications in health, agriculture, and environment.",
+  about:
+    "The Department of Biotechnology was established in the year 2005 and offers a three-year B.Sc. degree programme. Biotechnology has wide-ranging applications in medical, industrial, agricultural, and environmental sectors with well-equipped laboratories and experienced faculty.",
   aboutDepartment: {
-    history: "Est 2005",
-    overview: "Quality education",
-    strengths: ["Labs"],
+    history:
+      "The Department of Biotechnology was established in the year 2005 and offers a three-year B.Sc. degree programme in Biotechnology. Biotechnology is one of the fastest-growing disciplines with significant implications in health and medicine, and it has wide-ranging applications in medical, industrial, agricultural, and environmental sectors.",
+    overview:
+      "The department is supported by well-equipped laboratories, qualified and experienced faculty members, and enriched departmental activities, which empower students to compete successfully in the global arena. The department has organized more than 20 guest lectures, seminars, conferences, workshops and national and international webinars etc. Faculty members and students have actively participated in over 100 seminars, conferences, and workshops, securing awards at both national and international levels.",
+    strengths: [
+      "Excellent academic record with 10 Gold Medallists from Pondicherry University.",
+      "60% graduates pursue postgraduate studies and research, 40% placed in reputed organizations.",
+      "Faculty consistently publish research papers (2018-2025) and filed Indian patents.",
+      "Value-added and skill development courses through SEED enhance employability.",
+      "Mushroom Cultivation Project promotes experiential, sustainable learning.",
+      "Students clear competitive exams (JNU, GATE, TOEFL, GRE, GAT-B) and pursue higher studies abroad.",
+    ],
   },
-  vision: "Innovation in life sciences",
-  mission: ["Practical training"],
-  objectives: ["Academic excellence"],
+  vision:
+    "To be a centre of excellence in Biotechnology education and research by developing scientifically competent, ethically responsible, and globally competitive graduates who contribute to advancements in health, industry, agriculture, and environmental sustainability.",
+  mission: [
+    "M1 - Quality Education: To provide quality undergraduate education in Biotechnology through a strong curriculum supported by modern laboratories and experienced faculty.",
+    "M2 - Research Culture: To promote research, innovation, publications, and patent filing, fostering a strong research culture among students.",
+    "M3 - Skill Development: To enhance employability, entrepreneurial, and life skills through value-added and skill development programmes.",
+    "M4 - Academic Excellence: To encourage academic excellence and competitive success through participation in seminars, conferences, workshops, and national-level examinations.",
+    // "M5 - Experiential Learning: To promote experiential, sustainable, and society-oriented learning through student-led projects and departmental activities.",
+    // "M6 - Global Opportunities: To prepare students for higher education, research careers, and global opportunities in the field of Biotechnology.",
+  ],
+  missionImage: history,
+  objectives: [
+    "To promote experiential, sustainable, and society-oriented learning through student-led projects and departmental activities.",
+    "To prepare students for higher education, research careers, and global opportunities in Biotechnology.",
+    "To inspire research and innovation through faculty publications and patents.",
+    "To enhance employability through SEED value-added and skill development courses.",
+  ],
+  objectivesImage: history,
   programsOffered: [
     {
       degree: "B.Sc. Biotechnology",
       duration: "3 Years",
-      description: "Life sciences.",
+      description:
+        "Comprehensive curriculum covering medical, industrial, agricultural, and environmental biotechnology applications with modern laboratory training.",
     },
   ],
-  certificateCourses: [],
-  skillPrograms: [],
-  faculty: getFacultyByDepartment("Biotechnology"),
-  departmentActivities: genericActivities,
+  certificateCourses: [
+    "Value-added courses through SEED",
+    "Skill development programs through SEED",
+  ],
+  skillPrograms: [
+    "Mushroom Cultivation Project",
+    "Biocosmos 2020 Departmental Club Activities",
+  ],
+  faculty: getFacultyByDepartment("Bio-Technology"),
+  departmentActivities: [
+    {
+      programTitle: "Guest Lectures & Seminars Series",
+      date: "Ongoing (2005-2025)",
+      location: "AASC Campus",
+      aboutProgram: [
+        "Organized more than 20 guest lectures, seminars, conferences, workshops, and national/international webinars.",
+        "Faculty and students actively participated in over 100 seminars, conferences, and workshops.",
+        "Secured awards at national and international levels.",
+      ],
+      programOutcomes: [
+        "Enhanced research skills and global competitiveness.",
+        "Students inspired for research and innovation.",
+      ],
+    },
+    {
+      programTitle: "Mushroom Cultivation Project",
+      date: "Ongoing",
+      location: "Department Labs",
+      aboutProgram: [
+        "Student-led sustainable learning project actively managed by students and faculty.",
+        "Promotes experiential and society-oriented learning.",
+      ],
+      programOutcomes: [
+        "Practical biotechnology application experience.",
+        "Sustainable entrepreneurship skills development.",
+      ],
+    },
+    {
+      programTitle: "Biocosmos 2020",
+      date: "2020",
+      location: "Department Club",
+      aboutProgram: [
+        "Departmental club activities demonstrating students' academic and creative potential.",
+      ],
+      programOutcomes: ["Enhanced student creativity and leadership skills."],
+    },
+  ],
 };
 
 export const commerceAndManagementDepartment = {
-  name: "Commerce and Management",
-  image: history,
+  name: "Commerce",
+  image: commerceMissionImage,
   departmentGallery: placeholderGallery,
-  about: "Preparing students for business leadership and entrepreneurship.",
+  about:
+    "The Department of Commerce is a vital academic unit dedicated to providing high-quality education in business, finance, and economics. Master of Commerce is the only PG department in Achariya Arts & Science College, started in 2009 with 17 batches passed out.",
   aboutDepartment: {
-    history: "Pioneering",
-    overview: "B.Com and BBA focus",
-    strengths: ["Industry interaction"],
+    history:
+      "M.Com PG program started in 2009 (17 batches passed). Students undergo Industrial Visits, Guest lectures, Seminars, Educational tours, and intra-departmental competitions like Paper Presentation, Best Manager & Best Logo creator.",
+    overview:
+      "Equips students with in-depth knowledge for Banks & Financial Institutions. Students present/publish research papers in National/International conferences and journals. Offers CMA/CS foundation courses and SEBI regulations training.",
+    strengths: [
+      "Only PG department (M.Com) with excellent placement scope",
+      "Regular industrial visits, seminars, and educational tours",
+      "Research paper presentations in national/international forums",
+      "Intra-departmental competitions fostering practical skills",
+      "Professional courses: CMA, CS foundation, SEBI regulations",
+    ],
   },
-  vision: "Corporate leadership",
-  mission: ["Management skills"],
-  objectives: ["Accounting finance expertise"],
+  vision:
+    "To be a center of academic excellence dedicated to providing quality education in commerce and related fields, fostering innovative and competent individuals equipped for global challenges in industry, business, and the service sector, while promoting holistic development for a better life, environment, and society.",
+  mission: [
+    "Empower students with knowledge, skills, and values to excel as professionals in accounting, finance, research, consultancy, and entrepreneurship.",
+    "Promote holistic and value-based education that enhances employability and fosters social responsibility.",
+    "Cultivate a nurturing environment encouraging innovation, lifelong learning, and global competencies.",
+    "Offer CMA and CS foundation courses led by professionals with SEBI regulations training for global opportunities.",
+  ],
+  missionImage: commerceMissionImage,
+  objectives: [
+    "Achieve strong grades in core subjects like accounting, economics, finance, and business law.",
+    "Build practical skills such as Excel, Tally, data analysis, and communication.",
+    "Gain real-world exposure through internships in finance, accounting, or business-related fields.",
+    "Connect with professors, alumni, and industry professionals to broaden career opportunities.",
+  ],
+  objectivesImage: commerceObjectivesImage,
   programsOffered: [
     {
-      degree: "B.Com / BBA",
+      degree: "M.Com (Master of Commerce)",
+      duration: "2 Years",
+      description:
+        "Postgraduate program providing in-depth knowledge in commerce with scope in banking, finance, research, and higher studies.",
+    },
+    {
+      degree: "B.Com",
       duration: "3 Years",
-      description: "Business studies.",
+      description:
+        "Undergraduate program building foundation in accounting, finance, business law, and practical commerce skills.",
+    },
+  ],
+  certificateCourses: ["CMA Foundation", "CS Foundation", "SEBI Regulations"],
+  skillPrograms: ["Excel Mastery", "Tally ERP", "Data Analysis for Commerce"],
+  faculty: getFacultyByDepartment("Commerce (UG/PG)"),
+  departmentActivities: [
+    {
+      programTitle: "Industrial Visits & Educational Tours",
+      date: "Ongoing",
+      location: "Various",
+      aboutProgram: [
+        "Regular industrial visits and educational tours for practical exposure.",
+        "Students visit Banks, Financial Institutions, and business organizations.",
+      ],
+      programOutcomes: [
+        "Real-world business environment exposure.",
+        "Enhanced industry readiness and networking.",
+      ],
+    },
+    {
+      programTitle: "National & International Seminars/Conferences",
+      date: "Ongoing",
+      location: "Various Institutions",
+      aboutProgram: [
+        "Students participate, present, and publish research papers.",
+        "Ample opportunities in national and international forums.",
+      ],
+      programOutcomes: [
+        "Research publication experience.",
+        "Global academic networking.",
+      ],
+    },
+    {
+      programTitle: "Intra-Departmental Competitions",
+      date: "Regular",
+      location: "Campus",
+      aboutProgram: [
+        "Paper Presentation, Best Manager, Best Logo Creator competitions.",
+        "Fosters competitive spirit and practical skills.",
+      ],
+      programOutcomes: [
+        "Enhanced presentation and management skills.",
+        "Creative problem-solving abilities.",
+      ],
+    },
+    {
+      programTitle: "Guest Lectures & Seminars",
+      date: "Ongoing",
+      location: "Campus",
+      aboutProgram: [
+        "Expert sessions on commerce, finance, and professional courses.",
+        "Guidance on CMA, CS foundation, and SEBI regulations.",
+      ],
+      programOutcomes: [
+        "Professional course preparation.",
+        "Industry trend awareness.",
+      ],
+    },
+  ],
+};
+
+export const managementDepartment = {
+  name: "Management",
+  image: managementMissionImage,
+  departmentGallery: placeholderGallery,
+  about:
+    "The Department of Management focuses on developing quality managers and entrepreneurs capable of meeting the dynamic challenges of the corporate sector through academic learning and experiential exposure.",
+  aboutDepartment: {
+    history:
+      "The Department of Management was established with a clear vision to nurture future managers and entrepreneurs through structured business education and practical exposure.",
+    overview:
+      "The department offers undergraduate programs in Business Administration designed to enhance managerial competence, leadership qualities, and entrepreneurial skills aligned with industry needs.",
+    strengths: [
+      "Strong focus on leadership and entrepreneurship",
+      "Active student participation in academic, cultural, and management events",
+      "Industry interaction through conclaves, meets, and alumni sessions",
+      "Experiential learning through real-time business exposure",
+    ],
+  },
+  vision:
+    "To develop competent managers and responsible entrepreneurs who contribute to organizational growth and societal development.",
+  mission: [
+    "To impart quality management education aligned with industry expectations.",
+    "To develop leadership, decision-making, and entrepreneurial skills.",
+    "To encourage experiential learning through events, conclaves, and competitions.",
+    "To foster ethical values, teamwork, and social responsibility.",
+  ],
+  missionImage: managementMissionImage,
+  objectives: [
+    "Enhance managerial and entrepreneurial competencies",
+    "Provide exposure to real-world business environments",
+    "Encourage innovation, leadership, and teamwork",
+  ],
+  objectivesImage: managementObjectivesImage,
+  programsOffered: [
+    {
+      degree: "BBA (Bachelor of Business Administration)",
+      duration: "3 Years",
+      description:
+        "An undergraduate program designed to develop managerial, leadership, and entrepreneurial skills with strong industry relevance.",
     },
   ],
   certificateCourses: [],
   skillPrograms: [],
-  faculty: [
-    ...getFacultyByDepartment("Commerce (UG/PG)"),
-    ...getFacultyByDepartment("Management Studies (BBA)"),
+  faculty: getFacultyByDepartment("Management"),
+  departmentActivities: [
+    {
+      programTitle: "Orientation Programme for I Year BBA",
+      date: "2024–2025",
+      location: "College Campus",
+      aboutProgram: [
+        "I Year BBA students attended a 10-day orientation programme organized by the college.",
+      ],
+      programOutcomes: [
+        "Enhanced understanding of academic expectations and college culture.",
+      ],
+    },
+    {
+      programTitle: "Inter-College Competition – Elocution & Essay",
+      date: "2024–2025",
+      location: "College Campus",
+      aboutProgram: [
+        "Mohan Prakash won I Prize in Elocution and Padmasudha won I Prize in Essay Competition.",
+      ],
+      programOutcomes: ["Recognized communication and writing excellence."],
+    },
+    {
+      programTitle: "Onam Celebration",
+      date: "2024–2025",
+      location: "College Campus",
+      aboutProgram: [
+        "Students celebrated the harvest festival of Kerala with floral decorations, traditional lamp lighting, and cultural activities.",
+      ],
+      programOutcomes: ["Fostered cultural unity and celebration spirit."],
+    },
+    {
+      programTitle: "ACETRONIX 2K24",
+      date: "2024",
+      location: "Achariya College of Engineering Technology, Puducherry",
+      aboutProgram: [
+        "I Year BBA students participated in ACETRONIX 2K24 inter-collegiate event.",
+      ],
+      programOutcomes: ["Gained inter-college competition experience."],
+    },
+    {
+      programTitle: "COMM EDGE–2K24",
+      date: "2024",
+      location: "Marudhar Kesari Jain College for Women, Vaniyambadi",
+      aboutProgram: [
+        "II Year BBA students won II Prize in the AD-VENTURE event.",
+      ],
+      programOutcomes: [
+        "Achieved competitive success in advertising challenge.",
+      ],
+    },
+    {
+      programTitle: "INSIGHTX'24 – International Symposium",
+      date: "2024",
+      location: "EGS Pillay Engineering College, Nagapattinam",
+      aboutProgram: [
+        "Students won II Prize in Stock War, III Prize in Ad-Zap, and Best Manager events.",
+      ],
+      programOutcomes: [
+        "Multiple awards in international management competitions.",
+      ],
+    },
+    {
+      programTitle: "GYAN KUMBH – Academic Conclave",
+      date: "2024",
+      location: "Pondicherry University",
+      aboutProgram: [
+        "II Year BBA students attended a national-level academic conclave.",
+      ],
+      programOutcomes: ["Exposed to national-level academic discourse."],
+    },
+    {
+      programTitle: "SHAZAAM – Sports & Cultural Fest",
+      date: "2024",
+      location: "CK Group of Educational Institutions, Cuddalore",
+      aboutProgram: [
+        "Ms. Harini won II Prize in Grahan Thandav Solo Classical Dance.",
+      ],
+      programOutcomes: ["Recognized talent in cultural performances."],
+    },
+    {
+      programTitle: "LE CIEL – National Level Cultural Fest",
+      date: "2024",
+      location: "NIT Puducherry, Karaikal",
+      aboutProgram: [
+        "Ms. S. Akshya won I Prize in Perfect Pitch and II Prize in Classical Singing.",
+        "Ms. Harini won II Prize in Classical Dance.",
+      ],
+      programOutcomes: [
+        "Multiple awards in prestigious national cultural fest.",
+      ],
+    },
+    {
+      programTitle: "DAKSHA'24 – Inter Collegiate Management Fest",
+      date: "2024",
+      location: "SSN School of Management, Chennai",
+      aboutProgram: [
+        "II Year BBA students participated in management competitions.",
+      ],
+      programOutcomes: [
+        "Gained exposure to premier management institution events.",
+      ],
+    },
+    {
+      programTitle: "Entrepreneurial Extension Counter Activity",
+      date: "2024–2025",
+      location: "College Campus",
+      aboutProgram: [
+        "II Year students managed a canteen extension counter to enhance entrepreneurial skills.",
+      ],
+      programOutcomes: ["Practical business management experience."],
+    },
+    {
+      programTitle: "Christmas Celebration",
+      date: "2024–2025",
+      location: "College Campus",
+      aboutProgram: [
+        "Staff and students celebrated Christmas fostering joy and togetherness.",
+      ],
+      programOutcomes: ["Built community spirit among students and faculty."],
+    },
+    {
+      programTitle: "Pongal Celebration",
+      date: "2024–2025",
+      location: "College Campus",
+      aboutProgram: [
+        "Harvest festival celebrated in collaboration with the Department of Tamil.",
+      ],
+      programOutcomes: ["Promoted cultural integration across departments."],
+    },
+    {
+      programTitle: "National Youth Day – Mime Competition",
+      date: "2024–2025",
+      location: "College Campus",
+      aboutProgram: [
+        "Affrin, Hanitha, Swathi, and Kanimozhi won I Prize in Mime competition.",
+      ],
+      programOutcomes: ["Team achievement in national youth day celebrations."],
+    },
+    {
+      programTitle: "COIN 2K25 – MSME Conclave",
+      date: "2025",
+      location: "College Campus",
+      aboutProgram: [
+        "II Year BBA students organized a 2-day MSME Conclave with parent stakeholders as guest speakers.",
+      ],
+      programOutcomes: [
+        "Leadership experience in event organization and industry interaction.",
+      ],
+    },
   ],
-  departmentActivities: genericActivities,
 };
 
 export const corporateSecretaryshipDepartment = {
   name: "Corporate Secretaryship",
   image: history,
   departmentGallery: placeholderGallery,
-  about: "The Department of Corporate Secretaryship, founded in 2004, aims to address the evolving needs of businesses and industries in the fields of Management, Accountancy, Costing, Finance, and Company Secretaryship. While professional courses such as ICAI and ICWA cater to these domains, there is a growing demand for skilled professionals to support companies on a daily basis.",
+  about:
+    "The Department of Corporate Secretaryship, founded in 2004, aims to address the evolving needs of businesses and industries in the fields of Management, Accountancy, Costing, Finance, and Company Secretaryship. While professional courses such as ICAI and ICWA cater to these domains, there is a growing demand for skilled professionals to support companies on a daily basis.",
   aboutDepartment: {
-    history: "Founded in 2004 with a legal focus on addressing evolving business needs in management, accountancy, costing, finance, and company secretaryship.",
-    overview: "The Department of Corporate Secretaryship, founded in 2004, aims toaddress the evolving needs of businesses and industries in the fields ofManagement, Accountancy, Costing, Finance, and CompanySecretaryship. While professional courses such as ICAI and ICWA caterto these domains, there is a growing demand for skilled professionals tosupport companies on a daily basis. This necessitates not onlyincreasing the number of qualified professionals but also developing anew cadre of experts to assist in these critical areas.",
-    strengths: ["Secretarial roles", "Corporate governance expertise", "Industry-relevant training"],
+    history:
+      "Founded in 2004 with a legal focus on addressing evolving business needs in management, accountancy, costing, finance, and company secretaryship.",
+    overview:
+      "The Department of Corporate Secretaryship, founded in 2004, aims toaddress the evolving needs of businesses and industries in the fields ofManagement, Accountancy, Costing, Finance, and CompanySecretaryship. While professional courses such as ICAI and ICWA caterto these domains, there is a growing demand for skilled professionals tosupport companies on a daily basis. This necessitates not onlyincreasing the number of qualified professionals but also developing anew cadre of experts to assist in these critical areas.",
+    strengths: [
+      "Secretarial roles",
+      "Corporate governance expertise",
+      "Industry-relevant training",
+    ],
   },
-  vision: "To be a center of excellence in Corporate Secretaryship education, empowering students to become competent professionals in corporate governance, company law, and secretarial practices. Nurture ethical leaders and dynamic entrepreneurs who drive organizational growth and societal transformation.",
+  vision:
+    "To be a center of excellence in Corporate Secretaryship education, empowering students to become competent professionals in corporate governance, company law, and secretarial practices. Nurture ethical leaders and dynamic entrepreneurs who drive organizational growth and societal transformation.",
   mission: [
     "Provide high-quality, accessible education in Corporate Secretaryship, aligned with global academic standards and industry needs.",
     "Establish a solid foundation in company law, corporate governance, secretarial practices, and compliance.",
@@ -947,15 +1354,22 @@ export const corporateSecretaryshipDepartment = {
     "Promote professional ethics, integrity, and accountability.",
     "Develop entrepreneurial spirit and leadership qualities through value-based education and practical exposure.",
     "Engage students in research, internships, and industry interactions for diverse career opportunities.",
-    "Equip students with skills for action-oriented research in the corporate sector."
+    "Equip students with skills for action-oriented research in the corporate sector.",
   ],
+  missionImage: history,
   objectives: [
     "Secretarial skills",
     "Develop skilled professionals equipped with knowledge, values, and practical experience for success in corporate and legal sectors.",
-    "Increase qualified professionals to meet daily company support needs."
+    "Increase qualified professionals to meet daily company support needs.",
   ],
+  objectivesImage: history,
   programsOffered: [
-    { degree: "B.Com CS", duration: "3 Years", description: "Corporate law and secretarial practice with focus on governance and compliance." },
+    {
+      degree: "B.Com CS",
+      duration: "3 Years",
+      description:
+        "Corporate law and secretarial practice with focus on governance and compliance.",
+    },
   ],
   certificateCourses: [],
   skillPrograms: [],
@@ -967,9 +1381,11 @@ export const corporateSecretaryshipDepartment = {
       location: "Campus",
       aboutProgram: [
         "Delivered by Mr. S. J. Vigneshwaran, Assistant Professor from Ayya Nadar Janaki Ammal College, Sivakasi.",
-        "Emphasized strategic importance of marketing with real-time examples."
+        "Emphasized strategic importance of marketing with real-time examples.",
       ],
-      programOutcomes: ["Enhanced understanding of marketing's role in business success."],
+      programOutcomes: [
+        "Enhanced understanding of marketing's role in business success.",
+      ],
     },
     {
       programTitle: "Orientation Program: Entrepreneurship Outreach Program",
@@ -977,18 +1393,22 @@ export const corporateSecretaryshipDepartment = {
       location: "Campus",
       aboutProgram: [
         "Delivered by Mr. Andrew Surjith Ronald, Project Head, SPARC.",
-        "Focused on entrepreneurial challenges and incubation hubs."
+        "Focused on entrepreneurial challenges and incubation hubs.",
       ],
-      programOutcomes: ["Students gained insights into entrepreneurial ecosystem."],
+      programOutcomes: [
+        "Students gained insights into entrepreneurial ecosystem.",
+      ],
     },
     {
       programTitle: "Industrial Visit",
       date: "12.9.2025",
       location: "Historical and cultural sites in Tamil Nadu",
       aboutProgram: [
-        "Academic field visit for experiential learning beyond classroom."
+        "Academic field visit for experiential learning beyond classroom.",
       ],
-      programOutcomes: ["Enhanced understanding of history, culture, and heritage."],
+      programOutcomes: [
+        "Enhanced understanding of history, culture, and heritage.",
+      ],
     },
     {
       programTitle: "Orientation Program: ACS",
@@ -996,25 +1416,29 @@ export const corporateSecretaryshipDepartment = {
       location: "Campus",
       aboutProgram: [
         "ACS Orientation on registration process, benefits, subjects, and success tips.",
-        "Chief Guest: Mrs. Chitra, ACS from Institute of Company Secretaries of India."
+        "Chief Guest: Mrs. Chitra, ACS from Institute of Company Secretaries of India.",
       ],
-      programOutcomes: ["Students gained clear roadmap for ACS professional course."],
+      programOutcomes: [
+        "Students gained clear roadmap for ACS professional course.",
+      ],
     },
     {
       programTitle: "Club Inauguration: Achariya Bulls and Bears Club (ABBC)",
       date: "16.9.2025",
       location: "Campus",
       aboutProgram: [
-        "Special session on Finance and Trade by Dr. T. Vigneshwaran, CMA."
+        "Special session on Finance and Trade by Dr. T. Vigneshwaran, CMA.",
       ],
-      programOutcomes: ["Students enriched with market dynamics and trading knowledge."],
+      programOutcomes: [
+        "Students enriched with market dynamics and trading knowledge.",
+      ],
     },
     {
       programTitle: "Guest Lecture: College to Corporate – Business Models",
       date: "29.9.2025",
       location: "Campus",
       aboutProgram: [
-        "Guest lecture bridging academic learning with corporate world."
+        "Guest lecture bridging academic learning with corporate world.",
       ],
       programOutcomes: ["Students prepared for corporate transition."],
     },
@@ -1022,9 +1446,7 @@ export const corporateSecretaryshipDepartment = {
       programTitle: "Marathon: VASCO PONDY RUN 5K 3.0 – Say No to Drugs",
       date: "23.11.2025",
       location: "Beach Road, Puducherry",
-      aboutProgram: [
-        "R. Mukesh from I B.Com (CS) secured 5th place overall."
-      ],
+      aboutProgram: ["R. Mukesh from I B.Com (CS) secured 5th place overall."],
       programOutcomes: ["Received cash award, medal, and certificate."],
     },
     {
@@ -1032,7 +1454,7 @@ export const corporateSecretaryshipDepartment = {
       date: "25.11.2025",
       location: "Achariya Arts and Science College",
       aboutProgram: [
-        "Students managed entrepreneurial stalls: SR Accessories, Bakery Payaluga, Bites and Blast, Heist Thattuvadai."
+        "Students managed entrepreneurial stalls: SR Accessories, Bakery Payaluga, Bites and Blast, Heist Thattuvadai.",
       ],
       programOutcomes: ["Showcased entrepreneurial spirit and creativity."],
     },
@@ -1040,9 +1462,7 @@ export const corporateSecretaryshipDepartment = {
       programTitle: "Indian Art Contest: Drawing Competition",
       date: "12.11.2025",
       location: "External",
-      aboutProgram: [
-        "Subiksha from II B.Com (CS) participated."
-      ],
+      aboutProgram: ["Subiksha from II B.Com (CS) participated."],
       programOutcomes: ["Enhanced artistic skills and participation."],
     },
     {
@@ -1051,9 +1471,11 @@ export const corporateSecretaryshipDepartment = {
       location: "Achariya Arts and Science College",
       aboutProgram: [
         "I Year: Logo Creation; II Year: Pen Theory; III Year: E-Commerce.",
-        "Coordinated by Mrs. Razia Sultana A."
+        "Coordinated by Mrs. Razia Sultana A.",
       ],
-      programOutcomes: ["Practical exposure to innovative presentation skills."],
+      programOutcomes: [
+        "Practical exposure to innovative presentation skills.",
+      ],
     },
     {
       programTitle: "G-Talk: TALLY PRIME 2.0 Seminar",
@@ -1061,7 +1483,7 @@ export const corporateSecretaryshipDepartment = {
       location: "Campus",
       aboutProgram: [
         "Collaboration with GTech Computer Education.",
-        "Session by Mrs. Saraswathi on Tally Prime 2.0 and GST integration."
+        "Session by Mrs. Saraswathi on Tally Prime 2.0 and GST integration.",
       ],
       programOutcomes: ["Hands-on Tally software training."],
     },
@@ -1069,17 +1491,17 @@ export const corporateSecretaryshipDepartment = {
       programTitle: "Sports Activity: Indian Hockey Centenary Celebration",
       date: "7.11.2025",
       location: "ACET Campus, Villianur",
-      aboutProgram: [
-        "Runner-Up position in Men's Category."
+      aboutProgram: ["Runner-Up position in Men's Category."],
+      programOutcomes: [
+        "Team achievement with students from III & II B.Com CS.",
       ],
-      programOutcomes: ["Team achievement with students from III & II B.Com CS."],
     },
     {
       programTitle: "Academic Review Meeting",
       date: "26.11.2025",
       location: "Auditorium",
       aboutProgram: [
-        "Alumni invitee: Mr. Jayasurya Janakiraman, Proprietor of Rajagopal Iyer & Son."
+        "Alumni invitee: Mr. Jayasurya Janakiraman, Proprietor of Rajagopal Iyer & Son.",
       ],
       programOutcomes: ["Strategic academic planning and alumni engagement."],
     },
@@ -1088,9 +1510,11 @@ export const corporateSecretaryshipDepartment = {
       date: "13.2.2025",
       location: "Campus",
       aboutProgram: [
-        "Delivered by M. Shanmugam (Advocate) and T. Lavanya (Advocate)."
+        "Delivered by M. Shanmugam (Advocate) and T. Lavanya (Advocate).",
       ],
-      programOutcomes: ["Insights into legal procedures and socio-legal challenges."],
+      programOutcomes: [
+        "Insights into legal procedures and socio-legal challenges.",
+      ],
     },
     {
       programTitle: "All India Tally Exam",
@@ -1098,7 +1522,7 @@ export const corporateSecretaryshipDepartment = {
       location: "Campus",
       aboutProgram: [
         "State-Level Tally Competitive Exam with 36 students.",
-        "Collaboration with G-Tech Computer Education."
+        "Collaboration with G-Tech Computer Education.",
       ],
       programOutcomes: ["Assessed Tally proficiency and practical skills."],
     },
@@ -1107,13 +1531,12 @@ export const corporateSecretaryshipDepartment = {
       date: "19-21.2.2025",
       location: "Pondicherry University",
       aboutProgram: [
-        "C. Krishna Prakash from I B.Com CS won 1st Prize in Wings of Lens."
+        "C. Krishna Prakash from I B.Com CS won 1st Prize in Wings of Lens.",
       ],
       programOutcomes: ["Inter-university competition success."],
-    }
+    },
   ],
 };
-
 
 export const libraryDepartment = {
   name: "Library",
@@ -1127,7 +1550,9 @@ export const libraryDepartment = {
   },
   vision: "Knowledge for all",
   mission: ["Academic support"],
+  missionImage: history,
   objectives: ["E-resources access"],
+  objectivesImage: history,
   programsOffered: [
     {
       degree: "Info Literacy",
@@ -1156,6 +1581,7 @@ export const departmentDataMapper = {
   "corporate-secretaryship": corporateSecretaryshipDepartment,
   "visual-communication": visualCommunicationDepartment,
   library: libraryDepartment,
+  management: managementDepartment,
 };
 
 export default Object.entries(departmentDataMapper).map(([slug, data]) => ({

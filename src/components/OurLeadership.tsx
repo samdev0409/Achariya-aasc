@@ -5,55 +5,14 @@ import Heading from "./reusable/Heading";
 import { useNavigate } from "react-router-dom";
 import { OurLeads } from "@/data/home/OurLeads.js";
 
-interface Lead {
-  name: string;
-  role: string;
-  img: string;
-  path: string;
-}
-
-interface OurLeadershipProps {
-  overrideData?: {
-    leads: Lead[];
-  };
-}
-
-const OurLeadership: React.FC<OurLeadershipProps> = ({ overrideData }) => {
+const OurLeadership = () => {
   const navigate = useNavigate();
-
-  /** STATIC in public, DYNAMIC in preview */
-  const data = overrideData?.leads || OurLeads;
-
-  /** detect preview mode */
-  const isPreview = Boolean(overrideData);
-
-  /**
-   * UNIVERSAL IMAGE URL RESOLVER
-   * Matches ProfileOfCollege pattern exactly
-   */
-  const resolveImageUrl = (img: string) => {
-    if (!img) return "";
-
-    // CASE 1 — Already full URL (after save)
-    if (img.startsWith("http://") || img.startsWith("https://")) {
-      return img;
-    }
-
-    // CASE 2 — Temp file (filename only)
-    // e.g. "123123-image.png"
-    if (!img.includes("/assets/images/")) {
-      return `${import.meta.env.VITE_API_URL}/assets/images/temp/${img}`;
-    }
-
-    // CASE 3 — A backend-built final path already
-    return img;
-  };
 
   return (
     <section className="py-8">
       <div className="container px-4">
         <div className="flex gap-4 flex-col md:flex-row justify-center">
-          {data.map((lead, idx) => (
+          {OurLeads.map((lead, idx) => (
             <div
               key={idx}
               className="bg-card text-center rounded-lg p-2 hover:shadow-md hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 cursor-pointer"
@@ -64,7 +23,7 @@ const OurLeadership: React.FC<OurLeadershipProps> = ({ overrideData }) => {
                 onClick={() => navigate(lead.path)}
               >
                 <img
-                  src={resolveImageUrl(lead.img)}
+                  src={lead.img}
                   alt={lead.name}
                   loading="lazy"
                   className="object-cover w-full h-full"

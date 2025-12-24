@@ -26,6 +26,8 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
     aboutDepartment,
     vision,
     mission,
+    objectivesImage,
+    missionImage,
     objectives,
     programsOffered,
     faculty,
@@ -34,7 +36,7 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
 
   return (
     <div className="flex-1  pb-24 border-r border-gray-200">
-      <div className="p-6">
+      <div className="p-3">
         {/* DEPARTMENT HERO HEADER */}
         {image && (
           <div className="relative w-full h-[400px]  overflow-hidden">
@@ -62,9 +64,9 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
                   <img src={feather} width={40} height={40} alt="feather" />
                 </h1>
 
-                <div className="mt-3 flex justify-end">
+                {/* <div className="mt-3 flex justify-end">
                   <HeadingUnderline width={180} align="end" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -82,7 +84,7 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
                 <p className="text-gray-700 leading-relaxed">{about}</p>
               </div>
             )} */}
-{/* 
+        {/* 
             {aboutDepartment?.history && (
               <div className="bg-white px-8 py-4 text-center">
                 <div className="flex items-center justify-center gap-3 mb-3">
@@ -98,7 +100,7 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
               </div>
             )}
           </section>
-        )} */} 
+        )} */}
 
         {/* <hr className="container my-8" /> */}
 
@@ -109,42 +111,51 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
               {/* <Sparkles className="text-[#16611C]" /> */}
               <Heading title="Department Overview" size="md" align="center" />
             </div>
-            <p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
+           <div className="space-y-2">
+             {/* <p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
+              {aboutDepartment.overview}
+            </p> */}
+             <p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
               {aboutDepartment.overview}
             </p>
+           </div>
           </section>
         )}
         <hr className="container mt-8" />
         {/* OBJECTIVES */}
         {objectives?.length > 0 && (
           <section className="bg-background container py-10 mt-10">
-            <div className="flex flex-col md:flex-row gap-10 items-center">
-              <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
-                <img
-                  src={image}
-                  alt="Chief Mentor"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="flex flex-col md:flex-row gap-10 items-stretch">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch w-full">
+                {/* IMAGE SIDE */}
+                <div className="w-full lg:w-1/2 flex">
+                  <div className="w-full h-full overflow-hidden shadow-lg ">
+                    <img
+                      src={objectivesImage || image}
+                      alt="Chief Mentor"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
 
-              <div className="md:w-1/2 text-center md:text-left">
-                <Heading title="Objectives" size="md" align="left" />
-                <HeadingUnderline width={120} align="left" />
+                {/* CONTENT SIDE */}
+                <div className="w-full lg:w-1/2 flex flex-col flex-1 text-center lg:text-left">
+                  <Heading title="Objectives" size="md" align="left" />
+                  <HeadingUnderline width={120} align="left" />
 
-                <div className="gap-6">
-                  {objectives.map((obj, i) => (
-                    <div
-                      key={i}
-                      className="px-2 pb-2 rounded-xl bg-white hover:shadow-sm transition"
-                    >
-                      <div className="flex gap-3">
-                        <Target className="w-5 h-5 text-[#16611C] mt-1 shrink-0" />
-                        <p className="text-gray-700 text-sm leading-relaxed">
-                          {obj}
-                        </p>
+                  <div className="gap-4 flex-1">
+                    {objectives.map((obj, i) => (
+                      <div key={i} className="px-4 py-2 rounded-xl group">
+                        <div className="flex gap-3 items-start">
+                          <Target className="w-5 h-5 text-[#16611C] mt-1 shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                          <p className="text-gray-700 text-sm leading-relaxed group-hover:text-gray-900">
+                            {obj}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -166,37 +177,48 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
         </section>
 
         {/* VISION & MISSION */}
-        {mission?.length && (
-          <section className="mt-16">
-            {mission?.length > 0 && (
-              <div className="p-6 grid md:grid-cols-2 bg-white">
-        
-                <div className=" text-center md:text-left">
+       
+
+        {mission?.length > 0 && (
+          <section className="bg-background container py-10 mt-10">
+            <div className="flex flex-col md:flex-row gap-10 items-stretch">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch w-full">
+                
+                {/* CONTENT SIDE */}
+                <div className="w-full lg:w-1/2 flex flex-col flex-1 text-center lg:text-left">
                   <Heading title="Mission" size="md" align="left" />
                   <HeadingUnderline width={120} align="left" />
 
-                  <div className="space-y-4">
-                    {mission.map((m, i) => (
-                      <div key={i} className="flex gap-3">
-                        <GraduationCap className="w-4 h-4 mt-1 text-[#16611C] shrink-0" />
-                        <p className="text-gray-700 text-sm leading-relaxed">
-                          {m}
-                        </p>
+                  <div className="gap-4 flex-1">
+                    {mission.map((obj, i) => (
+                      <div key={i} className="px-4 py-2 rounded-xl group">
+                        <div className="flex gap-3 items-start">
+                          <GraduationCap className="w-5 h-5 text-[#16611C] mt-1 shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                          <p className="text-gray-700 text-sm leading-relaxed group-hover:text-gray-900">
+                            {obj}
+                          </p>
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
-                 <div className="relative w-full  aspect-video overflow-hidden shadow-lg">
-                <img
-                  src={image}
-                  alt="Chief Mentor"
-                  className="w-full h-full object-cover"
-                />
+                {/* IMAGE SIDE */}
+                <div className="w-full lg:w-1/2 flex">
+                  <div className="w-full h-full overflow-hidden shadow-lg ">
+                    <img
+                      src={missionImage || image}
+                      alt="Chief Mentor"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
               </div>
-              </div>
-            )}
+            </div>
           </section>
         )}
+
         <hr className="container my-8" />
 
         {/* PROGRAMS OFFERED */}
@@ -206,7 +228,10 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
             <HeadingUnderline width={140} align="center" />
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
               {programsOffered.map((p, i) => (
-                <div key={i} className="p-6 rounded-xl border bg-white md:w-1/2 w-full">
+                <div
+                  key={i}
+                  className="p-6 rounded-xl border bg-white md:w-1/2 w-full"
+                >
                   <h4 className="font-semibold text-purple-800 mb-1">
                     {p.degree}
                   </h4>
@@ -221,7 +246,7 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
             </div>
           </section>
         )}
- {/* FACULTY */}
+        {/* FACULTY */}
         {faculty?.length > 0 && (
           <section className="mt-20">
             <Heading title="Our Faculty" size="md" align="center" />
@@ -292,8 +317,6 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
             </div>
           </section>
         )}
-
-       
       </div>
     </div>
   );

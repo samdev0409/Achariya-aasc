@@ -3,42 +3,24 @@ import campus from "@/assets/images/aasc_building.webp";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";
 import Heading from "@/components/reusable/Heading";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Target } from "lucide-react";
+import { iqacInfo, iqacVision, iqacMission } from "@/data/iqac/iqacdata.js";
 
 const AboutIQAC = () => {
-  const iqacInfo = [
-    {
-      id: 1,
-      text: "The Internal Quality Assurance Cell (IQAC) is established to develop a quality system for conscious, consistent, and catalytic improvement in the performance of the institution.",
-    },
-    {
-      id: 2,
-      text: "IQAC works towards internalizing and institutionalizing quality enhancement initiatives across all academic and administrative activities.",
-    },
-    {
-      id: 3,
-      text: "It facilitates the creation of a learner-centric environment by supporting effective teaching-learning practices and enhancing student engagement.",
-    },
-    {
-      id: 4,
-      text: "IQAC coordinates quality-related activities, including documentation, best practice dissemination, academic audits, and periodic reviews for continuous improvement.",
-    },
-  ];
-
   return (
     <div>
       {/* Banner */}
       <BannerAndBreadCrumb img={campus} title="About IQAC" />
 
-      {/* Content Section */}
-      <section className="bg-background container pt-10">
+      {/* IQAC Info Section */}
+      <section className="bg-background container md:pt-12 pt-8 pb-20">
         <div className="flex flex-col md:flex-row gap-10">
           {/* Image Section */}
-          <div className="relative w-full md:w-1/2 aspect-video  overflow-hidden">
+          <div className="relative w-full md:w-1/2 aspect-video overflow-hidden">
             <img
               src={campus}
-              alt="NAAC"
-              className="w-full h-full  object-cover"
+              alt="IQAC"
+              className="w-full h-full object-cover"
             />
           </div>
 
@@ -64,11 +46,93 @@ const AboutIQAC = () => {
                 </li>
               ))}
             </ul>
-
-            {/* No Document Section (as requested) */}
           </div>
         </div>
       </section>
+
+      {/* Vision Section - IMAGE LEFT */}
+      <section className="bg-background container py-8">
+        <div className="flex flex-col md:flex-row gap-10">
+       
+
+          {/* Content Section - RIGHT */}
+          <div className="md:w-1/2 text-center md:text-left space-y-4">
+            <div>
+              <Heading title="Vision of IQAC" size="lg" align="left" />
+              <HeadingUnderline width={120} align="left" />
+            </div>
+
+            {/* Vision List */}
+            <ul className="space-y-4">
+              {iqacVision.map((item) => (
+                <li key={item.id} className="flex text-start gap-3">
+                  <div className="w-5 h-5 flex items-start justify-center pt-1">
+                    <Target className="w-4 h-4 text-[#16611C]" />
+                  </div>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+
+             <div className="pt-4">
+              <Heading title="Mission of IQAC" size="lg" align="left" />
+              <HeadingUnderline width={120} align="left" />
+            </div>
+
+            {/* Mission List */}
+            <ul className="space-y-4">
+              {iqacMission.map((item) => (
+                <li key={item.id} className="flex text-start gap-3">
+                  <div className="w-5 h-5 flex items-start justify-center pt-1">
+                    <Target className="w-4 h-4 text-[#16611C]" />
+                  </div>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+             {/* Image Section - LEFT */}
+          <div className="relative w-full md:w-1/2 aspect-video overflow-hidden">
+            <img
+              src={campus}
+              alt="IQAC Vision"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Section - IMAGE RIGHT */}
+      {/* <section className="bg-background container py-10">
+        <div className="flex flex-col-reverse md:flex-row-reverse gap-10">
+  
+          <div className="md:w-1/2 text-center md:text-left space-y-4">
+            <div>
+              <Heading title="Mission of IQAC" size="lg" align="left" />
+              <HeadingUnderline width={120} align="left" />
+            </div>
+
+            <ul className="space-y-4">
+              {iqacMission.map((item) => (
+                <li key={item.id} className="flex text-start gap-3">
+                  <div className="w-5 h-5 flex items-start justify-center pt-1">
+                    <Target className="w-4 h-4 text-[#16611C]" />
+                  </div>
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative w-full md:w-1/2 aspect-video overflow-hidden">
+            <img
+              src={campus}
+              alt="IQAC Mission"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section> */}
     </div>
   );
 };
