@@ -12,8 +12,10 @@ import r2009_2010 from "@/assets/documents/placements-records/RECORDS-2009-2010.
 import r2008_2009 from "@/assets/documents/placements-records/RECORDS-2008-2009.pdf";
 import r2007_2008 from "@/assets/documents/placements-records/RECORDS-2007-2008.pdf";
 import r2006_2007 from "@/assets/documents/placements-records/RECORDS-2006-2007.pdf";
+import r2024_2025 from "@/assets/documents/placements-records/placements-records-2024-2025.pdf";
 
 export const placementRecords = [
+  { label: "2024 - 2025", file: r2024_2025 },
   { label: "2019 - 2020", file: r2019_2020 },
   { label: "2018 - 2019", file: r2018_2019 },
   { label: "2017 - 2018", file: r2017_2018 },

@@ -1082,10 +1082,78 @@ export const rrcClub = {
 };
 
 // ⭐ JCI Club
-export const womensClub = { members: [], circulars: [], objectives: [] };
+export const womensClub = { members: [], circulars: [], objectives: [
+  {
+    id: 1,
+    text: "To promote gender equality and women empowerment within the institution."
+  },
+  {
+    id: 2,
+    text: "To create a safe, secure, and supportive environment for women students and staff."
+  },
+  {
+    id: 3,
+    text: "To prevent and address issues related to gender discrimination and harassment."
+  },
+  {
+    id: 4,
+    text: "To create awareness about women's rights, legal provisions, and safety measures."
+  },
+  {
+    id: 5,
+    text: "To encourage leadership, confidence, and self-development among women."
+  },
+  {
+    id: 6,
+    text: "To organize awareness programmes, workshops, and seminars on health, career, and legal issues."
+  },
+  {
+    id: 7,
+    text: "To provide counseling and grievance redressal support to women students and staff."
+  },
+  {
+    id: 8,
+    text: "To promote physical, mental, and emotional well-being of women."
+  },
+  {
+    id: 9,
+    text: "To coordinate with Internal Complaints Committee (ICC) and other statutory bodies."
+  },
+  {
+    id: 10,
+    text: "To support institutional quality initiatives through proper documentation for NAAC and IQAC."
+  }
+]
+ };
 
 // ⭐ Achariya Code Club
-export const achariyaCodeClub = { members: [], circulars: [], objectives: [] };
+export const achariyaCodeClub = { members: [], circulars: [], objectives: [
+  {
+    id: 1,
+    text: "To formally inaugurate the Achariya Code Club and introduce its vision, mission, and activities to students."
+  },
+  {
+    id: 2,
+    text: "To enhance technical knowledge and coding skills among students across various departments."
+  },
+  {
+    id: 3,
+    text: "To promote innovative thinking and problem-solving skills in the fields of Computer Science and Technology."
+  },
+  {
+    id: 4,
+    text: "To provide industry exposure through interaction with an industry expert in UI/UX designing."
+  },
+  {
+    id: 5,
+    text: "To bridge the gap between academic learning and industry expectations."
+  },
+  {
+    id: 6,
+    text: "To encourage student participation in technical events and competitive learning."
+  }
+]
+ };
 
 // =====================================================
 // ========  SLUG TO DATA MAPPER  ===========
