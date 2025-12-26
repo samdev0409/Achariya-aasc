@@ -16,6 +16,12 @@ import commerceMissionImage from "@/assets/images/departments/commerce/mission.w
 import commerceObjectivesImage from "@/assets/images/departments/commerce/objectives.webp";
 import managementMissionImage from "@/assets/images/departments/management/mission.webp";
 import managementObjectivesImage from "@/assets/images/departments/management/objectives.webp";
+import itimg1 from "@/assets/images/departments/it/IT 1.jpeg"
+import itimg2 from "@/assets/images/departments/it/IT2.jpeg"
+import itimg3 from "@/assets/images/departments/it/IT 3.jpeg"
+import bioimg1 from "@/assets/images/departments/BIOTECH/BIO TECH.jpg";
+import bioimg2 from "@/assets/images/departments/BIOTECH/BIOTECH 1.jpg";
+import bioimg3 from "@/assets/images/departments/BIOTECH/BIOTECH.jpg";
 
 // Helper function to get faculty by department
 const getFacultyByDepartment = (departmentName) => {
@@ -81,7 +87,7 @@ export const departmentsSidebarMenu = [
     title: "Visual Communication",
     url: "/academics/departments/visual-communication",
   },
-  { id: "library", title: "Library", url: "/academics/departments/library" },
+  // { id: "library", title: "Library", url: "/academics/departments/library" },
 ];
 // ⭐ REST OF DEPARTMENTS (DUMMY SKELETON)
 const genericActivities = [
@@ -312,7 +318,7 @@ export const visualCommunicationDepartment = {
 // ⭐ 2. Information Technology
 export const informationTechnologyDepartment = {
   name: "Information Technology",
-  image: history,
+  image: itimg2,
   departmentGallery: placeholderGallery,
   about:
     "Founded in 2005, our department has grown into a vibrant center of innovation, learning, and career-focused education.",
@@ -336,14 +342,14 @@ export const informationTechnologyDepartment = {
     "To promote innovation, research, and ethical values among students.",
     "To prepare graduates for successful careers and lifelong learning in the IT industry.",
   ],
-  missionImage: history,
+  missionImage: itimg3,
   objectives: [
     "Align student skills with professional expectations and future technologies.",
     "Facilitate high-tier placements in national and multinational organizations.",
     "Encourage research publishing and participation in technical hackathons.",
     "Empower students to stand out in competitive hiring assessments.",
   ],
-  objectivesImage: history,
+  objectivesImage: itimg1,
   programsOffered: [
     {
       degree: "B.Sc. Information Technology",
@@ -931,7 +937,7 @@ export const languageDepartment = {
 
 export const bioTechnologyDepartment = {
   name: "Bio-Technology",
-  image: history,
+  image: bioimg1,
   departmentGallery: placeholderGallery,
   about:
     "The Department of Biotechnology was established in the year 2005 and offers a three-year B.Sc. degree programme. Biotechnology has wide-ranging applications in medical, industrial, agricultural, and environmental sectors with well-equipped laboratories and experienced faculty.",
@@ -959,14 +965,14 @@ export const bioTechnologyDepartment = {
     // "M5 - Experiential Learning: To promote experiential, sustainable, and society-oriented learning through student-led projects and departmental activities.",
     // "M6 - Global Opportunities: To prepare students for higher education, research careers, and global opportunities in the field of Biotechnology.",
   ],
-  missionImage: history,
+  missionImage: bioimg2,
   objectives: [
     "To promote experiential, sustainable, and society-oriented learning through student-led projects and departmental activities.",
     "To prepare students for higher education, research careers, and global opportunities in Biotechnology.",
     "To inspire research and innovation through faculty publications and patents.",
     "To enhance employability through SEED value-added and skill development courses.",
   ],
-  objectivesImage: history,
+  objectivesImage: bioimg3,
   programsOffered: [
     {
       degree: "B.Sc. Biotechnology",
@@ -1330,7 +1336,7 @@ export const managementDepartment = {
 
 export const corporateSecretaryshipDepartment = {
   name: "Corporate Secretaryship",
-  image: history,
+  image: commerceMissionImage,
   departmentGallery: placeholderGallery,
   about:
     "The Department of Corporate Secretaryship, founded in 2004, aims to address the evolving needs of businesses and industries in the fields of Management, Accountancy, Costing, Finance, and Company Secretaryship. While professional courses such as ICAI and ICWA cater to these domains, there is a growing demand for skilled professionals to support companies on a daily basis.",
@@ -1356,13 +1362,13 @@ export const corporateSecretaryshipDepartment = {
     "Engage students in research, internships, and industry interactions for diverse career opportunities.",
     "Equip students with skills for action-oriented research in the corporate sector.",
   ],
-  missionImage: history,
+  missionImage: commerceMissionImage,
   objectives: [
     "Secretarial skills",
     "Develop skilled professionals equipped with knowledge, values, and practical experience for success in corporate and legal sectors.",
     "Increase qualified professionals to meet daily company support needs.",
   ],
-  objectivesImage: history,
+  objectivesImage: commerceObjectivesImage,
   programsOffered: [
     {
       degree: "B.Com CS",

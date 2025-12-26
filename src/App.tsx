@@ -29,7 +29,7 @@ import KeyRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
 import KeyCollaboratorsRecruiters from "./pages/placements/KeyCollaboratorsRecruiters";
 import PlacementsGalleryPage from "./pages/placements/placements-gallery/PlacementsGalleryPage";
 import ValueAddedCourses from "./pages/campus-life/ValueAddedCourses";
-import Sports from "./pages/facilities/sports/Sports";
+import Sports from "./pages/campus-life/Sports";
 import SEED from "./pages/campus-life/SEED";
 import TopHeaderBar from "./components/common/Header/TopHeadBar";
 import ScrollToTop from "./components/ScrollTop";
@@ -257,9 +257,7 @@ const App = () => (
                     path="/committees"
                     element={
                       <Navigate
-                        to={`/committees/${
-                          Object.keys(committeeDataMapper)[0]
-                        }`}
+                        to={`/cells/iqac`}
                       />
                     }
                   />

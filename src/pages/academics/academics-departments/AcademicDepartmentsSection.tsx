@@ -15,9 +15,19 @@ import {
   GraduationCapIcon,
 } from "lucide-react";
 import feather from "@/assets/icons/feather.png";
+import Foradmissionsbutton from "@/components/Foradmissionsbutton";
 
 const AcademicDepartmentsSection = ({ departmentData }) => {
   if (!departmentData) return null;
+
+  const handleClick = () => {
+    navigate("/");
+
+    setTimeout(() => {
+      const el = document.getElementById("contact");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 200);
+  };
 
   const {
     name,
@@ -111,14 +121,15 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
               {/* <Sparkles className="text-[#16611C]" /> */}
               <Heading title="Department Overview" size="md" align="center" />
             </div>
-           <div className="space-y-2">
-             {/* <p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
+            <div className="space-y-2">
+              {/* <p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
               {aboutDepartment.overview}
             </p> */}
-             <p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
-              {aboutDepartment.overview}
-            </p>
-           </div>
+              <p className="text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
+                {aboutDepartment.overview}
+              </p>
+              <Foradmissionsbutton />
+            </div>
           </section>
         )}
         <hr className="container mt-8" />
@@ -177,13 +188,11 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
         </section>
 
         {/* VISION & MISSION */}
-       
 
         {mission?.length > 0 && (
           <section className="bg-background container py-10 mt-10">
             <div className="flex flex-col md:flex-row gap-10 items-stretch">
               <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch w-full">
-                
                 {/* CONTENT SIDE */}
                 <div className="w-full lg:w-1/2 flex flex-col flex-1 text-center lg:text-left">
                   <Heading title="Mission" size="md" align="left" />
@@ -213,7 +222,6 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
                     />
                   </div>
                 </div>
-
               </div>
             </div>
           </section>
@@ -226,21 +234,23 @@ const AcademicDepartmentsSection = ({ departmentData }) => {
           <section className="mt-16">
             <Heading title="Programmes Offered" size="md" align="center" />
             <HeadingUnderline width={140} align="center" />
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col md:flex-row gap-3 justify-center items-stretch mx-3">
               {programsOffered.map((p, i) => (
                 <div
                   key={i}
-                  className="p-6 rounded-xl border bg-white md:w-1/2 w-full"
+                  className="p-6 rounded-md border text-center border-gray-300 bg-white md:w-1/2 w-full"
                 >
-                  <h4 className="font-semibold text-purple-800 mb-1">
+                  <h4 className="font-semibold text-xl text-purple mb-1">
                     {p.degree}
                   </h4>
                   <p className="text-xs text-gray-500 mb-3">
                     Duration: {p.duration}
                   </p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <p className="text-sm mx-auto max-w-[400px] text-gray-700 leading-relaxed">
                     {p.description}
                   </p>
+                 
+                    <Foradmissionsbutton />
                 </div>
               ))}
             </div>

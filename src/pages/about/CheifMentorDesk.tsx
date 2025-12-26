@@ -65,29 +65,41 @@ const CheifMentorDesk: React.FC<ChiefMentorDeskProps> = ({ overrideData }) => {
     <>
       <BannerAndBreadCrumb title={banner.title} img={banner.image} />
 
-      <section className="bg-background container py-10 mt-10">
-        <div className="flex flex-col md:flex-row gap-10 items-center">
-          <div className="relative w-full md:w-1/2 aspect-video overflow-hidden shadow-lg">
+      <section className="bg-background container py-4 md:py-10 mt-10">
+        <div className="flex flex-col md:flex-row gap-10 items-stretch">
+          {/* mobile screen heading */}
+          <div className="md:hidden block">
+            <Heading title={content.title} size="lg" align="left" />
+            <HeadingUnderline width={150} align="start" />
+          </div>
+
+          {/* IMAGE */}
+          <div className="relative w-full md:w-1/2 overflow-hidden shadow-lg rounded-lg">
             <img
               src={imageUrl}
-              alt="Chief Mentor"
-              className="w-full h-full object-cover"
+              alt="Principal"
+              className="w-full md:h-[500px] object-cover"
             />
           </div>
 
+          {/* CONTENT */}
           <div className="md:w-1/2 text-center md:text-left">
-            <Heading title={content.title} size="lg" align="left" />
-            <HeadingUnderline width={200} align="left" />
+            {/* Large screen heading */}
+            <div className="md:block hidden">
+              <Heading title={content.title} size="lg" align="left" />
+              <HeadingUnderline width={200} align="left" />
+            </div>
 
             {content.paragraphs.map((paragraph, index) => (
               <React.Fragment key={index}>
-                <p className="leading-relaxed break-word">{paragraph}</p>
+                <p className="leading-relaxed">{paragraph}</p>
                 {index < content.paragraphs.length - 1 && <br />}
               </React.Fragment>
             ))}
           </div>
         </div>
 
+        {/* SIGN OFF */}
         <div className="flex flex-col text-right py-6">
           <p>{content.signOff.text}</p>
           <h4 className="md:text-xl text-md font-bold">
@@ -95,9 +107,9 @@ const CheifMentorDesk: React.FC<ChiefMentorDeskProps> = ({ overrideData }) => {
           </h4>
           <em>{content.signOff.title}</em>
         </div>
-
-        <hr className="container" />
       </section>
+
+      <hr className="container" />
     </>
   );
 };

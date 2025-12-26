@@ -18,6 +18,7 @@ const PGProgramsSidebar = () => {
   return (
     <div>
       <GlobalSidebar title="PG Programs" type="none" menu={menuItems} />
+      
     </div>
   );
 };

@@ -14,7 +14,7 @@ const GalleryPreviewSlider = () => {
   const navigate = useNavigate();
 
   const handleGalleryClick = () => {
-    navigate("/gallery");
+    navigate("/campus-life/gallery");
   };
 
   return (
@@ -57,35 +57,42 @@ const GalleryPreviewSlider = () => {
 
       {/* Scroll Animation Styles */}
       <style>{`
-        @keyframes scroll-gallery {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-             /* We have 3 sets. We want to move by 1 set width. 
-                1 set = 100% / 3 = 33.33% 
-             */
-            transform: translateX(calc(-100% / 3));
-          }
-        }
+  @keyframes scroll-gallery {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      /* Move exactly one full image set width */
+      transform: translateX(-50%);
+    }
+  }
 
-        .animate-scroll-gallery {
-          display: flex;
-          animation: scroll-gallery 10s linear infinite;
-        }
+  .animate-scroll-gallery {
+    display: flex;
+    width: max-content;
+    animation: scroll-gallery 60s linear infinite;
+    will-change: transform;
+  }
 
-        /* Faster on smaller screens if needed, or keep consistent */
-        @media (max-width: 768px) {
-          .animate-scroll-gallery {
-            animation: scroll-gallery 30s linear infinite;
-          }
-        }
+  /* Slower on large screens, smoother feel */
+  @media (min-width: 1024px) {
+    .animate-scroll-gallery {
+      animation-duration: 90s;
+    }
+  }
 
-        /* Pause on hover */
-        .animate-scroll-gallery:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+  /* Faster on small screens */
+  @media (max-width: 768px) {
+    .animate-scroll-gallery {
+      animation-duration: 25s;
+    }
+  }
+
+  /* Pause on hover */
+  .animate-scroll-gallery:hover {
+    animation-play-state: paused;
+  }
+`}</style>
     </div>
   );
 };

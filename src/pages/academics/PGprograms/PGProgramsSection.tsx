@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import pgprogrammsdetails from "@/data/academics/pgprogrammsdetails.js";
-import { Search } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowRightToLine,
+  ChevronRight,
+  Search,
+} from "lucide-react";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
+import CourseSelectionForm from "@/components/forms/CourseSelectionForm";
+import { Button } from "@/components/ui/button";
 
 const PGProgramsSection = () => {
   const { programType } = useParams();
@@ -11,6 +18,8 @@ const PGProgramsSection = () => {
   const [list, setList] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [search, setSearch] = useState("");
+  const [showForm, setShowForm] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
 
   useEffect(() => {
     const data = pgprogrammsdetails.filter(
@@ -36,18 +45,23 @@ const PGProgramsSection = () => {
     }
   }, [search, list]);
 
+  // Handle Apply Now button click for each row
+  const handleApplyNow = (item: any) => {
+    setSelectedCourse(`${item.degree} ${item.stream}`);
+    setShowForm(true);
+  };
+
   return (
     <div className="flex-1 md:p-6 p-2 py-6 border-r border-gray-400">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
         <div className="mx-auto md:mx-0">
-         <h1 className="text-2xl font-bold text-purple  mx-auto md:mx-0 capitalize ">
-          {activeCategory === "existing"
-            ? "Existing Programs"
-            : "Proposed Programs"}
-        </h1>
-        <HeadingUnderline width={150} align="left" />
-
-       </div>
+          <h1 className="text-2xl font-bold text-purple mx-auto md:mx-0 capitalize">
+            {activeCategory === "existing"
+              ? "Existing Programs"
+              : "Proposed Programs"}
+          </h1>
+          <HeadingUnderline width={150} align="left" />
+        </div>
 
         <div className="relative w-full md:w-96">
           <input
@@ -70,14 +84,15 @@ const PGProgramsSection = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-purple text-white text-left">
-                <th className="md:block hidden py-3 px-4 border-r  border-gray-400 ">
+                <th className="md:block hidden py-3 px-4 border-r border-gray-400">
                   S.No
                 </th>
                 <th className="py-3 px-4 border-r border-gray-400">
                   Programme
                 </th>
                 <th className="py-3 px-4 border-r border-gray-400">Degree</th>
-                <th className="py-3 px-4">Stream</th>
+                <th className="py-3 px-4 border-r border-gray-400">Stream</th>
+                <th className="py-3 px-4 md:w-32 w-24">Action</th>
               </tr>
             </thead>
 
@@ -96,7 +111,18 @@ const PGProgramsSection = () => {
                   <td className="py-3 px-4 border-r border-gray-300">
                     {item.degree}
                   </td>
-                  <td className="py-3 px-4">{item.stream}</td>
+                  <td className="py-3 px-4 border-r border-gray-300">
+                    {item.stream}
+                  </td>
+                  <td className="py-3 px-4 text-center">
+                    <Button
+                      onClick={() => handleApplyNow(item)}
+                      size="sm"
+                      className="red-btn w-full text-white flex gap-1 h-9 text-xs px-3"
+                    >
+                      <span>Apply Now</span> <ArrowRight />
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -107,10 +133,21 @@ const PGProgramsSection = () => {
       )}
 
       {filtered.length > 0 && (
-        <p className="text-sm text-gray-600 mt-4">
+        <p className="text-sm text-end text-gray-600 mt-4">
           Showing {filtered.length} of {list.length} programs
         </p>
       )}
+
+      <Link to="/academics/ug-programs" className="flex gap-1 items-center justify-start text-purple py-3 underline">
+   
+        <p className="text-purple">Check Our Our <b>UG Programs</b> </p> <ArrowRight size={16} />
+      </Link>
+
+      <CourseSelectionForm
+        course={selectedCourse}
+        isOpen={showForm}
+        onClose={() => setShowForm(false)}
+      />
     </div>
   );
 };

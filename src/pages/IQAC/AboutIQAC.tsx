@@ -5,6 +5,7 @@ import Heading from "@/components/reusable/Heading";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import { GraduationCap, Target } from "lucide-react";
 import { iqacInfo, iqacVision, iqacMission } from "@/data/iqac/iqacdata.js";
+import iqac1 from "@/assets/images/gallery/feb9bd30-be26-4439-a323-e07c33c046d5.jpg"
 
 const AboutIQAC = () => {
   return (
@@ -94,7 +95,7 @@ const AboutIQAC = () => {
              {/* Image Section - LEFT */}
           <div className="relative w-full md:w-1/2 aspect-video overflow-hidden">
             <img
-              src={campus}
+              src={iqac1}
               alt="IQAC Vision"
               className="w-full h-full object-cover"
             />

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // Import the data list
 import { documentsData } from "@/data/_header/topheaderdata.ts";
+import ISODOC from "@/assets/documents/iso/iso.pdf"
 
 const TopHeaderBar: React.FC = () => {
   const navigate = useNavigate();
@@ -35,13 +36,13 @@ const TopHeaderBar: React.FC = () => {
         {/* Right Side */}
         <div className="flex items-center gap-2">
           {/* Online Payment */}
-          <div className="bg-white px-2 h-8 flex items-center justify-center">
+          {/* <div className="bg-white px-2 h-8 flex items-center justify-center">
             <button className="text-xs font-bold">Online Payment</button>
-          </div>
+          </div> */}
 
           {/* ISO Button */}
           <div className="bg-red px-2 h-8 flex items-center justify-center">
-            <button className="text-white text-xs font-bold">ISO</button>
+            <a href={ISODOC} target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold">ISO</a>
           </div>
 
           {[

@@ -341,13 +341,13 @@ const ourTeamData = {
       department: "Biotechnology",
       image: bioPanjatcharam,
     },
-    {
-      name: "Dr. Udhayaraja P",
-      designation: "Assistant Professor",
-      email: "rise.rajamicro@gmail.com",
-      department: "Biotechnology",
-      image: bioUdhayaraja,
-    },
+    // {
+    //   name: "Dr. Udhayaraja P",
+    //   designation: "Assistant Professor",
+    //   email: "rise.rajamicro@gmail.com",
+    //   department: "Biotechnology",
+    //   image: bioUdhayaraja,
+    // },
     {
       name: "Dr. Priyadharshini S",
       designation: "Assistant Professor",

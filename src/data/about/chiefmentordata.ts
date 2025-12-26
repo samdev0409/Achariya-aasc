@@ -1,5 +1,5 @@
 import chiefMentor2 from "@/assets/images/cheif-mentor/Dr.-J.arawindhan.webp";
-import  chiefMentor from "@/assets/images/chief-mentor.webp";
+import chiefMentor from "@/assets/images/chief-mentor.webp";
 import campus from "@/assets/images/aasc_building.webp";
 
 export const chiefMentorData = {
@@ -8,14 +8,25 @@ export const chiefMentorData = {
     image: campus,
   },
   content: {
-    title: "Our Cheif Mentor's Desk",
+    title: "Welcome to Achariya – World-Class Education.",
     ourleadsimage: chiefMentor2,
     cheifmentordeskimage: chiefMentor,
     paragraphs: [
-      "I have travelled to many destinations to derive completely a next-generation educational system. The educational design, methodology, infrastructure, and systems, adopted in ACHARIYA, focus entirely on the holistic development of your child. I believe, the highly motivated and well-trained teaching faculty and the intellectual environment with the serene beauty added to it will be the ideal school that you can choose for your child.",
-      "Dear parents, choose ACHARIYA to give your child a life of abundance and choice. I will be happy to welcome your child to the family of ACHARIYA. We offer, international standard of education accessible and affordable to every child.",
+      `At Achariya, we believe that education is not merely about acquiring knowledge, but about
+shaping character, values, and leadership for the future. Our mission is to create a learning
+environment that nurtures academic excellence, innovation, and ethical responsibility.`,
+      `We are committed to delivering quality education through experienced faculty, modern
+infrastructure, and a student-centric approach that prepares learners to meet global challenges
+with confidence. Alongside academic rigor, we emphasize holistic development, encouraging
+students to grow intellectually, socially, and professionally.`,
+      `As the Managing Director, I take great pride in our institution’s dedication to continuous
+improvement and excellence. We strive to empower our students with the skills, discipline,
+and vision necessary to succeed in their chosen careers and to contribute meaningfully to
+society.`,
+      `I invite you to be a part of Achariya and join us on this inspiring journey of learning, growth,
+and achievement.`,
     ],
-      signOff: {
+    signOff: {
       text: "With best wishes,",
       name: "Dr. J. Arawindhan",
       title: "Chief Mentor",

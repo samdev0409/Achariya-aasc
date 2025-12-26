@@ -32,9 +32,22 @@ import img31 from "@/assets/images/gallery/dd6d5699-4f2d-40b8-9bb3-5ce03d21962a.
 import img32 from "@/assets/images/gallery/e1aee025-a7dd-44b6-b80b-c2f804df7262.png";
 import img33 from "@/assets/images/gallery/feb9bd30-be26-4439-a323-e07c33c046d5.jpg";
 import img34 from "@/assets/images/gallery/ff7c8902-4ec6-4d16-94f4-04b5744c727c.png";
+import img35 from "@/assets/images/carousel/PRINCIPAL.webp";
+import img36 from "@/assets/images/carousel/PRINCIPAL5.webp";
+import img37 from "@/assets/images/carousel/SPACEDAY.webp";
+import img38 from "@/assets/images/carousel/ONAM CELEB.webp";
+import img39 from "@/assets/images/carousel/ALUMINI2.webp";
+import img40 from "@/assets/images/carousel/MD.webp"
 
 export const galleryData = [
-  { id: 1, src: img1, alt: "Gallery Image 1" },
+    { id: 40, src: img40, alt: "Gallery Image 40" },
+    { id: 35, src: img35, alt: "Gallery Image 35" },
+  { id: 36, src: img36, alt: "Gallery Image 36" },
+  { id: 37, src: img37, alt: "Gallery Image 37" },
+  { id: 38, src: img38, alt: "Gallery Image 38" },
+  { id: 39, src: img39, alt: "Gallery Image 39" },
+
+
   { id: 2, src: img2, alt: "Gallery Image 2" },
   { id: 3, src: img3, alt: "Gallery Image 3" },
   { id: 4, src: img4, alt: "Gallery Image 4" },
@@ -68,4 +81,5 @@ export const galleryData = [
   { id: 32, src: img32, alt: "Gallery Image 32" },
   { id: 33, src: img33, alt: "Gallery Image 33" },
   { id: 34, src: img34, alt: "Gallery Image 34" },
-];
+  { id: 1, src: img1, alt: "Gallery Image 1" },
+]

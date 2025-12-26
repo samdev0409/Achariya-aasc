@@ -47,10 +47,10 @@ const Navbar = () => {
         },
         { label: "Chief Mentor's Desk", path: "/about/chief-mentors-desk" },
         { label: "Principal's Desk", path: "/about/principal-desk" },
-        {
-          label: "Governing Body Council",
-          path: "/about/governing-body-counsil",
-        },
+        // {
+        //   label: "Governing Body Council",
+        //   path: "/about/governing-body-counsil",
+        // },
         { label: "Organogram", path: "/about/organogram" },
         {
           label: "Our Team",
@@ -102,7 +102,7 @@ const Navbar = () => {
       label: "Campus Life",
       path: "/campus-life",
       dropdown: [
-        { label: "SEED", path: "/campus-life/seed" },
+        // { label: "SEED", path: "/campus-life/seed" },
         { label: "Gallery", path: "/campus-life/gallery" },
         {
           label: "Value-Added Courses",
@@ -110,7 +110,7 @@ const Navbar = () => {
         },
         // { label: "Department Clubs", path: "/campus-life/department-clubs" },
         // { label: "Cultural", path: "/campus-life/cultural" },
-        // { label: "Sports", path: "/campus-life/sports" },
+        { label: "Sports", path: "/campus-life/sports" },
       ],
     },
 
@@ -121,7 +121,7 @@ const Navbar = () => {
       path: "/iqac",
       dropdown: [
         { label: "NIRF", path: "/national-institutional-ranking-framework" },
-        { label: "NAAC", path: "/iqac/naac" },
+        // { label: "NAAC", path: "/iqac/naac" },
         { label: "About IQAC", path: "/iqac/about-iqac" },
 
         {

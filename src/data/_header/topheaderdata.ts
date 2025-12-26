@@ -6,8 +6,10 @@ import pondicherryuniversityaffilationdoc from "@/assets/documents/pondicheryuni
 import AISHELOGO from "@/assets/images/common/aishe.webp";
 import PondicherryUniversityLogo from "@/assets/images/common/pondicherryuniversitylogo.webp";
 import UGCLogo from "@/assets/images/common/ugclogo.webp";
+import ISODOC from "@/assets/documents/iso/iso.pdf"
 
 export const documentsData = [
+  
   {
     id: "nirf",
     label: "NIRF",

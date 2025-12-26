@@ -9,10 +9,26 @@ export const principalData = {
   content: {
     title: "Our Principal's Desk",
     image: principal,
-    email:"aaschead@achariya.org",
+    email: "aaschead@achariya.org",
     paragraphs: [
-      "ACHARIYA Arts and Science College, throughout its glorious history, has played a pivotal role in imparting education in the field of Arts and science. It provides technology-based integrated and inclusive education in a disciplined, dynamic, vibrant and hygienic environment. We try to nurture students with adequate emphasis on all the three aspects of integrated education e.g., physical, intellectual, and value education.",
-      "ACHARIYA Arts and Science College provides all facilities like Library, Computers, Internet, Laboratories, Language Lab and Sports activities to meet the needs of the new upgraded pattern of education under the Choice Based Credit System (CBCS). The hostel facility is provided with wholesome nutritious food and care. Buses ply on specific routes, enabling the students from different parts of the city to reach the college on time. Besides infrastructure, college is valued for its academic rigor, in particular the delivery of student-centric content. We promote continuous engagement between college and industry to produce graduates prized by the industry.",
+      `Welcome to Achariya Arts and Science (AASC), an institution dedicated to the pursuit of
+academic excellence, quality education, and holistic student development. Our college stands
+as a center of learning that upholds strong academic values, ethical integrity, and a
+commitment to societal advancement.`,
+      `At AASC, we continuously strive to provide a progressive and inclusive learning
+environment supported by qualified faculty, well-structured academic programs, and
+outcome-oriented teaching methodologies. We place strong emphasis on innovation, critical
+thinking, research, and skill development to equip our students with the competencies
+required to excel in a dynamic global landscape.`,
+      `Quality assurance and continuous improvement form the cornerstone of our institutional
+framework. Through systematic planning, effective governance, and active stakeholder
+engagement, we ensure adherence to national and international academic standards. Equal
+importance is given to co-curricular and extracurricular activities, enabling students to
+develop leadership qualities, social responsibility, and lifelong learning skills.`,
+      `We remain committed to nurturing responsible, confident, and competent graduates who
+contribute meaningfully to society and uphold the values of excellence and professionalism. I
+invite all stakeholders to join us in our continued journey toward institutional distinction and
+academic leadership.`,
     ],
     signOff: {
       text: "With best wishes,",

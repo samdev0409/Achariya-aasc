@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Search } from "lucide-react";
 import ugprogramsdatadetails from "@/data/academics/ugprogramsdatadetails.js";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
+import CourseSelectionForm from "@/components/forms/CourseSelectionForm";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+} from "lucide-react";
 
 const UGProgramsSection = () => {
   const { programType } = useParams();
@@ -11,6 +16,8 @@ const UGProgramsSection = () => {
   const [list, setList] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [search, setSearch] = useState("");
+  const [showForm, setShowForm] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
 
   useEffect(() => {
     const data = ugprogramsdatadetails.filter(
@@ -37,19 +44,24 @@ const UGProgramsSection = () => {
     }
   }, [search, list]);
 
+  // Handle Apply Now button click for each row
+  const handleApplyNow = (item: any) => {
+    setSelectedCourse(`${item.degree} ${item.stream}`);
+    setShowForm(true);
+  };
+
   return (
     <div className="flex-1 md:p-6 p-2 py-6">
       {/* Header and Search */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-       <div className="mx-auto md:mx-0">
-         <h1 className="text-2xl font-bold text-purple  mx-auto md:mx-0 capitalize ">
-          {activeCategory === "existing"
-            ? "Existing Programs"
-            : "Proposed Programs"}
-        </h1>
-        <HeadingUnderline width={150} align="left" />
-
-       </div>
+        <div className="mx-auto md:mx-0">
+          <h1 className="text-2xl font-bold text-purple mx-auto md:mx-0 capitalize">
+            {activeCategory === "existing"
+              ? "Existing Programs"
+              : "Proposed Programs"}
+          </h1>
+          <HeadingUnderline width={150} align="left" />
+        </div>
         <div className="relative w-full md:w-96">
           <input
             type="text"
@@ -78,7 +90,8 @@ const UGProgramsSection = () => {
                   Programme
                 </th>
                 <th className="py-3 px-4 border-r border-gray-400">Degree</th>
-                <th className="py-3 px-4">Stream</th>
+                <th className="py-3 px-4 border-r border-gray-400">Stream</th>
+                <th className="py-3 px-4 md:w-32 w-24">Action</th>
               </tr>
             </thead>
 
@@ -97,7 +110,18 @@ const UGProgramsSection = () => {
                   <td className="py-3 px-4 border-r border-gray-300">
                     {item.degree}
                   </td>
-                  <td className="py-3 px-4">{item.stream}</td>
+                  <td className="py-3 px-4 border-r border-gray-300">
+                    {item.stream}
+                  </td>
+                  <td className="py-3 px-4 text-center">
+                    <Button
+                      onClick={() => handleApplyNow(item)}
+                      size="sm"
+                      className="red-btn w-full text-white flex gap-1 h-9 text-xs px-3"
+                    >
+                      <span>Apply Now</span> <ArrowRight />
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -109,10 +133,21 @@ const UGProgramsSection = () => {
 
       {/* Total Count */}
       {filtered.length > 0 && (
-        <p className="text-sm text-gray-600 mt-4">
+        <p className="text-sm text-end text-gray-600 mt-4">
           Showing {filtered.length} of {list.length} programs
         </p>
       )}
+
+      <Link to="/academics/pg-programs" className="flex gap-1 items-center justify-start text-purple py-3 underline">
+   
+        <p className="text-purple">Check Our Our <b>PG Programs </b> </p> <ArrowRight size={16} />
+      </Link>
+      {/* ✅ CourseSelectionForm with AUTO-CLOSE support */}
+      <CourseSelectionForm
+        course={selectedCourse}
+        isOpen={showForm}
+        onClose={() => setShowForm(false)}
+      />
     </div>
   );
 };
