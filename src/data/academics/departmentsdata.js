@@ -21,7 +21,7 @@ import itimg2 from "@/assets/images/departments/it/IT2.jpeg"
 import itimg3 from "@/assets/images/departments/it/IT 3.jpeg"
 import bioimg1 from "@/assets/images/departments/BIOTECH/BIO-TECH.jpg";
 import bioimg2 from "@/assets/images/departments/BIOTECH/BIOTECH-1.jpg";
-import bioimg3 from "@/assets/images/departments/BIOTECH/BIOTECH.jpg";
+import bioimg3 from "@/assets/images/departments/BIOTECH/BIOTECH.webp";
 
 // Helper function to get faculty by department
 const getFacultyByDepartment = (departmentName) => {
