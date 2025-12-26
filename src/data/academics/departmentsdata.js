@@ -87,7 +87,7 @@ export const departmentsSidebarMenu = [
     title: "Visual Communication",
     url: "/academics/departments/visual-communication",
   },
-  // { id: "library", title: "Library", url: "/academics/departments/library" },
+  // { id: "library", title: "Library"url: "/academics/departments/library" },
 ];
 // ⭐ REST OF DEPARTMENTS (DUMMY SKELETON)
 const genericActivities = [
