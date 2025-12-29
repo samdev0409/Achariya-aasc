@@ -9,7 +9,7 @@ const OurLeadership = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-8">
+    <section className="py-8 ">
       <div className="container px-4">
         <div className="flex gap-4 flex-col md:flex-row justify-center">
           {OurLeads.map((lead, idx) => (

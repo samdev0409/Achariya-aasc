@@ -7,11 +7,11 @@ const menuItems = [
     label: "Existing PG Programs",
     url: "/academics/pg-programs/existing",
   },
-  {
-    id: "proposed",
-    label: "Proposed PG Programs",
-    url: "/academics/pg-programs/proposed",
-  },
+  // {
+  //   id: "proposed",
+  //   label: "Proposed PG Programs",
+  //   url: "/academics/pg-programs/proposed",
+  // },
 ];
 
 const PGProgramsSidebar = () => {

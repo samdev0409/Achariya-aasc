@@ -8,7 +8,7 @@ const menuItems = [
     label: "Administrative Team",
     url: "/about/our-team/administrative",
   },
-  { id: "media", label: "Media Team", url: "/about/our-team/media" },
+  // { id: "media", label: "Media Team", url: "/about/our-team/media" },
 ];
 
 interface OurTeamSidebarProps {

@@ -197,7 +197,7 @@ const OurTeamFacultySection: React.FC<OurTeamFacultySectionProps> = ({
             <h2 className="text-2xl text-center capitalize font-semibold text-purple">
               {dep === ""
                 ? activeCategory.replace("-", " ") + " Team"
-                : `${dep} ${dep === "Principal" || "Vice Principal" ? "" : "Department Faculty"}`}
+                : `${dep} ${dep !== "Principal" && dep !== "Vice Principal" ? "Department Faculty" : ""}`}
             </h2>
 
             <HeadingUnderline align="center" width={150} />

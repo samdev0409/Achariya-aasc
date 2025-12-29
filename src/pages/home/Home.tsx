@@ -42,7 +42,7 @@ const Home = () => {
       <NewsTicker items={homeData.newsTicker.items} />
       <div className="min-h-screen flex flex-col ">
         <main className="flex-grow space-y-6">
-          <section className="bg-secondary  py-6 md:py-12 mt-6 border-border">
+          <section className="bg-secondary  py-6 px-8 md:py-12 md:px-0 mt-6 border-border">
             <div className="text-center">
               <Heading
                 title={homeData.welcome.title}

@@ -51,7 +51,7 @@ import bioUdhayaraja from "@/assets/images/our-team/faculty/BioTechnology Dept/D
 import bioPriyadharshini from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Priyadharshini S.webp";
 import bioSubasri from "@/assets/images/our-team/faculty/BioTechnology Dept/Dr. Subasri J.webp";
 
-// Management Studies (BBA) Department
+// Management Studies   Department
 import bbaNetraPrakash from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Mr. Netra Prakash.B.webp";
 import bbaSureshRajan from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Dr. Suresh Rajan. S. G.webp";
 import bbaPrathap from "@/assets/images/our-team/faculty/Management Studies BBA Dept/Mr. Prathap K.webp";
@@ -234,28 +234,28 @@ const ourTeamData = {
       name: "Mr. Sherif Baig I",
       designation: "Assistant Professor/HOD",
       email: "sherif.aasc@achariya.org",
-      department: "Computer Application (BCA)",
+      department: "Computer Application  ",
       image: bcaSherifBaig,
     },
     {
       name: "Mrs. Vinodhini J",
       designation: "Assistant Professor",
       email: "vinoedwin@gmail.com",
-      department: "Computer Application (BCA)",
+      department: "Computer Application  ",
       image: bcaVinodhini,
     },
     {
       name: "Mrs. Ilakiya",
       designation: "Assistant Professor",
       email: "ilakiya.achariya@gmail.com",
-      department: "Computer Application (BCA)",
+      department: "Computer Application  ",
       image: bcaIlakiya,
     },
     {
       name: "Mr. Vakiswaran P",
       designation: "Assistant Professor",
       email: "vakieashwarancse1997@gmail.com",
-      department: "Computer Application (BCA)",
+      department: "Computer Application  ",
       image: bcaVakiswaran,
     },
 
@@ -363,33 +363,33 @@ const ourTeamData = {
       image: bioSubasri,
     },
 
-    // DEPARTMENT OF MANAGEMENT STUDIES (BBA)
+    // DEPARTMENT OF MANAGEMENT STUDIES  
     {
       name: "Mr. Netra Prakash B",
       designation: "Assistant Professor/HOD",
       email: "b.netraprakash.aasc@achariya.org",
-      department: "Management Studies (BBA)",
+      department: "Management Studies  ",
       image: bbaNetraPrakash,
     },
     {
       name: "Dr. Suresh Rajan S. G",
       designation: "Assistant Professor",
       email: "sureshrajan1971@gmail.com",
-      department: "Management Studies (BBA)",
+      department: "Management Studies  ",
       image: bbaSureshRajan,
     },
     {
       name: "Mr. Prathap K",
       designation: "Assistant Professor",
       email: "prathaap145@gmail.com",
-      department: "Management Studies (BBA)",
+      department: "Management Studies  ",
       image: bbaPrathap,
     },
     {
       name: "Dr. Sushma R",
       designation: "Assistant Professor",
       email: "sushma.official@gmail.com",
-      department: "Management Studies (BBA)",
+      department: "Management Studies  ",
       image: bbaSushma,
     },
 

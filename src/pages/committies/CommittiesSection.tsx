@@ -113,7 +113,7 @@ const CommitteeSection: React.FC<CommitteeSectionProps> = ({
           {/* OBJECTIVES - HIDE IF EMPTY */}
           {objectives.length > 0 && (
             <section id="objectives" className="mb-12">
-              <Heading title="Objectives" size="md" align="left" />
+              <Heading title={`${title} - Objectives`} size="md" align="left" />
               <HeadingUnderline width={150} align="left" />
               <ul className="space-y-3">
                 {objectives.map((item) => (
@@ -129,7 +129,7 @@ const CommitteeSection: React.FC<CommitteeSectionProps> = ({
           {/* MEMBERS - HIDE IF EMPTY */}
           {members.length > 0 && (
             <section id="members" className="mb-12">
-              <Heading title="Members" size="md" align="left" />
+              <Heading title={`${title} - Members`} size="md" align="left" />
               <HeadingUnderline width={120} align="left" />
               <div className="space-y-6">
                 {members.map((m) => (
@@ -193,7 +193,7 @@ const CommitteeSection: React.FC<CommitteeSectionProps> = ({
           {/* CIRCULARS - HIDE IF EMPTY */}
           {circulars.length > 0 && (
             <section id="circulars">
-              <Heading title="Circulars" size="md" align="left" />
+              <Heading title={`${title} - Circulars`} size="md" align="left" />
               <HeadingUnderline width={120} align="left" />
               <ul className="space-y-4">
                 {circulars.map((c, idx) => (
@@ -216,7 +216,7 @@ const CommitteeSection: React.FC<CommitteeSectionProps> = ({
           {/* PHOTO GALLERY - HIDE IF EMPTY */}
           {photogallery.length > 0 && (
             <section id="gallery" className="mt-12 mb-12">
-              <Heading title="Photo Gallery" size="md" align="left" />
+              <Heading title={`${title} - Photo Gallery`} size="md" align="left" />
               <HeadingUnderline width={150} align="left" />
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {photogallery.map((img, idx) => (

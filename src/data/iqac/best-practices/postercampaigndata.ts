@@ -5,10 +5,11 @@ import poster4 from "@/assets/images/best-pratices/poster-campaign/washing-hands
 
 export const postercampaigndata = {
   posters: [
-    {
-      label: "Hand Sanitizer Awareness",
-      image: poster1,
+        {
+      label: "Proper Hand Washing Technique",
+      image: poster4,
     },
+   
     {
       label: "Wash Your Hands – Hygiene Campaign",
       image: poster2,
@@ -17,18 +18,19 @@ export const postercampaigndata = {
       label: "Stay Home – Safety Campaign",
       image: poster3,
     },
-    {
-      label: "Proper Hand Washing Technique",
-      image: poster4,
-    },
      {
       label: "Hand Sanitizer Awareness",
       image: poster1,
     },
-     {
-      label: "Hand Sanitizer Awareness",
-      image: poster1,
-    },
+
+    //  {
+    //   label: "Hand Sanitizer Awareness",
+    //   image: poster1,
+    // },
+    //  {
+    //   label: "Hand Sanitizer Awareness",
+    //   image: poster1,
+    // },
   ],
 };
 

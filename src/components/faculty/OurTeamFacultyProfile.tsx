@@ -31,9 +31,9 @@ const OurTeamFacultyProfile = ({
           <h4 className="md:text-xl text-md font-semibold">{name}</h4>
 
           {department ? (
-            <p className="text-sm text-gray-600">{department}</p>
+            <p className="text-sm font-semibold text-gray-600">{department}</p>
           ) : (
-            <p className="text-sm text-gray-600 md:hidden block"> </p>
+            <p className="text-sm font-semibold text-gray-600 md:hidden block"> </p>
           )}
 
           <p className="text-sm text-gray-700 md:block hidden">

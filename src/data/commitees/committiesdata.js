@@ -41,7 +41,7 @@ import labThirukumaran from "@/assets/images/our-team/faculty/Laboratory Assista
 import englishUmarani from "@/assets/images/our-team/faculty/English Dept/Mrs. Umarani. J.webp";
 import englishNithiyaParameswari from "@/assets/images/our-team/faculty/English Dept/Dr. Nithiya Parameswari. V.webp";
 import englishRadhapriya from "@/assets/images/our-team/faculty/English Dept/Mrs. Radhapriya. A.webp";
-import libraryPhotogallery from "@/assets/images/departments/LIBRARY/LIBRARY.jpg";
+import libraryPhotogallery from "@/assets/images/departments/LIBRARY/LIBRARY.webp";
 import rrcphotogallery1 from "@/assets/images/RRC/RRC.webp";
 import rrcphotogallery2 from "@/assets/images/RRC/RRC1.webp";
 import rrcphotogallery3 from "@/assets/images/RRC/RRC2.webp";

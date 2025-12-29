@@ -15,10 +15,10 @@ import carousel14 from "@/assets/images/carousel/MD.webp"
 import carousel15 from "@/assets/images/carousel/GRADUTION.webp";
 import img35 from "@/assets/images/carousel/PRINCIPAL.webp";
 import img36 from "@/assets/images/carousel/PRINCIPAL5.webp";
-import img37 from "@/assets/images/carousel/SPACEDAY.jpg";
-import img38 from "@/assets/images/carousel/ONAM CELEB.jpg";
+import img37 from "@/assets/images/carousel/SPACEDAY.webp";
+import img38 from "@/assets/images/carousel/ONAM CELEB.webp";
 import img39 from "@/assets/images/carousel/ALUMINI2.webp";
-import img40 from "@/assets/images/carousel/PLACEMENT2.jpg";
+import img40 from "@/assets/images/carousel/PLACEMENT2.webp";
 
 export const carouselData = {
   images: [
@@ -27,7 +27,7 @@ export const carouselData = {
     carousel14,
     // carousel13,
         // img35,
-    // img36,
+    img36,
     img37,
     img40,
     img38,

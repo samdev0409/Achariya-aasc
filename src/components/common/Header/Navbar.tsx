@@ -61,7 +61,7 @@ const Navbar = () => {
               label: "Administrative Team",
               path: "/about/our-team/administrative",
             },
-            { label: "Media Team", path: "/about/our-team/media" },
+            // { label: "Media Team", path: "/about/our-team/media" },
           ],
         },
         { label: "Press Releases", path: "/about/press-releases" },
@@ -250,8 +250,9 @@ const Navbar = () => {
 
       {/* -------- MOBILE NAV -------- */}
       <div className="md:hidden sticky top-0 z-[300] bg-purple p-3 flex justify-between items-center">
-        <img src={AASCLOGO} width={80} className="bg-white p-2" />
-
+        <Link to="/">
+          <img src={AASCLOGO} width={80} className="bg-white p-2" />
+        </Link>
         <button id="hamburgerBtn" onClick={() => setMobileOpen(true)}>
           <Menu size={28} className="text-white" />
         </button>
@@ -281,65 +282,88 @@ const Navbar = () => {
 
         {/* MOBILE LIST */}
         <ul className="flex flex-col gap-1">
-          {navItems.map((item, i) => (
-            <li key={i}>
-              <div
-                className="flex justify-between py-2 text-gray-800 font-medium"
-                onClick={() =>
-                  item.dropdown
-                    ? setMobileSubmenu(
+          {navItems.map((item, i) => {
+            const hasDropdown = Boolean(item.dropdown);
+
+            return (
+              <li key={i}>
+                {/* MAIN ITEM */}
+                <div
+                  className="flex justify-between items-center py-2 text-gray-800 font-medium cursor-pointer"
+                  onClick={() => {
+                    if (hasDropdown) {
+                      setMobileSubmenu(
                         mobileSubmenu === item.label ? null : item.label
-                      )
-                    : setMobileOpen(false)
-                }
-              >
-                <Link to={item.path}>{item.label}</Link>
-                {item.dropdown && <ChevronDown />}
-              </div>
+                      );
+                    } else {
+                      setMobileOpen(false);
+                    }
+                  }}
+                >
+                  {hasDropdown ? (
+                    <span>{item.label}</span>
+                  ) : (
+                    <Link to={item.path}>{item.label}</Link>
+                  )}
 
-              {/* MOBILE SUBMENU */}
-              {item.dropdown && mobileSubmenu === item.label && (
-                <ul className="ml-4 border-l-2 pl-3">
-                  {item.dropdown.map((sub, j) => (
-                    <li key={j}>
-                      <div
-                        className="flex justify-between py-2 text-gray-700"
-                        onClick={() =>
-                          sub.submenu
-                            ? setMobileSubSubmenu(
-                                mobileSubSubmenu === sub.label
-                                  ? null
-                                  : sub.label
-                              )
-                            : setMobileOpen(false)
-                        }
-                      >
-                        <Link to={sub.path}>{sub.label}</Link>
-                        {sub.submenu && <ChevronDown size={16} />}
-                      </div>
+                  {hasDropdown && <ChevronDown />}
+                </div>
 
-                      {/* MOBILE SUB-SUBMENU */}
-                      {sub.submenu && mobileSubSubmenu === sub.label && (
-                        <ul className="ml-4 border-l-2 pl-3 text-sm space-y-1">
-                          {sub.submenu.map((ss, k) => (
-                            <li key={k}>
-                              <Link
-                                to={ss.path}
-                                className="block py-1"
-                                onClick={() => setMobileOpen(false)}
-                              >
-                                {ss.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
+                {/* SUBMENU */}
+                {hasDropdown && mobileSubmenu === item.label && (
+                  <ul className="ml-4 border-l-2 pl-3">
+                    {item.dropdown.map((sub, j) => {
+                      const hasSubmenu = Boolean(sub.submenu);
+
+                      return (
+                        <li key={j}>
+                          <div
+                            className="flex justify-between items-center py-2 text-gray-700 cursor-pointer"
+                            onClick={() => {
+                              if (hasSubmenu) {
+                                setMobileSubSubmenu(
+                                  mobileSubSubmenu === sub.label
+                                    ? null
+                                    : sub.label
+                                );
+                              } else {
+                                setMobileOpen(false);
+                              }
+                            }}
+                          >
+                            {hasSubmenu ? (
+                              <span>{sub.label}</span>
+                            ) : (
+                              <Link to={sub.path}>{sub.label}</Link>
+                            )}
+
+                            {hasSubmenu && <ChevronDown size={16} />}
+                          </div>
+
+                          {/* SUB-SUBMENU */}
+                          {hasSubmenu && mobileSubSubmenu === sub.label && (
+                            <ul className="ml-4 border-l-2 pl-3 text-sm space-y-1">
+                              {sub.submenu.map((ss, k) => (
+                                <li key={k}>
+                                  <Link
+                                    to={ss.path}
+                                    className="block py-1"
+                                    onClick={() => setMobileOpen(false)}
+                                  >
+                                    {ss.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

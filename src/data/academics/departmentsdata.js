@@ -5,9 +5,9 @@ import viscomMissionImage from "@/assets/images/departments/VISCOM/mission.webp"
 import viscomObjectivesImage from "@/assets/images/departments/VISCOM/objectives.webp";
 import csMissionImage from "@/assets/images/departments/computer-science/mission.webp";
 import csObjectivesImage from "@/assets/images/departments/computer-science/objectives.webp";
-import bcaBannerImage from "@/assets/images/departments/computerapplication/banner.jpeg"
+import bcaBannerImage from "@/assets/images/departments/computerapplication/banner.webp"
 import bcaMissionImage from "@/assets/images/departments/computerapplication/mission.webp";
-import bcaObjectivesImage from "@/assets/images/departments/computerapplication/objectives.jpg";
+import bcaObjectivesImage from "@/assets/images/departments/computerapplication/objectives.webp";
 import englishMissionImage from "@/assets/images/departments/english/mission.webp";
 import englishObjectivesImage from "@/assets/images/departments/english/objectives.webp";
 import mathsMissionImage from "@/assets/images/departments/maths/mission.webp";
@@ -16,12 +16,14 @@ import commerceMissionImage from "@/assets/images/departments/commerce/mission.w
 import commerceObjectivesImage from "@/assets/images/departments/commerce/objectives.webp";
 import managementMissionImage from "@/assets/images/departments/management/mission.webp";
 import managementObjectivesImage from "@/assets/images/departments/management/objectives.webp";
-import itimg1 from "@/assets/images/departments/it/IT 1.jpeg"
-import itimg2 from "@/assets/images/departments/it/IT2.jpeg"
-import itimg3 from "@/assets/images/departments/it/IT 3.jpeg"
-import bioimg1 from "@/assets/images/departments/BIOTECH/BIO-TECH.jpg";
-import bioimg2 from "@/assets/images/departments/BIOTECH/BIOTECH-1.jpg";
+import itimg1 from "@/assets/images/departments/it/IT 1.webp"
+import itimg2 from "@/assets/images/departments/it/IT2.webp"
+import itimg3 from "@/assets/images/departments/it/IT 3.webp"
+import bioimg1 from "@/assets/images/departments/BIOTECH/BIO-TECH.webp";
+import bioimg2 from "@/assets/images/departments/BIOTECH/BIOTECH-1.webp";
 import bioimg3 from "@/assets/images/departments/BIOTECH/BIOTECH.webp";
+import csimg1 from "@/assets/images/departments/computer-science/CS 1.webp"
+import csimg2 from "@/assets/images/departments/computer-science/CS2.webp"
 
 // Helper function to get faculty by department
 const getFacultyByDepartment = (departmentName) => {
@@ -465,7 +467,7 @@ export const informationTechnologyDepartment = {
 // ⭐ Computer Science Department
 export const computerScienceDepartment = {
   name: "Computer Science",
-  image: csObjectivesImage,
+  image: csimg1,
   departmentGallery: placeholderGallery,
   about:
     "The Department of Computer Science (UG) was established in the year 2004 with B.Sc. Computer Science.",
@@ -489,14 +491,14 @@ export const computerScienceDepartment = {
     "M3 - Placement and Entrepreneurship: To be recognized as experts by creating extensive global opportunities in placements and cultivating entrepreneurship skills for effective dissemination of creative ideas in business ventures.",
     "M4 - Moral Ethics: To produce ethically strong professionals by infusing optimistic approach for the significant contribution to the society.",
   ],
-  missionImage: csMissionImage,
+  missionImage: csimg2,
   objectives: [
     "To bring Innovation in technology and go beyond fundamentals to build interest in specialized research.",
     "To guide students in the development of new languages and instill interest in hardware production.",
     "To invent new operating systems and develop database languages.",
     "To introduce innovative need-based and skill-based courses through the Choice Based Credit System (CBCS).",
   ],
-  objectivesImage: csObjectivesImage,
+  objectivesImage: csimg1,
   programsOffered: [
     {
       degree: "B.Sc. Computer Science",

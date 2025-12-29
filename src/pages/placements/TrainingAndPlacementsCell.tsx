@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Play, X } from "lucide-react";
 import campus from "@/assets/images/aasc_building.webp";
-import trainingandplacementsimg1 from "@/assets/images/training-and-placements/training-and-placementimg1.jpeg"
+import trainingandplacementsimg1 from "@/assets/images/training-and-placements/training-and-placementimg1.webp"
 import { Head } from "react-day-picker";
 import HeadingUnderline from "@/components/reusable/HeadingUnderline";
 import BannerAndBreadCrumb from "@/components/BannerAndBreadCrumb";

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-import popupImage from "@/assets/images/home-popup/evensem25.jpg";
+import popupImage from "@/assets/images/home-popup/evensem25.webp";
 
 const SESSION_KEY = "home_admission_popup_seen";
 
@@ -62,7 +62,7 @@ const HomeAdmissionPopup: React.FC = () => {
             transition={{ type: "spring", stiffness: 160, damping: 18 }}
           >
             {/* 3:4 RATIO CONTAINER */}
-            <div className="h-[90vh]  max-w-[90vw] overflow-hidden shadow-2xl">
+            <div className="md:h-[90vh]   md:max-w-[90vw] overflow-hidden shadow-2xl">
               <img
                 src={popupImage}
                 alt="Admission Popup"
